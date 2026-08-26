@@ -1,0 +1,8 @@
+{
+  "name": "mike-vais-website",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "node scripts/server.mjs"
+  }
+}
