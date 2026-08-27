@@ -147,8 +147,8 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 
 .compact-intro { padding-bottom: clamp(44px, 6vw, 76px); }
 .hobby-index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(22px, 3vw, 38px); padding-bottom: clamp(78px, 10vw, 138px); }
-.hobby-index-item { color: var(--ink); text-decoration: none; }
-.hobby-index-item img { aspect-ratio: 4 / 5; object-fit: cover; background: #e8e3da; }
+.hobby-index-item { color: var(--ink); text-decoration: none; cursor: pointer; }
+.hobby-index-item img { aspect-ratio: 4 / 5; object-fit: cover; background: #e8e3da; box-shadow: 0 4px 14px rgba(34, 43, 39, 0.08); transition: box-shadow 0.18s ease, transform 0.18s ease; }
 .hobby-index-item:nth-child(1) img { object-position: center 55%; }
 .hobby-index-item h2 { margin-top: 22px; font-size: clamp(2rem, 3.5vw, 3.25rem); }
 .hobby-index-item p { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
@@ -194,10 +194,10 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .work-selected .work-item { grid-template-columns: minmax(260px, 0.75fr) 1.25fr; }
 .work-item h2 a { text-decoration-thickness: 1px; }
 .professional-index { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(28px, 4vw, 52px); padding-block: clamp(42px, 5vw, 68px) clamp(68px, 8vw, 108px); }
-.professional-index-item { color: var(--ink); text-decoration: none; }
+.professional-index-item { color: var(--ink); text-decoration: none; cursor: pointer; }
 .professional-index-item h2 { margin-top: 18px; font-size: clamp(2rem, 3.5vw, 3.35rem); }
 .professional-index-item:hover h2 { color: var(--clay); }
-.professional-card-media { position: relative; aspect-ratio: 8 / 5; overflow: hidden; background: #e8e3da; }
+.professional-card-media { position: relative; aspect-ratio: 8 / 5; overflow: hidden; background: #e8e3da; box-shadow: 0 4px 14px rgba(34, 43, 39, 0.08); transition: box-shadow 0.18s ease, transform 0.18s ease; }
 .professional-card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .professional-card-media.prototype { background: var(--white); }
 .professional-card-media.prototype img { object-position: left top; border: 1px solid var(--line); }
@@ -205,6 +205,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .hydropoint-hero-grid { display: grid; grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1.35fr); gap: clamp(40px, 6vw, 82px); align-items: center; }
 .hydropoint-hero h1 { font-size: clamp(3.5rem, 5.7vw, 5.6rem); }
 .hydropoint-context { margin: 22px 0 0; color: var(--muted); font-size: 1.03rem; }
+.hydropoint-career { margin: 18px 0 0; color: var(--muted); }
 .hydropoint-hero-image { aspect-ratio: 16 / 9; object-fit: cover; }
 .hydropoint-hero .resume-link { display: inline-block; margin-top: 28px; }
 .hydropoint-work { padding-top: clamp(40px, 5vw, 66px); }
@@ -285,9 +286,9 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 
 .gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; align-items: start; padding-bottom: clamp(70px, 10vw, 140px); }
 .photo-gallery { padding-top: clamp(42px, 6vw, 82px); }
-.travel-title { padding-top: clamp(36px, 5vw, 62px); }
-.travel-title h1 { font-size: clamp(3.7rem, 6.2vw, 6rem); }
-.travel-title + .photo-gallery { padding-top: clamp(28px, 4vw, 48px); }
+.photos-title { padding-top: clamp(36px, 5vw, 62px); }
+.photos-title h1 { font-size: clamp(3.7rem, 6.2vw, 6rem); }
+.photos-title + .photo-gallery { padding-top: clamp(28px, 4vw, 48px); }
 .gallery figure { position: relative; margin: 0; overflow: hidden; background: #e8e3da; }
 .gallery figure:focus-visible { outline: 3px solid var(--clay); outline-offset: 4px; }
 .gallery img { width: 100%; height: 100%; object-fit: cover; }
@@ -306,10 +307,15 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .gallery .photo-light { grid-column: 8 / span 5; aspect-ratio: 4 / 3; }
 
 @media (hover: hover) and (pointer: fine) and (min-width: 901px) {
+  .professional-index-item:hover .professional-card-media, .hobby-index-item:hover img { box-shadow: 0 8px 22px rgba(34, 43, 39, 0.12); transform: translateY(-2px); }
   .gallery figcaption, .captioned figcaption { position: absolute; right: 0; bottom: 0; left: 0; padding: 15px 18px; color: #fff; background: rgba(25, 32, 28, 0.78); opacity: 0; transform: translateY(5px); transition: opacity 0.16s ease, transform 0.16s ease; }
   .gallery figcaption small, .captioned figcaption small { color: rgba(255, 255, 255, 0.78); }
   .gallery figure:hover figcaption, .gallery figure:focus figcaption, .captioned:hover figcaption, .captioned:focus figcaption { opacity: 1; transform: translateY(0); }
 }
+
+.professional-index-item:focus-visible, .hobby-index-item:focus-visible { outline: none; }
+.professional-index-item:focus-visible .professional-card-media, .hobby-index-item:focus-visible img { box-shadow: 0 0 0 3px var(--clay), 0 6px 18px rgba(34, 43, 39, 0.11); }
+.professional-index-item:active .professional-card-media, .hobby-index-item:active img { transform: translateY(0); box-shadow: 0 2px 8px rgba(34, 43, 39, 0.09); }
 
 @media (hover: none), (pointer: coarse) {
   .gallery .photo-crater, .gallery .photo-oregon, .gallery .photo-tropical, .gallery .photo-pilings, .gallery .photo-trail, .gallery .photo-lake, .gallery .photo-beach, .gallery .photo-tree, .gallery .photo-calgary, .gallery .photo-light { aspect-ratio: auto; }
@@ -345,9 +351,18 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
   .case-study .section .editorial-pair:not(.origin-pair) .section-copy, .case-study .section .editorial-pair.reverse .section-copy { width: 100%; max-width: 760px; justify-self: start; }
   .case-study .section .editorial-pair.feed-chat-pair { grid-template-columns: 1fr; }
   .detail-hero-grid, .about-intro-grid, .hydropoint-hero-grid { grid-template-columns: 1fr; }
+  .hydropoint-work .work-item { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .hydropoint-work .work-item > div { min-width: 0; }
+  .about-page .shell { display: flex; flex-direction: column; }
+  .about-page .about-layout, .about-page .about-images { display: contents; }
+  .about-page .about-images figure:last-child { order: 1; }
+  .about-page .about-links-top { order: 2; margin-top: 24px; }
+  .about-page .timeline { order: 3; margin-top: 30px; }
+  .about-page .about-images figure:first-child { order: 4; margin-top: 30px; }
   .about-layout { grid-template-columns: 1fr; }
   .about-images { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-images img { height: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .origin-pair .origin-photo-wrap { order: -1; }
   .detail-lead { width: min(100%, 760px); }
   .home-cover-grid { min-height: auto; grid-template-columns: 1fr; gap: 46px; padding-block: 54px 68px; }
   .home-cover-copy { min-height: auto; gap: 48px; }
@@ -413,7 +428,9 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
   .metrics { grid-template-columns: 1fr; }
   .metric, .metric + .metric { padding: 24px 0; border-left: 0; border-top: 1px solid var(--line); }
   .metric:first-child { border-top: 0; }
-  .work-item { grid-template-columns: 1fr; gap: 20px; }
+  .work-item, .work-selected .work-item { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .hydropoint-work .work-facts > div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .hydropoint-work .work-facts dd { min-width: 0; overflow-wrap: anywhere; }
   .change { grid-template-columns: 1fr; gap: 8px; }
   .hobby-gallery { grid-template-columns: 1fr; gap: 24px; }
   .gallery { grid-template-columns: 1fr; gap: 34px; }
@@ -424,5 +441,5 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .gallery figcaption, .submenu, .submenu-toggle span { transition: none; }
+  .gallery figcaption, .submenu, .submenu-toggle span, .professional-card-media, .hobby-index-item img { transition: none; }
 }

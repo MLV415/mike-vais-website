@@ -8,7 +8,7 @@ The site includes:
 
 - professional work and product case studies
 - the Bonus Human AI-assisted prototype
-- surfing, travel, ceramics, and my 1999 Chevy Astro
+- surfing, photos, ceramics, and my 1999 Chevy Astro
 - a short personal timeline
 
 The production site will be hosted with Cloudflare Pages.
