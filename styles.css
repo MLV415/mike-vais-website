@@ -96,7 +96,8 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .process { display: flex; flex-wrap: wrap; gap: 9px; margin: 34px 0; color: var(--moss); font-weight: 750; }
 .process span:not(:last-child)::after { content: " →"; color: var(--clay); }
 
-.case-hero { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: clamp(40px, 8vw, 112px); align-items: center; }
+.case-hero { display: grid; grid-template-columns: minmax(520px, 1fr) minmax(260px, 0.6fr); gap: clamp(40px, 6vw, 82px); align-items: center; }
+.case-intro h1, .hydropoint-hero h1 { font-size: clamp(3.5rem, 5.7vw, 5.6rem); }
 .phone-shot { width: min(100%, 390px); margin-inline: auto; border: 1px solid var(--line); background: var(--white); }
 .editorial-pair { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(34px, 7vw, 96px); align-items: center; }
 .editorial-pair.reverse { grid-template-columns: 1.15fr 0.85fr; }
@@ -108,7 +109,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .section-copy li { margin: 0.5em 0; }
 .origin-pair { grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
 .origin-pair .section-copy { max-width: 680px; }
-.origin-pair .section-copy p { line-height: 1.75; }
 .origin-questions { margin-top: 22px; }
 .origin-questions p { margin: 0; }
 .origin-questions p + p { margin-top: 14px; }
@@ -203,7 +203,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .professional-card-media.prototype img { object-position: left top; border: 1px solid var(--line); }
 .hydropoint-hero { padding: clamp(34px, 4vw, 54px) 0 clamp(42px, 5vw, 66px); }
 .hydropoint-hero-grid { display: grid; grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1.35fr); gap: clamp(40px, 6vw, 82px); align-items: center; }
-.hydropoint-hero h1 { font-size: clamp(3.5rem, 5.7vw, 5.6rem); }
 .hydropoint-context { margin: 22px 0 0; color: var(--muted); font-size: 1.03rem; }
 .hydropoint-career { margin: 18px 0 0; color: var(--muted); }
 .hydropoint-hero-image { aspect-ratio: 16 / 9; object-fit: cover; }
