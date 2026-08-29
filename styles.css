@@ -203,7 +203,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .professional-card-media.prototype img { object-position: left top; border: 1px solid var(--line); }
 .hydropoint-hero { padding: clamp(34px, 4vw, 54px) 0 clamp(42px, 5vw, 66px); }
 .hydropoint-hero-grid { display: grid; grid-template-columns: minmax(280px, 0.65fr) minmax(0, 1.35fr); gap: clamp(40px, 6vw, 82px); align-items: center; }
-.hydropoint-context { max-width: 610px; margin: 24px 0 0; font-family: Georgia, serif; font-size: clamp(1.3rem, 2.5vw, 2.15rem); line-height: 1.25; }
+.hydropoint-context { max-width: 610px; margin: 22px 0 0; font-size: clamp(1.1rem, 1.9vw, 1.35rem); line-height: 1.55; }
 .hydropoint-career { margin: 22px 0 0; color: var(--muted); }
 .hydropoint-hero-image { aspect-ratio: 16 / 9; object-fit: cover; }
 .hydropoint-hero .resume-link { display: inline-block; margin-top: 28px; }
@@ -223,6 +223,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .detail-gallery { padding-top: clamp(46px, 6vw, 76px); border-top: 1px solid var(--line); }
 .detail-gallery figure { align-self: start; }
 .surfing-detail-gallery .surfing-travel { grid-column: 3 / span 8; }
+.van-detail-gallery figure:first-child { grid-column: 1 / -1; width: min(100%, 960px); justify-self: center; }
 
 .captioned { position: relative; margin: 0; overflow: hidden; background: #e8e3da; }
 .captioned:focus-visible { outline: 3px solid var(--clay); outline-offset: 4px; }
