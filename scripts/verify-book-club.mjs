@@ -27,6 +27,9 @@ assert(allBooks.every((book) => /^\d+$/.test(String(book.pageCountDisplay))), "e
 assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "current poll action is missing its label or Signal link");
 assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll should have one accessible heading");
 assert(current.includes("book-club-nav-signal") && !current.includes("book-club-action"), "Signal action is not integrated into the navigation row");
+assert(count(current, "book-club-nav-meetup") === 1 && count(backlog, "book-club-nav-meetup") === 1, "Meetup action is missing from a public page");
+assert(count(current, "book-club-nav-signal") === 1 && !backlog.includes("book-club-nav-signal"), "Signal action appears on the wrong public page");
+assert(current.includes("https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/") && backlog.includes("https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/"), "Meetup URL is incorrect or missing");
 assert(!publicBannedCopy.test(current) && !publicBannedCopy.test(backlog) && !publicBannedCopy.test(publicData), "removed private or promotional copy remains in public generated pages");
 assert(!adminBannedCopy.test(admin), "private or excluded workbook fields remain in generated admin output");
 assert(!/Poll premise|pollPremise|lastPollDate|lastPollVotes|totalPolls|totalVotes/.test(current + backlog + publicData), "admin-only poll fields remain in public generated output");

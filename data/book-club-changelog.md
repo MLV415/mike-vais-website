@@ -1,5 +1,12 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Meetup action and stable header alignment
+
+- Added the Cosmic Chapter Chat Meetup group link to the isolated book-club header on both public pages.
+- Current Poll now shows Meetup and Signal actions; Complete Backlog shows Meetup only.
+- Reworked the desktop header into stable brand, centered-navigation, and action zones so the navigation tabs do not shift between pages.
+- Kept the actions stacked and full-width-friendly at narrow widths.
+
 ## 2026-10-01 — Navigation placement, responsive breakpoints, and admin column mapping
 
 - Moved the current-poll Signal action into the isolated navigation row so it no longer occupies a separate desktop band; it wraps to a full-width action on narrow screens.

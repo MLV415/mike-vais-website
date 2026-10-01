@@ -9,6 +9,7 @@ const books = data.books;
 const currentBooks = books.filter((book) => book.currentPoll).sort((a, b) => a.pollOrder - b.pollOrder);
 const backlogBooks = books.slice().sort((a, b) => a.pageCountMin - b.pageCountMin || a.title.localeCompare(b.title));
 const signalUrl = "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX";
+const meetupUrl = "https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/";
 
 function escapeHtml(value = "") {
   return String(value).replace(/[&<>"']/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]);
@@ -34,6 +35,10 @@ function lengthBand(book) {
 
 function signalLink(className = "book-club-nav-signal") {
   return `<a class="${className}" href="${signalUrl}" target="_blank" rel="noopener noreferrer"><span class="poll-signal-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Vote in Signal</span></a>`;
+}
+
+function meetupLink() {
+  return `<a class="book-club-nav-meetup" href="${meetupUrl}" target="_blank" rel="noopener noreferrer"><span>Meetup Group</span></a>`;
 }
 
 function field(label, value, className = "") {
@@ -90,8 +95,8 @@ function sortControl(id = "sort-books") {
 }
 
 function localNav(active) {
-  const action = active === "current" ? signalLink() : "";
-  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a><div class="book-club-nav-tools"><nav aria-label="Book club navigation"><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Complete Backlog</a></nav>${action}</div></div></header>`;
+  const actions = `${meetupLink()}${active === "current" ? signalLink() : ""}`;
+  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a><nav aria-label="Book club navigation"><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Complete Backlog</a></nav><div class="book-club-nav-actions">${actions}</div></div></header>`;
 }
 
 function documentShell({ title, description, active, content, script = "../book-club.js" }) {
