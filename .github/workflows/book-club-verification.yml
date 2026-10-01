@@ -41,10 +41,12 @@ jobs:
         run: npm run verify:book-club
       - name: Verify catalog image responses
         run: npm run verify:book-club:images
+      - name: Install Playwright package
+        run: npm install --no-save --no-package-lock playwright@1.55.0
       - name: Install Chromium
-        run: npx --yes playwright@1.55.0 install --with-deps chromium
+        run: npx playwright install --with-deps chromium
       - name: Verify rendered pages
         run: |
           PORT=4319 node scripts/server.mjs > /tmp/book-club-server.log 2>&1 &
           for attempt in {1..30}; do curl --fail --silent http://127.0.0.1:4319/book-club/ >/dev/null && break; sleep 1; done
-          npx --yes --package=playwright@1.55.0 node scripts/verify-book-club-render.mjs
+          node scripts/verify-book-club-render.mjs
