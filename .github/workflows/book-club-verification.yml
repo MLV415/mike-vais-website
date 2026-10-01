@@ -1,0 +1,52 @@
+name: Sci-Fi book club verification
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/book-club-verification.yml"
+      - "book-club.js"
+      - "book-club/**"
+      - "data/book-club.json"
+      - "package.json"
+      - "scripts/build-book-club.mjs"
+      - "scripts/verify-book-club*.mjs"
+      - "styles.css"
+  push:
+    branches: [main]
+    paths:
+      - "book-club.js"
+      - "book-club/**"
+      - "data/book-club.json"
+      - "package.json"
+      - "scripts/build-book-club.mjs"
+      - "scripts/verify-book-club*.mjs"
+      - "styles.css"
+
+permissions:
+  contents: read
+
+jobs:
+  book-club:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build generated pages
+        run: npm run build:book-club
+      - name: Run static book-club checks
+        run: npm run verify:book-club
+      - name: Verify catalog image responses
+        run: npm run verify:book-club:images
+      - name: Install Playwright package
+        run: npm install --no-save --no-package-lock playwright@1.55.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Verify rendered pages
+        run: |
+          PORT=4319 node scripts/server.mjs > /tmp/book-club-server.log 2>&1 &
+          for attempt in {1..30}; do curl --fail --silent http://127.0.0.1:4319/book-club/ >/dev/null && break; sleep 1; done
+          node scripts/verify-book-club-render.mjs

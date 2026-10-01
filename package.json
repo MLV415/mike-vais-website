@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "dev": "node scripts/server.mjs"
+    "dev": "node scripts/server.mjs",
+    "build:book-club": "node scripts/build-book-club.mjs",
+    "verify:book-club": "node scripts/verify-book-club.mjs",
+    "verify:book-club:images": "node scripts/verify-book-club-images.mjs"
   }
 }

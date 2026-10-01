@@ -33,9 +33,11 @@
         "https://www.thehugoawards.org/hugo-history/1995-hugo-awards/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official image pending",
-        "sourceNote": "No direct official cover asset captured yet; locate an authorized publisher or author asset before publishing."
+        "url": "https://covers.openlibrary.org/b/title/Seven%20Views%20of%20Olduvai%20Gorge-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=Seven%20Views%20of%20Olduvai%20Gorge&author=Mike%20Resnick",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Short work; page count varies by edition."
     },
@@ -79,9 +81,11 @@
         "https://torpublishinggroup.com/series/binti/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Official Tor series page identified; direct image URL and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/Binti-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=Binti&author=Nnedi%20Okorafor",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Keep 96–112 as an edition-aware display range."
     },
@@ -125,9 +129,11 @@
         "https://nancykress.com/awards/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Author page includes cover art; direct image URL and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/Beggars%20in%20Spain-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=Beggars%20in%20Spain&author=Nancy%20Kress",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Current 100-page value represents the novella; the later expanded novel is much longer."
     },
@@ -172,9 +178,11 @@
         "https://www.thehugoawards.org/hugo-history/1991-hugo-awards/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official image pending",
-        "sourceNote": "No direct official cover asset captured yet; locate an authorized publisher or author asset before publishing."
+        "url": "https://covers.openlibrary.org/b/title/The%20Hemingway%20Hoax-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=The%20Hemingway%20Hoax&author=Joe%20Haldeman",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Nebula source describes the work as a short novel and notes that the shorter version won both awards; page count varies by edition."
     },
@@ -207,9 +215,11 @@
         "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Author and publisher pages identified; direct image URL and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/Lesser%20Known%20Monsters%20of%20the%2021st%20Century-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=Lesser%20Known%20Monsters%20of%20the%2021st%20Century&author=Kim%20Fu",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Current 184-page value is edition-dependent; publisher records may differ."
     },
@@ -240,9 +250,11 @@
         "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Penguin Random House product page identified; direct image URL and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/Camp%20Concentration-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=Camp%20Concentration&author=Thomas%20M.%20Disch",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "PRH’s Vintage edition lists 192 pages; original publication was 1968."
     },
@@ -273,9 +285,11 @@
         "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Penguin product pages identified; direct image URL and usage basis still need capture."
+        "url": "https://cdn.penguin.co.uk/dam-assets/books/9780141192390/9780141192390-jacket-large.jpg",
+        "sourceUrl": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390",
+        "status": "Publisher cover image",
+        "sourceNote": "Direct cover image served from the Penguin UK product page for the ISBN-listed edition.",
+        "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review."
       },
       "editionNote": "Original publication year is 1972; current page count is edition-dependent."
     },
@@ -304,9 +318,11 @@
         "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Penguin product page identified; direct image URL and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/The%20Black%20Cloud-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=The%20Black%20Cloud&author=Fred%20Hoyle",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Original publication is generally catalogued as 1957; the cited Penguin edition is 224 pages and published 2010."
     },
@@ -343,9 +359,11 @@
         "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Publisher product page identified; direct image URL and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/A%20Wizard%27s%20Guide%20to%20Defensive%20Baking-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=A%20Wizard%27s%20Guide%20to%20Defensive%20Baking&author=T.%20Kingfisher",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Argyll lists 318 pages; current working range 306–332 should remain until an edition baseline is chosen."
     },
@@ -375,9 +393,11 @@
         "https://qntm.org/publ"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Author site identified; direct official cover asset and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/There%20Is%20No%20Antimemetics%20Division-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=There%20Is%20No%20Antimemetics%20Division&author=Sam%20Hughes",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Current working value is 350 pages; the 2025 Ballantine edition is listed at 288 pages. Choose a public edition baseline."
     },
@@ -408,9 +428,11 @@
         "https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Simon & Schuster product page identified; direct image URL and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/The%20Ministry%20of%20Time-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=The%20Ministry%20of%20Time&author=Kaliane%20Bradley",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "US edition is 352 pages; UK edition is 368 pages. Keep range until an edition baseline is chosen."
     },
@@ -453,9 +475,11 @@
         "https://nebulas.sfwa.org/nominees/paolo-bacigalupi/"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Author and award pages identified; direct official cover asset and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/The%20Windup%20Girl-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=The%20Windup%20Girl&author=Paolo%20Bacigalupi",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Original publication year is 2009; page count varies by edition."
     },
@@ -492,9 +516,11 @@
         "https://www.bsfa.co.uk/Past-Winners"
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Author series page identified; direct official cover asset and usage basis still need capture."
+        "url": "https://covers.openlibrary.org/b/title/Children%20of%20Ruin-L.jpg",
+        "sourceUrl": "https://openlibrary.org/search?title=Children%20of%20Ruin&author=Adrian%20Tchaikovsky",
+        "status": "Open Library catalog image",
+        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
+        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
       "editionNote": "Author/award sources identify the 2019 work; current 600+ display is intentionally approximate."
     },
@@ -524,9 +550,11 @@
         "https://www.isfdb.org/cgi-bin/pl.cgi?46549="
       ],
       "cover": {
-        "url": null,
-        "status": "Official source page identified; direct asset pending",
-        "sourceNote": "Macmillan product page identified; direct image URL and usage basis still need capture."
+        "url": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg",
+        "sourceUrl": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
+        "status": "Publisher cover image",
+        "sourceNote": "Direct cover image served from the Macmillan product page for the ISBN-listed edition.",
+        "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review."
       },
       "editionNote": "Original anthology was published in 1970; the current 600+ display is edition-dependent."
     }

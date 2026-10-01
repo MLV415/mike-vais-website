@@ -27,6 +27,10 @@ function attachImageFallbacks() {
       image.hidden = true;
       image.closest(".book-media")?.classList.add("is-fallback");
     });
+    if (image.complete) {
+      if (image.naturalWidth > 0) image.closest(".book-media")?.classList.add("is-loaded");
+      else image.dispatchEvent(new Event("error"));
+    }
   });
 }
 
