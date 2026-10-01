@@ -17,3 +17,4 @@
 - Replaced the poll banner with the reusable `CURRENT POLL` label and `Vote in Signal` link only; the Signal URL is the only poll-specific value in the banner.
 - Removed the text glyph from Jump To controls and kept centered links to each card anchor.
 - The image URLs must be checked in the rendered pages before merge; any failed catalog image must be recorded here by title rather than treated as complete.
+- Network-enabled verification initially found missing Open Library responses for *Infernal Desire Machines of Dr. Hoffman* and *The Science Fiction Hall of Fame, Volume One: 1929–1964*. Both were corrected to direct Penguin UK and Macmillan publisher assets respectively; rerun `npm run verify:book-club:images` before merge.

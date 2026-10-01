@@ -147,7 +147,7 @@
       "vibe": ["Surreal", "Baroque"],
       "themes": ["Desire", "Reality versus illusion", "Reason", "Love", "Identity", "Media"],
       "sources": ["https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/", "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"],
-      "cover": { "url": "https://covers.openlibrary.org/isbn/9780141192390-L.jpg", "sourceUrl": "https://openlibrary.org/isbn/9780141192390", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the ISBN of the Penguin edition identified in the source records; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "cover": { "url": "https://cdn.penguin.co.uk/dam-assets/books/9780141192390/9780141192390-jacket-large.jpg", "sourceUrl": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390", "status": "Publisher cover image", "sourceNote": "Direct cover image served from the Penguin UK product page for the ISBN-listed edition.", "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review." },
       "editionNote": "Original publication year is 1972; current page count is edition-dependent."
     },
     {
@@ -276,7 +276,7 @@
       "vibe": ["Classic", "Wide-ranging"],
       "themes": ["Science-fiction history", "Literary canon", "Genre formation", "Influence", "Short fiction"],
       "sources": ["https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/", "https://www.isfdb.org/cgi-bin/pl.cgi?46549="],
-      "cover": { "url": "https://covers.openlibrary.org/isbn/9780765305374-L.jpg", "sourceUrl": "https://openlibrary.org/isbn/9780765305374", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the ISBN of the Macmillan edition identified in the source records; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "cover": { "url": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg", "sourceUrl": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/", "status": "Publisher cover image", "sourceNote": "Direct cover image served from the Macmillan product page for the ISBN-listed edition.", "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review." },
       "editionNote": "Original anthology was published in 1970; the current 600+ display is edition-dependent."
     }
   ]

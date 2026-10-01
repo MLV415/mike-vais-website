@@ -39,7 +39,5 @@ jobs:
         run: npm run build:book-club
       - name: Run static book-club checks
         run: npm run verify:book-club
-      - name: Discover publisher image metadata
-        run: node scripts/discover-book-club-cover-sources.mjs
       - name: Verify catalog image responses
         run: npm run verify:book-club:images
