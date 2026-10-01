@@ -10,8 +10,18 @@ const browser = await chromium.launch({ headless: true });
 try {
   const checkPublicPage = async (path, expectedCards, pageName) => {
     const page = await browser.newPage({ viewport: { width: 390, height: 1200 } });
-    await page.goto(`${origin}${path}`, { waitUntil: "networkidle", timeout: 45000 });
-    await page.waitForFunction(() => [...document.images].every((image) => image.complete), null, { timeout: 45000 });
+    await page.goto(`${origin}${path}`, { waitUntil: "domcontentloaded", timeout: 45000 });
+    await page.locator("img[data-book-image]").evaluateAll((images) => {
+      images.forEach((image) => {
+        image.loading = "eager";
+        image.scrollIntoView({ block: "center" });
+      });
+    });
+    await page.waitForFunction(
+      () => [...document.querySelectorAll("img[data-book-image]")].every((image) => image.complete),
+      null,
+      { timeout: 45000 },
+    );
 
     const imageState = await page.locator(".book-media").evaluateAll((media) => media.map((item) => ({
       width: item.querySelector("img")?.naturalWidth || 0,
