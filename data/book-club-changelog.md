@@ -18,3 +18,10 @@
 - Removed the text glyph from Jump To controls and kept centered links to each card anchor.
 - The image URLs must be checked in the rendered pages before merge; any failed catalog image must be recorded here by title rather than treated as complete.
 - Network-enabled verification initially found missing Open Library responses for *Infernal Desire Machines of Dr. Hoffman* and *The Science Fiction Hall of Fame, Volume One: 1929–1964*. Both were corrected to direct Penguin UK and Macmillan publisher assets respectively; rerun `npm run verify:book-club:images` before merge.
+
+## 2026-10-01 — Shared public card schema and compact layout
+
+- Current-poll cards now render the same shared metadata as backlog cards: page count, form, published year, synopsis, themes, vibe, and awards, plus the current-only poll premise.
+- Empty public metadata rows remain visible as `Not yet sourced` instead of disappearing; the previously incomplete `Seven Views of Olduvai Gorge` record now has a concise synopsis and themes derived from its existing source-backed poll record.
+- Page-count ranges were normalized to one representative number: midpoint values where only a range was available, and an explicitly sourced edition value where one was already documented. The two existing `600+` values use a transparent 600-page representative baseline and retain edition-variance notes.
+- Public cards now use a compact three-column desktop grid, four columns at very wide widths, two at intermediate widths, and one on mobile. Cover and metadata layout is shared between Current Poll and Backlog.

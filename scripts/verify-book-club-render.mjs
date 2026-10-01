@@ -29,6 +29,13 @@ try {
     })));
     assert(await page.locator(".book-card").count() === expectedCards, `${pageName}: expected ${expectedCards} cards`);
     assert(imageState.length === expectedCards && imageState.every((image) => image.width > 0 && image.fallback === "none"), `${pageName}: every rendered card image must load and hide its fallback`);
+    assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => {
+      const labels = [...card.querySelectorAll("dt")].map((label) => label.textContent.trim());
+      return ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"].every((name) => labels.includes(name));
+    })), `${pageName}: shared card fields are incomplete`);
+    if (pageName === "current poll") {
+      assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => [...card.querySelectorAll("dt")].some((label) => label.textContent.trim() === "Poll premise"))), "current poll: Poll premise is missing");
+    }
     assert(await page.locator(".book-card a").count() === 0, `${pageName}: cards must not contain links`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => getComputedStyle(link).textAlign === "center"))), `${pageName}: Jump To text is not centered`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => document.querySelector(link.hash)))), `${pageName}: Jump To link target is missing`);
@@ -47,10 +54,14 @@ try {
   assert((await current.locator(".current-poll").innerText()).replace(/\s+/g, " ").trim() === "CURRENT POLL Vote in Signal", "current poll banner contains extra copy");
   assert(await current.locator(".current-poll a").getAttribute("href") === "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX", "current poll Signal URL is incorrect");
   assert(await current.locator(".book-fields").evaluateAll((fields) => fields.every((field) => {
-    const labels = [...field.querySelectorAll("dt")].map((label) => label.textContent.trim());
-    const visible = (label) => label && getComputedStyle(label).display !== "none" && label.getBoundingClientRect().width > 0;
-    return labels.includes("Form") && labels.includes("Poll premise") && [...field.querySelectorAll("dt")].filter((label) => labels.includes(label.textContent.trim())).every(visible);
+    const labels = [...field.querySelectorAll("dt")];
+    const required = ["Page count", "Form", "Published", "Poll premise", "Synopsis", "Themes", "Vibe"];
+    return required.every((name) => labels.some((label) => label.textContent.trim() === name && getComputedStyle(label).display !== "none" && getComputedStyle(label).visibility !== "hidden"));
   })), "current poll fields are incomplete");
+  assert(await current.locator(".book-card").evaluateAll((cards) => cards.every((card) => {
+    const labels = [...card.querySelectorAll("dt")].map((label) => label.textContent.trim());
+    return ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"].every((name) => labels.includes(name));
+  })), "current poll shared card fields are incomplete");
   await current.close();
 
   const admin = await browser.newPage({ viewport: { width: 1280, height: 900 } });

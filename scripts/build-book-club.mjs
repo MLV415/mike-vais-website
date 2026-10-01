@@ -19,9 +19,14 @@ function sourceLinks(urls = []) {
 }
 
 function field(label, value, className = "") {
-  if (!value || (Array.isArray(value) && value.length === 0)) return "";
-  const content = Array.isArray(value) ? value.map((item) => `<span class="${className || "vibe-pill"}">${escapeHtml(item)}</span>`).join("") : escapeHtml(value);
-  return `<div><dt>${escapeHtml(label)}</dt><dd>${content}</dd></div>`;
+  const empty = !value || (Array.isArray(value) && value.length === 0);
+  const content = empty
+    ? `<span class="field-missing">Not yet sourced</span>`
+    : Array.isArray(value)
+      ? value.map((item) => `<span class="${className || "vibe-pill"}">${escapeHtml(item)}</span>`).join("")
+      : escapeHtml(value);
+  const fieldClass = label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return `<div class="book-field book-field-${fieldClass}"><dt>${escapeHtml(label)}</dt><dd>${content}</dd></div>`;
 }
 
 function awardsField(book) {
@@ -39,9 +44,15 @@ function media(book) {
 
 function card(book, page) {
   const current = page === "current";
-  const fields = current
-    ? [field("Page count", book.pageCountDisplay), field("Form", book.form), field("Poll premise", book.pollPremise), field("Vibe", book.vibe)].join("")
-    : [field("Page count", book.pageCountDisplay), field("Form", book.form), field("Published", book.originalPublicationYear), field("Synopsis", book.longSynopsis), field("Themes", book.themes), field("Vibe", book.vibe)].join("");
+  const fields = [
+    field("Page count", book.pageCountDisplay),
+    field("Form", book.form),
+    field("Published", book.originalPublicationYear),
+    current ? field("Poll premise", book.pollPremise) : "",
+    field("Synopsis", book.longSynopsis),
+    field("Themes", book.themes),
+    field("Vibe", book.vibe),
+  ].join("");
   return `<article class="book-card" id="${escapeHtml(book.slug)}" data-book-id="${escapeHtml(book.recordId)}" data-page-count-min="${book.pageCountMin}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}">
   ${media(book)}
   <div class="book-card-content">

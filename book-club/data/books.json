@@ -12,9 +12,16 @@
       "pageCountDisplay": "50",
       "form": "Novella",
       "originalPublicationYear": 1994,
+      "longSynopsis": "Alien archaeologists reconstruct the history of humanity from the remains left at Olduvai Gorge.",
       "vibe": [
         "Reflective",
         "Cosmic"
+      ],
+      "themes": [
+        "Archaeology",
+        "Human history",
+        "Civilization",
+        "Rise and fall"
       ],
       "awards": [
         {
@@ -49,7 +56,7 @@
       "currentPoll": true,
       "pollOrder": 2,
       "pollPremise": "A gifted student leaves home and faces interstellar conflict.",
-      "pageCountDisplay": "96–112",
+      "pageCountDisplay": "104",
       "form": "Novella",
       "originalPublicationYear": 2015,
       "longSynopsis": "Binti, a gifted Himba girl from Earth, leaves home to attend the prestigious Oomza University. Her journey is disrupted by an encounter with the Meduse, forcing her to negotiate across cultures and undergo a profound transformation.",
@@ -87,7 +94,7 @@
         "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Keep 96–112 as an edition-aware display range."
+      "editionNote": "Representative value rounded from the 96–112-page edition range."
     },
     {
       "recordId": "B03",
@@ -145,7 +152,7 @@
       "currentPoll": true,
       "pollOrder": 4,
       "pollPremise": "A forged manuscript tangles with time travel and parallel worlds.",
-      "pageCountDisplay": "152–155",
+      "pageCountDisplay": "154",
       "form": "Novella / short novel",
       "originalPublicationYear": 1990,
       "longSynopsis": "A scholar attempts to create a fake Ernest Hemingway manuscript, but the scheme becomes entangled with time travel and parallel worlds.",
@@ -184,7 +191,7 @@
         "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Nebula source describes the work as a short novel and notes that the shorter version won both awards; page count varies by edition."
+      "editionNote": "Representative value rounded from the 152–155-page edition range; the Nebula source describes the work as a short novel."
     },
     {
       "recordId": "B05",
@@ -332,7 +339,7 @@
       "title": "A Wizard’s Guide to Defensive Baking",
       "author": "T. Kingfisher",
       "currentPoll": false,
-      "pageCountDisplay": "306–332",
+      "pageCountDisplay": "318",
       "form": "Middle-grade / young-adult fantasy novel",
       "originalPublicationYear": 2020,
       "longSynopsis": "Fourteen-year-old Mona’s magic works only on bread, and her quiet life in her aunt’s bakery changes when she finds a dead body. With an assassin targeting magic users and the city suddenly without its wizards, Mona is pulled into an unexpected fight to protect it.",
@@ -365,7 +372,7 @@
         "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Argyll lists 318 pages; current working range 306–332 should remain until an edition baseline is chosen."
+      "editionNote": "Representative value follows the 318-page Argyll edition listing."
     },
     {
       "recordId": "B10",
@@ -407,7 +414,7 @@
       "title": "The Ministry of Time",
       "author": "Kaliane Bradley",
       "currentPoll": false,
-      "pageCountDisplay": "352–368",
+      "pageCountDisplay": "352",
       "form": "Novel",
       "originalPublicationYear": 2024,
       "longSynopsis": "A civil servant becomes the bridge for a time-travel experiment involving a historical figure brought into the present. The project becomes a time-travel romance, spy thriller, and workplace comedy that examines power and the possibility of love changing it.",
@@ -434,7 +441,7 @@
         "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "US edition is 352 pages; UK edition is 368 pages. Keep range until an edition baseline is chosen."
+      "editionNote": "Representative value follows the 352-page US edition; the UK edition is 368 pages."
     },
     {
       "recordId": "B12",
@@ -489,7 +496,7 @@
       "title": "Children of Ruin",
       "author": "Adrian Tchaikovsky",
       "currentPoll": false,
-      "pageCountDisplay": "600+",
+      "pageCountDisplay": "600",
       "form": "Novel",
       "originalPublicationYear": 2019,
       "longSynopsis": "Thousands of years after humanity’s terraforming program spread to the stars, an exploration vessel and its human-and-spider crew follow fragmentary signals toward a world where ancient terraforming decisions awakened something dangerous.",
@@ -522,7 +529,7 @@
         "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Author/award sources identify the 2019 work; current 600+ display is intentionally approximate."
+      "editionNote": "Representative value uses the 600-page lower bound from the source-of-truth 600+ notation; exact count varies by edition."
     },
     {
       "recordId": "B14",
@@ -530,7 +537,7 @@
       "title": "The Science Fiction Hall of Fame, Volume One: 1929–1964",
       "author": "Edited by Robert Silverberg",
       "currentPoll": false,
-      "pageCountDisplay": "600+",
+      "pageCountDisplay": "600",
       "form": "Anthology",
       "originalPublicationYear": 1970,
       "longSynopsis": "An anthology edited by Robert Silverberg that gathers influential English-language science-fiction stories published before the Nebula Awards existed, presenting a foundational snapshot of the genre’s early canon.",
@@ -556,7 +563,7 @@
         "sourceNote": "Direct cover image served from the Macmillan product page for the ISBN-listed edition.",
         "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review."
       },
-      "editionNote": "Original anthology was published in 1970; the current 600+ display is edition-dependent."
+      "editionNote": "Representative value uses the 600-page lower bound from the source-of-truth 600+ notation; exact count varies by edition."
     }
   ]
 }

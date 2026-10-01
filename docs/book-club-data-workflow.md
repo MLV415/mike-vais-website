@@ -13,9 +13,9 @@ Run `npm run build:book-club` after changing the JSON, then run `npm run verify:
 
 ## Public fields and exclusions
 
-Public records may contain the record ID, title, display author, current-poll state/order, poll premise, page-count display, numeric page-count minimum for deterministic sorting, form, original publication year, long synopsis, themes, vibe, verified awards, source URLs, cover status/source note, and edition note. Cards show only the fields appropriate to their page.
+Public records may contain the record ID, title, display author, current-poll state/order, poll premise, page-count display, numeric page-count minimum for deterministic sorting, form, original publication year, long synopsis, themes, vibe, verified awards, source URLs, cover status/source note, and edition note. Both public card views share page count, form, published year, synopsis, themes, vibe, and awards when present; current-poll cards additionally show the short poll premise. Missing source-backed values remain visibly labeled `Not yet sourced` rather than being filled with invented copy.
 
-Never add Suggested By, contributor names, full names, internal notes, eligibility operations, poll history, votes, research workflow status, or other private/admin-only fields to the JSON or generated pages. Blank source-backed fields stay absent rather than being filled with invented copy.
+Never add Suggested By, contributor names, full names, internal notes, eligibility operations, poll history, votes, research workflow status, or other private/admin-only fields to the JSON or generated pages. Blank source-backed fields remain visibly labeled as not yet sourced rather than being filled with invented copy.
 
 ## Sources and images
 
