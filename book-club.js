@@ -1,5 +1,15 @@
 const bookLists = document.querySelectorAll("[data-book-list]");
 
+document.querySelectorAll("[data-book-image]").forEach((image) => {
+  image.addEventListener("load", () => {
+    image.closest(".book-media")?.classList.add("is-loaded");
+  });
+  image.addEventListener("error", () => {
+    image.hidden = true;
+    image.closest(".book-media")?.classList.add("is-fallback");
+  });
+});
+
 function pageCount(card) {
   const pageField = [...card.querySelectorAll(".book-fields > div")].find((field) => field.querySelector("dt")?.textContent.trim() === "Page count");
   return Number.parseInt(pageField?.querySelector("dd")?.textContent || "0", 10);
