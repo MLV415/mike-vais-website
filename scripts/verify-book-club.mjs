@@ -30,6 +30,8 @@ assert(current.includes("book-club-nav-signal") && !current.includes("book-club-
 assert(count(current, "book-club-nav-meetup") === 1 && count(backlog, "book-club-nav-meetup") === 1, "Meetup action is missing from a public page");
 assert(count(current, "book-club-nav-signal") === 1 && !backlog.includes("book-club-nav-signal"), "Signal action appears on the wrong public page");
 assert(current.includes("https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/") && backlog.includes("https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/"), "Meetup URL is incorrect or missing");
+assert(count(current, "book-club-logo") === 1 && count(backlog, "book-club-logo") === 1, "book-club logo image is missing from a public page");
+assert(!current.includes('class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB') && !backlog.includes('class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB'), "text brand remains instead of the logo image");
 assert(!publicBannedCopy.test(current) && !publicBannedCopy.test(backlog) && !publicBannedCopy.test(publicData), "removed private or promotional copy remains in public generated pages");
 assert(!adminBannedCopy.test(admin), "private or excluded workbook fields remain in generated admin output");
 assert(!/Poll premise|pollPremise|lastPollDate|lastPollVotes|totalPolls|totalVotes/.test(current + backlog + publicData), "admin-only poll fields remain in public generated output");

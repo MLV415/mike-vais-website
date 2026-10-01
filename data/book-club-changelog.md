@@ -1,5 +1,12 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Centered actions and supplied club logo
+
+- Replaced the text brand in the isolated header with the supplied Cosmic Chapter Chat logo image.
+- Kept the full logo visible with proportional, uncropped sizing and a responsive header height.
+- Reordered the desktop header into left logo, centered Meetup/Signal actions, and right navigation tabs.
+- Current Poll shows both centered actions; Complete Backlog and Admin show Meetup only.
+
 ## 2026-10-01 — Meetup action and stable header alignment
 
 - Added the Cosmic Chapter Chat Meetup group link to the isolated book-club header on both public pages.

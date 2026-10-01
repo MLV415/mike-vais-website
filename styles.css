@@ -743,8 +743,9 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 /* Stable book-club header zones: brand, centered tabs, and external actions. */
 .book-club-local-nav .book-club-shell { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; }
 .book-club-local-nav .book-club-brand { grid-column: 1; grid-row: 1; }
-.book-club-local-nav nav { grid-column: 2; grid-row: 1; justify-content: center; }
-.book-club-nav-actions { display: flex; grid-column: 3; grid-row: 1; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
+.book-club-local-nav .book-club-logo { display: block; width: auto; height: 60px; max-width: 150px; object-fit: contain; object-position: left center; }
+.book-club-local-nav nav { grid-column: 3; grid-row: 1; justify-content: flex-end; }
+.book-club-nav-actions { display: flex; grid-column: 2; grid-row: 1; align-items: center; justify-content: center; gap: 8px; min-width: 0; }
 .book-club-nav-meetup { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; min-width: 132px; padding: 9px 13px; border: 1px solid var(--book-line); border-radius: 999px; color: var(--book-ink) !important; background: var(--book-surface); font-size: 0.86rem; font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; }
 .book-club-nav-meetup:hover { border-color: var(--book-cyan); color: var(--book-cyan) !important; background: var(--book-surface-bright); }
 .book-club-nav-signal { min-width: 154px; }
@@ -757,6 +758,7 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 @media (max-width: 760px) {
   .book-club-local-nav .book-club-shell { display: flex; flex-direction: column; align-items: stretch; gap: 4px; }
   .book-club-local-nav .book-club-brand { align-self: flex-start; }
+  .book-club-local-nav .book-club-logo { height: 58px; max-width: 146px; }
   .book-club-local-nav nav { justify-content: flex-start; }
   .book-club-nav-actions { width: 100%; justify-content: center; flex-wrap: wrap; padding-top: 4px; }
   .book-club-nav-meetup, .book-club-nav-signal { flex: 1 1 150px; }

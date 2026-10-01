@@ -30,6 +30,8 @@ try {
     assert(await page.locator(".book-card").count() === expectedCards, `${pageName}: expected ${expectedCards} cards`);
     assert(await page.locator(".book-club-nav-meetup").count() === 1, `${pageName}: Meetup action is missing`);
     assert(await page.locator(".book-club-nav-signal").count() === (path === "/book-club/" ? 1 : 0), `${pageName}: Signal action appears on the wrong page`);
+    assert(await page.locator(".book-club-logo").count() === 1, `${pageName}: logo image is missing`);
+    assert(await page.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), `${pageName}: logo image did not render proportionally`);
     assert(imageState.length === expectedCards && imageState.every((image) => image.width > 0 && image.fallback === "none"), `${pageName}: every rendered card image must load and hide its fallback`);
     assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => {
       const labels = [...card.querySelectorAll("dt")].map((label) => label.textContent.trim());
@@ -72,6 +74,8 @@ try {
   assert(await current.locator(".book-club-nav-actions a").count() === 2, "current poll should show Meetup and Signal actions");
   const currentNav = await current.locator(".book-club-local-nav .book-club-shell").evaluate((shell) => getComputedStyle(shell).gridTemplateColumns);
   assert(currentNav.split(" ").length === 3, "current poll header does not reserve stable brand, tabs, and actions zones");
+  assert(await current.locator(".book-club-nav-actions").evaluate((actions) => getComputedStyle(actions).gridColumnStart === "2"), "current poll actions are not centered in the header");
+  assert(await current.locator(".book-club-local-nav nav").evaluate((nav) => getComputedStyle(nav).gridColumnStart === "3"), "current poll navigation tabs are not in the top-right zone");
   assert(await current.locator(".book-fields").evaluateAll((fields) => fields.every((field) => {
     const labels = [...field.querySelectorAll("dt")];
     const required = ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"];
