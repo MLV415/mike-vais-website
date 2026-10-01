@@ -32,6 +32,19 @@ try {
     assert(await page.locator(".book-club-nav-signal").count() === 1, `${pageName}: Signal action is missing`);
     assert(await page.locator(".book-club-logo").count() === 1, `${pageName}: logo image is missing`);
     assert(await page.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), `${pageName}: logo image did not render proportionally`);
+    const mobileHeader = await page.locator(".book-club-local-nav .book-club-shell").evaluate((shell) => {
+      const logo = shell.querySelector(".book-club-logo").getBoundingClientRect();
+      const nav = shell.querySelector("nav");
+      const navBox = nav.getBoundingClientRect();
+      return {
+        shellWidth: shell.getBoundingClientRect().width,
+        logoWidth: logo.width,
+        navWidth: navBox.width,
+        navColumns: getComputedStyle(nav).gridTemplateColumns.split(" ").length,
+      };
+    });
+    assert(mobileHeader.logoWidth >= mobileHeader.shellWidth - 2, `${pageName}: mobile logo does not use the full header width`);
+    assert(mobileHeader.navWidth >= mobileHeader.shellWidth - 2 && mobileHeader.navColumns === 2, `${pageName}: mobile navigation is not a full-width two-option toggle`);
     assert(imageState.length === expectedCards && imageState.every((image) => image.width > 0 && image.fallback === "none"), `${pageName}: every rendered card image must load and hide its fallback`);
     assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => {
       const labels = [...card.querySelectorAll("dt")].map((label) => label.textContent.trim());

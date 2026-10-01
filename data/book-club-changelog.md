@@ -1,5 +1,11 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Mobile header layout
+
+- Expanded the supplied logo to the full mobile header width without cropping it.
+- Kept the Meetup and Signal actions side by side beneath the logo.
+- Replaced the loose mobile page links with a full-width segmented page-setting toggle.
+
 ## 2026-10-01 — Signal access on admin page
 
 - Added the reusable Vote in Signal action to the admin header so all three isolated book-club routes provide the same external actions.
