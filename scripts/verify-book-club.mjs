@@ -26,6 +26,7 @@ assert(allBooks.every((book) => book.cover?.url && book.cover?.sourceUrl && book
 assert(allBooks.every((book) => /^\d+$/.test(String(book.pageCountDisplay))), "every book needs one normalized numeric page count");
 assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "current poll action is missing its label or Signal link");
 assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll should have one accessible heading");
+assert(current.includes("book-club-nav-signal") && !current.includes("book-club-action"), "Signal action is not integrated into the navigation row");
 assert(!publicBannedCopy.test(current) && !publicBannedCopy.test(backlog) && !publicBannedCopy.test(publicData), "removed private or promotional copy remains in public generated pages");
 assert(!adminBannedCopy.test(admin), "private or excluded workbook fields remain in generated admin output");
 assert(!/Poll premise|pollPremise|lastPollDate|lastPollVotes|totalPolls|totalVotes/.test(current + backlog + publicData), "admin-only poll fields remain in public generated output");
@@ -38,6 +39,8 @@ assert(count(backlog, "data-book-image") === allBooks.length, "backlog does not 
 for (const header of ["Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
   assert(admin.includes(`>${header}</th>`), `admin table does not render ${header}`);
 }
+assert((admin.match(/<th scope="col">/g) || []).length === (admin.match(/<(?:th scope="row"|td)(?:\s|>)/g) || []).length / allBooks.length, "admin header and row cell definitions differ");
+assert(admin.includes('<th scope="row">B01</th>') && admin.includes('<th scope="col">ID</th>'), "admin ID column is missing or shifted");
 assert(admin.includes(">3</td>") && admin.includes(">2</td>") && admin.includes(">1</td>"), "admin table does not render reconciled poll history values");
 for (const label of ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"]) {
   assert(count(current, `<dt>${label}</dt>`) === currentBooks.length, `current poll does not render ${label} on every card`);

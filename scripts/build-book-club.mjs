@@ -32,6 +32,10 @@ function lengthBand(book) {
   return "Long";
 }
 
+function signalLink(className = "book-club-nav-signal") {
+  return `<a class="${className}" href="${signalUrl}" target="_blank" rel="noopener noreferrer"><span class="poll-signal-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Vote in Signal</span></a>`;
+}
+
 function field(label, value, className = "") {
   const empty = !value || (Array.isArray(value) && value.length === 0);
   const content = empty
@@ -86,7 +90,8 @@ function sortControl(id = "sort-books") {
 }
 
 function localNav(active) {
-  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a><nav aria-label="Book club navigation"><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Complete Backlog</a></nav></div></header>`;
+  const action = active === "current" ? signalLink() : "";
+  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a><div class="book-club-nav-tools"><nav aria-label="Book club navigation"><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Complete Backlog</a></nav>${action}</div></div></header>`;
 }
 
 function documentShell({ title, description, active, content, script = "../book-club.js" }) {
@@ -114,24 +119,53 @@ ${content}
 function publicPage(page, list) {
   const current = page === "current";
   const content = current
-    ? `<main><section class="book-club-action" aria-labelledby="current-poll-heading"><div class="book-club-shell book-club-action-inner"><h1 class="visually-hidden" id="current-poll-heading">Current Poll</h1><a class="book-club-button" href="${signalUrl}" target="_blank" rel="noopener noreferrer"><span class="poll-signal-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Vote in Signal</span></a></div></section>${jumpPanel(list)}<section class="book-list-section book-club-shell" aria-labelledby="poll-books-heading"><h2 class="visually-hidden" id="poll-books-heading">Current poll books</h2>${sortControl()}<div class="book-list" data-book-list>${list.map((book) => card(book, page)).join("\n")}</div></section></main>`
+    ? `<main><h1 class="visually-hidden" id="current-poll-heading">Current Poll</h1>${jumpPanel(list)}<section class="book-list-section book-club-shell" aria-labelledby="poll-books-heading"><h2 class="visually-hidden" id="poll-books-heading">Current poll books</h2>${sortControl()}<div class="book-list" data-book-list>${list.map((book) => card(book, page)).join("\n")}</div></section></main>`
     : `<main><h1 class="visually-hidden" id="backlog-heading">Complete Backlog</h1>${jumpPanel(list)}<section class="book-list-section book-club-shell" aria-labelledby="backlog-books-heading"><h2 class="visually-hidden" id="backlog-books-heading">Eligible books</h2>${sortControl()}<div class="book-list" data-book-list>${list.map((book) => card(book, page)).join("\n")}</div></section></main>`;
   return documentShell({ title: current ? "Current Poll" : "Complete Backlog", description: current ? "Current science-fiction book-club poll." : "Complete eligible science-fiction book-club backlog.", active: current ? "current" : "backlog", content, script: current ? "../book-club.js" : "../../book-club.js" });
 }
 
 function adminPage() {
+  const cell = (value) => `<td>${value}</td>`;
+  const columns = [
+    ["ID", (book) => `<th scope="row">${escapeHtml(book.recordId)}</th>`],
+    ["Title", (book) => cell(escapeHtml(book.title))],
+    ["Display author / attribution", (book) => cell(escapeHtml(book.author))],
+    ["Editor credit", (book) => cell(adminValue(book.recordId === "B14" ? "Robert Silverberg" : ""))],
+    ["Eligibility status", (book) => cell(adminValue(book.eligibilityStatus, "Eligible"))],
+    ["Current poll", (book) => cell(book.currentPoll ? "Yes" : "No")],
+    ["Current poll order", (book) => cell(adminValue(book.pollOrder))],
+    ["Page count display", (book) => cell(adminValue(book.pageCountDisplay))],
+    ["Page count min", (book) => cell(adminValue(book.pageCountMin))],
+    ["Length band", (book) => cell(lengthBand(book))],
+    ["Form", (book) => cell(adminValue(book.form))],
+    ["Original publication year", (book) => cell(adminValue(book.originalPublicationYear))],
+    ["Long synopsis", (book) => cell(adminValue(book.longSynopsis))],
+    ["Themes", (book) => cell(adminValue((book.themes || []).join("; ")))],
+    ["Vibe / reading feel", (book) => cell(adminValue((book.vibe || []).join("; ")))],
+    ["Existing award claim", (book) => cell(adminValue(awardText(book)))],
+    ["Award verification status", (book) => cell(book.awards?.length ? "Verified" : "No verified award claim recorded in this pass")],
+    ["Award source URL", (book) => cell(book.awards?.length ? sourceLinks(book.sources) : "—")],
+    ["Cover image URL", (book) => cell(book.cover?.url
+      ? `<a href="${escapeHtml(book.cover.url)}" target="_blank" rel="noopener noreferrer">Image</a><br><a href="${escapeHtml(book.cover.sourceUrl || "")}" target="_blank" rel="noopener noreferrer">Catalog source</a>`
+      : adminValue(book.cover?.status, "Not yet sourced"))],
+    ["Image source / rights note", (book) => cell(adminValue(`${book.cover?.sourceNote || ""}${book.cover?.rightsNote ? ` ${book.cover.rightsNote}` : ""}`))],
+    ["Image verification status", (book) => cell(book.cover?.status || "Not yet sourced")],
+    ["Last poll date", (book) => cell(adminValue(book.lastPollDate))],
+    ["Last poll votes", (book) => cell(adminValue(book.lastPollVotes, "0"))],
+    ["Total polls", (book) => cell(adminValue(book.totalPolls, "0"))],
+    ["Total votes", (book) => cell(adminValue(book.totalVotes, "0"))],
+    ["Awards first sort key", (book) => cell(book.awards?.length ? "1" : "0")],
+    ["Website display notes", (book) => cell(adminValue(book.websiteDisplayNotes))],
+    ["Primary metadata source URL", (book) => cell(sourceLinks(book.sources))],
+    ["Metadata source status", () => cell("Source-backed public metadata populated")],
+    ["Last verified date", (book) => cell(adminValue(book.lastVerifiedDate, data.dataVersion))],
+    ["Page count / edition note", (book) => cell(adminValue(book.editionNote))],
+  ];
+  const headers = columns.map(([label]) => `<th scope="col">${label}</th>`).join("");
   const rows = books.map((book) => {
-    const awardStatus = book.awards?.length ? "Verified" : "No verified award claim recorded in this pass";
-    const imageStatus = book.cover?.status || "Not yet sourced";
-    const metadataStatus = "Source-backed public metadata populated";
-    const editorCredit = book.recordId === "B14" ? "Robert Silverberg" : "";
-    const awardSources = book.awards?.length ? sourceLinks(book.sources) : "—";
-    const image = book.cover?.url
-      ? `<a href="${escapeHtml(book.cover.url)}" target="_blank" rel="noopener noreferrer">Image</a><br><a href="${escapeHtml(book.cover.sourceUrl || "")}" target="_blank" rel="noopener noreferrer">Catalog source</a><br>${adminValue(book.cover.rightsNote)}`
-      : adminValue(book.cover?.status, "Not yet sourced");
-    return `<tr data-page-count-min="${book.pageCountMin}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}><th scope="row">${escapeHtml(book.recordId)}</th><td>${escapeHtml(book.title)}</td><td>${escapeHtml(book.author)}</td><td>${adminValue(editorCredit)}</td><td>${adminValue(book.eligibilityStatus, "Eligible")}</td><td>${book.currentPoll ? "Yes" : "No"}</td><td>${adminValue(book.pollOrder)}</td><td>${adminValue(book.pageCountDisplay)}</td><td>${adminValue(book.pageCountMin)}</td><td>${lengthBand(book)}</td><td>${adminValue(book.form)}</td><td>${adminValue(book.originalPublicationYear)}</td><td>${adminValue(book.longSynopsis)}</td><td>${adminValue((book.themes || []).join("; "))}</td><td>${adminValue((book.vibe || []).join("; "))}</td><td>${adminValue(awardText(book))}</td><td>${awardStatus}</td><td>${awardSources}</td><td>${image}</td><td>${adminValue(book.cover?.sourceNote)}</td><td>${imageStatus}</td><td>${adminValue(book.lastPollDate)}</td><td>${adminValue(book.lastPollVotes, "0")}</td><td>${adminValue(book.totalPolls, "0")}</td><td>${adminValue(book.totalVotes, "0")}</td><td>${book.awards?.length ? "1" : "0"}</td><td>${adminValue(book.websiteDisplayNotes)}</td><td>${sourceLinks(book.sources)}</td><td>${metadataStatus}</td><td>${adminValue(book.lastVerifiedDate, data.dataVersion)}</td><td>${adminValue(book.editionNote)}</td></tr>`;
+    return `<tr data-page-count-min="${book.pageCountMin}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}">${columns.map(([, render]) => render(book)).join("")}</tr>`;
   }).join("\n");
-  const content = `<main><section class="book-club-intro"><div class="book-club-shell"><p class="book-club-kicker">MAINTENANCE REFERENCE</p><h1>Backlog Data</h1><p class="admin-version">Data version ${escapeHtml(data.dataVersion)} · ${books.length} eligible records</p><p class="admin-scope-note">This table reconciles the non-personal workbook fields used by the site. Personal and internal contributor or workflow fields remain excluded from web output.</p></div></section><section class="admin-table-section book-club-shell" aria-labelledby="admin-heading"><h2 class="visually-hidden" id="admin-heading">Complete eligible book data</h2>${sortControl()}<div class="admin-table-wrap"><table class="book-data-table" data-book-table><caption>Book-club data reconciled from the canonical repository dataset and source-of-truth workbook.</caption><thead><tr><th scope="col">ID</th><th scope="col">Title</th><th scope="col">Display author / attribution</th><th scope="col">Editor credit</th><th scope="col">Eligibility status</th><th scope="col">Current poll</th><th scope="col">Current poll order</th><th scope="col">Page count display</th><th scope="col">Page count min</th><th scope="col">Length band</th><th scope="col">Form</th><th scope="col">Original publication year</th><th scope="col">Long synopsis</th><th scope="col">Themes</th><th scope="col">Vibe / reading feel</th><th scope="col">Existing award claim</th><th scope="col">Award verification status</th><th scope="col">Award source URL</th><th scope="col">Cover image URL</th><th scope="col">Image source / rights note</th><th scope="col">Image verification status</th><th scope="col">Last poll date</th><th scope="col">Last poll votes</th><th scope="col">Total polls</th><th scope="col">Total votes</th><th scope="col">Awards first sort key</th><th scope="col">Website display notes</th><th scope="col">Primary metadata source URL</th><th scope="col">Metadata source status</th><th scope="col">Last verified date</th><th scope="col">Page count / edition note</th></tr></thead><tbody>${rows}</tbody></table></div></section></main>`;
+  const content = `<main><section class="book-club-intro"><div class="book-club-shell"><p class="book-club-kicker">MAINTENANCE REFERENCE</p><h1>Backlog Data</h1><p class="admin-version">Data version ${escapeHtml(data.dataVersion)} · ${books.length} eligible records</p><p class="admin-scope-note">This table reconciles the non-personal workbook fields used by the site. Personal and internal contributor or workflow fields remain excluded from web output.</p></div></section><section class="admin-table-section book-club-shell" aria-labelledby="admin-heading"><h2 class="visually-hidden" id="admin-heading">Complete eligible book data</h2>${sortControl()}<div class="admin-table-wrap"><table class="book-data-table" data-book-table><caption>Book-club data reconciled from the canonical repository dataset and source-of-truth workbook.</caption><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div></section></main>`;
   return documentShell({ title: "Backlog Data", description: "Read-only public data reference for the science-fiction book club.", active: "admin", content, script: "../../../book-club.js" });
 }
 

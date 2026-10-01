@@ -1,5 +1,12 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Navigation placement, responsive breakpoints, and admin column mapping
+
+- Moved the current-poll Signal action into the isolated navigation row so it no longer occupies a separate desktop band; it wraps to a full-width action on narrow screens.
+- Corrected the final responsive CSS cascade so public cards render three columns on wide desktop, two at intermediate widths, and one on narrow/mobile widths.
+- Generated the admin headers and row cells from the same ordered column definition, preserving the ID column and preventing future horizontal shifts.
+- Added rendered-verification checks for the Signal placement, card-column breakpoints, and admin header/cell alignment.
+
 ## 2026-10-01 — Public header cleanup and workbook admin reconciliation
 
 - Removed the redundant lower book-club and page-title treatments from the Current Poll and Complete Backlog pages; the isolated navigation remains the page-level identifier.

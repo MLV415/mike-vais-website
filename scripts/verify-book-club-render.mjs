@@ -47,12 +47,25 @@ try {
   await checkPublicPage("/book-club/", 6, "current poll");
   await checkPublicPage("/book-club/backlog/", 14, "backlog");
 
+  const checkGrid = async (path, width, expectedColumns, pageName) => {
+    const page = await browser.newPage({ viewport: { width, height: 900 } });
+    await page.goto(`${origin}${path}`, { waitUntil: "domcontentloaded", timeout: 45000 });
+    const columns = await page.locator(".book-list").evaluate((list) => getComputedStyle(list).gridTemplateColumns.split(" ").length);
+    assert(columns === expectedColumns, `${pageName}: expected ${expectedColumns} card columns at ${width}px, found ${columns}`);
+    await page.close();
+  };
+
+  await checkGrid("/book-club/", 1440, 3, "current poll desktop layout");
+  await checkGrid("/book-club/", 900, 2, "current poll compressed layout");
+  await checkGrid("/book-club/", 390, 1, "current poll mobile layout");
+  await checkGrid("/book-club/backlog/", 900, 2, "backlog compressed layout");
+
   const current = await browser.newPage({ viewport: { width: 390, height: 1200 } });
   await current.goto(`${origin}/book-club/`, { waitUntil: "networkidle", timeout: 45000 });
-  assert((await current.locator(".book-club-action").innerText()).replace(/\s+/g, " ").trim() === "Vote in Signal", "current poll action contains extra copy");
-  assert(await current.locator(".book-club-action a").getAttribute("href") === "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX", "current poll Signal URL is incorrect");
-  assert(await current.locator(".book-club-action .poll-signal-mark").count() === 1, "current poll Signal icon is missing");
-  assert(await current.locator(".book-club-action .book-club-button").evaluate((button) => getComputedStyle(button).flexDirection === "row" && getComputedStyle(button).alignItems === "center"), "current poll Signal button layout is misaligned");
+  assert((await current.locator(".book-club-nav-signal").innerText()).replace(/\s+/g, " ").trim() === "Vote in Signal", "current poll Signal action contains extra copy");
+  assert(await current.locator(".book-club-nav-signal").getAttribute("href") === "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX", "current poll Signal URL is incorrect");
+  assert(await current.locator(".book-club-nav-signal .poll-signal-mark").count() === 1, "current poll Signal icon is missing");
+  assert(await current.locator(".book-club-nav-signal").evaluate((button) => getComputedStyle(button).flexDirection === "row" && getComputedStyle(button).alignItems === "center"), "current poll Signal button layout is misaligned");
   assert(await current.locator(".book-fields").evaluateAll((fields) => fields.every((field) => {
     const labels = [...field.querySelectorAll("dt")];
     const required = ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"];
@@ -70,6 +83,11 @@ try {
   await admin.locator("[data-sort-books]").selectOption("awards");
   await admin.waitForFunction(() => document.querySelector(".book-data-table tbody tr")?.dataset.awardBearing === "1");
   assert(!/Poll premise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/i.test(await admin.locator("body").innerText()), "admin page exposes private or excluded copy");
+  const adminHeaders = await admin.locator(".book-data-table thead th").allTextContents();
+  const firstAdminCells = await admin.locator(".book-data-table tbody tr").first().locator(":scope > *").allTextContents();
+  assert(adminHeaders.length === firstAdminCells.length, "admin header and row cell counts differ");
+  assert(adminHeaders[0].trim() === "ID" && firstAdminCells[0].trim() === "B01", "admin ID column is not paired with its values");
+  assert(adminHeaders[1].trim() === "Title" && firstAdminCells[1].trim() === "Seven Views of Olduvai Gorge", "admin title column is shifted");
   for (const header of ["Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
     assert(await admin.locator(".book-data-table th").filter({ hasText: header }).count() === 1, `admin page is missing ${header}`);
   }
