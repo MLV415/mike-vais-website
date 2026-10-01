@@ -545,7 +545,6 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
   .backlog-group-title { display: block; }
   .backlog-group-title span { display: block; margin-top: 4px; }
 }
-
 /* Isolated book-club mini-site */
 .book-club-page {
   min-height: 100vh;
