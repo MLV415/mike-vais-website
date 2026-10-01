@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The current science-fiction book-club poll and voter’s guide.">
+  <link rel="canonical" href="https://mike-vais.pages.dev/book-club/">
   <title>Voter’s Guide · Sci-Fi Book Club</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="book-club-page">
   <header class="book-club-local-nav">
     <div class="book-club-shell">
-      <a class="book-club-brand" href="index.html">SCI-FI BOOK CLUB</a>
+      <a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a>
       <nav aria-label="Book club navigation">
-        <a href="index.html" aria-current="page">Current Poll</a>
-        <a href="backlog/index.html">Complete Backlog</a>
+        <a href="/book-club/" aria-current="page">Current Poll</a>
+        <a href="/book-club/backlog/">Complete Backlog</a>
       </nav>
     </div>
   </header>
@@ -54,7 +55,18 @@
 
     <section class="book-list-section book-club-shell" aria-labelledby="poll-books-heading">
       <h2 class="visually-hidden" id="poll-books-heading">Current poll books</h2>
-      <div class="book-list">
+      <div class="book-list-tools">
+        <label for="sort-books">Sort by</label>
+        <select id="sort-books" data-sort-books>
+          <option value="pages-asc">Shortest first</option>
+          <option value="pages-desc">Longest first</option>
+          <option value="title">Title A–Z</option>
+          <option value="author">Author A–Z</option>
+          <option value="awards">Awards first</option>
+        </select>
+        <span class="visually-hidden" data-sort-status role="status">Sorted by Shortest first</span>
+      </div>
+      <div class="book-list" data-book-list>
         <article class="book-card" id="seven-views">
           <h3>Seven Views of Olduvai Gorge</h3>
           <p class="book-author">Mike Resnick</p>
@@ -112,5 +124,6 @@
       </div>
     </section>
   </main>
+  <script src="../book-club.js" defer></script>
 </body>
 </html>

@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="The complete eligible science-fiction book-club backlog.">
+  <link rel="canonical" href="https://mike-vais.pages.dev/book-club/backlog/">
   <title>Complete Backlog · Sci-Fi Book Club</title>
   <link rel="stylesheet" href="../../styles.css">
 </head>
 <body class="book-club-page">
   <header class="book-club-local-nav">
     <div class="book-club-shell">
-      <a class="book-club-brand" href="../index.html">SCI-FI BOOK CLUB</a>
+      <a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a>
       <nav aria-label="Book club navigation">
-        <a href="../index.html">Current Poll</a>
-        <a href="index.html" aria-current="page">Complete Backlog</a>
+        <a href="/book-club/">Current Poll</a>
+        <a href="/book-club/backlog/" aria-current="page">Complete Backlog</a>
       </nav>
     </div>
   </header>
@@ -26,9 +27,40 @@
       </div>
     </section>
 
+    <section class="jump-panel book-club-shell" aria-labelledby="jump-heading">
+      <p class="book-club-label" id="jump-heading">JUMP TO</p>
+      <nav class="jump-links" aria-label="Jump to a book">
+        <a href="#seven-views">Seven Views of Olduvai Gorge</a>
+        <a href="#binti">Binti</a>
+        <a href="#beggars-in-spain">Beggars in Spain</a>
+        <a href="#hemingway-hoax">The Hemingway Hoax</a>
+        <a href="#lesser-known-monsters">Lesser Known Monsters</a>
+        <a href="#camp-concentration">Camp Concentration</a>
+        <a href="#infernal-desire">Infernal Desire Machines</a>
+        <a href="#black-cloud">The Black Cloud</a>
+        <a href="#wizard-baking">A Wizard’s Guide to Defensive Baking</a>
+        <a href="#antimemetics">There Is No Antimemetics Division</a>
+        <a href="#ministry-time">The Ministry of Time</a>
+        <a href="#windup-girl">The Windup Girl</a>
+        <a href="#children-ruin">Children of Ruin</a>
+        <a href="#hall-of-fame">Science Fiction Hall of Fame</a>
+      </nav>
+    </section>
+
     <section class="book-list-section book-club-shell" aria-labelledby="backlog-heading">
       <h2 class="visually-hidden" id="backlog-heading">Eligible books</h2>
-      <div class="book-list">
+      <div class="book-list-tools">
+        <label for="sort-books">Sort by</label>
+        <select id="sort-books" data-sort-books>
+          <option value="pages-asc">Shortest first</option>
+          <option value="pages-desc">Longest first</option>
+          <option value="title">Title A–Z</option>
+          <option value="author">Author A–Z</option>
+          <option value="awards">Awards first</option>
+        </select>
+        <span class="visually-hidden" data-sort-status role="status">Sorted by Shortest first</span>
+      </div>
+      <div class="book-list" data-book-list>
         <article class="book-card" id="seven-views"><h3>Seven Views of Olduvai Gorge</h3><p class="book-author">Mike Resnick</p><dl class="book-fields"><div><dt>Page count</dt><dd>50</dd></div><div><dt>Synopsis</dt><dd>Aliens reconstruct humanity’s rise and fall.</dd></div><div><dt>Vibe</dt><dd>Reflective, cosmic.</dd></div></dl></article>
         <article class="book-card" id="binti"><h3>Binti</h3><p class="book-author">Nnedi Okorafor</p><dl class="book-fields"><div><dt>Page count</dt><dd>100</dd></div><div><dt>Synopsis</dt><dd>A gifted student leaves home and faces interstellar conflict.</dd></div><div><dt>Vibe</dt><dd>Lyrical, adventurous.</dd></div></dl></article>
         <article class="book-card" id="beggars-in-spain"><h3>Beggars in Spain</h3><p class="book-author">Nancy Kress</p><dl class="book-fields"><div><dt>Page count</dt><dd>100</dd></div><div><dt>Synopsis</dt><dd>Genetically sleepless children challenge society’s ideas of fairness.</dd></div><div><dt>Vibe</dt><dd>Provocative, idea-driven.</dd></div></dl></article>
@@ -46,5 +78,6 @@
       </div>
     </section>
   </main>
+  <script src="../../book-club.js" defer></script>
 </body>
 </html>
