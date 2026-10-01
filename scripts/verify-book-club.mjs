@@ -28,7 +28,7 @@ assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "
 assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll should have one accessible heading");
 assert(current.includes("book-club-nav-signal") && !current.includes("book-club-action"), "Signal action is not integrated into the navigation row");
 assert(count(current, "book-club-nav-meetup") === 1 && count(backlog, "book-club-nav-meetup") === 1, "Meetup action is missing from a public page");
-assert(count(current, "book-club-nav-signal") === 1 && count(backlog, "book-club-nav-signal") === 1 && !admin.includes("book-club-nav-signal"), "Signal action is not limited to the two public pages");
+assert(count(current, "book-club-nav-signal") === 1 && count(backlog, "book-club-nav-signal") === 1 && count(admin, "book-club-nav-signal") === 1, "Signal action is missing from a generated page");
 assert(current.includes("https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/") && backlog.includes("https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/"), "Meetup URL is incorrect or missing");
 assert(count(current, "book-club-logo") === 1 && count(backlog, "book-club-logo") === 1 && count(admin, "book-club-logo") === 1, "book-club logo image is missing from a generated page");
 assert(!current.includes('class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB') && !backlog.includes('class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB'), "text brand remains instead of the logo image");

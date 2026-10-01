@@ -92,7 +92,7 @@ try {
   assert(await admin.locator(".book-data-table tbody tr").count() === 14, "admin page does not render all records");
   assert(await admin.locator(".book-club-logo").count() === 1, "admin page logo is missing");
   assert(await admin.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), "admin page logo did not render proportionally");
-  assert(await admin.locator(".book-club-nav-signal").count() === 0, "admin page should not show the public Signal action");
+  assert(await admin.locator(".book-club-nav-signal").count() === 1, "admin page Signal action is missing");
   await admin.locator("[data-sort-books]").selectOption("awards");
   await admin.waitForFunction(() => document.querySelector(".book-data-table tbody tr")?.dataset.awardBearing === "1");
   assert(!/Poll premise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/i.test(await admin.locator("body").innerText()), "admin page exposes private or excluded copy");

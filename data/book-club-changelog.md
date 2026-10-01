@@ -1,5 +1,9 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Signal access on admin page
+
+- Added the reusable Vote in Signal action to the admin header so all three isolated book-club routes provide the same external actions.
+
 ## 2026-10-01 — Signal access on both public pages
 
 - Added the reusable Vote in Signal action to the Complete Backlog header as well as Current Poll.
