@@ -29,7 +29,7 @@ try {
     })));
     assert(await page.locator(".book-card").count() === expectedCards, `${pageName}: expected ${expectedCards} cards`);
     assert(await page.locator(".book-club-nav-meetup").count() === 1, `${pageName}: Meetup action is missing`);
-    assert(await page.locator(".book-club-nav-signal").count() === (path === "/book-club/" ? 1 : 0), `${pageName}: Signal action appears on the wrong page`);
+    assert(await page.locator(".book-club-nav-signal").count() === 1, `${pageName}: Signal action is missing`);
     assert(await page.locator(".book-club-logo").count() === 1, `${pageName}: logo image is missing`);
     assert(await page.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), `${pageName}: logo image did not render proportionally`);
     assert(imageState.length === expectedCards && imageState.every((image) => image.width > 0 && image.fallback === "none"), `${pageName}: every rendered card image must load and hide its fallback`);
@@ -90,6 +90,9 @@ try {
   const admin = await browser.newPage({ viewport: { width: 1280, height: 900 } });
   await admin.goto(`${origin}/book-club/backlog/admin/`, { waitUntil: "networkidle", timeout: 45000 });
   assert(await admin.locator(".book-data-table tbody tr").count() === 14, "admin page does not render all records");
+  assert(await admin.locator(".book-club-logo").count() === 1, "admin page logo is missing");
+  assert(await admin.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), "admin page logo did not render proportionally");
+  assert(await admin.locator(".book-club-nav-signal").count() === 0, "admin page should not show the public Signal action");
   await admin.locator("[data-sort-books]").selectOption("awards");
   await admin.waitForFunction(() => document.querySelector(".book-data-table tbody tr")?.dataset.awardBearing === "1");
   assert(!/Poll premise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/i.test(await admin.locator("body").innerText()), "admin page exposes private or excluded copy");

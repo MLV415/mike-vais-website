@@ -1,5 +1,11 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Signal access on both public pages
+
+- Added the reusable Vote in Signal action to the Complete Backlog header as well as Current Poll.
+- Kept the admin reference page limited to its Meetup action while retaining the same supplied logo.
+- Extended verification to cover the admin logo, public Signal actions, and the generated admin table structure.
+
 ## 2026-10-01 — Centered actions and supplied club logo
 
 - Replaced the text brand in the isolated header with the supplied Cosmic Chapter Chat logo image.

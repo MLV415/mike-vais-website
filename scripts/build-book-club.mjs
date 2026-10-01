@@ -95,9 +95,9 @@ function sortControl(id = "sort-books") {
 }
 
 function localNav(active) {
-  const actions = `${meetupLink()}${active === "current" ? signalLink() : ""}`;
+  const actions = `${meetupLink()}${active !== "admin" ? signalLink() : ""}`;
   const logoPath = active === "current" ? "../assets/book-club/cosmic-chapter-chat-logo.png" : active === "backlog" ? "../../assets/book-club/cosmic-chapter-chat-logo.png" : "../../../assets/book-club/cosmic-chapter-chat-logo.png";
-  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/"><img class="book-club-logo" src="${logoPath}" alt="Cosmic Chapter Chat Sci-Fi Book Club"></a><div class="book-club-nav-actions">${actions}</div><nav aria-label="Book club navigation"><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Complete Backlog</a></nav></div></header>`;
+  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/"><img class="book-club-logo" src="${logoPath}" alt="Cosmic Chapter Chat Sci-Fi Book Club" loading="eager" decoding="async"></a><div class="book-club-nav-actions">${actions}</div><nav aria-label="Book club navigation"><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Complete Backlog</a></nav></div></header>`;
 }
 
 function documentShell({ title, description, active, content, script = "../book-club.js" }) {
