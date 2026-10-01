@@ -147,7 +147,7 @@
       "vibe": ["Surreal", "Baroque"],
       "themes": ["Desire", "Reality versus illusion", "Reason", "Love", "Identity", "Media"],
       "sources": ["https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/", "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/Infernal%20Desire%20Machines%20of%20Dr.%20Hoffman-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Infernal%20Desire%20Machines%20of%20Dr.%20Hoffman&author=Angela%20Carter", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "cover": { "url": "https://covers.openlibrary.org/isbn/9780141192390-L.jpg", "sourceUrl": "https://openlibrary.org/isbn/9780141192390", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the ISBN of the Penguin edition identified in the source records; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
       "editionNote": "Original publication year is 1972; current page count is edition-dependent."
     },
     {
@@ -276,7 +276,7 @@
       "vibe": ["Classic", "Wide-ranging"],
       "themes": ["Science-fiction history", "Literary canon", "Genre formation", "Influence", "Short fiction"],
       "sources": ["https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/", "https://www.isfdb.org/cgi-bin/pl.cgi?46549="],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/The%20Science%20Fiction%20Hall%20of%20Fame%20Volume%20One%201929%201964-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=The%20Science%20Fiction%20Hall%20of%20Fame%20Volume%20One%201929%201964&author=Robert%20Silverberg", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "cover": { "url": "https://covers.openlibrary.org/isbn/9780765305374-L.jpg", "sourceUrl": "https://openlibrary.org/isbn/9780765305374", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the ISBN of the Macmillan edition identified in the source records; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
       "editionNote": "Original anthology was published in 1970; the current 600+ display is edition-dependent."
     }
   ]
