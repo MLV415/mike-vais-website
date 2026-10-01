@@ -7,6 +7,7 @@ const data = JSON.parse(await readFile(join(root, "data/book-club.json"), "utf8"
 const current = await readFile(join(root, "book-club/index.html"), "utf8");
 const backlog = await readFile(join(root, "book-club/backlog/index.html"), "utf8");
 const admin = await readFile(join(root, "book-club/backlog/admin/index.html"), "utf8");
+const publicData = await readFile(join(root, "book-club/data/books.json"), "utf8");
 
 const failures = [];
 const assert = (condition, message) => {
@@ -22,9 +23,10 @@ assert(allBooks.length === 14, `expected 14 canonical books, found ${allBooks.le
 assert(currentBooks.length === 6, `expected 6 current-poll books, found ${currentBooks.length}`);
 assert(allBooks.every((book) => book.cover?.url && book.cover?.sourceUrl && book.cover?.rightsNote), "every book needs an image URL, source URL, and rights note");
 assert(allBooks.every((book) => /^\d+$/.test(String(book.pageCountDisplay))), "every book needs one normalized numeric page count");
-assert(current.includes("CURRENT POLL") && current.includes("Vote in Signal"), "current poll banner is missing its label or Signal link");
-assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll banner should have one label");
+assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "current poll hero is missing its label or Signal link");
+assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll hero should have one heading");
 assert(!bannedCopy.test(current) && !bannedCopy.test(backlog) && !bannedCopy.test(admin), "removed private or promotional copy remains in generated pages");
+assert(!/Poll premise|pollPremise/.test(current + backlog + admin + publicData), "Poll premise remains in generated web output");
 assert(!/[⌁~]/.test(current) && !/[⌁~]/.test(backlog), "a tilde-like Jump To glyph remains");
 assert(!current.includes("jump-icon") && !backlog.includes("jump-icon"), "Jump To still contains an icon element");
 assert(!/<article[^>]*class="book-card"[\s\S]*?<a\s/.test(current), "current cards contain clickable links");
@@ -35,7 +37,6 @@ for (const label of ["Page count", "Form", "Published", "Synopsis", "Themes", "V
   assert(count(current, `<dt>${label}</dt>`) === currentBooks.length, `current poll does not render ${label} on every card`);
   assert(count(backlog, `<dt>${label}</dt>`) === allBooks.length, `backlog does not render ${label} on every card`);
 }
-assert(count(current, "<dt>Poll premise</dt>") === currentBooks.length, "current poll does not render Poll premise on every card");
 assert(count(current, "value=\"awards\"") === 1 && count(backlog, "value=\"awards\"") === 1 && count(admin, "value=\"awards\"") === 1, "Awards First sorting is missing from a generated page");
 assert(currentBooks.every((book) => current.includes(`id="${book.slug}"`)), "a current Jump To target is missing");
 assert(allBooks.every((book) => backlog.includes(`id="${book.slug}"`)), "a backlog Jump To target is missing");

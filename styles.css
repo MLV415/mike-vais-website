@@ -625,6 +625,14 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 
 /* Book club interface panels and cover slots */
 .book-club-local-nav { position: relative; }
+.book-club-hero { padding: 34px 0 28px; background: radial-gradient(circle at 92% 18%, rgba(103, 230, 244, 0.14), transparent 22rem); }
+.book-club-hero-inner { display: flex; align-items: end; justify-content: space-between; gap: 28px; }
+.book-club-hero .book-club-button { gap: 10px; }
+.book-club-hero .poll-signal-mark { width: 24px; height: 20px; margin: 0; gap: 3px; }
+.book-club-hero .poll-signal-mark span { width: 5px; }
+.book-club-hero .poll-signal-mark span:nth-child(1) { height: 8px; }
+.book-club-hero .poll-signal-mark span:nth-child(2) { height: 14px; }
+.book-club-hero .poll-signal-mark span:nth-child(3) { height: 20px; }
 .book-club-intro { padding-bottom: 22px; background: radial-gradient(circle at 92% 18%, rgba(103, 230, 244, 0.14), transparent 22rem); }
 .book-club-intro h1 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: clamp(2.1rem, 6vw, 4rem); font-weight: 780; letter-spacing: -0.06em; text-transform: uppercase; }
 .current-poll { position: relative; overflow: hidden; padding: 24px; border: 1px solid rgba(103, 230, 244, 0.7); border-radius: 18px; background: linear-gradient(135deg, rgba(18, 53, 76, 0.96), rgba(9, 24, 42, 0.96)); box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.07); }
@@ -642,10 +650,10 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .book-list-tools { margin-bottom: 14px; }
 .book-list-tools select { border-radius: 999px; }
 .book-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.book-card { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; align-items: start; min-height: 100%; padding: 14px; border: 1px solid rgba(103, 230, 244, 0.24); border-radius: 16px; background: linear-gradient(145deg, rgba(20, 48, 72, 0.98), rgba(9, 23, 39, 0.98)); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.06); scroll-margin-top: 24px; }
+.book-card { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; align-items: start; min-height: 100%; padding: 14px; border: 1px solid rgba(103, 230, 244, 0.24); border-radius: 16px; background: linear-gradient(145deg, rgba(20, 48, 72, 0.98), rgba(9, 23, 39, 0.98)); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.06); scroll-margin-top: 24px; }
 .book-media { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(103, 230, 244, 0.25); border-radius: 10px; background: linear-gradient(145deg, #142f46, #091925); }
 .book-media::after { position: absolute; inset: 7px; border: 1px solid rgba(103, 230, 244, 0.16); border-radius: 6px; content: ""; pointer-events: none; }
-.book-media img { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; }
+.book-media img { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: contain; }
 .book-cover-fallback { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; padding: 10px; color: var(--book-cyan); background: radial-gradient(circle at 30% 20%, rgba(103, 230, 244, 0.2), transparent 32%), repeating-linear-gradient(135deg, rgba(103, 230, 244, 0.05) 0 1px, transparent 1px 9px), #0b2133; }
 .book-cover-fallback span { color: var(--book-muted); font-size: 0.62rem; font-weight: 850; letter-spacing: 0.1em; line-height: 1.35; text-align: center; text-transform: uppercase; }
 .book-media.is-loaded .book-cover-fallback { display: none; }
@@ -663,15 +671,17 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .book-award { border-color: rgba(201, 165, 255, 0.55); color: #eadcff; background: rgba(201, 165, 255, 0.11); }
 
 @media (max-width: 760px) {
+  .book-club-hero { padding: 28px 0 22px; }
+  .book-club-hero-inner { align-items: flex-start; flex-direction: column; gap: 20px; }
   .current-poll { padding: 20px; }
   .current-poll-inner { gap: 18px; }
-  .book-card { grid-template-columns: 92px minmax(0, 1fr); gap: 14px; padding: 13px; }
+  .book-card { grid-template-columns: 104px minmax(0, 1fr); gap: 14px; padding: 13px; }
   .book-fields { gap: 0 9px; }
 }
 
 @media (min-width: 1600px) {
   .book-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .book-card { grid-template-columns: 82px minmax(0, 1fr); gap: 12px; padding: 12px; }
+  .book-card { grid-template-columns: 96px minmax(0, 1fr); gap: 12px; padding: 12px; }
 }
 
 @media (max-width: 1050px) and (min-width: 761px) {
