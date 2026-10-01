@@ -17,22 +17,28 @@ const count = (text, pattern) => text.match(new RegExp(pattern, "g"))?.length ||
 
 const allBooks = data.books;
 const currentBooks = allBooks.filter((book) => book.currentPoll);
-const bannedCopy = /Vote for our next book|short books|Multiple votes allowed|These are &lt;200 pages|Longer books next poll|small orbit|SHORT LIST|one next read|See all 14|Opens the Signal|Suggested By|Stefan|Liam|Irene|Celeste|Internal|Research Status|Eligibility Status|Last Poll|Total Votes/;
+const publicBannedCopy = /Vote for our next book|short books|Multiple votes allowed|These are &lt;200 pages|Longer books next poll|small orbit|SHORT LIST|one next read|See all 14|Opens the Signal|Suggested By|Stefan|Liam|Irene|Celeste|Internal|Research Status|Eligibility Status|Last Poll|Total Votes/;
+const adminBannedCopy = /Poll premise|pollPremise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/;
 
 assert(allBooks.length === 14, `expected 14 canonical books, found ${allBooks.length}`);
 assert(currentBooks.length === 6, `expected 6 current-poll books, found ${currentBooks.length}`);
 assert(allBooks.every((book) => book.cover?.url && book.cover?.sourceUrl && book.cover?.rightsNote), "every book needs an image URL, source URL, and rights note");
 assert(allBooks.every((book) => /^\d+$/.test(String(book.pageCountDisplay))), "every book needs one normalized numeric page count");
-assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "current poll hero is missing its label or Signal link");
-assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll hero should have one heading");
-assert(!bannedCopy.test(current) && !bannedCopy.test(backlog) && !bannedCopy.test(admin), "removed private or promotional copy remains in generated pages");
-assert(!/Poll premise|pollPremise/.test(current + backlog + admin + publicData), "Poll premise remains in generated web output");
+assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "current poll action is missing its label or Signal link");
+assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll should have one accessible heading");
+assert(!publicBannedCopy.test(current) && !publicBannedCopy.test(backlog) && !publicBannedCopy.test(publicData), "removed private or promotional copy remains in public generated pages");
+assert(!adminBannedCopy.test(admin), "private or excluded workbook fields remain in generated admin output");
+assert(!/Poll premise|pollPremise|lastPollDate|lastPollVotes|totalPolls|totalVotes/.test(current + backlog + publicData), "admin-only poll fields remain in public generated output");
 assert(!/[⌁~]/.test(current) && !/[⌁~]/.test(backlog), "a tilde-like Jump To glyph remains");
 assert(!current.includes("jump-icon") && !backlog.includes("jump-icon"), "Jump To still contains an icon element");
 assert(!/<article[^>]*class="book-card"[\s\S]*?<a\s/.test(current), "current cards contain clickable links");
 assert(!/<article[^>]*class="book-card"[\s\S]*?<a\s/.test(backlog), "backlog cards contain clickable links");
 assert(count(current, "data-book-image") === currentBooks.length, "current poll does not have one image element per card");
 assert(count(backlog, "data-book-image") === allBooks.length, "backlog does not have one image element per card");
+for (const header of ["Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
+  assert(admin.includes(`>${header}</th>`), `admin table does not render ${header}`);
+}
+assert(admin.includes(">3</td>") && admin.includes(">2</td>") && admin.includes(">1</td>"), "admin table does not render reconciled poll history values");
 for (const label of ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"]) {
   assert(count(current, `<dt>${label}</dt>`) === currentBooks.length, `current poll does not render ${label} on every card`);
   assert(count(backlog, `<dt>${label}</dt>`) === allBooks.length, `backlog does not render ${label} on every card`);

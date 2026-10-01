@@ -49,8 +49,10 @@ try {
 
   const current = await browser.newPage({ viewport: { width: 390, height: 1200 } });
   await current.goto(`${origin}/book-club/`, { waitUntil: "networkidle", timeout: 45000 });
-  assert((await current.locator(".book-club-hero").innerText()).replace(/\s+/g, " ").trim() === "SCI-FI BOOK CLUB Current Poll Vote in Signal", "current poll hero contains extra copy");
-  assert(await current.locator(".book-club-hero a").getAttribute("href") === "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX", "current poll Signal URL is incorrect");
+  assert((await current.locator(".book-club-action").innerText()).replace(/\s+/g, " ").trim() === "Vote in Signal", "current poll action contains extra copy");
+  assert(await current.locator(".book-club-action a").getAttribute("href") === "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX", "current poll Signal URL is incorrect");
+  assert(await current.locator(".book-club-action .poll-signal-mark").count() === 1, "current poll Signal icon is missing");
+  assert(await current.locator(".book-club-action .book-club-button").evaluate((button) => getComputedStyle(button).flexDirection === "row" && getComputedStyle(button).alignItems === "center"), "current poll Signal button layout is misaligned");
   assert(await current.locator(".book-fields").evaluateAll((fields) => fields.every((field) => {
     const labels = [...field.querySelectorAll("dt")];
     const required = ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"];
@@ -67,7 +69,10 @@ try {
   assert(await admin.locator(".book-data-table tbody tr").count() === 14, "admin page does not render all records");
   await admin.locator("[data-sort-books]").selectOption("awards");
   await admin.waitForFunction(() => document.querySelector(".book-data-table tbody tr")?.dataset.awardBearing === "1");
-  assert(!/Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais/i.test(await admin.locator("body").innerText()), "admin page exposes private or personal copy");
+  assert(!/Poll premise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/i.test(await admin.locator("body").innerText()), "admin page exposes private or excluded copy");
+  for (const header of ["Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
+    assert(await admin.locator(".book-data-table th").filter({ hasText: header }).count() === 1, `admin page is missing ${header}`);
+  }
   await admin.close();
 } finally {
   await browser.close();

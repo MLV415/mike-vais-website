@@ -1,5 +1,13 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Public header cleanup and workbook admin reconciliation
+
+- Removed the redundant lower book-club and page-title treatments from the Current Poll and Complete Backlog pages; the isolated navigation remains the page-level identifier.
+- Reworked the Signal action into a compact horizontal button with the poll mark visible beside the label in its default state.
+- Reconciled the admin table against the workbook’s non-personal Books fields, including award/image verification, source status, edition metadata, last poll date/votes, total polls, and total votes.
+- Added the workbook poll-history values for B07, B10, B12, and B13 to the canonical JSON; zero-history records remain explicit as zero.
+- Kept poll premise, Suggested By, full author names, and research workflow notes out of all generated web output; poll premise remains available only in the canonical data for poll-generation assistance.
+
 ## 2026-10-01 — Initial repository import and generated views
 
 - Imported the 14 eligible records and six current-poll records from `Sci-Fi Book Club Source of Truth.xlsx` into `data/book-club.json`.

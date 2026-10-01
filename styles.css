@@ -702,3 +702,19 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .book-data-table thead th { position: sticky; top: 0; color: var(--book-cyan); background: var(--book-surface); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
 .book-data-table tbody th { color: var(--book-violet); font-weight: 800; }
 .book-data-table a { color: var(--book-cyan); white-space: nowrap; }
+.book-club-action { padding: 18px 0 16px; border-bottom: 1px solid var(--book-line); background: radial-gradient(circle at 92% 18%, rgba(103, 230, 244, 0.1), transparent 20rem); }
+.book-club-action-inner { display: flex; align-items: center; justify-content: flex-end; }
+.book-club-action .book-club-button { display: inline-flex; flex-direction: row; align-items: center; justify-content: center; gap: 10px; min-width: 166px; min-height: 48px; height: auto; padding: 12px 18px; line-height: 1; }
+.book-club-action .book-club-button > span:last-child { color: #04111b; font-size: 0.94rem; font-weight: 850; line-height: 1; }
+.book-club-action .poll-signal-mark { flex: 0 0 auto; width: 24px; height: 20px; margin: 0; gap: 3px; }
+.book-club-action .poll-signal-mark span { width: 5px; background: #04111b; box-shadow: none; }
+.book-club-action .poll-signal-mark span:nth-child(1) { height: 8px; opacity: 0.52; }
+.book-club-action .poll-signal-mark span:nth-child(2) { height: 14px; opacity: 0.76; }
+.book-club-action .poll-signal-mark span:nth-child(3) { height: 20px; opacity: 1; }
+.admin-scope-note { max-width: 920px; margin: 10px 0 0; color: var(--book-muted); font-size: 0.88rem; }
+
+@media (max-width: 760px) {
+  .book-club-action { padding: 16px 0 14px; }
+  .book-club-action-inner { justify-content: stretch; }
+  .book-club-action .book-club-button { width: 100%; }
+}
