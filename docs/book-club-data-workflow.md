@@ -9,7 +9,7 @@
 - `/book-club/backlog/admin/`
 - `/book-club/data/books.json`
 
-Run `node scripts/build-book-club.mjs` after changing the JSON. The script filters the canonical records, renders the public cards and readable admin table, and writes the public data projection. The admin page is intentionally unlinked from the public book-club navigation; it is the shared read-only reference for Work and Codex.
+Run `npm run build:book-club` after changing the JSON, then run `npm run verify:book-club`. The build script filters the canonical records, renders the public cards and readable admin table, and writes the public data projection. The verification script checks card coverage, image metadata, required fields, banner copy, Jump To anchors, sorting controls, and isolation-sensitive copy. The admin page is intentionally unlinked from the public book-club navigation; it is the shared read-only reference for Work and Codex.
 
 ## Public fields and exclusions
 
