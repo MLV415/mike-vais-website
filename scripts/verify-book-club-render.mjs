@@ -46,7 +46,11 @@ try {
   await current.goto(`${origin}/book-club/`, { waitUntil: "networkidle", timeout: 45000 });
   assert((await current.locator(".current-poll").innerText()).replace(/\s+/g, " ").trim() === "CURRENT POLL Vote in Signal", "current poll banner contains extra copy");
   assert(await current.locator(".current-poll a").getAttribute("href") === "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX", "current poll Signal URL is incorrect");
-  assert(await current.locator(".book-card").evaluateAll((cards) => cards.every((card) => card.querySelector("dt:nth-of-type(1)") && card.innerText.includes("Form") && card.innerText.includes("Poll premise"))), "current poll fields are incomplete");
+  assert(await current.locator(".book-fields").evaluateAll((fields) => fields.every((field) => {
+    const labels = [...field.querySelectorAll("dt")].map((label) => label.textContent.trim());
+    const visible = (label) => label && getComputedStyle(label).display !== "none" && label.getBoundingClientRect().width > 0;
+    return labels.includes("Form") && labels.includes("Poll premise") && [...field.querySelectorAll("dt")].filter((label) => labels.includes(label.textContent.trim())).every(visible);
+  })), "current poll fields are incomplete");
   await current.close();
 
   const admin = await browser.newPage({ viewport: { width: 1280, height: 900 } });
