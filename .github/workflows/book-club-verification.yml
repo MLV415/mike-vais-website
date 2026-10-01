@@ -1,0 +1,43 @@
+name: Sci-Fi book club verification
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/book-club-verification.yml"
+      - "book-club.js"
+      - "book-club/**"
+      - "data/book-club.json"
+      - "package.json"
+      - "scripts/build-book-club.mjs"
+      - "scripts/verify-book-club*.mjs"
+      - "styles.css"
+  push:
+    branches: [main]
+    paths:
+      - "book-club.js"
+      - "book-club/**"
+      - "data/book-club.json"
+      - "package.json"
+      - "scripts/build-book-club.mjs"
+      - "scripts/verify-book-club*.mjs"
+      - "styles.css"
+
+permissions:
+  contents: read
+
+jobs:
+  book-club:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build generated pages
+        run: npm run build:book-club
+      - name: Run static book-club checks
+        run: npm run verify:book-club
+      - name: Verify catalog image responses
+        run: npm run verify:book-club:images

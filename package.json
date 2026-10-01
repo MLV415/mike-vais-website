@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node scripts/server.mjs",
     "build:book-club": "node scripts/build-book-club.mjs",
-    "verify:book-club": "node scripts/verify-book-club.mjs"
+    "verify:book-club": "node scripts/verify-book-club.mjs",
+    "verify:book-club:images": "node scripts/verify-book-club-images.mjs"
   }
 }
