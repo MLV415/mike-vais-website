@@ -14,7 +14,9 @@
       "pageCountMin": 50,
       "form": "Novella",
       "originalPublicationYear": 1994,
+      "longSynopsis": "Alien archaeologists reconstruct the history of humanity from the remains left at Olduvai Gorge.",
       "vibe": ["Reflective", "Cosmic"],
+      "themes": ["Archaeology", "Human history", "Civilization", "Rise and fall"],
       "awards": [
         { "name": "Nebula Award", "category": "Best Novella", "status": "Winner" },
         { "name": "Hugo Award", "category": "Best Novella", "status": "Winner" }
@@ -34,8 +36,8 @@
       "currentPoll": true,
       "pollOrder": 2,
       "pollPremise": "A gifted student leaves home and faces interstellar conflict.",
-      "pageCountDisplay": "96–112",
-      "pageCountMin": 96,
+      "pageCountDisplay": "104",
+      "pageCountMin": 104,
       "form": "Novella",
       "originalPublicationYear": 2015,
       "longSynopsis": "Binti, a gifted Himba girl from Earth, leaves home to attend the prestigious Oomza University. Her journey is disrupted by an encounter with the Meduse, forcing her to negotiate across cultures and undergo a profound transformation.",
@@ -47,7 +49,7 @@
       ],
       "sources": ["https://nnedi.com/books/the-binti-series/", "https://torpublishinggroup.com/series/binti/"],
       "cover": { "url": "https://covers.openlibrary.org/b/title/Binti-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Binti&author=Nnedi%20Okorafor", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
-      "editionNote": "Keep 96–112 as an edition-aware display range."
+      "editionNote": "Representative value rounded from the 96–112-page edition range."
     },
     {
       "recordId": "B03",
@@ -80,8 +82,8 @@
       "currentPoll": true,
       "pollOrder": 4,
       "pollPremise": "A forged manuscript tangles with time travel and parallel worlds.",
-      "pageCountDisplay": "152–155",
-      "pageCountMin": 152,
+      "pageCountDisplay": "154",
+      "pageCountMin": 154,
       "form": "Novella / short novel",
       "originalPublicationYear": 1990,
       "longSynopsis": "A scholar attempts to create a fake Ernest Hemingway manuscript, but the scheme becomes entangled with time travel and parallel worlds.",
@@ -93,7 +95,7 @@
       ],
       "sources": ["https://nebulas.sfwa.org/nominated-work/hemingway-hoax/", "https://www.thehugoawards.org/hugo-history/1991-hugo-awards/"],
       "cover": { "url": "https://covers.openlibrary.org/b/title/The%20Hemingway%20Hoax-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=The%20Hemingway%20Hoax&author=Joe%20Haldeman", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
-      "editionNote": "Nebula source describes the work as a short novel and notes that the shorter version won both awards; page count varies by edition."
+      "editionNote": "Representative value rounded from the 152–155-page edition range; the Nebula source describes the work as a short novel."
     },
     {
       "recordId": "B05",
@@ -173,8 +175,8 @@
       "title": "A Wizard’s Guide to Defensive Baking",
       "author": "T. Kingfisher",
       "currentPoll": false,
-      "pageCountDisplay": "306–332",
-      "pageCountMin": 306,
+      "pageCountDisplay": "318",
+      "pageCountMin": 318,
       "form": "Middle-grade / young-adult fantasy novel",
       "originalPublicationYear": 2020,
       "longSynopsis": "Fourteen-year-old Mona’s magic works only on bread, and her quiet life in her aunt’s bakery changes when she finds a dead body. With an assassin targeting magic users and the city suddenly without its wizards, Mona is pulled into an unexpected fight to protect it.",
@@ -185,7 +187,7 @@
       ],
       "sources": ["https://nebulas.sfwa.org/nominated-work/a-wizards-guide-to-defensive-baking/", "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/"],
       "cover": { "url": "https://covers.openlibrary.org/b/title/A%20Wizard%27s%20Guide%20to%20Defensive%20Baking-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=A%20Wizard%27s%20Guide%20to%20Defensive%20Baking&author=T.%20Kingfisher", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
-      "editionNote": "Argyll lists 318 pages; current working range 306–332 should remain until an edition baseline is chosen."
+      "editionNote": "Representative value follows the 318-page Argyll edition listing."
     },
     {
       "recordId": "B10",
@@ -210,7 +212,7 @@
       "title": "The Ministry of Time",
       "author": "Kaliane Bradley",
       "currentPoll": false,
-      "pageCountDisplay": "352–368",
+      "pageCountDisplay": "352",
       "pageCountMin": 352,
       "form": "Novel",
       "originalPublicationYear": 2024,
@@ -219,7 +221,7 @@
       "themes": ["Time travel", "Power", "Love", "Identity", "Colonial history", "Displacement"],
       "sources": ["https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152"],
       "cover": { "url": "https://covers.openlibrary.org/b/title/The%20Ministry%20of%20Time-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=The%20Ministry%20of%20Time&author=Kaliane%20Bradley", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
-      "editionNote": "US edition is 352 pages; UK edition is 368 pages. Keep range until an edition baseline is chosen."
+      "editionNote": "Representative value follows the 352-page US edition; the UK edition is 368 pages."
     },
     {
       "recordId": "B12",
@@ -248,7 +250,7 @@
       "title": "Children of Ruin",
       "author": "Adrian Tchaikovsky",
       "currentPoll": false,
-      "pageCountDisplay": "600+",
+      "pageCountDisplay": "600",
       "pageCountMin": 600,
       "form": "Novel",
       "originalPublicationYear": 2019,
@@ -260,7 +262,7 @@
       ],
       "sources": ["https://adriantchaikovsky.com/children-of-time-series.html", "https://www.bsfa.co.uk/Past-Winners"],
       "cover": { "url": "https://covers.openlibrary.org/b/title/Children%20of%20Ruin-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Children%20of%20Ruin&author=Adrian%20Tchaikovsky", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
-      "editionNote": "Author/award sources identify the 2019 work; current 600+ display is intentionally approximate."
+      "editionNote": "Representative value uses the 600-page lower bound from the source-of-truth 600+ notation; exact count varies by edition."
     },
     {
       "recordId": "B14",
@@ -268,7 +270,7 @@
       "title": "The Science Fiction Hall of Fame, Volume One: 1929–1964",
       "author": "Edited by Robert Silverberg",
       "currentPoll": false,
-      "pageCountDisplay": "600+",
+      "pageCountDisplay": "600",
       "pageCountMin": 600,
       "form": "Anthology",
       "originalPublicationYear": 1970,
@@ -277,7 +279,7 @@
       "themes": ["Science-fiction history", "Literary canon", "Genre formation", "Influence", "Short fiction"],
       "sources": ["https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/", "https://www.isfdb.org/cgi-bin/pl.cgi?46549="],
       "cover": { "url": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg", "sourceUrl": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/", "status": "Publisher cover image", "sourceNote": "Direct cover image served from the Macmillan product page for the ISBN-listed edition.", "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review." },
-      "editionNote": "Original anthology was published in 1970; the current 600+ display is edition-dependent."
+      "editionNote": "Representative value uses the 600-page lower bound from the source-of-truth 600+ notation; exact count varies by edition."
     }
   ]
 }
