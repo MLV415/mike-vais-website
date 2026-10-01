@@ -9,164 +9,56 @@
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="book-club-page">
-  <header class="book-club-local-nav">
-    <div class="book-club-shell">
-      <a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a>
-      <nav aria-label="Book club navigation">
-        <a href="/book-club/" aria-current="page">Current Poll</a>
-        <a href="/book-club/backlog/">Complete Backlog</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="book-club-intro">
-      <div class="book-club-shell">
-        <p class="book-club-kicker">SCI-FI BOOK CLUB</p>
-        <h1>Voter’s Guide</h1>
-      </div>
-    </section>
-
-    <section class="current-poll" aria-labelledby="current-poll-heading">
-      <div class="book-club-shell current-poll-inner">
-        <div>
-          <div class="poll-signal-mark" aria-hidden="true"><span></span><span></span><span></span></div>
-          <p class="book-club-label">CURRENT POLL</p>
-          <h2 id="current-poll-heading">Vote for our next book!</h2>
-          <p class="poll-question">Multiple votes allowed. These are &lt;200 pages. Longer books next poll!</p>
-        </div>
-        <div class="poll-action">
-          <strong>6 short books</strong>
-          <a class="book-club-button" href="https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX" target="_blank" rel="noopener noreferrer">Vote in Signal</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="jump-panel book-club-shell" aria-labelledby="jump-heading">
-      <p class="book-club-label" id="jump-heading">JUMP TO</p>
-      <nav class="jump-links" aria-label="Jump to a book">
-        <a href="#seven-views">Seven Views of Olduvai Gorge</a>
-        <a href="#binti">Binti</a>
-        <a href="#beggars-in-spain">Beggars in Spain</a>
-        <a href="#hemingway-hoax">The Hemingway Hoax</a>
-        <a href="#lesser-known-monsters">Lesser Known Monsters</a>
-        <a href="#camp-concentration">Camp Concentration</a>
-      </nav>
-    </section>
-
-    <section class="book-list-section book-club-shell" aria-labelledby="poll-books-heading">
-      <h2 class="visually-hidden" id="poll-books-heading">Current poll books</h2>
-      <div class="book-list-tools">
-        <label for="sort-books">Sort by</label>
-        <select id="sort-books" data-sort-books>
-          <option value="pages-asc">Shortest first</option>
-          <option value="pages-desc">Longest first</option>
-          <option value="title">Title A–Z</option>
-          <option value="author">Author A–Z</option>
-          <option value="awards">Awards first</option>
-        </select>
-        <span class="visually-hidden" data-sort-status role="status">Sorted by Shortest first</span>
-      </div>
-      <div class="book-list" data-book-list>
-        <article class="book-card" id="seven-views">
-          <div class="book-media" data-image-source="No verified cover source available; restrained fallback retained.">
-            <div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unverified</span></div>
-          </div>
-          <div class="book-card-content">
-            <h3>Seven Views of Olduvai Gorge</h3>
-            <p class="book-author">Mike Resnick</p>
-            <dl class="book-fields">
-              <div><dt>Page count</dt><dd>50</dd></div>
-              <div><dt>Synopsis</dt><dd>Aliens reconstruct humanity’s rise and fall.</dd></div>
-              <div><dt>Vibe</dt><dd><span class="vibe-pill">Reflective</span><span class="vibe-pill">Cosmic</span></dd></div>
-              <div class="book-awards" data-award-source="https://www.thehugoawards.org/hugo-history/1994-hugo-awards/"><dt>Awards</dt><dd><span class="book-award">Hugo Award · Best Novella · Winner</span></dd></div>
-              <div><dt>Suggested by</dt><dd>Stefan Graves</dd></div>
-            </dl>
-          </div>
-        </article>
-        <article class="book-card" id="binti">
-          <div class="book-media" data-image-source="https://openlibrary.org/isbn/9780765385259">
-            <img data-book-image src="https://covers.openlibrary.org/isbn/9780765385259-M.jpg" alt="Cover of Binti by Nnedi Okorafor" loading="lazy">
-            <div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div>
-          </div>
-          <div class="book-card-content">
-            <h3>Binti</h3>
-            <p class="book-author">Nnedi Okorafor</p>
-            <dl class="book-fields">
-              <div><dt>Page count</dt><dd>100</dd></div>
-              <div><dt>Synopsis</dt><dd>A gifted student leaves home and faces interstellar conflict.</dd></div>
-              <div><dt>Vibe</dt><dd><span class="vibe-pill">Lyrical</span><span class="vibe-pill">Adventurous</span></dd></div>
-              <div class="book-awards" data-award-source="https://www.thehugoawards.org/hugo-history/2016-hugo-awards/"><dt>Awards</dt><dd><span class="book-award">Hugo Award · Best Novella · Winner</span></dd></div>
-              <div><dt>Suggested by</dt><dd>Stefan Graves</dd></div>
-            </dl>
-          </div>
-        </article>
-        <article class="book-card" id="beggars-in-spain">
-          <div class="book-media" data-image-source="https://openlibrary.org/isbn/9780060733491">
-            <img data-book-image src="https://covers.openlibrary.org/isbn/9780060733491-M.jpg" alt="Cover of Beggars in Spain by Nancy Kress" loading="lazy">
-            <div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div>
-          </div>
-          <div class="book-card-content">
-            <h3>Beggars in Spain</h3>
-            <p class="book-author">Nancy Kress</p>
-            <dl class="book-fields">
-              <div><dt>Page count</dt><dd>100</dd></div>
-              <div><dt>Synopsis</dt><dd>Genetically sleepless children challenge society’s ideas of fairness.</dd></div>
-              <div><dt>Vibe</dt><dd><span class="vibe-pill">Provocative</span><span class="vibe-pill">Idea-driven</span></dd></div>
-              <div class="book-awards" data-award-source="https://www.thehugoawards.org/hugo-history/1992-hugo-awards/"><dt>Awards</dt><dd><span class="book-award">Hugo Award · Best Novella · Winner</span></dd></div>
-              <div><dt>Suggested by</dt><dd>Stefan Graves</dd></div>
-            </dl>
-          </div>
-        </article>
-        <article class="book-card" id="hemingway-hoax">
-          <div class="book-media" data-image-source="No verified cover source available; restrained fallback retained.">
-            <div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unverified</span></div>
-          </div>
-          <div class="book-card-content">
-            <h3>The Hemingway Hoax</h3>
-            <p class="book-author">Joe Haldeman</p>
-            <dl class="book-fields">
-              <div><dt>Page count</dt><dd>152–155</dd></div>
-              <div><dt>Synopsis</dt><dd>A forged manuscript tangles with time travel and parallel worlds.</dd></div>
-              <div><dt>Vibe</dt><dd><span class="vibe-pill">Literary</span><span class="vibe-pill">Strange</span></dd></div>
-              <div class="book-awards" data-award-source="https://nebulas.sfwa.org/award/1990-novella/"><dt>Awards</dt><dd><span class="book-award">Nebula Award · Best Novella · Winner</span></dd></div>
-              <div><dt>Suggested by</dt><dd>Stefan Graves</dd></div>
-            </dl>
-          </div>
-        </article>
-        <article class="book-card" id="lesser-known-monsters">
-          <div class="book-media" data-image-source="https://openlibrary.org/isbn/9781250810462">
-            <img data-book-image src="https://covers.openlibrary.org/isbn/9781250810462-M.jpg" alt="Cover of Lesser Known Monsters of the 21st Century by Kim Fu" loading="lazy">
-            <div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div>
-          </div>
-          <div class="book-card-content">
-            <h3>Lesser Known Monsters of the 21st Century</h3>
-            <p class="book-author">Kim Fu</p>
-            <dl class="book-fields">
-              <div><dt>Page count</dt><dd>184</dd></div>
-              <div><dt>Synopsis</dt><dd>Uncanny stories explore grief, desire, bodies, and transformation.</dd></div>
-              <div><dt>Vibe</dt><dd><span class="vibe-pill">Strange</span><span class="vibe-pill">Intimate</span></dd></div>
-              <div><dt>Suggested by</dt><dd>Stefan Graves</dd></div>
-            </dl>
-          </div>
-        </article>
-        <article class="book-card" id="camp-concentration">
-          <div class="book-media" data-image-source="No verified cover source available; restrained fallback retained.">
-            <div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unverified</span></div>
-          </div>
-          <div class="book-card-content">
-            <h3>Camp Concentration</h3>
-            <p class="book-author">Thomas M. Disch</p>
-            <dl class="book-fields">
-              <div><dt>Page count</dt><dd>192</dd></div>
-              <div><dt>Synopsis</dt><dd>Prisoners become subjects in a brutal intelligence experiment.</dd></div>
-              <div><dt>Vibe</dt><dd><span class="vibe-pill">Bleak</span><span class="vibe-pill">Satirical</span></dd></div>
-            </dl>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
-  <script src="../book-club.js" defer></script>
+<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/">SCI-FI BOOK CLUB</a><nav aria-label="Book club navigation"><a href="/book-club/" aria-current="page">Current Poll</a><a href="/book-club/backlog/">Complete Backlog</a></nav></div></header>
+<main><section class="book-club-intro"><div class="book-club-shell"><p class="book-club-kicker">SCI-FI BOOK CLUB</p><h1>Voter’s Guide</h1></div></section><section class="current-poll" aria-labelledby="current-poll-heading"><div class="book-club-shell current-poll-inner"><div><div class="poll-signal-mark" aria-hidden="true"><span></span><span></span><span></span></div><p class="book-club-label">CURRENT POLL</p><h2 id="current-poll-heading">Vote for our next book!</h2><p class="poll-question">Multiple votes allowed. These are &lt;200 pages. Longer books next poll!</p></div><div class="poll-action"><strong>6 short books</strong><a class="book-club-button" href="https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX" target="_blank" rel="noopener noreferrer">Vote in Signal</a></div></div></section><section class="jump-panel book-club-shell" aria-labelledby="jump-heading"><p class="book-club-label" id="jump-heading">JUMP TO</p><nav class="jump-links" aria-label="Jump to a book"><a href="#seven-views-of-olduvai-gorge"><span class="jump-icon" aria-hidden="true">⌁</span><span>Seven Views of Olduvai Gorge</span></a><a href="#binti"><span class="jump-icon" aria-hidden="true">⌁</span><span>Binti</span></a><a href="#beggars-in-spain"><span class="jump-icon" aria-hidden="true">⌁</span><span>Beggars in Spain</span></a><a href="#the-hemingway-hoax"><span class="jump-icon" aria-hidden="true">⌁</span><span>The Hemingway Hoax</span></a><a href="#lesser-known-monsters-of-the-21st-century"><span class="jump-icon" aria-hidden="true">⌁</span><span>Lesser Known Monsters of the 21st Century</span></a><a href="#camp-concentration"><span class="jump-icon" aria-hidden="true">⌁</span><span>Camp Concentration</span></a></nav></section><section class="book-list-section book-club-shell" aria-labelledby="poll-books-heading"><h2 class="visually-hidden" id="poll-books-heading">Current poll books</h2><div class="book-list-tools"><label for="sort-books">Sort by</label><select id="sort-books" data-sort-books><option value="pages">Page count</option><option value="title">Title A–Z</option><option value="author">Author A–Z</option><option value="year">Published year</option><option value="awards">Awards first</option></select><span class="visually-hidden" data-sort-status role="status">Sorted by Page count</span></div><div class="book-list" data-book-list><article class="book-card" id="seven-views-of-olduvai-gorge" data-book-id="B01" data-page-count-min="50" data-published-year="1994" data-award-bearing="1">
+  <div class="book-media is-fallback" data-image-source="No direct official cover asset captured yet; locate an authorized publisher or author asset before publishing."><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>
+  <div class="book-card-content">
+    <h3>Seven Views of Olduvai Gorge</h3>
+    <p class="book-author">Mike Resnick</p>
+    <dl class="book-fields"><div><dt>Page count</dt><dd>50</dd></div><div><dt>Poll premise</dt><dd>Aliens reconstruct humanity’s rise and fall.</dd></div><div><dt>Vibe</dt><dd><span class="vibe-pill">Reflective</span><span class="vibe-pill">Cosmic</span></dd></div><div class="book-awards"><dt>Awards</dt><dd><span class="book-award">Nebula Award · Best Novella · Winner</span><span class="book-award">Hugo Award · Best Novella · Winner</span></dd></div></dl>
+  </div>
+</article>
+<article class="book-card" id="binti" data-book-id="B02" data-page-count-min="96" data-published-year="2015" data-award-bearing="1">
+  <div class="book-media is-fallback" data-image-source="Official Tor series page identified; direct image URL and usage basis still need capture."><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>
+  <div class="book-card-content">
+    <h3>Binti</h3>
+    <p class="book-author">Nnedi Okorafor</p>
+    <dl class="book-fields"><div><dt>Page count</dt><dd>96–112</dd></div><div><dt>Poll premise</dt><dd>A gifted student leaves home and faces interstellar conflict.</dd></div><div><dt>Vibe</dt><dd><span class="vibe-pill">Lyrical</span><span class="vibe-pill">Adventurous</span></dd></div><div class="book-awards"><dt>Awards</dt><dd><span class="book-award">Hugo Award · Best Novella · Winner</span><span class="book-award">Nebula Award · Best Novella · Winner</span></dd></div></dl>
+  </div>
+</article>
+<article class="book-card" id="beggars-in-spain" data-book-id="B03" data-page-count-min="100" data-published-year="1991" data-award-bearing="1">
+  <div class="book-media is-fallback" data-image-source="Author page includes cover art; direct image URL and usage basis still need capture."><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>
+  <div class="book-card-content">
+    <h3>Beggars in Spain</h3>
+    <p class="book-author">Nancy Kress</p>
+    <dl class="book-fields"><div><dt>Page count</dt><dd>100</dd></div><div><dt>Poll premise</dt><dd>Genetically sleepless children challenge society’s ideas of fairness.</dd></div><div><dt>Vibe</dt><dd><span class="vibe-pill">Provocative</span><span class="vibe-pill">Idea-driven</span></dd></div><div class="book-awards"><dt>Awards</dt><dd><span class="book-award">Nebula Award · Best Novella · Winner</span><span class="book-award">Hugo Award · Best Novella · Winner</span></dd></div></dl>
+  </div>
+</article>
+<article class="book-card" id="the-hemingway-hoax" data-book-id="B04" data-page-count-min="152" data-published-year="1990" data-award-bearing="1">
+  <div class="book-media is-fallback" data-image-source="No direct official cover asset captured yet; locate an authorized publisher or author asset before publishing."><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>
+  <div class="book-card-content">
+    <h3>The Hemingway Hoax</h3>
+    <p class="book-author">Joe Haldeman</p>
+    <dl class="book-fields"><div><dt>Page count</dt><dd>152–155</dd></div><div><dt>Poll premise</dt><dd>A forged manuscript tangles with time travel and parallel worlds.</dd></div><div><dt>Vibe</dt><dd><span class="vibe-pill">Literary</span><span class="vibe-pill">Strange</span></dd></div><div class="book-awards"><dt>Awards</dt><dd><span class="book-award">Nebula Award · Best Novella · Winner</span><span class="book-award">Hugo Award · Best Novella · Winner · Shorter version</span></dd></div></dl>
+  </div>
+</article>
+<article class="book-card" id="lesser-known-monsters-of-the-21st-century" data-book-id="B05" data-page-count-min="184" data-published-year="2022" data-award-bearing="0">
+  <div class="book-media is-fallback" data-image-source="Author and publisher pages identified; direct image URL and usage basis still need capture."><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>
+  <div class="book-card-content">
+    <h3>Lesser Known Monsters of the 21st Century</h3>
+    <p class="book-author">Kim Fu</p>
+    <dl class="book-fields"><div><dt>Page count</dt><dd>184</dd></div><div><dt>Poll premise</dt><dd>Uncanny stories explore grief, desire, bodies, and transformation.</dd></div><div><dt>Vibe</dt><dd><span class="vibe-pill">Strange</span><span class="vibe-pill">Intimate</span></dd></div></dl>
+  </div>
+</article>
+<article class="book-card" id="camp-concentration" data-book-id="B06" data-page-count-min="192" data-published-year="1968" data-award-bearing="0">
+  <div class="book-media is-fallback" data-image-source="Penguin Random House product page identified; direct image URL and usage basis still need capture."><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>
+  <div class="book-card-content">
+    <h3>Camp Concentration</h3>
+    <p class="book-author">Thomas M. Disch</p>
+    <dl class="book-fields"><div><dt>Page count</dt><dd>192</dd></div><div><dt>Poll premise</dt><dd>Prisoners become subjects in a brutal intelligence experiment.</dd></div><div><dt>Vibe</dt><dd><span class="vibe-pill">Bleak</span><span class="vibe-pill">Satirical</span></dd></div></dl>
+  </div>
+</article></div></section></main>
+<script src="../book-club.js" defer></script>
 </body>
 </html>
+<!-- Generated from data/book-club.json. Do not edit this file manually. -->

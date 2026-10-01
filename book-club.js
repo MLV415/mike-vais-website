@@ -1,43 +1,60 @@
-const bookLists = document.querySelectorAll("[data-book-list]");
-
-document.querySelectorAll("[data-book-image]").forEach((image) => {
-  image.addEventListener("load", () => {
-    image.closest(".book-media")?.classList.add("is-loaded");
-  });
-  image.addEventListener("error", () => {
-    image.hidden = true;
-    image.closest(".book-media")?.classList.add("is-fallback");
-  });
-});
-
-function pageCount(card) {
-  const pageField = [...card.querySelectorAll(".book-fields > div")].find((field) => field.querySelector("dt")?.textContent.trim() === "Page count");
-  return Number.parseInt(pageField?.querySelector("dd")?.textContent || "0", 10);
+function pageCount(item) {
+  return Number.parseInt(item.dataset.pageCountMin || "0", 10);
 }
 
-bookLists.forEach((list) => {
-  const cards = [...list.querySelectorAll(".book-card")];
-  const originalOrder = new Map(cards.map((card, index) => [card, index]));
+function titleOf(item) {
+  return item.querySelector("h3")?.textContent.trim() || item.cells?.[1]?.textContent.trim() || "";
+}
+
+function authorOf(item) {
+  return item.querySelector(".book-author")?.textContent.trim() || item.cells?.[2]?.textContent.trim() || "";
+}
+
+function sortItems(items, sortBy) {
+  return [...items].sort((a, b) => {
+    if (sortBy === "title") return titleOf(a).localeCompare(titleOf(b)) || authorOf(a).localeCompare(authorOf(b));
+    if (sortBy === "author") return authorOf(a).localeCompare(authorOf(b)) || titleOf(a).localeCompare(titleOf(b));
+    if (sortBy === "year") return Number(a.dataset.publishedYear) - Number(b.dataset.publishedYear) || titleOf(a).localeCompare(titleOf(b));
+    if (sortBy === "awards") return Number(b.dataset.awardBearing) - Number(a.dataset.awardBearing) || titleOf(a).localeCompare(titleOf(b));
+    return pageCount(a) - pageCount(b) || titleOf(a).localeCompare(titleOf(b));
+  });
+}
+
+function attachImageFallbacks() {
+  document.querySelectorAll("[data-book-image]").forEach((image) => {
+    image.addEventListener("load", () => image.closest(".book-media")?.classList.add("is-loaded"));
+    image.addEventListener("error", () => {
+      image.hidden = true;
+      image.closest(".book-media")?.classList.add("is-fallback");
+    });
+  });
+}
+
+function attachListSorting(list) {
   const select = document.querySelector("[data-sort-books]");
   const status = document.querySelector("[data-sort-status]");
-
-  function sortCards(sortBy) {
-    const sorted = [...cards].sort((a, b) => {
-      if (sortBy === "title") return a.querySelector("h3").textContent.localeCompare(b.querySelector("h3").textContent);
-      if (sortBy === "author") return a.querySelector(".book-author").textContent.localeCompare(b.querySelector(".book-author").textContent);
-      if (sortBy === "awards") {
-        const awardDifference = Number(Boolean(b.querySelector(".book-award"))) - Number(Boolean(a.querySelector(".book-award")));
-        if (awardDifference) return awardDifference;
-      }
-      const pageDifference = pageCount(a) - pageCount(b);
-      if (pageDifference) return sortBy === "pages-desc" ? -pageDifference : pageDifference;
-      return originalOrder.get(a) - originalOrder.get(b);
-    });
-
-    sorted.forEach((card) => list.append(card));
+  const items = [...list.querySelectorAll(".book-card")];
+  const apply = (sortBy) => {
+    sortItems(items, sortBy).forEach((item) => list.append(item));
     if (status) status.textContent = `Sorted by ${select.options[select.selectedIndex].text}`;
-  }
+  };
+  select?.addEventListener("change", () => apply(select.value));
+  apply(select?.value || "pages");
+}
 
-  select?.addEventListener("change", () => sortCards(select.value));
-  sortCards("pages-asc");
-});
+function attachTableSorting(table) {
+  const select = document.querySelector("[data-sort-books]");
+  const status = document.querySelector("[data-sort-status]");
+  const body = table.tBodies[0];
+  const rows = [...body.rows];
+  const apply = (sortBy) => {
+    sortItems(rows, sortBy).forEach((row) => body.append(row));
+    if (status) status.textContent = `Sorted by ${select.options[select.selectedIndex].text}`;
+  };
+  select?.addEventListener("change", () => apply(select.value));
+  apply(select?.value || "pages");
+}
+
+attachImageFallbacks();
+document.querySelectorAll("[data-book-list]").forEach(attachListSorting);
+document.querySelectorAll("[data-book-table]").forEach(attachTableSorting);

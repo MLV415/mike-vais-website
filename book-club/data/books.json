@@ -1,0 +1,534 @@
+{
+  "dataVersion": "2026-10-01",
+  "books": [
+    {
+      "recordId": "B01",
+      "slug": "seven-views-of-olduvai-gorge",
+      "title": "Seven Views of Olduvai Gorge",
+      "author": "Mike Resnick",
+      "currentPoll": true,
+      "pollOrder": 1,
+      "pollPremise": "Aliens reconstruct humanity’s rise and fall.",
+      "pageCountDisplay": "50",
+      "form": "Novella",
+      "originalPublicationYear": 1994,
+      "vibe": [
+        "Reflective",
+        "Cosmic"
+      ],
+      "awards": [
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://nebulas.sfwa.org/nominated-work/seven-views-olduvai-gorge/",
+        "https://www.thehugoawards.org/hugo-history/1995-hugo-awards/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official image pending",
+        "sourceNote": "No direct official cover asset captured yet; locate an authorized publisher or author asset before publishing."
+      },
+      "editionNote": "Short work; page count varies by edition."
+    },
+    {
+      "recordId": "B02",
+      "slug": "binti",
+      "title": "Binti",
+      "author": "Nnedi Okorafor",
+      "currentPoll": true,
+      "pollOrder": 2,
+      "pollPremise": "A gifted student leaves home and faces interstellar conflict.",
+      "pageCountDisplay": "96–112",
+      "form": "Novella",
+      "originalPublicationYear": 2015,
+      "longSynopsis": "Binti, a gifted Himba girl from Earth, leaves home to attend the prestigious Oomza University. Her journey is disrupted by an encounter with the Meduse, forcing her to negotiate across cultures and undergo a profound transformation.",
+      "vibe": [
+        "Lyrical",
+        "Adventurous"
+      ],
+      "themes": [
+        "Identity",
+        "Belonging",
+        "Cultural tradition",
+        "Transformation",
+        "Education"
+      ],
+      "awards": [
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://nnedi.com/books/the-binti-series/",
+        "https://torpublishinggroup.com/series/binti/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Official Tor series page identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "Keep 96–112 as an edition-aware display range."
+    },
+    {
+      "recordId": "B03",
+      "slug": "beggars-in-spain",
+      "title": "Beggars in Spain",
+      "author": "Nancy Kress",
+      "currentPoll": true,
+      "pollOrder": 3,
+      "pollPremise": "Genetically sleepless children challenge society’s ideas of fairness.",
+      "pageCountDisplay": "100",
+      "form": "Novella",
+      "originalPublicationYear": 1991,
+      "longSynopsis": "Leisha Camden is genetically engineered not to need sleep. As more Sleepless children emerge, their extra time, longer lives, and evolutionary advantage destabilize the social order, forcing Leisha and her niece Miranda to confront the political and ethical consequences.",
+      "vibe": [
+        "Provocative",
+        "Idea-driven"
+      ],
+      "themes": [
+        "Genetic engineering",
+        "Inequality",
+        "Social order",
+        "Ethics",
+        "Family"
+      ],
+      "awards": [
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://nancykress.com/beggars-in-spain/",
+        "https://nancykress.com/awards/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Author page includes cover art; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "Current 100-page value represents the novella; the later expanded novel is much longer."
+    },
+    {
+      "recordId": "B04",
+      "slug": "the-hemingway-hoax",
+      "title": "The Hemingway Hoax",
+      "author": "Joe Haldeman",
+      "currentPoll": true,
+      "pollOrder": 4,
+      "pollPremise": "A forged manuscript tangles with time travel and parallel worlds.",
+      "pageCountDisplay": "152–155",
+      "form": "Novella / short novel",
+      "originalPublicationYear": 1990,
+      "longSynopsis": "A scholar attempts to create a fake Ernest Hemingway manuscript, but the scheme becomes entangled with time travel and parallel worlds.",
+      "vibe": [
+        "Literary",
+        "Strange"
+      ],
+      "themes": [
+        "Authenticity",
+        "Authorship",
+        "Identity",
+        "Time travel",
+        "Parallel worlds"
+      ],
+      "awards": [
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner",
+          "distinction": "Shorter version"
+        }
+      ],
+      "sources": [
+        "https://nebulas.sfwa.org/nominated-work/hemingway-hoax/",
+        "https://www.thehugoawards.org/hugo-history/1991-hugo-awards/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official image pending",
+        "sourceNote": "No direct official cover asset captured yet; locate an authorized publisher or author asset before publishing."
+      },
+      "editionNote": "Nebula source describes the work as a short novel and notes that the shorter version won both awards; page count varies by edition."
+    },
+    {
+      "recordId": "B05",
+      "slug": "lesser-known-monsters-of-the-21st-century",
+      "title": "Lesser Known Monsters of the 21st Century",
+      "author": "Kim Fu",
+      "currentPoll": true,
+      "pollOrder": 5,
+      "pollPremise": "Uncanny stories explore grief, desire, bodies, and transformation.",
+      "pageCountDisplay": "184",
+      "form": "Short story collection",
+      "originalPublicationYear": 2022,
+      "longSynopsis": "A collection of speculative stories in which ordinary life collides with the uncanny: children encounter haunted objects, technology alters grief and relationships, and familiar emotions take monstrous or fantastical forms.",
+      "vibe": [
+        "Strange",
+        "Intimate"
+      ],
+      "themes": [
+        "Death",
+        "Technological consequence",
+        "Guilt",
+        "Sexuality",
+        "Mental illness",
+        "Alienation"
+      ],
+      "sources": [
+        "https://kim-fu.com/lesser-known-monsters-of-the-21st-century",
+        "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Author and publisher pages identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "Current 184-page value is edition-dependent; publisher records may differ."
+    },
+    {
+      "recordId": "B06",
+      "slug": "camp-concentration",
+      "title": "Camp Concentration",
+      "author": "Thomas M. Disch",
+      "currentPoll": true,
+      "pollOrder": 6,
+      "pollPremise": "Prisoners become subjects in a brutal intelligence experiment.",
+      "pageCountDisplay": "192",
+      "form": "Novel",
+      "originalPublicationYear": 1968,
+      "longSynopsis": "Louis Sacchetti, a poet imprisoned for draft resistance, is sent to Camp Archimedes, where he witnesses an army experiment that rapidly increases prisoners’ intelligence with a lethal drug.",
+      "vibe": [
+        "Bleak",
+        "Satirical"
+      ],
+      "themes": [
+        "War",
+        "Scientific experimentation",
+        "Intelligence",
+        "Mortality",
+        "Institutional power"
+      ],
+      "sources": [
+        "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Penguin Random House product page identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "PRH’s Vintage edition lists 192 pages; original publication was 1968."
+    },
+    {
+      "recordId": "B07",
+      "slug": "infernal-desire-machines-of-dr-hoffman",
+      "title": "Infernal Desire Machines of Dr. Hoffman",
+      "author": "Angela Carter",
+      "currentPoll": false,
+      "pageCountDisplay": "224",
+      "form": "Novel",
+      "originalPublicationYear": 1972,
+      "longSynopsis": "Desiderio works in a city transformed by Doctor Hoffman’s reality-distorting machines. As time, space, and reason begin to break down, Desiderio is drawn into a dangerous journey shaped by desire, illusion, love, and identity.",
+      "vibe": [
+        "Surreal",
+        "Baroque"
+      ],
+      "themes": [
+        "Desire",
+        "Reality versus illusion",
+        "Reason",
+        "Love",
+        "Identity",
+        "Media"
+      ],
+      "sources": [
+        "https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/",
+        "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Penguin product pages identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "Original publication year is 1972; current page count is edition-dependent."
+    },
+    {
+      "recordId": "B08",
+      "slug": "the-black-cloud",
+      "title": "The Black Cloud",
+      "author": "Fred Hoyle",
+      "currentPoll": false,
+      "pageCountDisplay": "250",
+      "form": "Novel",
+      "originalPublicationYear": 1957,
+      "longSynopsis": "A giant black cloud moves toward Earth and blocks the Sun, causing widespread panic and death. A small group of scientists and astronomers races to understand and communicate with the cloud while also contending with trigger-happy politicians.",
+      "vibe": [
+        "Cerebral",
+        "Technical"
+      ],
+      "themes": [
+        "Scientific inquiry",
+        "Communication",
+        "Extraterrestrial intelligence",
+        "Political power",
+        "Survival"
+      ],
+      "sources": [
+        "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Penguin product page identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "Original publication is generally catalogued as 1957; the cited Penguin edition is 224 pages and published 2010."
+    },
+    {
+      "recordId": "B09",
+      "slug": "a-wizards-guide-to-defensive-baking",
+      "title": "A Wizard’s Guide to Defensive Baking",
+      "author": "T. Kingfisher",
+      "currentPoll": false,
+      "pageCountDisplay": "306–332",
+      "form": "Middle-grade / young-adult fantasy novel",
+      "originalPublicationYear": 2020,
+      "longSynopsis": "Fourteen-year-old Mona’s magic works only on bread, and her quiet life in her aunt’s bakery changes when she finds a dead body. With an assassin targeting magic users and the city suddenly without its wizards, Mona is pulled into an unexpected fight to protect it.",
+      "vibe": [
+        "Whimsical",
+        "Humorous"
+      ],
+      "themes": [
+        "Responsibility",
+        "Authority",
+        "Community",
+        "Reluctant heroism",
+        "Creativity"
+      ],
+      "awards": [
+        {
+          "name": "Andre Norton Nebula Award",
+          "category": "Middle Grade and Young Adult Fiction",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://nebulas.sfwa.org/nominated-work/a-wizards-guide-to-defensive-baking/",
+        "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Publisher product page identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "Argyll lists 318 pages; current working range 306–332 should remain until an edition baseline is chosen."
+    },
+    {
+      "recordId": "B10",
+      "slug": "there-is-no-antimemetics-division",
+      "title": "There Is No Antimemetics Division",
+      "author": "Sam Hughes",
+      "currentPoll": false,
+      "pageCountDisplay": "350",
+      "form": "Novel",
+      "originalPublicationYear": 2025,
+      "longSynopsis": "A secret organization fights antimemes: threats that resist being remembered or recorded. The novel treats information itself as dangerous and makes documentation part of the struggle against an enemy that cannot be reliably held in memory.",
+      "vibe": [
+        "Unsettling",
+        "Mind-bending"
+      ],
+      "themes": [
+        "Memory",
+        "Information",
+        "Knowledge",
+        "Documentation",
+        "Existential threat"
+      ],
+      "sources": [
+        "https://qntm.org/antifaq",
+        "https://qntm.org/publ"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Author site identified; direct official cover asset and usage basis still need capture."
+      },
+      "editionNote": "Current working value is 350 pages; the 2025 Ballantine edition is listed at 288 pages. Choose a public edition baseline."
+    },
+    {
+      "recordId": "B11",
+      "slug": "the-ministry-of-time",
+      "title": "The Ministry of Time",
+      "author": "Kaliane Bradley",
+      "currentPoll": false,
+      "pageCountDisplay": "352–368",
+      "form": "Novel",
+      "originalPublicationYear": 2024,
+      "longSynopsis": "A civil servant becomes the bridge for a time-travel experiment involving a historical figure brought into the present. The project becomes a time-travel romance, spy thriller, and workplace comedy that examines power and the possibility of love changing it.",
+      "vibe": [
+        "Witty",
+        "Romantic",
+        "Time-bending"
+      ],
+      "themes": [
+        "Time travel",
+        "Power",
+        "Love",
+        "Identity",
+        "Colonial history",
+        "Displacement"
+      ],
+      "sources": [
+        "https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Simon & Schuster product page identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "US edition is 352 pages; UK edition is 368 pages. Keep range until an edition baseline is chosen."
+    },
+    {
+      "recordId": "B12",
+      "slug": "the-windup-girl",
+      "title": "The Windup Girl",
+      "author": "Paolo Bacigalupi",
+      "currentPoll": false,
+      "pageCountDisplay": "376",
+      "form": "Novel",
+      "originalPublicationYear": 2009,
+      "longSynopsis": "In a future Thailand shaped by climate change, depleted energy resources, and biotechnology, factory manager Anderson Lake searches for lost food sources while Emiko, an engineered human abandoned by her former owner, survives on the streets of Bangkok.",
+      "vibe": [
+        "Tense",
+        "Morally complex"
+      ],
+      "themes": [
+        "Climate change",
+        "Biotechnology",
+        "Labor and power",
+        "Corporate control",
+        "Posthuman identity"
+      ],
+      "awards": [
+        {
+          "name": "Hugo Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        },
+        {
+          "name": "Nebula Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://windupstories.com/books/windup-girl/",
+        "https://nebulas.sfwa.org/nominated-work/windup-girl/",
+        "https://nebulas.sfwa.org/nominees/paolo-bacigalupi/"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Author and award pages identified; direct official cover asset and usage basis still need capture."
+      },
+      "editionNote": "Original publication year is 2009; page count varies by edition."
+    },
+    {
+      "recordId": "B13",
+      "slug": "children-of-ruin",
+      "title": "Children of Ruin",
+      "author": "Adrian Tchaikovsky",
+      "currentPoll": false,
+      "pageCountDisplay": "600+",
+      "form": "Novel",
+      "originalPublicationYear": 2019,
+      "longSynopsis": "Thousands of years after humanity’s terraforming program spread to the stars, an exploration vessel and its human-and-spider crew follow fragmentary signals toward a world where ancient terraforming decisions awakened something dangerous.",
+      "vibe": [
+        "Expansive",
+        "Unsettling"
+      ],
+      "themes": [
+        "Terraforming",
+        "Evolution",
+        "Alien intelligence",
+        "Communication",
+        "Human/nonhuman relations"
+      ],
+      "awards": [
+        {
+          "name": "British Science Fiction Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://adriantchaikovsky.com/children-of-time-series.html",
+        "https://www.bsfa.co.uk/Past-Winners"
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Author series page identified; direct official cover asset and usage basis still need capture."
+      },
+      "editionNote": "Author/award sources identify the 2019 work; current 600+ display is intentionally approximate."
+    },
+    {
+      "recordId": "B14",
+      "slug": "science-fiction-hall-of-fame-volume-one",
+      "title": "The Science Fiction Hall of Fame, Volume One: 1929–1964",
+      "author": "Edited by Robert Silverberg",
+      "currentPoll": false,
+      "pageCountDisplay": "600+",
+      "form": "Anthology",
+      "originalPublicationYear": 1970,
+      "longSynopsis": "An anthology edited by Robert Silverberg that gathers influential English-language science-fiction stories published before the Nebula Awards existed, presenting a foundational snapshot of the genre’s early canon.",
+      "vibe": [
+        "Classic",
+        "Wide-ranging"
+      ],
+      "themes": [
+        "Science-fiction history",
+        "Literary canon",
+        "Genre formation",
+        "Influence",
+        "Short fiction"
+      ],
+      "sources": [
+        "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
+        "https://www.isfdb.org/cgi-bin/pl.cgi?46549="
+      ],
+      "cover": {
+        "url": null,
+        "status": "Official source page identified; direct asset pending",
+        "sourceNote": "Macmillan product page identified; direct image URL and usage basis still need capture."
+      },
+      "editionNote": "Original anthology was published in 1970; the current 600+ display is edition-dependent."
+    }
+  ]
+}

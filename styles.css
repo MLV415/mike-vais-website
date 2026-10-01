@@ -637,13 +637,12 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .poll-signal-mark span:nth-child(3) { height: 27px; }
 .book-club-button { border-radius: 999px; box-shadow: 0 7px 18px rgba(103, 230, 244, 0.18); }
 .jump-panel { border-radius: 16px; background: linear-gradient(135deg, rgba(13, 34, 53, 0.92), rgba(10, 22, 37, 0.92)); box-shadow: inset 0 1px rgba(255, 255, 255, 0.05); }
-.jump-links a { border-radius: 999px; background: rgba(18, 47, 69, 0.7); }
+.jump-links a { justify-content: center; border-radius: 999px; background: rgba(18, 47, 69, 0.7); text-align: center; }
 .book-list-section { padding-top: 28px; }
 .book-list-tools { margin-bottom: 14px; }
 .book-list-tools select { border-radius: 999px; }
 .book-list { gap: 16px; }
 .book-card { grid-template-columns: 126px minmax(0, 1fr); gap: 18px; align-items: start; min-height: 100%; padding: 16px; border: 1px solid rgba(103, 230, 244, 0.24); border-radius: 16px; background: linear-gradient(145deg, rgba(20, 48, 72, 0.98), rgba(9, 23, 39, 0.98)); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.06); scroll-margin-top: 24px; }
-.book-card:hover { border-color: rgba(103, 230, 244, 0.64); box-shadow: 0 16px 30px rgba(0, 0, 0, 0.26), 0 0 0 1px rgba(103, 230, 244, 0.08); }
 .book-media { position: relative; display: flex; align-items: center; justify-content: center; min-width: 0; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid rgba(103, 230, 244, 0.25); border-radius: 10px; background: linear-gradient(145deg, #142f46, #091925); }
 .book-media::after { position: absolute; inset: 7px; border: 1px solid rgba(103, 230, 244, 0.16); border-radius: 6px; content: ""; pointer-events: none; }
 .book-media img { position: absolute; inset: 0; z-index: 1; display: block; width: 100%; height: 100%; object-fit: cover; }
@@ -672,3 +671,13 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
   .book-card { grid-template-columns: 1fr; }
   .book-media { width: min(100%, 150px); }
 }
+
+.admin-table-section { padding: 28px 0 80px; }
+.admin-version { margin: 10px 0 0; color: var(--book-muted); font-size: 0.9rem; }
+.admin-table-wrap { overflow-x: auto; border: 1px solid var(--book-line); border-radius: 14px; background: rgba(13, 27, 43, 0.84); }
+.book-data-table { width: 100%; min-width: 1500px; border-collapse: collapse; color: var(--book-ink); font-size: 0.86rem; }
+.book-data-table caption { padding: 14px 16px; color: var(--book-muted); text-align: left; }
+.book-data-table th, .book-data-table td { padding: 12px 14px; border-top: 1px solid var(--book-line); vertical-align: top; text-align: left; line-height: 1.4; }
+.book-data-table thead th { position: sticky; top: 0; color: var(--book-cyan); background: var(--book-surface); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.book-data-table tbody th { color: var(--book-violet); font-weight: 800; }
+.book-data-table a { color: var(--book-cyan); white-space: nowrap; }
