@@ -443,3 +443,105 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
   html { scroll-behavior: auto; }
   .gallery figcaption, .submenu, .submenu-toggle span, .professional-card-media, .hobby-index-item img { transition: none; }
 }
+
+/* Sci-fi book club */
+.book-club-page {
+  --book-bg: #07111d;
+  --book-surface: #0d1b2b;
+  --book-surface-bright: #12263a;
+  --book-ink: #f1f7fb;
+  --book-muted: #a9bac8;
+  --book-line: #294154;
+  --book-cyan: #67e6f4;
+  --book-violet: #c9a5ff;
+  color: var(--book-ink);
+  background: var(--book-bg);
+}
+.book-club-page a:hover { color: var(--book-cyan); }
+.book-club-page a:focus-visible { outline-color: var(--book-cyan); }
+.book-club-header { border-bottom-color: var(--book-line); background: rgba(7, 17, 29, 0.96); }
+.book-club-header .brand, .book-club-header .site-nav a { color: var(--book-ink); }
+.book-club-header .site-nav a { color: var(--book-muted); }
+.book-club-header .site-nav a[aria-current="page"], .book-club-header .nav-group.is-active > .nav-parent { color: var(--book-ink); }
+.book-club-header .nav-parent[aria-current="page"], .book-club-header .nav-group.is-active > .nav-parent { box-shadow: inset 0 -2px var(--book-cyan); }
+.book-club-header .submenu-toggle { color: var(--book-muted); }
+.book-club-header .submenu { border-color: var(--book-line); background: var(--book-surface); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28); }
+.book-club-header .submenu a { color: var(--book-muted); }
+.book-club-header .submenu a[aria-current="page"] { color: var(--book-ink); background: var(--book-surface-bright); }
+.book-club-page .shell { width: min(var(--max), calc(100% - 48px)); }
+.book-club-hero { padding: clamp(56px, 8vw, 106px) 0 42px; background: radial-gradient(circle at 87% 4%, rgba(103, 230, 244, 0.13), transparent 28rem), linear-gradient(180deg, #0a1726 0%, var(--book-bg) 100%); }
+.book-club-kicker, .book-club-label, .book-number { margin: 0; color: var(--book-cyan); font-size: 0.76rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+.book-club-kicker { margin-bottom: 18px; }
+.book-club-page h1, .book-club-page h2, .book-club-page h3 { color: var(--book-ink); }
+.book-club-page h1 { max-width: 980px; font-family: Georgia, serif; font-size: clamp(3.4rem, 10vw, 7.2rem); font-weight: 500; letter-spacing: -0.055em; }
+.book-club-lede { max-width: 690px; margin: 22px 0 0; color: var(--book-muted); font-family: Georgia, serif; font-size: clamp(1.3rem, 3vw, 2.15rem); line-height: 1.28; }
+.current-poll { display: grid; grid-template-columns: minmax(0, 1fr) minmax(190px, 0.42fr); gap: 30px; align-items: end; margin-top: clamp(42px, 6vw, 76px); padding: clamp(24px, 4vw, 42px); border: 1px solid var(--book-cyan); background: linear-gradient(135deg, rgba(18, 38, 58, 0.94), rgba(13, 27, 43, 0.82)); box-shadow: 0 0 0 5px rgba(103, 230, 244, 0.05); }
+.current-poll h2 { margin-top: 12px; font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3.6rem); font-weight: 500; letter-spacing: -0.04em; }
+.poll-question { max-width: 630px; margin: 16px 0 0; color: var(--book-muted); font-size: 1.04rem; }
+.poll-action { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.poll-action strong { color: var(--book-ink); font-family: Georgia, serif; font-size: 1.5rem; font-weight: 500; }
+.book-club-button { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 3px; min-height: 52px; padding: 11px 16px; border: 1px solid var(--book-cyan); color: #04111b; background: var(--book-cyan); font-size: 0.96rem; font-weight: 800; line-height: 1.25; text-decoration: none; }
+.book-club-button span { color: #174253; font-size: 0.72rem; font-weight: 650; }
+.book-club-button:hover { color: #04111b !important; border-color: #b0f7ff; background: #b0f7ff; }
+.jump-nav { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-top: 42px; padding-top: 22px; border-top: 1px solid var(--book-line); }
+.jump-links { display: flex; flex-wrap: wrap; gap: 9px 20px; margin-top: 12px; }
+.jump-links a, .backlog-link, .book-club-next-link a, .back-link a { color: var(--book-cyan); font-size: 0.9rem; font-weight: 750; text-underline-offset: 0.25em; }
+.backlog-link { flex: 0 0 auto; padding: 10px 14px; border: 1px solid var(--book-line); text-decoration: none; }
+.backlog-link:hover { border-color: var(--book-cyan); }
+.book-list-section { padding: 62px 0 clamp(78px, 10vw, 138px); border-top: 1px solid var(--book-line); }
+.book-list-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 28px; }
+.book-list-heading h2 { max-width: 680px; font-family: Georgia, serif; font-size: clamp(2.1rem, 4.4vw, 4.3rem); font-weight: 500; letter-spacing: -0.045em; }
+.book-list { margin-top: 36px; }
+.book-card { position: relative; display: grid; grid-template-columns: minmax(230px, 0.75fr) minmax(0, 1.25fr); gap: clamp(28px, 6vw, 90px); padding: 30px 0 34px; border-top: 1px solid var(--book-line); scroll-margin-top: 104px; }
+.book-card:last-child { border-bottom: 1px solid var(--book-line); }
+.book-number { color: var(--book-violet); }
+.book-card-heading h3 { max-width: 570px; margin-top: 12px; font-family: Georgia, serif; font-size: clamp(1.55rem, 3vw, 2.8rem); font-weight: 500; letter-spacing: -0.035em; }
+.book-author { margin: 9px 0 0; color: var(--book-muted); font-size: 1.04rem; }
+.book-card-body { display: grid; grid-template-columns: minmax(120px, 0.42fr) minmax(0, 1fr); gap: 26px; align-items: start; }
+.book-facts { margin: 0; border-top: 1px solid var(--book-line); }
+.book-facts > div { display: grid; grid-template-columns: 1fr; gap: 3px; padding: 9px 0; border-bottom: 1px solid var(--book-line); }
+.book-facts dt { color: var(--book-cyan); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.book-facts dd { margin: 0; color: var(--book-ink); font-weight: 700; }
+.book-copy p { margin: 0; color: var(--book-muted); }
+.book-copy p + p { margin-top: 18px; }
+.book-copy strong { display: block; margin-bottom: 3px; color: var(--book-ink); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.book-club-next-link { margin-top: 32px; }
+.book-club-footer { border-top-color: var(--book-line); }
+.book-club-footer .footer-wrap { color: var(--book-muted); }
+.book-club-footer .footer-links a { color: var(--book-cyan); }
+.backlog-hero { padding-bottom: 54px; }
+.backlog-hero .back-link { margin: 0 0 22px; }
+.backlog-summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 22px; margin-top: 38px; padding-top: 16px; border-top: 1px solid var(--book-line); }
+.backlog-summary strong { color: var(--book-ink); font-family: Georgia, serif; font-size: 1.55rem; font-weight: 500; }
+.backlog-summary span { color: var(--book-muted); }
+.backlog-group + .backlog-group { margin-top: 76px; }
+.backlog-group-title { display: flex; align-items: baseline; gap: 12px; color: var(--book-cyan) !important; font-size: 1.5rem !important; letter-spacing: -0.02em !important; }
+.backlog-group-title span { color: var(--book-muted); font-size: 0.9rem; font-weight: 500; letter-spacing: 0; }
+.backlog-group .book-list { margin-top: 18px; }
+.backlog-group .book-card { padding-right: 130px; }
+.book-status { position: absolute; top: 34px; right: 0; padding: 5px 9px; border: 1px solid var(--book-cyan); color: var(--book-cyan); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+
+@media (max-width: 760px) {
+  .book-club-page .shell { width: min(100% - 36px, var(--max)); }
+  .current-poll { grid-template-columns: 1fr; }
+  .poll-action { align-items: stretch; }
+  .book-club-button { align-items: center; text-align: center; }
+  .jump-nav { align-items: stretch; flex-direction: column; }
+  .backlog-link { text-align: center; }
+  .book-list-heading { display: block; }
+  .book-list-heading h2 { margin-top: 13px; }
+  .book-card { grid-template-columns: 1fr; gap: 22px; }
+  .book-card-body { grid-template-columns: minmax(105px, 0.4fr) minmax(0, 1fr); gap: 18px; }
+  .backlog-group .book-card { padding-right: 0; }
+  .book-status { position: static; justify-self: start; order: -1; margin-bottom: -10px; }
+}
+
+@media (max-width: 480px) {
+  .book-club-page h1 { font-size: clamp(3rem, 16vw, 4.7rem); }
+  .book-card-body { grid-template-columns: 1fr; gap: 20px; }
+  .book-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; border-top: 0; }
+  .book-facts > div { border-top: 1px solid var(--book-line); }
+  .book-facts > div:last-child { border-bottom: 1px solid var(--book-line); }
+  .backlog-group-title { display: block; }
+  .backlog-group-title span { display: block; margin-top: 4px; }
+}

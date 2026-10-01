@@ -16,7 +16,8 @@ const types = {
 
 createServer(async (request, response) => {
   const pathname = new URL(request.url, `http://${request.headers.host}`).pathname;
-  const requested = pathname === '/' ? 'index.html' : pathname.replace(/^\//, '');
+  const relativePath = pathname === '/' ? 'index.html' : pathname.replace(/^\//, '');
+  const requested = relativePath.endsWith('/') ? `${relativePath}index.html` : relativePath;
   const file = normalize(join(root, requested));
 
   if (!file.startsWith(root)) {
