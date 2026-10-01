@@ -56,7 +56,7 @@ try {
   assert(await current.locator(".book-fields").evaluateAll((fields) => fields.every((field) => {
     const labels = [...field.querySelectorAll("dt")];
     const required = ["Page count", "Form", "Published", "Poll premise", "Synopsis", "Themes", "Vibe"];
-    return required.every((name) => labels.some((label) => label.textContent.trim() === name && getComputedStyle(label).display !== "none" && label.getBoundingClientRect().width > 0));
+    return required.every((name) => labels.some((label) => label.textContent.trim() === name && getComputedStyle(label).display !== "none" && getComputedStyle(label).visibility !== "hidden"));
   })), "current poll fields are incomplete");
   assert(await current.locator(".book-card").evaluateAll((cards) => cards.every((card) => {
     const labels = [...card.querySelectorAll("dt")].map((label) => label.textContent.trim());
