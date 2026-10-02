@@ -68,14 +68,12 @@ try {
       return ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"].every((name) => labels.includes(name));
     })), `${pageName}: shared card fields are incomplete`);
     assert(!/Poll premise|pollPremise/.test(await page.locator("body").innerText()), `${pageName}: Poll premise is visible`);
-    const pageBooks = path === "/book-club/" ? currentBooks : books;
-    assert(await page.locator(".book-external-links").count() === pageBooks.filter((book) => book.externalLinks.length).length, `${pageName}: show external-links sections only when links exist`);
+    assert(await page.locator(".book-external-links").count() === 0, `${pageName}: deferred external-book links remain`);
     assert(!/No verified external links recorded/.test(await page.locator("body").innerText()), `${pageName}: missing-link filler remains`);
-    assert(await page.locator(".book-card a").evaluateAll((links) => links.every((link) => link.closest(".book-external-links") && link.target === "_blank" && link.rel.includes("noopener"))), `${pageName}: external links are not safely labeled links`);
+    assert(await page.locator(".book-card a").count() === 0, `${pageName}: cards contain clickable links`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => getComputedStyle(link).textAlign === "center"))), `${pageName}: Jump To text is not centered`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => document.querySelector(link.hash)))), `${pageName}: Jump To link target is missing`);
     assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => getComputedStyle(card).cursor !== "pointer")), `${pageName}: cards look clickable`);
-    assert(await page.locator(".book-external-links a").evaluateAll((links) => links.every((link) => link.getBoundingClientRect().height >= 44)), `${pageName}: external links lack touch-sized targets`);
     assert(!/Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais/i.test(await page.locator("body").innerText()), `${pageName}: personal or private copy is visible`);
 
     await page.locator("[data-sort-books]").selectOption("awards");
