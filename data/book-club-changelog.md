@@ -5,7 +5,7 @@
 - Per the user's latest direction, removed external-book-link sections from both public views and externalLinks from the public JSON. Existing canonical/source URLs and admin attribution remain for future reference; Wikipedia/Goodreads research is deferred.
 - Retained all completed discrete-count, no-trailing-period, 100-character Signal-option, public/admin separation, sorting, and responsive-layout corrections.
 - Kept all 14 original cover URLs and attribution unchanged, along with the tested transient-load recovery fix. New cover downloads/repository hosting and cloud-environment configuration troubleshooting are deferred. No generated placeholders or guessed replacement URLs were added.
-- Comparing the canonical covers against main confirms the same URLs/source metadata. That comparison does not prove the remote images currently render: the last online audit reported intermittent 503 responses. The preview must pass actual rendered checks before a production merge; any failures remain explicitly unresolved.
+- Comparing the canonical covers against main confirms the same URLs/source metadata. Online verification run [36959560834](https://github.com/MLV415/mike-vais-website/actions/runs/36959560834) then passed the build, static checks, cover workflow/recovery regressions, all 14 source image responses, and actual Chromium rendering of poll, backlog, and admin at desktop/mobile/compressed widths. Screenshots were captured by CI. This verifies the existing remote covers at test time, not permanent source availability; repository-hosted cover caching remains deferred.
 
 ## 2026-10-02 — Cover recovery and repository-hosting preparation
 
