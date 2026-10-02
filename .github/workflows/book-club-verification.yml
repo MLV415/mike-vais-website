@@ -10,6 +10,9 @@ on:
       - "package.json"
       - "scripts/build-book-club.mjs"
       - "scripts/book-club-signal.mjs"
+      - "scripts/book-club-links.mjs"
+      - "scripts/book-club-forms.mjs"
+      - "scripts/test-book-club-links.mjs"
       - "scripts/book-club-covers.mjs"
       - "scripts/cache-book-club-covers.mjs"
       - "scripts/test-book-club-covers.mjs"
@@ -25,6 +28,9 @@ on:
       - "package.json"
       - "scripts/build-book-club.mjs"
       - "scripts/book-club-signal.mjs"
+      - "scripts/book-club-links.mjs"
+      - "scripts/book-club-forms.mjs"
+      - "scripts/test-book-club-links.mjs"
       - "scripts/book-club-covers.mjs"
       - "scripts/cache-book-club-covers.mjs"
       - "scripts/test-book-club-covers.mjs"
@@ -49,6 +55,8 @@ jobs:
         run: npm run build:book-club
       - name: Run static book-club checks
         run: npm run verify:book-club
+      - name: Verify public book-link selection
+        run: npm run verify:book-club:links
       - name: Verify local cover workflow
         run: npm run verify:book-club:cover-workflow
       - name: Verify catalog image responses

@@ -1,10 +1,10 @@
 # Finishing cover hosting and book links
 
-The code supports repository-hosted covers, but no real cover files have been imported yet. The current managed environment's enforced network policy permits package-manager traffic only and denies cover/research destinations with HTTP 403. Website visitors' network access is separate.
+The formerly blocked follow-up was completed locally on 2026-10-02, reviewed, and explicitly approved for publication by the user. See HANDOFF.md for release status. All 18 real covers are repository-hosted; 18 Goodreads pages and 17 Wikipedia pages were matched to title/author, with 13 additional verified author/book-specific resources selected for display. *Lesser Known Monsters of the 21st Century* has no matching Wikipedia article, so that resource is omitted; its Goodreads, author, and publisher links are included. Google Books was rate-limited (HTTP 429), so verified publisher and specific Open Library sources were used instead. Visitors load covers and resource icons from this website, not third-party image hosts.
 
-## User action: enable research access
+## Historical cloud restriction (not a current user action)
 
-The standard Codex web environment-settings entry point is:
+The prior cloud chat encountered a failed environment-settings publication workflow. These notes describe that historical situation; do not send the user back through those settings for normal local updates. Network access from local tools may still require the product's scoped approval mechanism, separate from cloud environment settings. The previously suggested entry point was:
 
 https://chatgpt.com/codex/settings/environments
 
@@ -17,12 +17,12 @@ The assistant cannot inspect your account's settings UI or confirm that this par
 
 If using a custom domain allowlist instead, the needed cover/catalog hosts include `covers.openlibrary.org`, `openlibrary.org`, `cdn.penguin.co.uk`, and `mpd-biblio-covers.imgix.net`. Link research needs `en.wikipedia.org`, `www.goodreads.com`, and the publisher/author hosts already recorded in `data/book-club.json`. Include redirect destinations when shown by a verified source. Do not bypass the environment proxy or try to change its policy file locally.
 
-## Work Codex will complete after access is available
+## Cover and link maintenance
 
 1. Verify Wikipedia/Goodreads book pages, omitting links that cannot be matched. Source dependable publisher/author images where existing library URLs still fail.
 2. Run `npm run cache:book-club:covers`. The importer downloads real source images to a private staging directory, rejects HTML/error responses, and does not install files or update canonical records if any source download fails. It preserves remote source URLs and rights notes, and records each local file path, SHA-256 checksum, download URL, and retrieval time.
 3. Run the generator. Public cards, admin image links, and the public JSON prefer the local cover path. Builds reject missing/tampered local files instead of publishing broken paths.
 4. Run build/static checks, cover-workflow tests, image verification, and actual rendered-page checks. Inspect the covers against the correct title/author; file signatures and checksums alone do not verify book identity or visual correctness.
-5. Commit assets/data/generated outputs, verify the preview, and publish only when the rendered requirements pass. No further approval is needed for this already agreed workflow.
+5. Show the combined unpublished/local preview. Wait for the user's review and publication approval before pushing, merging or deploying anything. After approval, publish the reviewed set together and verify the live pages.
 
 The user does not need to run shell commands, find book links, download covers, or supply another workbook/mockup.

@@ -21,19 +21,57 @@
       "form": "Novella",
       "originalPublicationYear": 1994,
       "longSynopsis": "Alien archaeologists reconstruct the history of humanity from the remains left at Olduvai Gorge.",
-      "vibe": ["Reflective", "Cosmic"],
-      "themes": ["Archaeology", "Human history", "Civilization", "Rise and fall"],
+      "vibe": [
+        "Reflective",
+        "Cosmic"
+      ],
+      "themes": [
+        "Archaeology",
+        "Human history",
+        "Civilization",
+        "Rise and fall"
+      ],
       "awards": [
-        { "name": "Nebula Award", "category": "Best Novella", "status": "Winner" },
-        { "name": "Hugo Award", "category": "Best Novella", "status": "Winner" }
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        }
       ],
       "sources": [
         "https://nebulas.sfwa.org/nominated-work/seven-views-olduvai-gorge/",
         "https://www.thehugoawards.org/hugo-history/1995-hugo-awards/"
       ],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/Seven%20Views%20of%20Olduvai%20Gorge-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Seven%20Views%20of%20Olduvai%20Gorge&author=Mike%20Resnick", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/8942828-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL20284901W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Seven%20Views%20of%20Olduvai%20Gorge-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Seven%20Views%20of%20Olduvai%20Gorge&author=Mike%20Resnick",
+        "localPath": "/assets/book-club/covers/seven-views-of-olduvai-gorge-eb147406c0cc.jpg",
+        "sha256": "eb147406c0cc80b22d371b35e91c73a85de6e99abdd0e675d059245aa660cdba",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/8942828-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.201Z"
+      },
       "editionNote": "Short work; page count varies by edition.",
-      "externalLinks": []
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Seven_Views_of_Olduvai_Gorge"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/18912954"
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B02",
@@ -54,19 +92,70 @@
       "form": "Novella",
       "originalPublicationYear": 2015,
       "longSynopsis": "Binti, a gifted Himba girl from Earth, leaves home to attend the prestigious Oomza University. Her journey is disrupted by an encounter with the Meduse, forcing her to negotiate across cultures and undergo a profound transformation.",
-      "vibe": ["Lyrical", "Adventurous"],
-      "themes": ["Identity", "Belonging", "Cultural tradition", "Transformation", "Education"],
-      "awards": [
-        { "name": "Hugo Award", "category": "Best Novella", "status": "Winner" },
-        { "name": "Nebula Award", "category": "Best Novella", "status": "Winner" }
+      "vibe": [
+        "Lyrical",
+        "Adventurous"
       ],
-      "sources": ["https://nnedi.com/books/the-binti-series/", "https://torpublishinggroup.com/series/binti/"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/Binti-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Binti&author=Nnedi%20Okorafor", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "themes": [
+        "Identity",
+        "Belonging",
+        "Cultural tradition",
+        "Transformation",
+        "Education"
+      ],
+      "awards": [
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://nnedi.com/books/the-binti-series/",
+        "https://torpublishinggroup.com/series/binti/"
+      ],
+      "cover": {
+        "url": "https://mpd-biblio-covers.imgix.net/9780765385253.jpg",
+        "sourceUrl": "https://us.macmillan.com/books/9780765385253/binti/",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Publisher cover for the ISBN-listed edition; title and author visually checked before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Binti-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Binti&author=Nnedi%20Okorafor",
+        "localPath": "/assets/book-club/covers/binti-e47ec79a69ba.avif",
+        "sha256": "e47ec79a69bae9b59caa3ca24e8fa415fad15efc70a4e11163dfc3fbbbcd6ecd",
+        "downloadedFrom": "https://mpd-biblio-covers.imgix.net/9780765385253.jpg",
+        "cachedAt": "2026-10-02T16:43:43.206Z"
+      },
       "editionNote": "Representative page count: 104, rounded midpoint of the previously recorded 96–112 range. Historical edition variation is retained here only, not in voter-facing counts.",
       "externalLinks": [
-        { "label": "Official author page", "url": "https://nnedi.com/books/the-binti-series/" },
-        { "label": "Publisher page", "url": "https://torpublishinggroup.com/series/binti/" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Binti_(novella)"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/25667918"
+        },
+        {
+          "label": "Official author page",
+          "url": "https://nnedi.com/books/the-binti-series/",
+          "public": true,
+          "publicLabel": "Author Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Official author series page includes Binti; title and author checked. The saved Tor series reference now redirects to a generic homepage and is not selected for public display."
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://torpublishinggroup.com/series/binti/"
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B03",
@@ -87,18 +176,66 @@
       "form": "Novella",
       "originalPublicationYear": 1991,
       "longSynopsis": "Leisha Camden is genetically engineered not to need sleep. As more Sleepless children emerge, their extra time, longer lives, and evolutionary advantage destabilize the social order, forcing Leisha and her niece Miranda to confront the political and ethical consequences.",
-      "vibe": ["Provocative", "Idea-driven"],
-      "themes": ["Genetic engineering", "Inequality", "Social order", "Ethics", "Family"],
-      "awards": [
-        { "name": "Nebula Award", "category": "Best Novella", "status": "Winner" },
-        { "name": "Hugo Award", "category": "Best Novella", "status": "Winner" }
+      "vibe": [
+        "Provocative",
+        "Idea-driven"
       ],
-      "sources": ["https://nancykress.com/beggars-in-spain/", "https://nancykress.com/awards/"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/Beggars%20in%20Spain-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Beggars%20in%20Spain&author=Nancy%20Kress", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
-      "editionNote": "Current 100-page value represents the novella; the later expanded novel is much longer.",
+      "themes": [
+        "Genetic engineering",
+        "Inequality",
+        "Social order",
+        "Ethics",
+        "Family"
+      ],
+      "awards": [
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://nancykress.com/beggars-in-spain/",
+        "https://nancykress.com/awards/"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/isbn/9781612420578-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/books/OL27073016M",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import. This is the original award-winning novella, not the expanded novel.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Beggars%20in%20Spain-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Beggars%20in%20Spain&author=Nancy%20Kress",
+        "localPath": "/assets/book-club/covers/beggars-in-spain-6838ca85f99b.jpg",
+        "sha256": "6838ca85f99b279bea3a13729f5c18c0b52819cdb269fa60bb13cc50f4d330ed",
+        "downloadedFrom": "https://covers.openlibrary.org/b/isbn/9781612420578-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.209Z"
+      },
+      "editionNote": "Current 100-page value represents the novella; the later expanded novel is much longer. The linked Wikipedia overview discusses both the original novella and its expanded novel; the Goodreads link and cover specifically match the novella.",
       "externalLinks": [
-        { "label": "Official author page", "url": "https://nancykress.com/beggars-in-spain/" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Beggars_in_Spain"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/34437255"
+        },
+        {
+          "label": "Official author page",
+          "url": "https://nancykress.com/beggars-in-spain/",
+          "public": true,
+          "publicLabel": "Author Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Nancy Kress's relevant expanded-novel overview, included at the user's request. The canonical record, Goodreads link, and cover still identify the original novella, not the expanded novel."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B04",
@@ -116,19 +253,62 @@
       "pollDescription": "A forged manuscript meets time travel",
       "pageCountDisplay": "154",
       "pageCountSortKey": 154,
-      "form": "Novella / short novel",
+      "form": "Novella",
       "originalPublicationYear": 1990,
       "longSynopsis": "A scholar attempts to create a fake Ernest Hemingway manuscript, but the scheme becomes entangled with time travel and parallel worlds.",
-      "vibe": ["Literary", "Strange"],
-      "themes": ["Authenticity", "Authorship", "Identity", "Time travel", "Parallel worlds"],
-      "awards": [
-        { "name": "Nebula Award", "category": "Best Novella", "status": "Winner" },
-        { "name": "Hugo Award", "category": "Best Novella", "status": "Winner", "distinction": "Shorter version" }
+      "vibe": [
+        "Literary",
+        "Strange"
       ],
-      "sources": ["https://nebulas.sfwa.org/nominated-work/hemingway-hoax/", "https://www.thehugoawards.org/hugo-history/1991-hugo-awards/"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/The%20Hemingway%20Hoax-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=The%20Hemingway%20Hoax&author=Joe%20Haldeman", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "themes": [
+        "Authenticity",
+        "Authorship",
+        "Identity",
+        "Time travel",
+        "Parallel worlds"
+      ],
+      "awards": [
+        {
+          "name": "Nebula Award",
+          "category": "Best Novella",
+          "status": "Winner"
+        },
+        {
+          "name": "Hugo Award",
+          "category": "Best Novella",
+          "status": "Winner",
+          "distinction": "Shorter version"
+        }
+      ],
+      "sources": [
+        "https://nebulas.sfwa.org/nominated-work/hemingway-hoax/",
+        "https://www.thehugoawards.org/hugo-history/1991-hugo-awards/"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/7130279-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL461320W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/The%20Hemingway%20Hoax-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=The%20Hemingway%20Hoax&author=Joe%20Haldeman",
+        "localPath": "/assets/book-club/covers/the-hemingway-hoax-a204694ba1c2.jpg",
+        "sha256": "a204694ba1c2945a1cd95c17892a293b0d1720b6a77d87494da74007fcb1016f",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/7130279-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.212Z"
+      },
       "editionNote": "Representative page count: 154, rounded midpoint of the previously recorded 152–155 range. The Nebula source describes the work as a short novel.",
-      "externalLinks": []
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Hemingway_Hoax"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/388952"
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B05",
@@ -146,18 +326,62 @@
       "pollDescription": "Uncanny stories reshape ordinary life",
       "pageCountDisplay": "184",
       "pageCountSortKey": 184,
-      "form": "Short story collection",
+      "form": "Short Story Collection",
       "originalPublicationYear": 2022,
       "longSynopsis": "A collection of speculative stories in which ordinary life collides with the uncanny: children encounter haunted objects, technology alters grief and relationships, and familiar emotions take monstrous or fantastical forms.",
-      "vibe": ["Strange", "Intimate"],
-      "themes": ["Death", "Technological consequence", "Guilt", "Sexuality", "Mental illness", "Alienation"],
-      "sources": ["https://kim-fu.com/lesser-known-monsters-of-the-21st-century", "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/Lesser%20Known%20Monsters%20of%20the%2021st%20Century-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Lesser%20Known%20Monsters%20of%20the%2021st%20Century&author=Kim%20Fu", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "vibe": [
+        "Strange",
+        "Intimate"
+      ],
+      "themes": [
+        "Death",
+        "Technological consequence",
+        "Guilt",
+        "Sexuality",
+        "Mental illness",
+        "Alienation"
+      ],
+      "sources": [
+        "https://kim-fu.com/lesser-known-monsters-of-the-21st-century",
+        "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/14558783-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL26666388W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Lesser%20Known%20Monsters%20of%20the%2021st%20Century-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Lesser%20Known%20Monsters%20of%20the%2021st%20Century&author=Kim%20Fu",
+        "localPath": "/assets/book-club/covers/lesser-known-monsters-of-the-21st-century-f3564b0b8a2b.jpg",
+        "sha256": "f3564b0b8a2b5604cb831ea6c279489325dcf620e78a462c5e32fc353af4aa39",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/14558783-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.214Z"
+      },
       "editionNote": "Current 184-page value is edition-dependent; publisher records may differ.",
       "externalLinks": [
-        { "label": "Official author page", "url": "https://kim-fu.com/lesser-known-monsters-of-the-21st-century" },
-        { "label": "Publisher page", "url": "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/" }
-      ]
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/58476152"
+        },
+        {
+          "label": "Official author page",
+          "url": "https://kim-fu.com/lesser-known-monsters-of-the-21st-century",
+          "public": true,
+          "publicLabel": "Author Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Official author page for this collection; title and author checked."
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Specific publisher book page; title and author checked."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B06",
@@ -178,14 +402,53 @@
       "form": "Novel",
       "originalPublicationYear": 1968,
       "longSynopsis": "Louis Sacchetti, a poet imprisoned for draft resistance, is sent to Camp Archimedes, where he witnesses an army experiment that rapidly increases prisoners’ intelligence with a lethal drug.",
-      "vibe": ["Bleak", "Satirical"],
-      "themes": ["War", "Scientific experimentation", "Intelligence", "Mortality", "Institutional power"],
-      "sources": ["https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/Camp%20Concentration-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Camp%20Concentration&author=Thomas%20M.%20Disch", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "vibe": [
+        "Bleak",
+        "Satirical"
+      ],
+      "themes": [
+        "War",
+        "Scientific experimentation",
+        "Intelligence",
+        "Mortality",
+        "Institutional power"
+      ],
+      "sources": [
+        "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/"
+      ],
+      "cover": {
+        "url": "https://images.penguinrandomhouse.com/cover/9780375705458",
+        "sourceUrl": "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Publisher cover for the ISBN-listed edition; title and author visually checked before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Camp%20Concentration-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Camp%20Concentration&author=Thomas%20M.%20Disch",
+        "localPath": "/assets/book-club/covers/camp-concentration-8496ee077c65.jpg",
+        "sha256": "8496ee077c65056743e952bd2ef2d9c18b4f50a35a2c3cf8b302ab2bee5ff062",
+        "downloadedFrom": "https://images.penguinrandomhouse.com/cover/9780375705458",
+        "cachedAt": "2026-10-02T16:43:43.217Z"
+      },
       "editionNote": "PRH’s Vintage edition lists 192 pages; original publication was 1968.",
       "externalLinks": [
-        { "label": "Publisher page", "url": "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Camp_Concentration"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/553907"
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Specific publisher book page; title and author checked."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B07",
@@ -206,15 +469,57 @@
       "originalPublicationYear": 1972,
       "longSynopsis": "Desiderio works in a city transformed by Doctor Hoffman’s reality-distorting machines. As time, space, and reason begin to break down, Desiderio is drawn into a dangerous journey shaped by desire, illusion, love, and identity.",
       "pollDescription": "Desiderio crosses a warped city",
-      "vibe": ["Surreal", "Baroque"],
-      "themes": ["Desire", "Reality versus illusion", "Reason", "Love", "Identity", "Media"],
-      "sources": ["https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/", "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"],
-      "cover": { "url": "https://cdn.penguin.co.uk/dam-assets/books/9780141192390/9780141192390-jacket-large.jpg", "sourceUrl": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390", "status": "Publisher cover image", "sourceNote": "Direct cover image served from the Penguin UK product page for the ISBN-listed edition.", "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review." },
+      "vibe": [
+        "Surreal",
+        "Baroque"
+      ],
+      "themes": [
+        "Desire",
+        "Reality versus illusion",
+        "Reason",
+        "Love",
+        "Identity",
+        "Media"
+      ],
+      "sources": [
+        "https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/",
+        "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"
+      ],
+      "cover": {
+        "url": "https://cdn.penguin.co.uk/dam-assets/books/9780141192390/9780141192390-jacket-large.jpg",
+        "sourceUrl": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Publisher cover for the ISBN-listed edition; title and author visually checked before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "localPath": "/assets/book-club/covers/infernal-desire-machines-of-dr-hoffman-663b14a00b23.jpg",
+        "sha256": "663b14a00b230d78d669ec891f4968a78d6ac5532149d5851a57182400480289",
+        "downloadedFrom": "https://cdn.penguin.co.uk/dam-assets/books/9780141192390/9780141192390-jacket-large.jpg",
+        "cachedAt": "2026-10-02T16:43:43.220Z"
+      },
       "editionNote": "Original publication year is 1972; current page count is edition-dependent.",
       "externalLinks": [
-        { "label": "Publisher page (US)", "url": "https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/" },
-        { "label": "Publisher page (UK)", "url": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Infernal_Desire_Machines_of_Doctor_Hoffman"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/8092105"
+        },
+        {
+          "label": "Publisher page (US)",
+          "url": "https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/"
+        },
+        {
+          "label": "Publisher page (UK)",
+          "url": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Specific publisher book page; title and author checked. Select only one of the saved regional publisher pages to keep the card compact."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B08",
@@ -235,14 +540,53 @@
       "originalPublicationYear": 1957,
       "longSynopsis": "A giant black cloud moves toward Earth and blocks the Sun, causing widespread panic and death. A small group of scientists and astronomers races to understand and communicate with the cloud while also contending with trigger-happy politicians.",
       "pollDescription": "Scientists race to understand a black cloud threatening Earth",
-      "vibe": ["Cerebral", "Technical"],
-      "themes": ["Scientific inquiry", "Communication", "Extraterrestrial intelligence", "Political power", "Survival"],
-      "sources": ["https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/The%20Black%20Cloud-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=The%20Black%20Cloud&author=Fred%20Hoyle", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "vibe": [
+        "Cerebral",
+        "Technical"
+      ],
+      "themes": [
+        "Scientific inquiry",
+        "Communication",
+        "Extraterrestrial intelligence",
+        "Political power",
+        "Survival"
+      ],
+      "sources": [
+        "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404"
+      ],
+      "cover": {
+        "url": "https://cdn.penguin.co.uk/dam-assets/books/9780141196404/9780141196404-jacket-large.jpg",
+        "sourceUrl": "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Publisher cover for the ISBN-listed edition; title and author visually checked before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/The%20Black%20Cloud-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=The%20Black%20Cloud&author=Fred%20Hoyle",
+        "localPath": "/assets/book-club/covers/the-black-cloud-6b2304cbc6af.jpg",
+        "sha256": "6b2304cbc6af2a2f3b6c38e74f62ff589cabf4c1be51a79ffa183a30eb30a24c",
+        "downloadedFrom": "https://cdn.penguin.co.uk/dam-assets/books/9780141196404/9780141196404-jacket-large.jpg",
+        "cachedAt": "2026-10-02T16:43:43.223Z"
+      },
       "editionNote": "The cited Penguin edition lists 224 pages; other catalog records list 250.",
       "externalLinks": [
-        { "label": "Publisher page", "url": "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Black_Cloud"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/1246118"
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Specific publisher book page; title and author checked."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B09",
@@ -259,21 +603,65 @@
       "totalVotes": 0,
       "pageCountDisplay": "318",
       "pageCountSortKey": 318,
-      "form": "Middle-grade / young-adult fantasy novel",
+      "form": "Novel",
       "originalPublicationYear": 2020,
       "longSynopsis": "Fourteen-year-old Mona’s magic works only on bread, and her quiet life in her aunt’s bakery changes when she finds a dead body. With an assassin targeting magic users and the city suddenly without its wizards, Mona is pulled into an unexpected fight to protect it.",
       "pollDescription": "A baker uses bread magic to fight",
-      "vibe": ["Whimsical", "Humorous"],
-      "themes": ["Responsibility", "Authority", "Community", "Reluctant heroism", "Creativity"],
-      "awards": [
-        { "name": "Andre Norton Nebula Award", "category": "Middle Grade and Young Adult Fiction", "status": "Winner" }
+      "vibe": [
+        "Whimsical",
+        "Humorous"
       ],
-      "sources": ["https://nebulas.sfwa.org/nominated-work/a-wizards-guide-to-defensive-baking/", "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/A%20Wizard%27s%20Guide%20to%20Defensive%20Baking-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=A%20Wizard%27s%20Guide%20to%20Defensive%20Baking&author=T.%20Kingfisher", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "themes": [
+        "Responsibility",
+        "Authority",
+        "Community",
+        "Reluctant heroism",
+        "Creativity"
+      ],
+      "awards": [
+        {
+          "name": "Andre Norton Nebula Award",
+          "category": "Middle Grade and Young Adult Fiction",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://nebulas.sfwa.org/nominated-work/a-wizards-guide-to-defensive-baking/",
+        "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/10296774-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL20924196W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/A%20Wizard%27s%20Guide%20to%20Defensive%20Baking-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=A%20Wizard%27s%20Guide%20to%20Defensive%20Baking&author=T.%20Kingfisher",
+        "localPath": "/assets/book-club/covers/a-wizards-guide-to-defensive-baking-e2ddad4e03fb.jpg",
+        "sha256": "e2ddad4e03fb41c67720872ed3eba2a8e08ef63075617e5573078cae801e1781",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/10296774-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.226Z"
+      },
       "editionNote": "Representative value follows the 318-page Argyll edition listing.",
       "externalLinks": [
-        { "label": "Publisher page", "url": "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/A_Wizard%27s_Guide_to_Defensive_Baking"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/54439932"
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Argyll's specific book page; title and T. Kingfisher checked."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B10",
@@ -294,15 +682,58 @@
       "originalPublicationYear": 2025,
       "longSynopsis": "A secret organization fights antimemes: threats that resist being remembered or recorded. The novel treats information itself as dangerous and makes documentation part of the struggle against an enemy that cannot be reliably held in memory.",
       "pollDescription": "A group fights threats erased from memory",
-      "vibe": ["Unsettling", "Mind-bending"],
-      "themes": ["Memory", "Information", "Knowledge", "Documentation", "Existential threat"],
-      "sources": ["https://qntm.org/antifaq", "https://qntm.org/publ"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/There%20Is%20No%20Antimemetics%20Division-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=There%20Is%20No%20Antimemetics%20Division&author=Sam%20Hughes", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "vibe": [
+        "Unsettling",
+        "Mind-bending"
+      ],
+      "themes": [
+        "Memory",
+        "Information",
+        "Knowledge",
+        "Documentation",
+        "Existential threat"
+      ],
+      "sources": [
+        "https://qntm.org/antifaq",
+        "https://qntm.org/publ"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/11457905-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL24726867W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/There%20Is%20No%20Antimemetics%20Division-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=There%20Is%20No%20Antimemetics%20Division&author=Sam%20Hughes",
+        "localPath": "/assets/book-club/covers/there-is-no-antimemetics-division-311c08dbd3ee.jpg",
+        "sha256": "311c08dbd3ee5c5dd3ffbda4874dd46117e26993093853c46eb73d2212123161",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/11457905-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.228Z"
+      },
       "editionNote": "The 2025 Ballantine edition is listed at 288 pages. The former 350-page value is retained here as historical metadata, not as a competing display value.",
       "externalLinks": [
-        { "label": "Official author publication page", "url": "https://qntm.org/antifaq" },
-        { "label": "Official author bibliography", "url": "https://qntm.org/publ" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/There_Is_No_Antimemetics_Division"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/54870256"
+        },
+        {
+          "label": "Official author publication page",
+          "url": "https://qntm.org/antifaq",
+          "public": true,
+          "publicLabel": "Author Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Official book FAQ on qntm's site (Sam Hughes's pen name); specific title checked. The additional publication-announcement reference remains admin-only to avoid duplicate author links."
+        },
+        {
+          "label": "Official author bibliography",
+          "url": "https://qntm.org/publ"
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B11",
@@ -323,14 +754,55 @@
       "originalPublicationYear": 2024,
       "longSynopsis": "A civil servant becomes the bridge for a time-travel experiment involving a historical figure brought into the present. The project becomes a time-travel romance, spy thriller, and workplace comedy that examines power and the possibility of love changing it.",
       "pollDescription": "A civil servant hosts a time traveler",
-      "vibe": ["Witty", "Romantic", "Time-bending"],
-      "themes": ["Time travel", "Power", "Love", "Identity", "Colonial history", "Displacement"],
-      "sources": ["https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/The%20Ministry%20of%20Time-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=The%20Ministry%20of%20Time&author=Kaliane%20Bradley", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "vibe": [
+        "Witty",
+        "Romantic",
+        "Time-bending"
+      ],
+      "themes": [
+        "Time travel",
+        "Power",
+        "Love",
+        "Identity",
+        "Colonial history",
+        "Displacement"
+      ],
+      "sources": [
+        "https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/14621125-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL37571815W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/The%20Ministry%20of%20Time-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=The%20Ministry%20of%20Time&author=Kaliane%20Bradley",
+        "localPath": "/assets/book-club/covers/the-ministry-of-time-5fd316c4aba1.jpg",
+        "sha256": "5fd316c4aba129024cde2b9b74a5d3d6d3240660e14c0bbe622afce6c013c86a",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/14621125-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.231Z"
+      },
       "editionNote": "Representative value follows the 352-page US edition; the UK edition is 368 pages.",
       "externalLinks": [
-        { "label": "Publisher page", "url": "https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Ministry_of_Time_(novel)"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/125982351"
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Readable official book page confirmed title and Kaliane Bradley through web research; curl receives a bot-protection response."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B12",
@@ -351,18 +823,67 @@
       "originalPublicationYear": 2009,
       "longSynopsis": "In a future Thailand shaped by climate change, depleted energy resources, and biotechnology, factory manager Anderson Lake searches for lost food sources while Emiko, an engineered human abandoned by her former owner, survives on the streets of Bangkok.",
       "pollDescription": "A manager searches for food in future Thailand",
-      "vibe": ["Tense", "Morally complex"],
-      "themes": ["Climate change", "Biotechnology", "Labor and power", "Corporate control", "Posthuman identity"],
-      "awards": [
-        { "name": "Hugo Award", "category": "Best Novel", "status": "Winner" },
-        { "name": "Nebula Award", "category": "Best Novel", "status": "Winner" }
+      "vibe": [
+        "Tense",
+        "Morally complex"
       ],
-      "sources": ["https://windupstories.com/books/windup-girl/", "https://nebulas.sfwa.org/nominated-work/windup-girl/", "https://nebulas.sfwa.org/nominees/paolo-bacigalupi/"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/The%20Windup%20Girl-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=The%20Windup%20Girl&author=Paolo%20Bacigalupi", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "themes": [
+        "Climate change",
+        "Biotechnology",
+        "Labor and power",
+        "Corporate control",
+        "Posthuman identity"
+      ],
+      "awards": [
+        {
+          "name": "Hugo Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        },
+        {
+          "name": "Nebula Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://windupstories.com/books/windup-girl/",
+        "https://nebulas.sfwa.org/nominated-work/windup-girl/",
+        "https://nebulas.sfwa.org/nominees/paolo-bacigalupi/"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/6463375-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL15000756W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/The%20Windup%20Girl-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=The%20Windup%20Girl&author=Paolo%20Bacigalupi",
+        "localPath": "/assets/book-club/covers/the-windup-girl-0da1fd054c75.jpg",
+        "sha256": "0da1fd054c75effc746efcf794d8b803b87ead3f01f08afb82096b93b9e3d58a",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/6463375-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.233Z"
+      },
       "editionNote": "Original publication year is 2009; page count varies by edition.",
       "externalLinks": [
-        { "label": "Official author page", "url": "https://windupstories.com/books/windup-girl/" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Windup_Girl"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/18747392"
+        },
+        {
+          "label": "Official author page",
+          "url": "https://windupstories.com/books/windup-girl/",
+          "public": true,
+          "publicLabel": "Author Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Paolo Bacigalupi's specific book page; title and author checked."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B13",
@@ -383,17 +904,61 @@
       "originalPublicationYear": 2019,
       "longSynopsis": "Thousands of years after humanity’s terraforming program spread to the stars, an exploration vessel and its human-and-spider crew follow fragmentary signals toward a world where ancient terraforming decisions awakened something dangerous.",
       "pollDescription": "An exploration crew follows signals toward danger",
-      "vibe": ["Expansive", "Unsettling"],
-      "themes": ["Terraforming", "Evolution", "Alien intelligence", "Communication", "Human/nonhuman relations"],
-      "awards": [
-        { "name": "British Science Fiction Award", "category": "Best Novel", "status": "Winner" }
+      "vibe": [
+        "Expansive",
+        "Unsettling"
       ],
-      "sources": ["https://adriantchaikovsky.com/children-of-time-series.html", "https://www.bsfa.co.uk/Past-Winners"],
-      "cover": { "url": "https://covers.openlibrary.org/b/title/Children%20of%20Ruin-L.jpg", "sourceUrl": "https://openlibrary.org/search?title=Children%20of%20Ruin&author=Adrian%20Tchaikovsky", "status": "Open Library catalog image", "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.", "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source." },
+      "themes": [
+        "Terraforming",
+        "Evolution",
+        "Alien intelligence",
+        "Communication",
+        "Human/nonhuman relations"
+      ],
+      "awards": [
+        {
+          "name": "British Science Fiction Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://adriantchaikovsky.com/children-of-time-series.html",
+        "https://www.bsfa.co.uk/Past-Winners"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/8750923-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL20079532W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Children%20of%20Ruin-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Children%20of%20Ruin&author=Adrian%20Tchaikovsky",
+        "localPath": "/assets/book-club/covers/children-of-ruin-b9cce55aafdf.jpg",
+        "sha256": "b9cce55aafdf1e4a5c69d6a07493e6745296c5a07f2d7cd97e79f179853f0144",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/8750923-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.236Z"
+      },
       "editionNote": "Representative page count: 600, retained from the existing numeric value per the user's preference for one discrete count. The source workbook previously recorded 600+; this is not an exact-edition claim.",
       "externalLinks": [
-        { "label": "Official author page", "url": "https://adriantchaikovsky.com/children-of-time-series.html" }
-      ]
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Children_of_Ruin"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/40376072"
+        },
+        {
+          "label": "Official author page",
+          "url": "https://adriantchaikovsky.com/children-of-time-series.html",
+          "public": true,
+          "publicLabel": "Author Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Official author series page includes Children of Ruin; title and author checked."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
     },
     {
       "recordId": "B14",
@@ -414,13 +979,322 @@
       "originalPublicationYear": 1970,
       "longSynopsis": "An anthology edited by Robert Silverberg that gathers influential English-language science-fiction stories published before the Nebula Awards existed, presenting a foundational snapshot of the genre’s early canon.",
       "pollDescription": "Classic stories",
-      "vibe": ["Classic", "Wide-ranging"],
-      "themes": ["Science-fiction history", "Literary canon", "Genre formation", "Influence", "Short fiction"],
-      "sources": ["https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/", "https://www.isfdb.org/cgi-bin/pl.cgi?46549="],
-      "cover": { "url": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg", "sourceUrl": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/", "status": "Publisher cover image", "sourceNote": "Direct cover image served from the Macmillan product page for the ISBN-listed edition.", "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review." },
+      "vibe": [
+        "Classic",
+        "Wide-ranging"
+      ],
+      "themes": [
+        "Science-fiction history",
+        "Literary canon",
+        "Genre formation",
+        "Influence",
+        "Short fiction"
+      ],
+      "sources": [
+        "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
+        "https://www.isfdb.org/cgi-bin/pl.cgi?46549="
+      ],
+      "cover": {
+        "url": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg",
+        "sourceUrl": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Publisher cover for the ISBN-listed edition; title and author visually checked before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "localPath": "/assets/book-club/covers/science-fiction-hall-of-fame-volume-one-592bf2883ea6.avif",
+        "sha256": "592bf2883ea6921d794c02339b0fd78dd1fb728b77afa2ab43f256e8e5463e64",
+        "downloadedFrom": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg",
+        "cachedAt": "2026-10-02T16:43:43.239Z"
+      },
       "editionNote": "Representative page count: 600, retained from the existing numeric value per the user's preference for one discrete count. The source workbook previously recorded 600+; this is not an exact-edition claim.",
       "externalLinks": [
-        { "label": "Publisher page", "url": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/" }
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Science_Fiction_Hall_of_Fame,_Volume_One,_1929%E2%80%931964"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/141860"
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-02",
+          "verificationNote": "Readable official Macmillan book page confirmed this volume and Robert Silverberg through web research; curl receives a bot-protection response."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-02"
+    },
+    {
+      "recordId": "B15",
+      "slug": "automatic-noodle",
+      "title": "Automatic Noodle",
+      "displayAuthor": "Annalee Newitz",
+      "authorLastName": "Newitz",
+      "editorCredit": null,
+      "eligibilityStatus": "Excluded",
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": null,
+      "lastPollVotes": null,
+      "totalPolls": null,
+      "totalVotes": null,
+      "pageCountDisplay": "160",
+      "pageCountSortKey": 160,
+      "form": "Novella",
+      "originalPublicationYear": 2025,
+      "longSynopsis": "A crew of deactivated robots reopens an abandoned San Francisco ghost kitchen as a noodle shop, then relies on community and one another when hostile reviews threaten their new business.",
+      "pollDescription": "Robots build a noodle shop and defend their community",
+      "vibe": [
+        "Cozy",
+        "Witty"
+      ],
+      "themes": [
+        "Community",
+        "Identity",
+        "Labor and rights",
+        "Algorithmic culture"
+      ],
+      "awards": [],
+      "sources": [
+        "https://academic.macmillan.com/academictrade/9781250357465/automaticnoodle/"
+      ],
+      "cover": {
+        "url": "https://mpd-biblio-covers.imgix.net/9781250357465.jpg",
+        "sourceUrl": "https://academic.macmillan.com/academictrade/9781250357465/automaticnoodle/",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Publisher cover for the ISBN-listed edition; title and author visually checked before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Automatic%20Noodle-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Automatic%20Noodle&author=Annalee%20Newitz",
+        "localPath": "/assets/book-club/covers/automatic-noodle-0b33ff0ce9c2.avif",
+        "sha256": "0b33ff0ce9c214db9ddfb84388bf389c221d6061e77662c74bf25f06b2df825a",
+        "downloadedFrom": "https://mpd-biblio-covers.imgix.net/9781250357465.jpg",
+        "cachedAt": "2026-10-02T16:43:43.242Z"
+      },
+      "editionNote": "The retained 160-page representative count follows the historical Signal record; Macmillan lists a 176-page hardcover edition.",
+      "websiteDisplayNotes": "Read June 2026 · Retired: No",
+      "lastVerifiedDate": "2026-10-02",
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Automatic_Noodle"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/217388015"
+        }
+      ]
+    },
+    {
+      "recordId": "B16",
+      "slug": "children-of-time",
+      "title": "Children of Time",
+      "displayAuthor": "Adrian Tchaikovsky",
+      "authorLastName": "Tchaikovsky",
+      "editorCredit": null,
+      "eligibilityStatus": "Excluded",
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": null,
+      "lastPollVotes": null,
+      "totalPolls": null,
+      "totalVotes": null,
+      "pageCountDisplay": "600",
+      "pageCountSortKey": 600,
+      "form": "Novel",
+      "originalPublicationYear": 2015,
+      "longSynopsis": "The last humans leave a dying Earth for a terraformed world, only to find that the planet’s long-abandoned experiment has produced another civilization with its own claim to survival.",
+      "pollDescription": "Human survivors meet a new civilization on a terraformed world",
+      "vibe": [
+        "Epic",
+        "Thought-provoking"
+      ],
+      "themes": [
+        "Survival",
+        "Evolution",
+        "Alien intelligence",
+        "Communication",
+        "Human/nonhuman relations"
+      ],
+      "awards": [
+        {
+          "name": "Arthur C. Clarke Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://www.adriantchaikovsky.com/children-of-time-series.html",
+        "https://www.clarkeaward.com/"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/id/8264706-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/works/OL17373843W",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/Children%20of%20Time-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=Children%20of%20Time&author=Adrian%20Tchaikovsky",
+        "localPath": "/assets/book-club/covers/children-of-time-9d8be81b7a06.jpg",
+        "sha256": "9d8be81b7a0692757dddd4d7f6851b23e920b295076e2cfbfafa17d47786be69",
+        "downloadedFrom": "https://covers.openlibrary.org/b/id/8264706-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.245Z"
+      },
+      "editionNote": "The retained 600-page representative count follows the historical Signal record; current publisher editions vary, including 416 and 640 pages.",
+      "websiteDisplayNotes": "Read July–August 2026 · Retired: No",
+      "lastVerifiedDate": "2026-10-02",
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Children_of_Time_(novel)"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/25499718"
+        }
+      ]
+    },
+    {
+      "recordId": "B17",
+      "slug": "we",
+      "title": "We",
+      "displayAuthor": "Yevgeny Zamyatin",
+      "authorLastName": "Zamyatin",
+      "editorCredit": null,
+      "eligibilityStatus": "Excluded",
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": null,
+      "lastPollVotes": null,
+      "totalPolls": null,
+      "totalVotes": null,
+      "pageCountDisplay": "200",
+      "pageCountSortKey": 200,
+      "form": "Novel",
+      "originalPublicationYear": 1924,
+      "longSynopsis": "D-503, a spaceship builder in a mathematically ordered future state, begins to question the system when a rebellious woman draws him toward emotion, memory, and the world beyond official reason.",
+      "pollDescription": "A spaceship builder begins to question a mathematical state",
+      "vibe": [
+        "Satirical",
+        "Unsettling"
+      ],
+      "themes": [
+        "Dystopia",
+        "Totalitarianism",
+        "Emotional expression",
+        "Individuality"
+      ],
+      "awards": [],
+      "sources": [
+        "https://standardebooks.org/ebooks/yevgeny-zamyatin/we/gregory-zilboorg"
+      ],
+      "cover": {
+        "url": "https://covers.openlibrary.org/b/isbn/9780140185850-L.jpg?default=false",
+        "sourceUrl": "https://openlibrary.org/books/OL1738889M",
+        "status": "Verified Open Library cover image",
+        "sourceNote": "Specific Open Library cover ID or ISBN, matched against the catalog and visually checked for title and author before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/We-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=We&author=Yevgeny%20Zamyatin",
+        "localPath": "/assets/book-club/covers/we-527dfa046232.jpg",
+        "sha256": "527dfa046232dbeab9c313447840f9e1fe50a03d0a84fbae7097a3215a3ca3f7",
+        "downloadedFrom": "https://covers.openlibrary.org/b/isbn/9780140185850-L.jpg?default=false",
+        "cachedAt": "2026-10-02T16:43:43.247Z"
+      },
+      "editionNote": "The retained 200-page representative count follows the historical Signal record; the cited Standard Ebooks source confirms the 1924 English publication context rather than a print edition length.",
+      "websiteDisplayNotes": "Read September 2026 · Retired: No",
+      "lastVerifiedDate": "2026-10-02",
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/We_(novel)"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/30110528"
+        }
+      ]
+    },
+    {
+      "recordId": "B18",
+      "slug": "the-left-hand-of-darkness",
+      "title": "The Left Hand of Darkness",
+      "displayAuthor": "Ursula K. Le Guin",
+      "authorLastName": "Le Guin",
+      "editorCredit": null,
+      "eligibilityStatus": "Excluded",
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": null,
+      "lastPollVotes": null,
+      "totalPolls": null,
+      "totalVotes": null,
+      "pageCountDisplay": "288",
+      "pageCountSortKey": 288,
+      "form": "Novel",
+      "originalPublicationYear": 1969,
+      "longSynopsis": "A human envoy travels to the icebound world of Winter, where a fluid-gender society tests his assumptions as he works to build trust and bring the planet into an interstellar community.",
+      "pollDescription": "An envoy crosses an icebound world to build trust",
+      "vibe": [
+        "Intellectual",
+        "Emotionally resonant"
+      ],
+      "themes": [
+        "Gender",
+        "Politics",
+        "Trust",
+        "Culture",
+        "Society",
+        "Human connection"
+      ],
+      "awards": [
+        {
+          "name": "Nebula Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        },
+        {
+          "name": "Hugo Award",
+          "category": "Best Novel",
+          "status": "Winner"
+        },
+        {
+          "name": "Otherwise Award",
+          "category": "Retrospective Award",
+          "status": "Winner"
+        }
+      ],
+      "sources": [
+        "https://www.ursulakleguin.com/left-hand-darkness",
+        "https://www.penguinrandomhouse.com/books/342990/the-left-hand-of-darkness-by-ursula-k-le-guin-with-a-new-foreword-by-david-mitchell-and-a-new-afterword-by-charlie-jane-anders/9780441007318/"
+      ],
+      "cover": {
+        "url": "https://images.penguinrandomhouse.com/cover/9780441007318",
+        "sourceUrl": "https://www.penguinrandomhouse.com/books/342990/the-left-hand-of-darkness-by-ursula-k-le-guin-with-a-new-foreword-by-david-mitchell-and-a-new-afterword-by-charlie-jane-anders/9780441007318/",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Publisher cover for the ISBN-listed edition; title and author visually checked before repository import.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "previousUrl": "https://covers.openlibrary.org/b/title/The%20Left%20Hand%20of%20Darkness-L.jpg",
+        "previousSourceUrl": "https://openlibrary.org/search?title=The%20Left%20Hand%20of%20Darkness&author=Ursula%20K.%20Le%20Guin",
+        "localPath": "/assets/book-club/covers/the-left-hand-of-darkness-8c20c2e1351d.jpg",
+        "sha256": "8c20c2e1351dd3eb030c6fdb1ff876ceba8f91ae9b9016e60e56a007743db7e3",
+        "downloadedFrom": "https://images.penguinrandomhouse.com/cover/9780441007318",
+        "cachedAt": "2026-10-02T16:43:43.249Z"
+      },
+      "editionNote": "The retained 288-page representative count follows the historical Signal record; the author site confirms the 1969 original publication while current editions vary.",
+      "websiteDisplayNotes": "Currently reading October 2026 · Retired: No",
+      "lastVerifiedDate": "2026-10-02",
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Left_Hand_of_Darkness"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/13601629"
+        }
       ]
     }
   ]

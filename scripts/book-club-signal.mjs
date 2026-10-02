@@ -7,6 +7,7 @@ export function signalDescriptionBudget(book) {
 }
 
 export function signalOption(book) {
+  if (book.eligibilityStatus && book.eligibilityStatus !== "Eligible") return "Not applicable";
   const description = book.pollDescription;
   if (!/^\d+$/.test(String(book.pageCountDisplay)) || Number(book.pageCountDisplay) <= 0) {
     throw new Error(`${book.recordId}: page count must be one positive integer`);

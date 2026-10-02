@@ -1,8 +1,11 @@
-import { chromium } from "playwright";
+// Allow the desktop's bundled Playwright without adding a runtime dependency.
+const { chromium } = await import(process.env.BOOK_CLUB_PLAYWRIGHT_MODULE || "playwright");
 import { readFile, mkdir } from "node:fs/promises";
 import { signalOption } from "./book-club-signal.mjs";
+import { publicBookLinks } from "./book-club-links.mjs";
 
 const { books } = JSON.parse(await readFile(new URL("../data/book-club.json", import.meta.url), "utf8"));
+const eligibleBooks = books.filter((book) => !book.eligibilityStatus || book.eligibilityStatus === "Eligible");
 const currentBooks = books.filter((book) => book.currentPoll);
 
 const origin = process.env.BOOK_CLUB_ORIGIN || "http://127.0.0.1:4319";
@@ -68,9 +71,40 @@ try {
       return ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"].every((name) => labels.includes(name));
     })), `${pageName}: shared card fields are incomplete`);
     assert(!/Poll premise|pollPremise/.test(await page.locator("body").innerText()), `${pageName}: Poll premise is visible`);
-    assert(await page.locator(".book-external-links").count() === 0, `${pageName}: deferred external-book links remain`);
+    const pageBooks = path === "/book-club/" ? currentBooks : eligibleBooks;
+    const resourceCount = pageBooks.reduce((sum, book) => sum + publicBookLinks(book).length, 0);
+    assert(await page.locator(".book-external-links a").count() === resourceCount, `${pageName}: reading resources do not match canonical data`);
+    for (const book of pageBooks) for (const { label, url } of publicBookLinks(book)) {
+      const link = page.locator(`[data-book-id="${book.recordId}"] .book-external-links a`).filter({ hasText: label });
+      assert(await link.count() === 1 && await link.getAttribute("href") === url, `${pageName}: ${book.recordId} ${label} link is missing or mismatched`);
+    }
+    const checkLinkRows = async () => {
+      assert(await page.locator(".book-external-links").evaluateAll(sections => sections.every(section => {
+        const rows = [...section.querySelectorAll('.book-link-row')];
+        const resources = section.querySelector('[data-link-group="resources"]');
+        const sites = section.querySelector('[data-link-group="sites"]');
+        if (!rows.length || rows.some(row => !row.children.length)) return false;
+        const resourceLabels = resources ? [...resources.querySelectorAll('a span')].map(span => span.textContent) : [];
+        const siteLabels = sites ? [...sites.querySelectorAll('a span')].map(span => span.textContent) : [];
+        if (resourceLabels.some(label => !['Wikipedia', 'Goodreads'].includes(label)) || siteLabels.some(label => !['Author Site', 'Publisher Site', 'Book Site'].includes(label))) return false;
+        if (resourceLabels.join('|') === 'Goodreads|Wikipedia') return false;
+        return !resources || !sites || (rows[0] === resources && resources.getBoundingClientRect().bottom <= sites.getBoundingClientRect().top);
+      })), `${pageName}: site links must be on a separate line after Wikipedia/Goodreads`);
+    };
+    await checkLinkRows();
+    for (const width of [900, 1440]) {
+      await page.setViewportSize({ width, height: 1200 });
+      await checkLinkRows();
+    }
+    await page.setViewportSize({ width: 390, height: 1200 });
+    for (const book of pageBooks) {
+      assert(await page.locator(`[data-book-id="${book.recordId}"] .book-field-form dd`).innerText() === book.form, `${pageName}: ${book.recordId} form does not match canonical data`);
+    }
+    assert(await page.locator(".book-external-links img").evaluateAll((icons) => icons.every((icon) => icon.complete && icon.naturalWidth > 0)), `${pageName}: a resource logo failed to load`);
+    assert(await page.locator(".book-external-links a").evaluateAll((links) => links.every((link) => link.getAttribute("aria-label") && link.target === "_blank" && link.rel.includes("noopener") && link.rel.includes("noreferrer") && link.getBoundingClientRect().height >= 24)), `${pageName}: reading resources must be accessible, safe and touch-sized`);
     assert(!/No verified external links recorded/.test(await page.locator("body").innerText()), `${pageName}: missing-link filler remains`);
-    assert(await page.locator(".book-card a").count() === 0, `${pageName}: cards contain clickable links`);
+    assert(await page.locator(".book-card a:not(.book-external-links a)").count() === 0, `${pageName}: cards contain unexpected clickable links`);
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${pageName}: mobile viewport overflows horizontally`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => getComputedStyle(link).textAlign === "center"))), `${pageName}: Jump To text is not centered`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => document.querySelector(link.hash)))), `${pageName}: Jump To link target is missing`);
     assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => getComputedStyle(card).cursor !== "pointer")), `${pageName}: cards look clickable`);
@@ -93,12 +127,17 @@ try {
       };
       assert(sortState.every((value, index) => index === 0 || compare(sortState[index - 1], value) <= 0), `${pageName}: ${mode} sorting is incorrect`);
     }
+    for (const href of await page.locator(".jump-links a").evaluateAll((links) => links.map((link) => link.getAttribute("href")))) {
+      await page.locator(`.jump-links a[href="${href}"]`).click();
+      assert(new URL(page.url()).hash === href && await page.locator(href).count() === 1, `${pageName}: sorted Jump To navigation failed for ${href}`);
+    }
+    await page.evaluate(() => scrollTo(0, 0));
     if (screenshots) await page.screenshot({ path: `${screenshots}/${pageName.replace(/ /g, "-")}-mobile.png`, fullPage: true });
     await page.close();
   };
 
   await checkPublicPage("/book-club/", currentBooks.length, "current poll");
-  await checkPublicPage("/book-club/backlog/", books.length, "backlog");
+  await checkPublicPage("/book-club/backlog/", eligibleBooks.length, "backlog");
 
   const checkGrid = async (path, width, expectedColumns, pageName) => {
     const page = await newPage({ viewport: { width, height: 900 } });
@@ -156,13 +195,31 @@ try {
   assert(adminHeaders.length === firstAdminCells.length, "admin header and row cell counts differ");
   assert(adminHeaders[0].trim() === "ID" && firstAdminCells[0].trim() === "B01", "admin ID column is not paired with its values");
   assert(adminHeaders[1].trim() === "Title" && firstAdminCells[1].trim() === "Seven Views of Olduvai Gorge", "admin title column is shifted");
+  for (const mode of ["pages", "title", "author", "year", "awards"]) {
+    await admin.locator("[data-sort-books]").selectOption(mode);
+    const rows = await admin.locator(".book-data-table tbody tr").evaluateAll((rows) => rows.map((row) => ({
+      title: row.children[1].textContent.trim(), author: row.children[2].textContent.trim(),
+      pages: Number(row.dataset.pageCountSortKey), year: Number(row.dataset.publishedYear), awards: Number(row.dataset.awardBearing),
+    })));
+    const compare = (a,b) => mode === "pages" ? a.pages-b.pages || a.title.localeCompare(b.title)
+      : mode === "year" ? a.year-b.year || a.title.localeCompare(b.title)
+      : mode === "author" ? a.author.localeCompare(b.author) || a.title.localeCompare(b.title)
+      : mode === "awards" ? b.awards-a.awards || a.title.localeCompare(b.title)
+      : a.title.localeCompare(b.title);
+    assert(rows.every((row,index) => !index || compare(rows[index-1],row) <= 0), `admin: ${mode} sorting is incorrect`);
+  }
   const signalOptionIndex = adminHeaders.findIndex((header) => header.trim() === "Signal option");
   const signalStatusIndex = adminHeaders.findIndex((header) => header.trim() === "Signal option status");
   const signalRows = await admin.locator(".book-data-table tbody tr").evaluateAll((rows, indexes) => rows.map((row) => ({
+    id: row.children[0]?.textContent.trim(),
     option: row.children[indexes[0]]?.textContent.trim() || "",
     status: row.children[indexes[1]]?.textContent.trim() || "",
   })), [signalOptionIndex, signalStatusIndex]);
-  assert(signalRows.every((row) => row.status === "Ready" && row.option.length > 0 && row.option.length <= 100 && /\| \d+ pages$/.test(row.option)), "every rendered Signal option must be ready, within 100 characters, and have one discrete count");
+  assert(signalRows.every((row) => {
+    const book = books.find((book) => book.recordId === row.id);
+    const eligible = eligibleBooks.includes(book);
+    return book && row.status === (eligible ? "Ready" : "Not applicable") && row.option.length > 0 && row.option.length <= 100 && (eligible ? /\| \d+ pages$/.test(row.option) : row.option === "Not applicable");
+  }), "every rendered Signal option must be ready or explicitly not applicable after sorting");
   assert(signalRows.every((row) => books.some((book) => signalOption(book) === row.option)), "rendered Signal options differ from canonical formatting");
   const descriptionIndex = adminHeaders.findIndex((header) => header.trim() === "Poll description");
   assert(await admin.locator(".book-data-table tbody tr").evaluateAll((rows, index) => rows.every((row) => !/\.$/.test(row.children[index].textContent.trim())), descriptionIndex), "rendered descriptions still end in periods");

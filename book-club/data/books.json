@@ -36,10 +36,20 @@
         }
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/Seven%20Views%20of%20Olduvai%20Gorge-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=Seven%20Views%20of%20Olduvai%20Gorge&author=Mike%20Resnick",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/seven-views-of-olduvai-gorge-eb147406c0cc.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL20284901W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Seven_Views_of_Olduvai_Gorge"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/18912954"
+        }
+      ]
     },
     {
       "recordId": "B02",
@@ -77,10 +87,24 @@
         }
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/Binti-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=Binti&author=Nnedi%20Okorafor",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/binti-e47ec79a69ba.avif",
+        "sourceUrl": "https://us.macmillan.com/books/9780765385253/binti/",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Binti_(novella)"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/25667918"
+        },
+        {
+          "label": "Author Site",
+          "url": "https://nnedi.com/books/the-binti-series/"
+        }
+      ]
     },
     {
       "recordId": "B03",
@@ -118,10 +142,24 @@
         }
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/Beggars%20in%20Spain-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=Beggars%20in%20Spain&author=Nancy%20Kress",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/beggars-in-spain-6838ca85f99b.jpg",
+        "sourceUrl": "https://openlibrary.org/books/OL27073016M",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Beggars_in_Spain"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/34437255"
+        },
+        {
+          "label": "Author Site",
+          "url": "https://nancykress.com/beggars-in-spain/"
+        }
+      ]
     },
     {
       "recordId": "B04",
@@ -132,7 +170,7 @@
       "currentPollOrder": 4,
       "pageCountDisplay": "154",
       "pageCountSortKey": 154,
-      "form": "Novella / short novel",
+      "form": "Novella",
       "originalPublicationYear": 1990,
       "longSynopsis": "A scholar attempts to create a fake Ernest Hemingway manuscript, but the scheme becomes entangled with time travel and parallel worlds.",
       "vibe": [
@@ -160,10 +198,20 @@
         }
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/The%20Hemingway%20Hoax-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=The%20Hemingway%20Hoax&author=Joe%20Haldeman",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/the-hemingway-hoax-a204694ba1c2.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL461320W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Hemingway_Hoax"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/388952"
+        }
+      ]
     },
     {
       "recordId": "B05",
@@ -174,7 +222,7 @@
       "currentPollOrder": 5,
       "pageCountDisplay": "184",
       "pageCountSortKey": 184,
-      "form": "Short story collection",
+      "form": "Short Story Collection",
       "originalPublicationYear": 2022,
       "longSynopsis": "A collection of speculative stories in which ordinary life collides with the uncanny: children encounter haunted objects, technology alters grief and relationships, and familiar emotions take monstrous or fantastical forms.",
       "vibe": [
@@ -190,10 +238,24 @@
         "Alienation"
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/Lesser%20Known%20Monsters%20of%20the%2021st%20Century-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=Lesser%20Known%20Monsters%20of%20the%2021st%20Century&author=Kim%20Fu",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/lesser-known-monsters-of-the-21st-century-f3564b0b8a2b.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL26666388W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/58476152"
+        },
+        {
+          "label": "Author Site",
+          "url": "https://kim-fu.com/lesser-known-monsters-of-the-21st-century"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/"
+        }
+      ]
     },
     {
       "recordId": "B06",
@@ -219,10 +281,24 @@
         "Institutional power"
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/Camp%20Concentration-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=Camp%20Concentration&author=Thomas%20M.%20Disch",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/camp-concentration-8496ee077c65.jpg",
+        "sourceUrl": "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Camp_Concentration"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/553907"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/"
+        }
+      ]
     },
     {
       "recordId": "B07",
@@ -249,10 +325,24 @@
         "Media"
       ],
       "cover": {
-        "url": "https://cdn.penguin.co.uk/dam-assets/books/9780141192390/9780141192390-jacket-large.jpg",
+        "url": "/assets/book-club/covers/infernal-desire-machines-of-dr-hoffman-663b14a00b23.jpg",
         "sourceUrl": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390",
-        "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review."
-      }
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Infernal_Desire_Machines_of_Doctor_Hoffman"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/8092105"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"
+        }
+      ]
     },
     {
       "recordId": "B08",
@@ -278,10 +368,24 @@
         "Survival"
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/The%20Black%20Cloud-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=The%20Black%20Cloud&author=Fred%20Hoyle",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/the-black-cloud-6b2304cbc6af.jpg",
+        "sourceUrl": "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Black_Cloud"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/1246118"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404"
+        }
+      ]
     },
     {
       "recordId": "B09",
@@ -292,7 +396,7 @@
       "currentPollOrder": null,
       "pageCountDisplay": "318",
       "pageCountSortKey": 318,
-      "form": "Middle-grade / young-adult fantasy novel",
+      "form": "Novel",
       "originalPublicationYear": 2020,
       "longSynopsis": "Fourteen-year-old Mona’s magic works only on bread, and her quiet life in her aunt’s bakery changes when she finds a dead body. With an assassin targeting magic users and the city suddenly without its wizards, Mona is pulled into an unexpected fight to protect it.",
       "vibe": [
@@ -314,10 +418,24 @@
         }
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/A%20Wizard%27s%20Guide%20to%20Defensive%20Baking-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=A%20Wizard%27s%20Guide%20to%20Defensive%20Baking&author=T.%20Kingfisher",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/a-wizards-guide-to-defensive-baking-e2ddad4e03fb.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL20924196W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/A_Wizard%27s_Guide_to_Defensive_Baking"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/54439932"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/"
+        }
+      ]
     },
     {
       "recordId": "B10",
@@ -343,10 +461,24 @@
         "Existential threat"
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/There%20Is%20No%20Antimemetics%20Division-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=There%20Is%20No%20Antimemetics%20Division&author=Sam%20Hughes",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/there-is-no-antimemetics-division-311c08dbd3ee.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL24726867W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/There_Is_No_Antimemetics_Division"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/54870256"
+        },
+        {
+          "label": "Author Site",
+          "url": "https://qntm.org/antifaq"
+        }
+      ]
     },
     {
       "recordId": "B11",
@@ -374,10 +506,24 @@
         "Displacement"
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/The%20Ministry%20of%20Time-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=The%20Ministry%20of%20Time&author=Kaliane%20Bradley",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/the-ministry-of-time-5fd316c4aba1.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL37571815W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Ministry_of_Time_(novel)"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/125982351"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152"
+        }
+      ]
     },
     {
       "recordId": "B12",
@@ -415,10 +561,24 @@
         }
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/The%20Windup%20Girl-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=The%20Windup%20Girl&author=Paolo%20Bacigalupi",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/the-windup-girl-0da1fd054c75.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL15000756W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Windup_Girl"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/18747392"
+        },
+        {
+          "label": "Author Site",
+          "url": "https://windupstories.com/books/windup-girl/"
+        }
+      ]
     },
     {
       "recordId": "B13",
@@ -451,10 +611,24 @@
         }
       ],
       "cover": {
-        "url": "https://covers.openlibrary.org/b/title/Children%20of%20Ruin-L.jpg",
-        "sourceUrl": "https://openlibrary.org/search?title=Children%20of%20Ruin&author=Adrian%20Tchaikovsky",
-        "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
-      }
+        "url": "/assets/book-club/covers/children-of-ruin-b9cce55aafdf.jpg",
+        "sourceUrl": "https://openlibrary.org/works/OL20079532W",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/Children_of_Ruin"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/40376072"
+        },
+        {
+          "label": "Author Site",
+          "url": "https://adriantchaikovsky.com/children-of-time-series.html"
+        }
+      ]
     },
     {
       "recordId": "B14",
@@ -480,10 +654,24 @@
         "Short fiction"
       ],
       "cover": {
-        "url": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg",
+        "url": "/assets/book-club/covers/science-fiction-hall-of-fame-volume-one-592bf2883ea6.avif",
         "sourceUrl": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
-        "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review."
-      }
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Wikipedia",
+          "url": "https://en.wikipedia.org/wiki/The_Science_Fiction_Hall_of_Fame,_Volume_One,_1929%E2%80%931964"
+        },
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/141860"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/"
+        }
+      ]
     }
   ]
 }
