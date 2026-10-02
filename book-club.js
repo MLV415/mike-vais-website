@@ -1,5 +1,5 @@
 function pageCount(item) {
-  return Number.parseInt(item.dataset.pageCountMin || "0", 10);
+  return Number.parseInt(item.dataset.pageCountSortKey || "0", 10);
 }
 
 function titleOf(item) {

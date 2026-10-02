@@ -16,14 +16,22 @@ const assert = (condition, message) => {
 const count = (text, pattern) => text.match(new RegExp(pattern, "g"))?.length || 0;
 
 const allBooks = data.books;
-const currentBooks = allBooks.filter((book) => book.currentPoll);
+const currentBooks = allBooks.filter((book) => book.currentPoll).sort((a, b) => a.currentPollOrder - b.currentPollOrder);
 const publicBannedCopy = /Vote for our next book|short books|Multiple votes allowed|These are &lt;200 pages|Longer books next poll|small orbit|SHORT LIST|one next read|See all 14|Opens the Signal|Suggested By|Stefan|Liam|Irene|Celeste|Internal|Research Status|Eligibility Status|Last Poll|Total Votes/;
 const adminBannedCopy = /Poll premise|pollPremise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/;
 
 assert(allBooks.length === 14, `expected 14 canonical books, found ${allBooks.length}`);
 assert(currentBooks.length === 6, `expected 6 current-poll books, found ${currentBooks.length}`);
 assert(allBooks.every((book) => book.cover?.url && book.cover?.sourceUrl && book.cover?.rightsNote), "every book needs an image URL, source URL, and rights note");
-assert(allBooks.every((book) => /^\d+$/.test(String(book.pageCountDisplay))), "every book needs one normalized numeric page count");
+assert(allBooks.every((book) => /^(?:\d+|\d+[–-]\d+|\d+\+)$/.test(String(book.pageCountDisplay))), "every book needs a valid page-count display value");
+assert(allBooks.every((book) => Number.isInteger(book.pageCountSortKey) && book.pageCountSortKey > 0), "every book needs a numeric page-count sort key");
+assert(allBooks.every((book) => typeof book.displayAuthor === "string" && typeof book.authorLastName === "string" && Object.hasOwn(book, "editorCredit")), "author attribution fields are not normalized");
+assert(allBooks.every((book) => !Object.hasOwn(book, "author") && !Object.hasOwn(book, "pollOrder") && !Object.hasOwn(book, "pageCountMin") && !Object.hasOwn(book, "pollPremise")), "redundant legacy data fields remain");
+assert(currentBooks.every((book, index) => book.currentPoll && book.currentPollOrder === index + 1), "current poll flags and order contradict each other");
+assert(allBooks.filter((book) => !book.currentPoll).every((book) => book.currentPollOrder === null), "backlog records must not have a current-poll order");
+assert(allBooks.every((book) => typeof book.pollDescription === "string" && book.pollDescription.length > 0), "every book needs a poll description");
+assert(allBooks.every((book) => !/\b(?:award|hugo|nebula|science-fiction|sci-fi)\b/i.test(book.pollDescription)), "poll descriptions must not use awards or genre-label wording");
+assert(allBooks.every((book) => Array.isArray(book.externalLinks) && book.externalLinks.every((link) => book.sources.includes(link.url))), "external links must reuse verified source URLs");
 assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "current poll action is missing its label or Signal link");
 assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll should have one accessible heading");
 assert(current.includes("book-club-nav-signal") && !current.includes("book-club-action"), "Signal action is not integrated into the navigation row");
@@ -35,13 +43,19 @@ assert(!current.includes('class="book-club-brand" href="/book-club/">SCI-FI BOOK
 assert(!publicBannedCopy.test(current) && !publicBannedCopy.test(backlog) && !publicBannedCopy.test(publicData), "removed private or promotional copy remains in public generated pages");
 assert(!adminBannedCopy.test(admin), "private or excluded workbook fields remain in generated admin output");
 assert(!/Poll premise|pollPremise|lastPollDate|lastPollVotes|totalPolls|totalVotes/.test(current + backlog + publicData), "admin-only poll fields remain in public generated output");
+assert(!/Poll description|pollDescription/.test(publicData), "poll descriptions remain in the public data projection");
 assert(!/[⌁~]/.test(current) && !/[⌁~]/.test(backlog), "a tilde-like Jump To glyph remains");
 assert(!current.includes("jump-icon") && !backlog.includes("jump-icon"), "Jump To still contains an icon element");
-assert(!/<article[^>]*class="book-card"[\s\S]*?<a\s/.test(current), "current cards contain clickable links");
-assert(!/<article[^>]*class="book-card"[\s\S]*?<a\s/.test(backlog), "backlog cards contain clickable links");
+assert([...current.matchAll(/<article[^>]*class="book-card"[\s\S]*?<\/article>/g)].every(([card]) => !/<a\s/.test(card.replace(/<section class="book-external-links"[\s\S]*?<\/section>/, ""))), "current cards contain non-external clickable links");
+assert([...backlog.matchAll(/<article[^>]*class="book-card"[\s\S]*?<\/article>/g)].every(([card]) => !/<a\s/.test(card.replace(/<section class="book-external-links"[\s\S]*?<\/section>/, ""))), "backlog cards contain non-external clickable links");
 assert(count(current, "data-book-image") === currentBooks.length, "current poll does not have one image element per card");
 assert(count(backlog, "data-book-image") === allBooks.length, "backlog does not have one image element per card");
-for (const header of ["Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
+assert(count(current, "book-external-links") === currentBooks.length && count(backlog, "book-external-links") === allBooks.length, "every public card needs an external-links section");
+const signalOptions = allBooks.map((book) => `${book.title} - ${book.authorLastName} | ${book.pollDescription} | ${book.pageCountDisplay} pages`);
+const signalOverflow = allBooks.filter((book, index) => signalOptions[index].length > 100).map((book) => book.recordId);
+assert(signalOverflow.length === 1 && signalOverflow[0] === "B14", `unexpected Signal options over 100 characters: ${signalOverflow.join(", ")}`);
+assert(signalOptions.filter((_, index) => !signalOverflow.includes(allBooks[index].recordId)).every((option) => option.length <= 100 && option.endsWith(" pages")), "a generated Signal option exceeds 100 characters or omits pages");
+for (const header of ["Author last name", "Current poll order", "Page count display", "Page count sort key", "Poll description", "Signal option", "Signal option status", "Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
   assert(admin.includes(`>${header}</th>`), `admin table does not render ${header}`);
 }
 assert((admin.match(/<th scope="col">/g) || []).length === (admin.match(/<(?:th scope="row"|td)(?:\s|>)/g) || []).length / allBooks.length, "admin header and row cell definitions differ");

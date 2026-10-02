@@ -1,5 +1,13 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-01 — Canonical data cleanup and public book links
+
+- Normalized display attribution, author surname, editor credit, current-poll order, page-count display, and numeric page-count sort fields.
+- Added source-backed poll descriptions for all 14 eligible books and generated Signal option/status fields in the admin table.
+- Preserved edition ranges and plus-values such as `96–112`, `152–155`, and `600+` instead of replacing them with midpoint or minimum display values.
+- Added verified author/publisher links to public cards where existing source URLs clearly matched; cards without a verified public link show that state explicitly.
+- Flagged B14, *The Science Fiction Hall of Fame, Volume One: 1929–1964*, for manual Signal review because its full title, editor surname, page count, and accurate description cannot fit within 100 characters.
+
 ## 2026-10-01 — Mobile header layout
 
 - Expanded the supplied logo to the full mobile header width without cropping it.

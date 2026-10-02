@@ -51,7 +51,8 @@ try {
       return ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"].every((name) => labels.includes(name));
     })), `${pageName}: shared card fields are incomplete`);
     assert(!/Poll premise|pollPremise/.test(await page.locator("body").innerText()), `${pageName}: Poll premise is visible`);
-    assert(await page.locator(".book-card a").count() === 0, `${pageName}: cards must not contain links`);
+    assert(await page.locator(".book-external-links").count() === expectedCards, `${pageName}: every card needs an external-links section`);
+    assert(await page.locator(".book-card a").evaluateAll((links) => links.every((link) => link.closest(".book-external-links") && link.target === "_blank" && link.rel.includes("noopener"))), `${pageName}: external links are not safely labeled links`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => getComputedStyle(link).textAlign === "center"))), `${pageName}: Jump To text is not centered`);
     assert((await page.locator(".jump-links a").evaluateAll((links) => links.every((link) => document.querySelector(link.hash)))), `${pageName}: Jump To link target is missing`);
     assert(!/Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais/i.test(await page.locator("body").innerText()), `${pageName}: personal or private copy is visible`);
@@ -114,7 +115,15 @@ try {
   assert(adminHeaders.length === firstAdminCells.length, "admin header and row cell counts differ");
   assert(adminHeaders[0].trim() === "ID" && firstAdminCells[0].trim() === "B01", "admin ID column is not paired with its values");
   assert(adminHeaders[1].trim() === "Title" && firstAdminCells[1].trim() === "Seven Views of Olduvai Gorge", "admin title column is shifted");
-  for (const header of ["Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
+  const signalOptionIndex = adminHeaders.findIndex((header) => header.trim() === "Signal option");
+  const signalStatusIndex = adminHeaders.findIndex((header) => header.trim() === "Signal option status");
+  const signalRows = await admin.locator(".book-data-table tbody tr").evaluateAll((rows, indexes) => rows.map((row) => ({
+    option: row.children[indexes[0]]?.textContent.trim() || "",
+    status: row.children[indexes[1]]?.textContent.trim() || "",
+  })), [signalOptionIndex, signalStatusIndex]);
+  assert(signalRows.filter((row) => row.status.startsWith("Manual review required")).length === 1, "admin Signal review status does not identify exactly one manual record");
+  assert(signalRows.filter((row) => row.status === "Ready").every((row) => row.option.length <= 100 && row.option.endsWith(" pages")), "a rendered Signal option exceeds 100 characters or omits pages");
+  for (const header of ["Author last name", "Page count display", "Page count sort key", "Poll description", "Signal option", "Signal option status", "Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
     assert(await admin.locator(".book-data-table th").filter({ hasText: header }).count() === 1, `admin page is missing ${header}`);
   }
   await admin.close();
