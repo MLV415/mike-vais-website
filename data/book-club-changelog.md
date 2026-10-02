@@ -1,5 +1,14 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-02 — Persistent workflow and project communication
+
+- Save consolidated book-club workflow and dictated preferences in AGENTS.md and docs/book-club-data-workflow.md for future Codex project chats and devices with an up-to-date repository checkout.
+- Require explicit task status: completed work, remaining assistant work, and required user action. Every supplied pasteable prompt must be standalone in a fenced text code block. Apply these preferences to every task in this project.
+- Preserve single-number page counts, faithful <=100-character Signal options, unknown-history placeholders, comprehensive admin/eligible-only public data standards, isolated navigation, and the established responsive presentation.
+- Require preview before website pushes, remote PRs, merges, or deployments; finish already approved work without repeated requests. The user authorized completing this documentation-only persistence update after reviewing the saved draft.
+- Record the user's newer Local-chat authorization to prepare verified repository-hosted covers and compact Wikipedia/Goodreads links, superseding the earlier deferral. That website implementation remains preview-only until reviewed.
+- This commit changes instructions/history only. No canonical book records, generated pages, images, styles, scripts, or deployment configuration change.
+
 ## 2026-10-02 — Reduced release scope
 
 - Per the user's latest direction, removed external-book-link sections from both public views and externalLinks from the public JSON. Existing canonical/source URLs and admin attribution remain for future reference; Wikipedia/Goodreads research is deferred.
