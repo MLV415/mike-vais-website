@@ -13,7 +13,7 @@ Run `npm run build:book-club` after changing the JSON, then run `npm run verify:
 
 ## Public fields and exclusions
 
-Canonical records may retain the short poll premise for poll-generation work, but generated web pages and the public JSON projection do not render or export it. Public records contain the record ID, title, display author, current-poll state/order, page-count display, form, original publication year, long synopsis, themes, vibe, verified awards, source URLs, cover status/source note, and edition note. Both public card views share page count, form, published year, synopsis, themes, vibe, and awards when present. Missing source-backed values remain visibly labeled `Not yet sourced` rather than being filled with invented copy.
+Canonical records store a source-backed poll description for Signal formatting, but public cards and the public JSON projection do not render or export it. Public records contain the record ID, title, display author, current-poll state/order, separate page-count display and numeric sort key, form, original publication year, long synopsis, themes, vibe, verified awards, and cover URLs/rights attribution. Administrative source/edition notes, verification status, poll descriptions, and history remain in the canonical data and admin reference, not the public JSON. Both public card views share page count, form, published year, synopsis, themes, vibe, awards, with no external-book-link section. Missing source-backed metadata remains labeled `Not yet sourced`.
 
 Never add Suggested By, contributor names, full names, or other personal data to the public card pages or public JSON projection. The unlinked admin reference may render non-personal operational fields from the workbook, including eligibility, poll history, vote totals, source verification, and edition notes. Keep unsupported values blank or explicitly zero rather than inventing them. Blank public source-backed fields remain visibly labeled as not yet sourced.
 
@@ -21,9 +21,36 @@ Never add Suggested By, contributor names, full names, or other personal data to
 
 Accept publisher, author, award-organization, library, or other authoritative bibliographic sources. Paraphrase publisher/author material for long synopses and themes; do not use reviews as the sole source. Awards must name the award, category, and explicit status such as Winner or Finalist. Images require a verified direct publisher/author/library or clearly licensed source and a rights/source note. Never use AI-generated cover art or arbitrary retailer scraping. If no direct cover is verified, keep the restrained fallback and record the unresolved image in `data/book-club-changelog.md`.
 
+Repository-hosted covers are deferred for this release: retain the existing cover URLs and image recovery behavior; do not make downloading new assets a prerequisite for routine data edits. The optional importer remains available for later troubleshooting.
+
+When that follow-up is resumed, prefer storing real cover files under `assets/book-club/covers/` rather than relying on a remote title-lookup service at every page visit. `npm run cache:book-club:covers` stages source downloads and updates canonical `cover.localPath`, `sha256`, `downloadedFrom`, and `cachedAt` only after all required downloads succeed. Preserve `cover.url`, `sourceUrl`, source notes, and rights notes. The generator and image verifier prefer local files and reject missing or altered assets; the admin table identifies locally hosted covers. Follow `docs/book-club-access-and-covers.md` if network policy blocks research. Never present fixture/logo bytes used in unit tests as real book covers.
+
 ## Routine updates
 
-For a routine Signal or poll update, read `AGENTS.md`, this workflow, `data/book-club.json`, and the published admin backlog page first. Apply the supplied change to the canonical JSON, preserve each record ID, update the changelog, run the generator, and verify that current-poll filtering, backlog coverage, public/admin separation, sorting, anchors, and exact Signal behavior still agree. Do not request the workbook or mockup again unless source data is genuinely missing, the visual design changed, or the published admin page is unavailable.
+For a routine Signal or poll update, read `AGENTS.md`, this workflow, `data/book-club.json`, and the published admin backlog page first. If the published page cannot be accessed, use the generated repository admin page and proceed; do not ask for another workbook, mockup, screenshot, or attachment. Apply supplied changes to the canonical JSON, preserve record IDs, update the changelog, run the generator, and verify all consumers together.
+
+### Page counts
+
+Store one positive integer as the display string and the same number as the separate numeric sort key. Never display ranges such as `96–112`, or values like `600+`, on cards or in Signal options. Prefer an existing representative or first reliable source count; if only a range is recorded, use a rounded midpoint. Existing approximate numeric values are acceptable: edition-level precision is not the goal and should not consume research time. Preserve former ranges/conflicts only in admin edition notes, not voter-facing data.
+
+### Poll descriptions and Signal options
+
+Use exactly `{TITLE} - {AUTHOR LAST NAME} | {POLL DESCRIPTION} | {PAGE COUNT DISPLAY} pages`. The literal `pages` is added by the formatter. Preserve the full title, surname, separators, and count. Compute the available description budget as 100 minus the length of the complete option with an empty description; all spaces and punctuation count. Use `signalDescriptionBudget` and `signalOption` from `scripts/book-club-signal.mjs` rather than another formatting implementation.
+
+Draft the description from the source-backed synopsis or publisher/author/catalog description, never from vibes, themes, reviews, or invented plot details. State the central setup without spoilers, genre labels, awards, or unsupported interpretation. Remove the final period. Shorten the description to its individual budget yourself; never truncate the title, hide the option, or delegate a manual-review row to the user. A very long anthology title may require a short faithful description such as `Classic stories`. The generator rejects overflow before writing any output. Check every eligible record, not only the current six, and use `currentPollOrder` when providing current-poll options.
+
+### External links
+
+External book links are deferred by the user's latest direction. Do not render them on cards or export them in the public JSON. Retain existing canonical/source URLs for attribution and the admin reference, but do not research new Wikipedia/Goodreads links or add missing-link filler until explicitly requested.
+
+### Future Signal transcripts
+
+1. Extract new book suggestions and explicit poll results/updates from the supplied transcript. Do not publish chat text, contributor identities, or Suggested By values.
+2. Match existing records by title and author before adding rows; preserve IDs and distinguish different works/novella expansions. Assign the next unused persistent ID and a unique slug to genuinely new books.
+3. Populate display author, surname, editor credit when applicable, representative numeric page count and sort key, form, publication year, source-backed spoiler-free synopsis, themes, vibe, verified awards, actual cover/source/rights metadata. External book links remain deferred; preserve existing source URLs for attribution/admin use. Keep source URLs and uncertainty notes in canonical/admin data. Do not invent missing facts.
+4. Write the no-period poll description and validate the full <=100-character Signal option using its unique budget. Complete this work yourself rather than asking the user to fix rows.
+5. Preserve historical votes and poll dates; update them only from supplied evidence. Do not infer a current-poll selection from a suggestion: update current flags/order only when explicitly instructed, with consecutive order numbers and null order for non-current books.
+6. Regenerate poll, backlog, admin, and public JSON from the single dataset. Verification uses canonical record counts so new suggestions do not require hard-coded test-count edits. Check sorting, anchors, public/admin separation, cover loading, and responsive layout. Commit and push through the existing repository workflow without extra approval unless the task would go outside the agreed scope.
 
 If a source correction is needed, update the JSON only after checking an authoritative source and record the date, fields, reason, source URL, and unresolved follow-up. If the attached workbook is the source of a new data change, reconcile it into the JSON rather than keeping the workbook as a second runtime dependency.
 

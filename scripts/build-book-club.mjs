@@ -1,13 +1,18 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { signalOption } from "./book-club-signal.mjs";
+import { coverUrl, verifyLocalCover } from "./book-club-covers.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = join(root, "data", "book-club.json");
 const data = JSON.parse(await readFile(dataPath, "utf8"));
 const books = data.books;
-const currentBooks = books.filter((book) => book.currentPoll).sort((a, b) => a.pollOrder - b.pollOrder);
-const backlogBooks = books.slice().sort((a, b) => a.pageCountMin - b.pageCountMin || a.title.localeCompare(b.title));
+// Fail before writing any page rather than publishing blank/manual-review options.
+books.forEach(signalOption);
+await Promise.all(books.map((book) => verifyLocalCover(book, root)));
+const currentBooks = books.filter((book) => book.currentPoll).sort((a, b) => a.currentPollOrder - b.currentPollOrder);
+const backlogBooks = books.slice().sort((a, b) => a.pageCountSortKey - b.pageCountSortKey || a.title.localeCompare(b.title));
 const signalUrl = "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX";
 const meetupUrl = "https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/";
 
@@ -28,8 +33,8 @@ function awardText(book) {
 }
 
 function lengthBand(book) {
-  if (book.pageCountMin < 200) return "Short";
-  if (book.pageCountMin < 400) return "Medium";
+  if (book.pageCountSortKey < 200) return "Short";
+  if (book.pageCountSortKey < 400) return "Medium";
   return "Long";
 }
 
@@ -59,14 +64,13 @@ function awardsField(book) {
 }
 
 function media(book) {
-  if (book.cover?.url) {
-    return `<div class="book-media" data-image-source="${escapeHtml(book.cover.sourceNote || "")}"><img data-book-image src="${escapeHtml(book.cover.url)}" alt="Cover of ${escapeHtml(book.title)} by ${escapeHtml(book.author)}" loading="lazy"><div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div></div>`;
+  if (coverUrl(book)) {
+    return `<div class="book-media"><img data-book-image src="${escapeHtml(coverUrl(book))}" alt="Cover of ${escapeHtml(book.title)} by ${escapeHtml(book.displayAuthor)}" loading="lazy"><div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div></div>`;
   }
-  return `<div class="book-media is-fallback" data-image-source="${escapeHtml(book.cover?.sourceNote || "Cover image unavailable; follow up with an authorized source.")}"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
+  return `<div class="book-media is-fallback"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
 }
 
 function card(book, page) {
-  const current = page === "current";
   const fields = [
     field("Page count", book.pageCountDisplay),
     field("Form", book.form),
@@ -76,11 +80,11 @@ function card(book, page) {
     field("Themes", book.themes),
     field("Vibe", book.vibe),
   ].join("");
-  return `<article class="book-card" id="${escapeHtml(book.slug)}" data-book-id="${escapeHtml(book.recordId)}" data-page-count-min="${book.pageCountMin}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}">
+  return `<article class="book-card" id="${escapeHtml(book.slug)}" data-book-id="${escapeHtml(book.recordId)}" data-page-count-sort-key="${book.pageCountSortKey}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}">
   ${media(book)}
   <div class="book-card-content">
     <h3>${escapeHtml(book.title)}</h3>
-    <p class="book-author">${escapeHtml(book.author)}</p>
+    <p class="book-author">${escapeHtml(book.displayAuthor)}</p>
     <dl class="book-fields">${fields}</dl>
   </div>
 </article>`;
@@ -135,16 +139,20 @@ function adminPage() {
   const columns = [
     ["ID", (book) => `<th scope="row">${escapeHtml(book.recordId)}</th>`],
     ["Title", (book) => cell(escapeHtml(book.title))],
-    ["Display author / attribution", (book) => cell(escapeHtml(book.author))],
-    ["Editor credit", (book) => cell(adminValue(book.recordId === "B14" ? "Robert Silverberg" : ""))],
+    ["Display author / attribution", (book) => cell(escapeHtml(book.displayAuthor))],
+    ["Author last name", (book) => cell(adminValue(book.authorLastName))],
+    ["Editor credit", (book) => cell(adminValue(book.editorCredit))],
     ["Eligibility status", (book) => cell(adminValue(book.eligibilityStatus, "Eligible"))],
     ["Current poll", (book) => cell(book.currentPoll ? "Yes" : "No")],
-    ["Current poll order", (book) => cell(adminValue(book.pollOrder))],
+    ["Current poll order", (book) => cell(adminValue(book.currentPollOrder))],
     ["Page count display", (book) => cell(adminValue(book.pageCountDisplay))],
-    ["Page count min", (book) => cell(adminValue(book.pageCountMin))],
+    ["Page count sort key", (book) => cell(adminValue(book.pageCountSortKey))],
     ["Length band", (book) => cell(lengthBand(book))],
     ["Form", (book) => cell(adminValue(book.form))],
     ["Original publication year", (book) => cell(adminValue(book.originalPublicationYear))],
+    ["Poll description", (book) => cell(adminValue(book.pollDescription))],
+    ["Signal option", (book) => cell(escapeHtml(signalOption(book)))],
+    ["Signal option status", () => cell("Ready")],
     ["Long synopsis", (book) => cell(adminValue(book.longSynopsis))],
     ["Themes", (book) => cell(adminValue((book.themes || []).join("; ")))],
     ["Vibe / reading feel", (book) => cell(adminValue((book.vibe || []).join("; ")))],
@@ -152,10 +160,10 @@ function adminPage() {
     ["Award verification status", (book) => cell(book.awards?.length ? "Verified" : "No verified award claim recorded in this pass")],
     ["Award source URL", (book) => cell(book.awards?.length ? sourceLinks(book.sources) : "—")],
     ["Cover image URL", (book) => cell(book.cover?.url
-      ? `<a href="${escapeHtml(book.cover.url)}" target="_blank" rel="noopener noreferrer">Image</a><br><a href="${escapeHtml(book.cover.sourceUrl || "")}" target="_blank" rel="noopener noreferrer">Catalog source</a>`
+      ? `<a href="${escapeHtml(coverUrl(book))}" target="_blank" rel="noopener noreferrer">Image</a><br><a href="${escapeHtml(book.cover.sourceUrl || "")}" target="_blank" rel="noopener noreferrer">Catalog source</a>`
       : adminValue(book.cover?.status, "Not yet sourced"))],
     ["Image source / rights note", (book) => cell(adminValue(`${book.cover?.sourceNote || ""}${book.cover?.rightsNote ? ` ${book.cover.rightsNote}` : ""}`))],
-    ["Image verification status", (book) => cell(book.cover?.status || "Not yet sourced")],
+    ["Image verification status", (book) => cell(book.cover?.localPath ? "Repository-hosted cover; checksum verified during build" : book.cover?.status || "Not yet sourced")],
     ["Last poll date", (book) => cell(adminValue(book.lastPollDate))],
     ["Last poll votes", (book) => cell(adminValue(book.lastPollVotes, "0"))],
     ["Total polls", (book) => cell(adminValue(book.totalPolls, "0"))],
@@ -169,13 +177,16 @@ function adminPage() {
   ];
   const headers = columns.map(([label]) => `<th scope="col">${label}</th>`).join("");
   const rows = books.map((book) => {
-    return `<tr data-page-count-min="${book.pageCountMin}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}">${columns.map(([, render]) => render(book)).join("")}</tr>`;
+    return `<tr data-page-count-sort-key="${book.pageCountSortKey}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}">${columns.map(([, render]) => render(book)).join("")}</tr>`;
   }).join("\n");
   const content = `<main><section class="book-club-intro"><div class="book-club-shell"><p class="book-club-kicker">MAINTENANCE REFERENCE</p><h1>Backlog Data</h1><p class="admin-version">Data version ${escapeHtml(data.dataVersion)} · ${books.length} eligible records</p><p class="admin-scope-note">This table reconciles the non-personal workbook fields used by the site. Personal and internal contributor or workflow fields remain excluded from web output.</p></div></section><section class="admin-table-section book-club-shell" aria-labelledby="admin-heading"><h2 class="visually-hidden" id="admin-heading">Complete eligible book data</h2>${sortControl()}<div class="admin-table-wrap"><table class="book-data-table" data-book-table><caption>Book-club data reconciled from the canonical repository dataset and source-of-truth workbook.</caption><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div></section></main>`;
   return documentShell({ title: "Backlog Data", description: "Read-only public data reference for the science-fiction book club.", active: "admin", content, script: "../../../book-club.js" });
 }
 
-const publicBooks = books.map(({ pageCountMin, pollPremise, lastPollDate, lastPollVotes, totalPolls, totalVotes, ...book }) => book);
+const publicBooks = books.map(({ externalLinks, authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
+  ...book,
+  cover: { url: coverUrl(book), sourceUrl: book.cover?.sourceUrl, rightsNote: book.cover?.rightsNote },
+}));
 await mkdir(join(root, "book-club/backlog/admin"), { recursive: true });
 await mkdir(join(root, "book-club/data"), { recursive: true });
 await writeFile(join(root, "book-club/index.html"), publicPage("current", currentBooks));

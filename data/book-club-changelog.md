@@ -1,5 +1,43 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-02 — Reduced release scope
+
+- Per the user's latest direction, removed external-book-link sections from both public views and externalLinks from the public JSON. Existing canonical/source URLs and admin attribution remain for future reference; Wikipedia/Goodreads research is deferred.
+- Retained all completed discrete-count, no-trailing-period, 100-character Signal-option, public/admin separation, sorting, and responsive-layout corrections.
+- Kept all 14 original cover URLs and attribution unchanged, along with the tested transient-load recovery fix. New cover downloads/repository hosting and cloud-environment configuration troubleshooting are deferred. No generated placeholders or guessed replacement URLs were added.
+- Comparing the canonical covers against main confirms the same URLs/source metadata. Online verification run [36959560834](https://github.com/MLV415/mike-vais-website/actions/runs/36959560834) then passed the build, static checks, cover workflow/recovery regressions, all 14 source image responses, and actual Chromium rendering of poll, backlog, and admin at desktop/mobile/compressed widths. Screenshots were captured by CI. This verifies the existing remote covers at test time, not permanent source availability; repository-hosted cover caching remains deferred.
+
+## 2026-10-02 — Cover recovery and repository-hosting preparation
+
+- Fixed the image loader to clear the fallback class and hidden state on a successful load; added one delayed retry for a transient failure without an unbounded request loop.
+- Added a staged importer for real source cover assets under `assets/book-club/covers/`, retaining source URLs/rights notes and recording checksums/retrieval metadata. Public cards, admin image links, and the data endpoint prefer a local asset when present; builds reject missing/corrupt local files.
+- Added offline tests for successful caching, safe abort on a failed download/access denial, source preservation, path safety, and checksum checks. Added browser regression tests for transient recovery, permanent failures, and cached successes. Test logo bytes are fixtures only, not substituted book art.
+- Updated image checking to validate actual local image bytes/checksums without remote requests when covers are cached; remote checks use the inherited proxy and bounded retries. CI now runs browser diagnostics even when the image audit fails, retains failure status, and saves screenshots.
+- The real import was attempted and denied at B01 with HTTP 403. No source cover assets or canonical data changed; zero real covers have been cached in this step. The missing covers and Wikipedia/Goodreads verification remain unresolved pending research access and dependable source retrieval. Production remains unchanged.
+- Local build/static checks, four cover-workflow tests, and browser recovery regression tests passed. Actual three-page rendering checks still fail on remote cover loading under the restricted network; metadata/layout checks passed. Image checks now wait for the retry to settle instead of inspecting an intermediate empty image source.
+- Added direct standard Codex web settings instructions and an explicit fallback if this managed environment is not listed, avoiding unsupported claims about the user's settings screen.
+
+## 2026-10-02 — Discrete counts and finished Signal options
+
+- Latest user direction supersedes range-preserving behavior: every displayed count is now one integer. Binti uses 104, The Hemingway Hoax 154, and both formerly `600+` records use the existing representative 600. Display and numeric sort fields remain separate and agree; former ranges remain only in admin edition notes.
+- Removed final periods from all 14 source-backed descriptions. Kept the existing setups; B14 now uses `Classic stories`, a faithful condensation of its already source-backed anthology synopsis. Its full-title Signal option is 98 characters. All 14 complete options fit 100 characters without shortening titles/surnames or omitting `pages`.
+- Added one shared Signal formatter/budget function and build-time rejection of ranges, trailing periods, and overflow. No blank or manual-review Signal row is published. Added negative and exact-limit regression tests.
+- Removed a duplicate B10 page-count property. Kept its representative 288-page value and archived the former 350 value in its admin note.
+- Removed empty external-links sections and the `No verified external links recorded` filler. Retained author/publisher links with touch-sized targets and visible keyboard focus. Wikipedia/Goodreads destinations are blocked by this environment's enforced network policy, so no guessed or falsely verified links were added. These link types remain unverified for B01–B14; B01 and B04 have no external-links section.
+- Removed administrative source/edition/verification notes from public JSON and card attributes while preserving canonical/admin sources and image rights attribution.
+- Persisted numeric-count, no-period, per-book character-budget, external-link, and future Signal-transcript ingestion rules in repository guidance and workflow documentation.
+- Made verification counts derive from the dataset, corrected desktop-vs-mobile/admin-sorting test assumptions, and enabled strict CI checks for book-club preview branches before main publication.
+- Local build/static checks passed. Chromium inspected all three local pages at mobile, compressed, and desktop widths; field/column alignment, 14 ready Signal options, all sorting modes, anchors, navigation, and touch targets were exercised. Remote cover requests had to be blocked locally because the network policy denies their sources; local image checks therefore correctly fail rather than claiming that fallbacks constitute success. Existing cover URLs are unchanged and strict online CI remains the publication gate.
+- Online CI run [36955071708](https://github.com/MLV415/mike-vais-website/actions/runs/36955071708), including a retry, passed build/static checks but failed the unchanged cover URLs for Seven Views of Olduvai Gorge, Binti, The Hemingway Hoax, Lesser Known Monsters of the 21st Century, Camp Concentration, The Black Cloud, A Wizard’s Guide to Defensive Baking, The Windup Girl, and Children of Ruin (503 or connection failures). Five image responses succeeded. Online browser verification was consequently skipped. Corrections were deployed to the book-club-data-cleanup preview, but not merged to main because the required image gate remains unsatisfied.
+
+## 2026-10-01 — Canonical data cleanup and public book links
+
+- Normalized display attribution, author surname, editor credit, current-poll order, page-count display, and numeric page-count sort fields.
+- Added source-backed poll descriptions for all 14 eligible books and generated Signal option/status fields in the admin table.
+- Preserved edition ranges and plus-values such as `96–112`, `152–155`, and `600+` instead of replacing them with midpoint or minimum display values.
+- Added verified author/publisher links to public cards where existing source URLs clearly matched; cards without a verified public link show that state explicitly.
+- Flagged B14, *The Science Fiction Hall of Fame, Volume One: 1929–1964*, for manual Signal review because its full title, editor surname, page count, and accurate description cannot fit within 100 characters.
+
 ## 2026-10-01 — Mobile header layout
 
 - Expanded the supplied logo to the full mobile header width without cropping it.
