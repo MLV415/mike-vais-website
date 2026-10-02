@@ -54,6 +54,14 @@ function attachImageFallbacks() {
   });
 }
 
+function sortJumpLinks() {
+  document.querySelectorAll(".jump-links").forEach((nav) => {
+    [...nav.querySelectorAll("a")]
+      .sort((a, b) => a.textContent.trim().localeCompare(b.textContent.trim()))
+      .forEach((link) => nav.append(link));
+  });
+}
+
 function attachListSorting(list) {
   const select = document.querySelector("[data-sort-books]");
   const status = document.querySelector("[data-sort-status]");
@@ -80,5 +88,6 @@ function attachTableSorting(table) {
 }
 
 attachImageFallbacks();
+sortJumpLinks();
 document.querySelectorAll("[data-book-list]").forEach(attachListSorting);
 document.querySelectorAll("[data-book-table]").forEach(attachTableSorting);
