@@ -2,11 +2,15 @@
 
 Updated: 2026-10-02 (America/Los_Angeles)
 
-## Publication authorized
+## Published and verified
 
 On 2026-10-02 the user reviewed the final local preview and explicitly said: "This looks great. you can publish it". This is one-off approval to publish the reviewed combined book-club changes and saved project instructions, not blanket permission for future unreviewed changes. Preserve unrelated pages and remote history. No additional review prompt is required for this already approved release unless reconciliation reveals a material conflict or scope change.
 
-Publication in progress: remote main is df63b000e8e949c2c4923681a3d5d759755e90ef, the same saved-instructions commit previously reconciled. Prepare a separate history-backed release checkout rather than resetting this initially empty local Git repository. Remaining work: scoped reconciliation, release checks, GitHub publication through the existing Cloudflare workflow, and live verification. No user action is currently required.
+Published the complete reviewed release through https://github.com/MLV415/mike-vais-website/pull/11 (merged), with release commit 670e92be8839b444ca38d0e255b2508751d9095c and merge commit 2e2432fa5b088851a116fdd458515b72268c0559. Reconciled against main df63b000e8e949c2c4923681a3d5d759755e90ef without resetting the original local checkout. The separate history-backed checkout at tmp/book-club-release now tracks main. All generated outputs match the reviewed preview after line-ending normalization; unrelated-path Git diff is empty. PR verification https://github.com/MLV415/mike-vais-website/actions/runs/37045957077 and post-merge verification https://github.com/MLV415/mike-vais-website/actions/runs/37047254719 completed successfully.
+
+Production is https://mike-vais.pages.dev/book-club/ (backlog /book-club/backlog/, unlinked admin /book-club/backlog/admin/, public data /book-club/data/books.json). HTTP 200 responses and normalized bytes match all reviewed pages, JSON, stylesheet, and browser script. All 18 live covers and both icons match their SHA-256 checksums and image MIME types. Unrelated home/about/personal/professional reference pages match unchanged repository content. Real Chromium live checks pass for poll/backlog/admin, covers/icons, separate resource/site rows at mobile/intermediate/desktop widths, canonical forms, all sorting modes, Jump To anchors, navigation, safe accessible links, public/admin separation, and no mobile overflow. Live screenshots are ignored under tmp/book-club-release/tmp/book-club-qa/live/.
+
+New preferences and one-off publication approval are saved in project files and included in the GitHub release; the published AGENTS.md persistence/communication/form/link rules were read back from the exact merge commit. This final publication record is included in a documentation-only follow-up; no reviewed website/data/asset bytes change. Task complete: no remaining authorized assistant work and no required user action. Future changes still require their own preview/review; this is not standing publication approval. The sections below preserve the earlier draft's history and must not override this current published status.
 
 ## Latest follow-up: two-line resources and standardized forms
 
@@ -32,7 +36,7 @@ Compared SHA-256 hashes against the start-of-task snapshot: all assets, styleshe
 
 ## Scope
 
-This local project continues the unpublished work from the `Sci-fi Voting` chat (`hostId: durable`, `threadId: 01a0f8d1-be04-7662-a4ff-06e92448d01d`). The preview is local-only. Do not push, merge, publish, or change the live site before review.
+This local project continued the work from the `Sci-fi Voting` chat (`hostId: durable`, `threadId: 01a0f8d1-be04-7662-a4ff-06e92448d01d`). The reviewed release is now published as recorded above; the local preview remains available. Do not push, merge, publish, or change the live site for future changes before their review.
 
 ## Saved project instructions reconciled
 
@@ -114,4 +118,4 @@ This project was restored into an initially empty local Git repository; its webs
 
 ## Review gate
 
-The local preview is ready for user review. Do not push, merge, deploy, or publish until the user approves the data and rendered pages.
+The user reviewed and explicitly approved this release, which is now published and verified. New changes must be previewed and approved before push, merge, or deployment. Preserve the original local preview and use current remote history for future releases.

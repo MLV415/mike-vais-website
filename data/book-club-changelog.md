@@ -1,5 +1,12 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-02 — Reviewed release published and verified
+
+- Published the complete reviewed set via merged PR https://github.com/MLV415/mike-vais-website/pull/11; release commit 670e92be8839b444ca38d0e255b2508751d9095c, merge commit 2e2432fa5b088851a116fdd458515b72268c0559. Preserved existing GitHub history and unrelated pages; the original initially empty local Git checkout was not reset.
+- PR CI run 37045957077 and post-merge CI run 37047254719 both passed. Build/static checks, six link/form tests, four cover-workflow tests, all 18 cover checksums/formats, and responsive/recovery browser checks succeeded.
+- Verified https://mike-vais.pages.dev/book-club/ and its backlog, admin, and JSON routes against the reviewed release, plus stylesheet/browser script, all 18 live cover checksums/MIME types, both resource icons, and unchanged personal-site reference pages. Live Chromium checks passed for card layouts/links/forms, all sorting modes, anchors, navigation, image decoding, public/admin separation, and mobile overflow.
+- Persisted user instructions and current-release-only publication approval in GitHub; read back the exact published AGENTS.md rules. Updated HANDOFF.md with final status. This final record is documentation-only; no website/data/asset bytes change. No remaining assistant work or required user action. Future changes still require their own preview and approval.
+
 ## 2026-10-02 — Reviewed release authorized
 
 - The user explicitly approved publishing the reviewed combined preview: "This looks great. you can publish it". Saved this current-release-only approval in HANDOFF.md; recurring preview-before-publication rules continue to apply to future changes.
