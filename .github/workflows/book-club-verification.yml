@@ -9,16 +9,18 @@ on:
       - "data/book-club.json"
       - "package.json"
       - "scripts/build-book-club.mjs"
+      - "scripts/book-club-signal.mjs"
       - "scripts/verify-book-club*.mjs"
       - "styles.css"
   push:
-    branches: [main]
+    branches: [main, "book-club-*"]
     paths:
       - "book-club.js"
       - "book-club/**"
       - "data/book-club.json"
       - "package.json"
       - "scripts/build-book-club.mjs"
+      - "scripts/book-club-signal.mjs"
       - "scripts/verify-book-club*.mjs"
       - "styles.css"
 

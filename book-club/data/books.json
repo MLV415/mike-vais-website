@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-10-01",
+  "dataVersion": "2026-10-02",
   "books": [
     {
       "recordId": "B01",
@@ -35,18 +35,11 @@
           "status": "Winner"
         }
       ],
-      "sources": [
-        "https://nebulas.sfwa.org/nominated-work/seven-views-olduvai-gorge/",
-        "https://www.thehugoawards.org/hugo-history/1995-hugo-awards/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/Seven%20Views%20of%20Olduvai%20Gorge-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=Seven%20Views%20of%20Olduvai%20Gorge&author=Mike%20Resnick",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Short work; page count varies by edition.",
       "externalLinks": []
     },
     {
@@ -56,7 +49,7 @@
       "displayAuthor": "Nnedi Okorafor",
       "currentPoll": true,
       "currentPollOrder": 2,
-      "pageCountDisplay": "96–112",
+      "pageCountDisplay": "104",
       "pageCountSortKey": 104,
       "form": "Novella",
       "originalPublicationYear": 2015,
@@ -84,18 +77,11 @@
           "status": "Winner"
         }
       ],
-      "sources": [
-        "https://nnedi.com/books/the-binti-series/",
-        "https://torpublishinggroup.com/series/binti/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/Binti-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=Binti&author=Nnedi%20Okorafor",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Page count varies by edition; this display preserves the cited 96–112-page range.",
       "externalLinks": [
         {
           "label": "Official author page",
@@ -142,18 +128,11 @@
           "status": "Winner"
         }
       ],
-      "sources": [
-        "https://nancykress.com/beggars-in-spain/",
-        "https://nancykress.com/awards/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/Beggars%20in%20Spain-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=Beggars%20in%20Spain&author=Nancy%20Kress",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Current 100-page value represents the novella; the later expanded novel is much longer.",
       "externalLinks": [
         {
           "label": "Official author page",
@@ -168,7 +147,7 @@
       "displayAuthor": "Joe Haldeman",
       "currentPoll": true,
       "currentPollOrder": 4,
-      "pageCountDisplay": "152–155",
+      "pageCountDisplay": "154",
       "pageCountSortKey": 154,
       "form": "Novella / short novel",
       "originalPublicationYear": 1990,
@@ -197,18 +176,11 @@
           "distinction": "Shorter version"
         }
       ],
-      "sources": [
-        "https://nebulas.sfwa.org/nominated-work/hemingway-hoax/",
-        "https://www.thehugoawards.org/hugo-history/1991-hugo-awards/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/The%20Hemingway%20Hoax-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=The%20Hemingway%20Hoax&author=Joe%20Haldeman",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Page count varies by edition; this display preserves the cited 152–155-page range; the Nebula source describes the work as a short novel.",
       "externalLinks": []
     },
     {
@@ -235,18 +207,11 @@
         "Mental illness",
         "Alienation"
       ],
-      "sources": [
-        "https://kim-fu.com/lesser-known-monsters-of-the-21st-century",
-        "https://www.penguinrandomhouse.com/books/820072/lesser-known-monsters-of-the-21st-century-by-kim-fu/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/Lesser%20Known%20Monsters%20of%20the%2021st%20Century-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=Lesser%20Known%20Monsters%20of%20the%2021st%20Century&author=Kim%20Fu",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Current 184-page value is edition-dependent; publisher records may differ.",
       "externalLinks": [
         {
           "label": "Official author page",
@@ -281,17 +246,11 @@
         "Mortality",
         "Institutional power"
       ],
-      "sources": [
-        "https://www.penguinrandomhouse.com/books/41168/camp-concentration-by-thomas-m-disch/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/Camp%20Concentration-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=Camp%20Concentration&author=Thomas%20M.%20Disch",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "PRH’s Vintage edition lists 192 pages; original publication was 1968.",
       "externalLinks": [
         {
           "label": "Publisher page",
@@ -323,18 +282,11 @@
         "Identity",
         "Media"
       ],
-      "sources": [
-        "https://www.penguinrandomhouse.com/books/320954/the-infernal-desire-machines-of-doctor-hoffman-by-angela-carter/",
-        "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390"
-      ],
       "cover": {
         "url": "https://cdn.penguin.co.uk/dam-assets/books/9780141192390/9780141192390-jacket-large.jpg",
         "sourceUrl": "https://www.penguin.co.uk/books/182310/the-infernal-desire-machines-of-doctor-hoffman-by-carter-angela/9780141192390",
-        "status": "Publisher cover image",
-        "sourceNote": "Direct cover image served from the Penguin UK product page for the ISBN-listed edition.",
         "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review."
       },
-      "editionNote": "Original publication year is 1972; current page count is edition-dependent.",
       "externalLinks": [
         {
           "label": "Publisher page (US)",
@@ -369,17 +321,11 @@
         "Political power",
         "Survival"
       ],
-      "sources": [
-        "https://www.penguin.co.uk/books/180376/the-black-cloud-by-hoyle-fred/9780141196404"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/The%20Black%20Cloud-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=The%20Black%20Cloud&author=Fred%20Hoyle",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "The cited Penguin edition lists 224 pages; other catalog records list 250.",
       "externalLinks": [
         {
           "label": "Publisher page",
@@ -417,18 +363,11 @@
           "status": "Winner"
         }
       ],
-      "sources": [
-        "https://nebulas.sfwa.org/nominated-work/a-wizards-guide-to-defensive-baking/",
-        "https://argyllproductions.com/product/a-wizards-guide-to-defensive-baking/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/A%20Wizard%27s%20Guide%20to%20Defensive%20Baking-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=A%20Wizard%27s%20Guide%20to%20Defensive%20Baking&author=T.%20Kingfisher",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Representative value follows the 318-page Argyll edition listing.",
       "externalLinks": [
         {
           "label": "Publisher page",
@@ -459,18 +398,11 @@
         "Documentation",
         "Existential threat"
       ],
-      "sources": [
-        "https://qntm.org/antifaq",
-        "https://qntm.org/publ"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/There%20Is%20No%20Antimemetics%20Division-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=There%20Is%20No%20Antimemetics%20Division&author=Sam%20Hughes",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "The 2025 Ballantine edition is listed at 288 pages; other editions may differ.",
       "externalLinks": [
         {
           "label": "Official author publication page",
@@ -507,17 +439,11 @@
         "Colonial history",
         "Displacement"
       ],
-      "sources": [
-        "https://www.simonandschuster.com/books/The-Ministry-of-Time/Kaliane-Bradley/9781668045152"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/The%20Ministry%20of%20Time-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=The%20Ministry%20of%20Time&author=Kaliane%20Bradley",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Representative value follows the 352-page US edition; the UK edition is 368 pages.",
       "externalLinks": [
         {
           "label": "Publisher page",
@@ -560,19 +486,11 @@
           "status": "Winner"
         }
       ],
-      "sources": [
-        "https://windupstories.com/books/windup-girl/",
-        "https://nebulas.sfwa.org/nominated-work/windup-girl/",
-        "https://nebulas.sfwa.org/nominees/paolo-bacigalupi/"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/The%20Windup%20Girl-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=The%20Windup%20Girl&author=Paolo%20Bacigalupi",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Original publication year is 2009; page count varies by edition.",
       "externalLinks": [
         {
           "label": "Official author page",
@@ -587,7 +505,7 @@
       "displayAuthor": "Adrian Tchaikovsky",
       "currentPoll": false,
       "currentPollOrder": null,
-      "pageCountDisplay": "600+",
+      "pageCountDisplay": "600",
       "pageCountSortKey": 600,
       "form": "Novel",
       "originalPublicationYear": 2019,
@@ -610,18 +528,11 @@
           "status": "Winner"
         }
       ],
-      "sources": [
-        "https://adriantchaikovsky.com/children-of-time-series.html",
-        "https://www.bsfa.co.uk/Past-Winners"
-      ],
       "cover": {
         "url": "https://covers.openlibrary.org/b/title/Children%20of%20Ruin-L.jpg",
         "sourceUrl": "https://openlibrary.org/search?title=Children%20of%20Ruin&author=Adrian%20Tchaikovsky",
-        "status": "Open Library catalog image",
-        "sourceNote": "Cover served from the Open Library Covers API using the catalog title search; catalog link retained for attribution and edition review.",
         "rightsNote": "Open Library catalog image; use is subject to the catalog and image rights noted by the source."
       },
-      "editionNote": "Source-of-truth and edition notes indicate 600+ pages; numeric sort key uses 600 as the lower bound.",
       "externalLinks": [
         {
           "label": "Official author page",
@@ -636,7 +547,7 @@
       "displayAuthor": "Edited by Robert Silverberg",
       "currentPoll": false,
       "currentPollOrder": null,
-      "pageCountDisplay": "600+",
+      "pageCountDisplay": "600",
       "pageCountSortKey": 600,
       "form": "Anthology",
       "originalPublicationYear": 1970,
@@ -652,18 +563,11 @@
         "Influence",
         "Short fiction"
       ],
-      "sources": [
-        "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
-        "https://www.isfdb.org/cgi-bin/pl.cgi?46549="
-      ],
       "cover": {
         "url": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg",
         "sourceUrl": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/",
-        "status": "Publisher cover image",
-        "sourceNote": "Direct cover image served from the Macmillan product page for the ISBN-listed edition.",
         "rightsNote": "Publisher product image; retained with the publisher source link for attribution and rights review."
       },
-      "editionNote": "Source-of-truth and edition notes indicate 600+ pages; numeric sort key uses 600 as the lower bound.",
       "externalLinks": [
         {
           "label": "Publisher page",

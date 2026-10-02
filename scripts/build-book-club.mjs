@@ -1,11 +1,14 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { signalOption } from "./book-club-signal.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = join(root, "data", "book-club.json");
 const data = JSON.parse(await readFile(dataPath, "utf8"));
 const books = data.books;
+// Fail before writing any page rather than publishing blank/manual-review options.
+books.forEach(signalOption);
 const currentBooks = books.filter((book) => book.currentPoll).sort((a, b) => a.currentPollOrder - b.currentPollOrder);
 const backlogBooks = books.slice().sort((a, b) => a.pageCountSortKey - b.pageCountSortKey || a.title.localeCompare(b.title));
 const signalUrl = "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX";
@@ -21,8 +24,8 @@ function sourceLinks(urls = []) {
 
 function externalLinksField(book) {
   const links = (book.externalLinks || []).map((link) => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`).join("");
-  const content = links || `<span class="field-missing">No verified external links recorded</span>`;
-  return `<section class="book-external-links" aria-labelledby="${escapeHtml(book.slug)}-external-links"><h4 id="${escapeHtml(book.slug)}-external-links">External links</h4><div>${content}</div></section>`;
+  if (!links) return "";
+  return `<section class="book-external-links" aria-labelledby="${escapeHtml(book.slug)}-external-links"><h4 id="${escapeHtml(book.slug)}-external-links">External links</h4><div>${links}</div></section>`;
 }
 
 function adminValue(value, fallback = "—") {
@@ -37,20 +40,6 @@ function lengthBand(book) {
   if (book.pageCountSortKey < 200) return "Short";
   if (book.pageCountSortKey < 400) return "Medium";
   return "Long";
-}
-
-function rawSignalOption(book) {
-  return `${book.title} - ${book.authorLastName} | ${book.pollDescription} | ${book.pageCountDisplay} pages`;
-}
-
-function signalOption(book) {
-  const option = rawSignalOption(book);
-  return option.length <= 100 ? option : "";
-}
-
-function signalOptionStatus(book) {
-  const option = rawSignalOption(book);
-  return option.length <= 100 ? "Ready" : `Manual review required — ${option.length} characters (${option.length - 100} over limit)`;
 }
 
 function signalLink(className = "book-club-nav-signal") {
@@ -80,9 +69,9 @@ function awardsField(book) {
 
 function media(book) {
   if (book.cover?.url) {
-    return `<div class="book-media" data-image-source="${escapeHtml(book.cover.sourceNote || "")}"><img data-book-image src="${escapeHtml(book.cover.url)}" alt="Cover of ${escapeHtml(book.title)} by ${escapeHtml(book.displayAuthor)}" loading="lazy"><div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div></div>`;
+    return `<div class="book-media"><img data-book-image src="${escapeHtml(book.cover.url)}" alt="Cover of ${escapeHtml(book.title)} by ${escapeHtml(book.displayAuthor)}" loading="lazy"><div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div></div>`;
   }
-  return `<div class="book-media is-fallback" data-image-source="${escapeHtml(book.cover?.sourceNote || "Cover image unavailable; follow up with an authorized source.")}"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
+  return `<div class="book-media is-fallback"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
 }
 
 function card(book, page) {
@@ -101,7 +90,7 @@ function card(book, page) {
     <h3>${escapeHtml(book.title)}</h3>
     <p class="book-author">${escapeHtml(book.displayAuthor)}</p>
     <dl class="book-fields">${fields}</dl>
-    ${externalLinksField(book)}
+${externalLinksField(book)}
   </div>
 </article>`;
 }
@@ -167,8 +156,8 @@ function adminPage() {
     ["Form", (book) => cell(adminValue(book.form))],
     ["Original publication year", (book) => cell(adminValue(book.originalPublicationYear))],
     ["Poll description", (book) => cell(adminValue(book.pollDescription))],
-    ["Signal option", (book) => cell(adminValue(signalOption(book), "Manual review required before formatting"))],
-    ["Signal option status", (book) => cell(signalOptionStatus(book))],
+    ["Signal option", (book) => cell(escapeHtml(signalOption(book)))],
+    ["Signal option status", () => cell("Ready")],
     ["Long synopsis", (book) => cell(adminValue(book.longSynopsis))],
     ["Themes", (book) => cell(adminValue((book.themes || []).join("; ")))],
     ["Vibe / reading feel", (book) => cell(adminValue((book.vibe || []).join("; ")))],
@@ -199,7 +188,10 @@ function adminPage() {
   return documentShell({ title: "Backlog Data", description: "Read-only public data reference for the science-fiction book club.", active: "admin", content, script: "../../../book-club.js" });
 }
 
-const publicBooks = books.map(({ authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, ...book }) => book);
+const publicBooks = books.map(({ authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
+  ...book,
+  cover: { url: book.cover?.url, sourceUrl: book.cover?.sourceUrl, rightsNote: book.cover?.rightsNote },
+}));
 await mkdir(join(root, "book-club/backlog/admin"), { recursive: true });
 await mkdir(join(root, "book-club/data"), { recursive: true });
 await writeFile(join(root, "book-club/index.html"), publicPage("current", currentBooks));

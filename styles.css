@@ -672,8 +672,9 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .book-external-links { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--book-line); }
 .book-external-links h4 { margin: 0 0 6px; color: var(--book-cyan); font-size: 0.62rem; font-weight: 850; letter-spacing: 0.08em; text-transform: uppercase; }
 .book-external-links div { display: flex; flex-wrap: wrap; gap: 6px 10px; }
-.book-external-links a { color: var(--book-muted); font-size: 0.78rem; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(103, 230, 244, 0.48); text-underline-offset: 3px; }
+.book-external-links a { display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; color: var(--book-muted); font-size: 0.78rem; font-weight: 700; text-decoration: underline; text-decoration-color: rgba(103, 230, 244, 0.48); text-underline-offset: 3px; }
 .book-external-links a:hover { color: var(--book-cyan); }
+.book-external-links a:focus-visible { outline: 2px solid var(--book-cyan); outline-offset: 3px; border-radius: 3px; }
 
 @media (max-width: 760px) {
   .book-club-hero { padding: 28px 0 22px; }

@@ -1,6 +1,8 @@
 import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { signalOption, signalDescriptionBudget } from "./book-club-signal.mjs";
+import { throws } from "node:assert/strict";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const data = JSON.parse(await readFile(join(root, "data/book-club.json"), "utf8"));
@@ -20,18 +22,22 @@ const currentBooks = allBooks.filter((book) => book.currentPoll).sort((a, b) => 
 const publicBannedCopy = /Vote for our next book|short books|Multiple votes allowed|These are &lt;200 pages|Longer books next poll|small orbit|SHORT LIST|one next read|See all 14|Opens the Signal|Suggested By|Stefan|Liam|Irene|Celeste|Internal|Research Status|Eligibility Status|Last Poll|Total Votes/;
 const adminBannedCopy = /Poll premise|pollPremise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/;
 
-assert(allBooks.length === 14, `expected 14 canonical books, found ${allBooks.length}`);
-assert(currentBooks.length === 6, `expected 6 current-poll books, found ${currentBooks.length}`);
+assert(allBooks.length > 0, "canonical backlog is empty");
+assert(new Set(allBooks.map((book) => book.recordId)).size === allBooks.length, "canonical record IDs must be unique");
+assert(new Set(allBooks.map((book) => book.slug)).size === allBooks.length, "canonical slugs must be unique");
+assert(count(current, 'class="book-card"') === currentBooks.length && count(backlog, 'class="book-card"') === allBooks.length, "public card coverage does not match canonical records");
 assert(allBooks.every((book) => book.cover?.url && book.cover?.sourceUrl && book.cover?.rightsNote), "every book needs an image URL, source URL, and rights note");
-assert(allBooks.every((book) => /^(?:\d+|\d+[–-]\d+|\d+\+)$/.test(String(book.pageCountDisplay))), "every book needs a valid page-count display value");
+assert(allBooks.every((book) => /^\d+$/.test(String(book.pageCountDisplay)) && Number(book.pageCountDisplay) > 0), "every book needs one positive integer page count, never a range or plus-value");
 assert(allBooks.every((book) => Number.isInteger(book.pageCountSortKey) && book.pageCountSortKey > 0), "every book needs a numeric page-count sort key");
+assert(allBooks.every((book) => Number(book.pageCountDisplay) === book.pageCountSortKey), "display and sort counts must agree while remaining separate fields");
 assert(allBooks.every((book) => typeof book.displayAuthor === "string" && typeof book.authorLastName === "string" && Object.hasOwn(book, "editorCredit")), "author attribution fields are not normalized");
 assert(allBooks.every((book) => !Object.hasOwn(book, "author") && !Object.hasOwn(book, "pollOrder") && !Object.hasOwn(book, "pageCountMin") && !Object.hasOwn(book, "pollPremise")), "redundant legacy data fields remain");
 assert(currentBooks.every((book, index) => book.currentPoll && book.currentPollOrder === index + 1), "current poll flags and order contradict each other");
 assert(allBooks.filter((book) => !book.currentPoll).every((book) => book.currentPollOrder === null), "backlog records must not have a current-poll order");
 assert(allBooks.every((book) => typeof book.pollDescription === "string" && book.pollDescription.length > 0), "every book needs a poll description");
+assert(allBooks.every((book) => !/\.$/.test(book.pollDescription)), "poll descriptions must not end in a period");
 assert(allBooks.every((book) => !/\b(?:award|hugo|nebula|science-fiction|sci-fi)\b/i.test(book.pollDescription)), "poll descriptions must not use awards or genre-label wording");
-assert(allBooks.every((book) => Array.isArray(book.externalLinks) && book.externalLinks.every((link) => book.sources.includes(link.url))), "external links must reuse verified source URLs");
+assert(allBooks.every((book) => Array.isArray(book.externalLinks) && book.externalLinks.every((link) => link.label && /^https:\/\//.test(link.url))), "external links need a label and a secure direct book URL");
 assert(current.includes("Current Poll") && current.includes("Vote in Signal"), "current poll action is missing its label or Signal link");
 assert(count(current, "id=\"current-poll-heading\"") === 1, "current poll should have one accessible heading");
 assert(current.includes("book-club-nav-signal") && !current.includes("book-club-action"), "Signal action is not integrated into the navigation row");
@@ -44,17 +50,27 @@ assert(!publicBannedCopy.test(current) && !publicBannedCopy.test(backlog) && !pu
 assert(!adminBannedCopy.test(admin), "private or excluded workbook fields remain in generated admin output");
 assert(!/Poll premise|pollPremise|lastPollDate|lastPollVotes|totalPolls|totalVotes/.test(current + backlog + publicData), "admin-only poll fields remain in public generated output");
 assert(!/Poll description|pollDescription/.test(publicData), "poll descriptions remain in the public data projection");
+assert(!/editionNote|sourceNote|websiteDisplayNotes|lastVerifiedDate|eligibilityStatus|"sources"/.test(publicData), "admin-only metadata notes remain in the public data projection");
+assert(!/No verified external links recorded|Manual review required/.test(current + backlog + admin), "missing-link filler or unfinished Signal options remain");
 assert(!/[⌁~]/.test(current) && !/[⌁~]/.test(backlog), "a tilde-like Jump To glyph remains");
 assert(!current.includes("jump-icon") && !backlog.includes("jump-icon"), "Jump To still contains an icon element");
 assert([...current.matchAll(/<article[^>]*class="book-card"[\s\S]*?<\/article>/g)].every(([card]) => !/<a\s/.test(card.replace(/<section class="book-external-links"[\s\S]*?<\/section>/, ""))), "current cards contain non-external clickable links");
 assert([...backlog.matchAll(/<article[^>]*class="book-card"[\s\S]*?<\/article>/g)].every(([card]) => !/<a\s/.test(card.replace(/<section class="book-external-links"[\s\S]*?<\/section>/, ""))), "backlog cards contain non-external clickable links");
 assert(count(current, "data-book-image") === currentBooks.length, "current poll does not have one image element per card");
 assert(count(backlog, "data-book-image") === allBooks.length, "backlog does not have one image element per card");
-assert(count(current, "book-external-links") === currentBooks.length && count(backlog, "book-external-links") === allBooks.length, "every public card needs an external-links section");
-const signalOptions = allBooks.map((book) => `${book.title} - ${book.authorLastName} | ${book.pollDescription} | ${book.pageCountDisplay} pages`);
-const signalOverflow = allBooks.filter((book, index) => signalOptions[index].length > 100).map((book) => book.recordId);
-assert(signalOverflow.length === 1 && signalOverflow[0] === "B14", `unexpected Signal options over 100 characters: ${signalOverflow.join(", ")}`);
-assert(signalOptions.filter((_, index) => !signalOverflow.includes(allBooks[index].recordId)).every((option) => option.length <= 100 && option.endsWith(" pages")), "a generated Signal option exceeds 100 characters or omits pages");
+assert(count(current, 'class="book-external-links"') === currentBooks.filter((book) => book.externalLinks.length).length && count(backlog, 'class="book-external-links"') === allBooks.filter((book) => book.externalLinks.length).length, "external-links sections must only appear when links exist");
+const signalOptions = allBooks.map(signalOption);
+assert(signalOptions.every((option) => option.length <= 100 && option.endsWith(" pages")), "a generated Signal option exceeds 100 characters or omits pages");
+assert(allBooks.every((book) => book.pollDescription.length <= signalDescriptionBudget(book)), "a description exceeds its book-specific character budget");
+// Regression cases: reject unsupported display formats, periods, and overflow;
+// do not truncate descriptions or publish a blank manual-review option.
+const example = allBooks[0];
+for (const pageCountDisplay of ["96–112", "600+", "0"]) {
+  throws(() => signalOption({ ...example, pageCountDisplay }), /positive integer/);
+}
+throws(() => signalOption({ ...example, pollDescription: `${example.pollDescription}.` }), /trailing period/);
+throws(() => signalOption({ ...example, pollDescription: "x".repeat(signalDescriptionBudget(example) + 1) }), /budget/);
+assert(signalOption({ ...example, pollDescription: "x".repeat(signalDescriptionBudget(example)) }).length === 100, "exact 100-character options should be accepted");
 for (const header of ["Author last name", "Current poll order", "Page count display", "Page count sort key", "Poll description", "Signal option", "Signal option status", "Last poll date", "Last poll votes", "Total polls", "Total votes", "Award verification status", "Image verification status"]) {
   assert(admin.includes(`>${header}</th>`), `admin table does not render ${header}`);
 }
