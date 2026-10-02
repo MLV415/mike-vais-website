@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { signalOption } from "./book-club-signal.mjs";
+import { coverUrl, verifyLocalCover } from "./book-club-covers.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = join(root, "data", "book-club.json");
@@ -9,6 +10,7 @@ const data = JSON.parse(await readFile(dataPath, "utf8"));
 const books = data.books;
 // Fail before writing any page rather than publishing blank/manual-review options.
 books.forEach(signalOption);
+await Promise.all(books.map((book) => verifyLocalCover(book, root)));
 const currentBooks = books.filter((book) => book.currentPoll).sort((a, b) => a.currentPollOrder - b.currentPollOrder);
 const backlogBooks = books.slice().sort((a, b) => a.pageCountSortKey - b.pageCountSortKey || a.title.localeCompare(b.title));
 const signalUrl = "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX";
@@ -68,8 +70,8 @@ function awardsField(book) {
 }
 
 function media(book) {
-  if (book.cover?.url) {
-    return `<div class="book-media"><img data-book-image src="${escapeHtml(book.cover.url)}" alt="Cover of ${escapeHtml(book.title)} by ${escapeHtml(book.displayAuthor)}" loading="lazy"><div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div></div>`;
+  if (coverUrl(book)) {
+    return `<div class="book-media"><img data-book-image src="${escapeHtml(coverUrl(book))}" alt="Cover of ${escapeHtml(book.title)} by ${escapeHtml(book.displayAuthor)}" loading="lazy"><div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div></div>`;
   }
   return `<div class="book-media is-fallback"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
 }
@@ -165,10 +167,10 @@ function adminPage() {
     ["Award verification status", (book) => cell(book.awards?.length ? "Verified" : "No verified award claim recorded in this pass")],
     ["Award source URL", (book) => cell(book.awards?.length ? sourceLinks(book.sources) : "—")],
     ["Cover image URL", (book) => cell(book.cover?.url
-      ? `<a href="${escapeHtml(book.cover.url)}" target="_blank" rel="noopener noreferrer">Image</a><br><a href="${escapeHtml(book.cover.sourceUrl || "")}" target="_blank" rel="noopener noreferrer">Catalog source</a>`
+      ? `<a href="${escapeHtml(coverUrl(book))}" target="_blank" rel="noopener noreferrer">Image</a><br><a href="${escapeHtml(book.cover.sourceUrl || "")}" target="_blank" rel="noopener noreferrer">Catalog source</a>`
       : adminValue(book.cover?.status, "Not yet sourced"))],
     ["Image source / rights note", (book) => cell(adminValue(`${book.cover?.sourceNote || ""}${book.cover?.rightsNote ? ` ${book.cover.rightsNote}` : ""}`))],
-    ["Image verification status", (book) => cell(book.cover?.status || "Not yet sourced")],
+    ["Image verification status", (book) => cell(book.cover?.localPath ? "Repository-hosted cover; checksum verified during build" : book.cover?.status || "Not yet sourced")],
     ["Last poll date", (book) => cell(adminValue(book.lastPollDate))],
     ["Last poll votes", (book) => cell(adminValue(book.lastPollVotes, "0"))],
     ["Total polls", (book) => cell(adminValue(book.totalPolls, "0"))],
@@ -190,7 +192,7 @@ function adminPage() {
 
 const publicBooks = books.map(({ authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
   ...book,
-  cover: { url: book.cover?.url, sourceUrl: book.cover?.sourceUrl, rightsNote: book.cover?.rightsNote },
+  cover: { url: coverUrl(book), sourceUrl: book.cover?.sourceUrl, rightsNote: book.cover?.rightsNote },
 }));
 await mkdir(join(root, "book-club/backlog/admin"), { recursive: true });
 await mkdir(join(root, "book-club/data"), { recursive: true });

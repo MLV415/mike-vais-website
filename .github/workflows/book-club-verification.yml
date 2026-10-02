@@ -10,6 +10,10 @@ on:
       - "package.json"
       - "scripts/build-book-club.mjs"
       - "scripts/book-club-signal.mjs"
+      - "scripts/book-club-covers.mjs"
+      - "scripts/cache-book-club-covers.mjs"
+      - "scripts/test-book-club-covers.mjs"
+      - "assets/book-club/**"
       - "scripts/verify-book-club*.mjs"
       - "styles.css"
   push:
@@ -21,6 +25,10 @@ on:
       - "package.json"
       - "scripts/build-book-club.mjs"
       - "scripts/book-club-signal.mjs"
+      - "scripts/book-club-covers.mjs"
+      - "scripts/cache-book-club-covers.mjs"
+      - "scripts/test-book-club-covers.mjs"
+      - "assets/book-club/**"
       - "scripts/verify-book-club*.mjs"
       - "styles.css"
 
@@ -41,14 +49,31 @@ jobs:
         run: npm run build:book-club
       - name: Run static book-club checks
         run: npm run verify:book-club
+      - name: Verify local cover workflow
+        run: npm run verify:book-club:cover-workflow
       - name: Verify catalog image responses
         run: npm run verify:book-club:images
       - name: Install Playwright package
+        if: ${{ !cancelled() }}
         run: npm install --no-save --no-package-lock playwright@1.55.0
       - name: Install Chromium
+        if: ${{ !cancelled() }}
         run: npx playwright install --with-deps chromium
+      - name: Verify image-loader recovery
+        if: ${{ !cancelled() }}
+        run: npm run verify:book-club:cover-recovery
       - name: Verify rendered pages
+        if: ${{ !cancelled() }}
+        env:
+          BOOK_CLUB_SCREENSHOTS: /tmp/book-club-rendered-pages
         run: |
           PORT=4319 node scripts/server.mjs > /tmp/book-club-server.log 2>&1 &
           for attempt in {1..30}; do curl --fail --silent http://127.0.0.1:4319/book-club/ >/dev/null && break; sleep 1; done
           node scripts/verify-book-club-render.mjs
+      - name: Save rendered verification screenshots
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-club-rendered-pages
+          path: /tmp/book-club-rendered-pages
+          if-no-files-found: ignore

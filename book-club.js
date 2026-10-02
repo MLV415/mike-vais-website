@@ -22,14 +22,34 @@ function sortItems(items, sortBy) {
 
 function attachImageFallbacks() {
   document.querySelectorAll("[data-book-image]").forEach((image) => {
-    image.addEventListener("load", () => image.closest(".book-media")?.classList.add("is-loaded"));
-    image.addEventListener("error", () => {
+    const media = image.closest(".book-media");
+    const source = image.getAttribute("src");
+    let retries = 0;
+    image.dataset.coverState = "loading";
+    const loaded = () => {
+      image.dataset.coverState = "loaded";
+      image.hidden = false;
+      media?.classList.remove("is-fallback");
+      media?.classList.add("is-loaded");
+    };
+    const failed = () => {
       image.hidden = true;
-      image.closest(".book-media")?.classList.add("is-fallback");
-    });
+      media?.classList.remove("is-loaded");
+      media?.classList.add("is-fallback");
+      if (source && retries < 1) {
+        retries += 1;
+        image.dataset.coverState = "retrying";
+        image.removeAttribute("src");
+        setTimeout(() => { image.src = source; }, 1500);
+      } else {
+        image.dataset.coverState = "failed";
+      }
+    };
+    image.addEventListener("load", loaded);
+    image.addEventListener("error", failed);
     if (image.complete) {
-      if (image.naturalWidth > 0) image.closest(".book-media")?.classList.add("is-loaded");
-      else image.dispatchEvent(new Event("error"));
+      if (image.naturalWidth > 0) loaded();
+      else failed();
     }
   });
 }

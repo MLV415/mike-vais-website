@@ -1,38 +1,37 @@
-import { readFile } from "node:fs/promises";
+import { readFile, mkdtemp, rm } from "node:fs/promises";
 import { dirname, join } from "node:path";
+import { tmpdir } from "node:os";
 import { fileURLToPath } from "node:url";
+import { imageExtension, verifyLocalCover } from "./book-club-covers.mjs";
+import { downloadCover } from "./cache-book-club-covers.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const { books } = JSON.parse(await readFile(join(root, "data/book-club.json"), "utf8"));
-const timeoutMs = 15000;
 const failures = [];
-
-for (const book of books) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const response = await fetch(book.cover.url, {
-      signal: controller.signal,
-      headers: { Accept: "image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8" },
-    });
-    const contentType = response.headers.get("content-type") || "";
-    const bytes = new Uint8Array(await response.arrayBuffer());
-    if (!response.ok || !contentType.startsWith("image/") || bytes.length < 100) {
-      failures.push(`${book.title} — HTTP ${response.status}, ${contentType || "no content type"}, ${bytes.length} bytes`);
-    } else {
-      console.log(`OK: ${book.title} (${contentType}, ${bytes.length} bytes)`);
+const staging = await mkdtemp(join(tmpdir(), "book-club-image-check-"));
+try {
+  for (const book of books) {
+    try {
+      if (await verifyLocalCover(book, root)) {
+        console.log(`OK: ${book.title} (repository file; checksum verified; no external request)`);
+        continue;
+      }
+      const destination = join(staging, `${book.recordId}.image`);
+      const source = new URL(book.cover.url);
+      if (source.hostname === "covers.openlibrary.org") source.searchParams.set("default", "false");
+      await downloadCover(source.href, destination, { retries: 1, timeoutSeconds: 10 });
+      const bytes = await readFile(destination);
+      console.log(`OK: ${book.title} (${imageExtension(bytes)}, ${bytes.length} bytes)`);
+    } catch (error) {
+      failures.push(`${book.title} — ${(error.stderr || error.message).trim()}`);
     }
-  } catch (error) {
-    failures.push(`${book.title} — ${error.name === "AbortError" ? `timed out after ${timeoutMs}ms` : error.message}`);
-  } finally {
-    clearTimeout(timeout);
   }
+} finally {
+  await rm(staging, { recursive: true, force: true });
 }
-
 if (failures.length) {
-  console.error("Image verification failed for:");
-  failures.forEach((failure) => console.error(`- ${failure}`));
-  process.exit(1);
+  console.error("Image verification failed for:\n" + failures.map((failure) => `- ${failure}`).join("\n"));
+  process.exitCode = 1;
+} else {
+  console.log(`Image verification passed: ${books.length}/${books.length} covers returned verified image data.`);
 }
-
-console.log(`Image verification passed: ${books.length}/${books.length} catalog images returned image data.`);

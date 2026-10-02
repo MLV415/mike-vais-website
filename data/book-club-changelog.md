@@ -1,5 +1,15 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-02 — Cover recovery and repository-hosting preparation
+
+- Fixed the image loader to clear the fallback class and hidden state on a successful load; added one delayed retry for a transient failure without an unbounded request loop.
+- Added a staged importer for real source cover assets under `assets/book-club/covers/`, retaining source URLs/rights notes and recording checksums/retrieval metadata. Public cards, admin image links, and the data endpoint prefer a local asset when present; builds reject missing/corrupt local files.
+- Added offline tests for successful caching, safe abort on a failed download/access denial, source preservation, path safety, and checksum checks. Added browser regression tests for transient recovery, permanent failures, and cached successes. Test logo bytes are fixtures only, not substituted book art.
+- Updated image checking to validate actual local image bytes/checksums without remote requests when covers are cached; remote checks use the inherited proxy and bounded retries. CI now runs browser diagnostics even when the image audit fails, retains failure status, and saves screenshots.
+- The real import was attempted and denied at B01 with HTTP 403. No source cover assets or canonical data changed; zero real covers have been cached in this step. The missing covers and Wikipedia/Goodreads verification remain unresolved pending research access and dependable source retrieval. Production remains unchanged.
+- Local build/static checks, four cover-workflow tests, and browser recovery regression tests passed. Actual three-page rendering checks still fail on remote cover loading under the restricted network; metadata/layout checks passed. Image checks now wait for the retry to settle instead of inspecting an intermediate empty image source.
+- Added direct standard Codex web settings instructions and an explicit fallback if this managed environment is not listed, avoiding unsupported claims about the user's settings screen.
+
 ## 2026-10-02 — Discrete counts and finished Signal options
 
 - Latest user direction supersedes range-preserving behavior: every displayed count is now one integer. Binti uses 104, The Hemingway Hoax 154, and both formerly `600+` records use the existing representative 600. Display and numeric sort fields remain separate and agree; former ranges remain only in admin edition notes.

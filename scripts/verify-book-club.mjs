@@ -3,6 +3,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { signalOption, signalDescriptionBudget } from "./book-club-signal.mjs";
 import { throws } from "node:assert/strict";
+import { coverUrl, verifyLocalCover } from "./book-club-covers.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const data = JSON.parse(await readFile(join(root, "data/book-club.json"), "utf8"));
@@ -18,6 +19,7 @@ const assert = (condition, message) => {
 const count = (text, pattern) => text.match(new RegExp(pattern, "g"))?.length || 0;
 
 const allBooks = data.books;
+await Promise.all(allBooks.map((book) => verifyLocalCover(book, root)));
 const currentBooks = allBooks.filter((book) => book.currentPoll).sort((a, b) => a.currentPollOrder - b.currentPollOrder);
 const publicBannedCopy = /Vote for our next book|short books|Multiple votes allowed|These are &lt;200 pages|Longer books next poll|small orbit|SHORT LIST|one next read|See all 14|Opens the Signal|Suggested By|Stefan|Liam|Irene|Celeste|Internal|Research Status|Eligibility Status|Last Poll|Total Votes/;
 const adminBannedCopy = /Poll premise|pollPremise|Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais|Author Full Name|Research Status/;
@@ -58,6 +60,7 @@ assert([...current.matchAll(/<article[^>]*class="book-card"[\s\S]*?<\/article>/g
 assert([...backlog.matchAll(/<article[^>]*class="book-card"[\s\S]*?<\/article>/g)].every(([card]) => !/<a\s/.test(card.replace(/<section class="book-external-links"[\s\S]*?<\/section>/, ""))), "backlog cards contain non-external clickable links");
 assert(count(current, "data-book-image") === currentBooks.length, "current poll does not have one image element per card");
 assert(count(backlog, "data-book-image") === allBooks.length, "backlog does not have one image element per card");
+assert(allBooks.every((book) => backlog.includes(`src="${coverUrl(book).replaceAll("&", "&amp;")}"`)), "a public image URL does not use its canonical local asset when available");
 assert(count(current, 'class="book-external-links"') === currentBooks.filter((book) => book.externalLinks.length).length && count(backlog, 'class="book-external-links"') === allBooks.filter((book) => book.externalLinks.length).length, "external-links sections must only appear when links exist");
 const signalOptions = allBooks.map(signalOption);
 assert(signalOptions.every((option) => option.length <= 100 && option.endsWith(" pages")), "a generated Signal option exceeds 100 characters or omits pages");

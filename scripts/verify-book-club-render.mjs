@@ -35,7 +35,7 @@ try {
       });
     });
     await page.waitForFunction(
-      () => [...document.querySelectorAll("img[data-book-image]")].every((image) => image.complete),
+      () => [...document.querySelectorAll("img[data-book-image]")].every((image) => ["loaded", "failed"].includes(image.dataset.coverState)),
       null,
       { timeout: 45000 },
     );
