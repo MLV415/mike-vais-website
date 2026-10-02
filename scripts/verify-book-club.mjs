@@ -61,7 +61,7 @@ assert([...backlog.matchAll(/<article[^>]*class="book-card"[\s\S]*?<\/article>/g
 assert(count(current, "data-book-image") === currentBooks.length, "current poll does not have one image element per card");
 assert(count(backlog, "data-book-image") === allBooks.length, "backlog does not have one image element per card");
 assert(allBooks.every((book) => backlog.includes(`src="${coverUrl(book).replaceAll("&", "&amp;")}"`)), "a public image URL does not use its canonical local asset when available");
-assert(count(current, 'class="book-external-links"') === currentBooks.filter((book) => book.externalLinks.length).length && count(backlog, 'class="book-external-links"') === allBooks.filter((book) => book.externalLinks.length).length, "external-links sections must only appear when links exist");
+assert(!/book-external-links/.test(current + backlog) && !/"externalLinks"/.test(publicData), "deferred external-book links remain in public output");
 const signalOptions = allBooks.map(signalOption);
 assert(signalOptions.every((option) => option.length <= 100 && option.endsWith(" pages")), "a generated Signal option exceeds 100 characters or omits pages");
 assert(allBooks.every((book) => book.pollDescription.length <= signalDescriptionBudget(book)), "a description exceeds its book-specific character budget");
