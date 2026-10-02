@@ -11,6 +11,10 @@ const types = {
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
+  '.ico': 'image/x-icon',
+  '.webp': 'image/webp',
+  '.avif': 'image/avif',
+  '.json': 'application/json; charset=utf-8',
   '.pdf': 'application/pdf'
 };
 

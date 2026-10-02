@@ -3,16 +3,20 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { signalOption } from "./book-club-signal.mjs";
 import { coverUrl, verifyLocalCover } from "./book-club-covers.mjs";
+import { publicBookLinks } from "./book-club-links.mjs";
+import { verifyBookForm } from "./book-club-forms.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = join(root, "data", "book-club.json");
 const data = JSON.parse(await readFile(dataPath, "utf8"));
 const books = data.books;
+const eligibleBooks = books.filter((book) => !book.eligibilityStatus || book.eligibilityStatus === "Eligible");
 // Fail before writing any page rather than publishing blank/manual-review options.
 books.forEach(signalOption);
+books.forEach(verifyBookForm);
 await Promise.all(books.map((book) => verifyLocalCover(book, root)));
 const currentBooks = books.filter((book) => book.currentPoll).sort((a, b) => a.currentPollOrder - b.currentPollOrder);
-const backlogBooks = books.slice().sort((a, b) => a.pageCountSortKey - b.pageCountSortKey || a.title.localeCompare(b.title));
+const backlogBooks = eligibleBooks.slice().sort((a, b) => a.pageCountSortKey - b.pageCountSortKey || a.title.localeCompare(b.title));
 const signalUrl = "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX";
 const meetupUrl = "https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/";
 
@@ -70,6 +74,15 @@ function media(book) {
   return `<div class="book-media is-fallback"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
 }
 
+function externalBookLinks(book) {
+  const links = publicBookLinks(book);
+  if (!links.length) return "";
+  const row = (group, rowLinks) => rowLinks.length ? `<div class="book-link-row" data-link-group="${group}">${rowLinks.map(({ label, url }) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(label)}: ${escapeHtml(book.title)} (opens in a new tab)">${["Wikipedia", "Goodreads"].includes(label) ? `<img src="/assets/book-club/link-icons/${label.toLowerCase()}.ico" width="16" height="16" alt="" aria-hidden="true">` : ""}<span>${escapeHtml(label)}</span></a>`).join("")}</div>` : "";
+  const resources = links.filter(({ label }) => ["Wikipedia", "Goodreads"].includes(label));
+  const sites = links.filter(({ label }) => !["Wikipedia", "Goodreads"].includes(label));
+  return `<section class="book-external-links" aria-label="More about ${escapeHtml(book.title)}">${row("resources", resources)}${row("sites", sites)}</section>`;
+}
+
 function card(book, page) {
   const fields = [
     field("Page count", book.pageCountDisplay),
@@ -86,6 +99,7 @@ function card(book, page) {
     <h3>${escapeHtml(book.title)}</h3>
     <p class="book-author">${escapeHtml(book.displayAuthor)}</p>
     <dl class="book-fields">${fields}</dl>
+    ${externalBookLinks(book)}
   </div>
 </article>`;
 }
@@ -152,7 +166,7 @@ function adminPage() {
     ["Original publication year", (book) => cell(adminValue(book.originalPublicationYear))],
     ["Poll description", (book) => cell(adminValue(book.pollDescription))],
     ["Signal option", (book) => cell(escapeHtml(signalOption(book)))],
-    ["Signal option status", () => cell("Ready")],
+    ["Signal option status", (book) => cell(book.eligibilityStatus && book.eligibilityStatus !== "Eligible" ? "Not applicable" : "Ready")],
     ["Long synopsis", (book) => cell(adminValue(book.longSynopsis))],
     ["Themes", (book) => cell(adminValue((book.themes || []).join("; ")))],
     ["Vibe / reading feel", (book) => cell(adminValue((book.vibe || []).join("; ")))],
@@ -165,26 +179,28 @@ function adminPage() {
     ["Image source / rights note", (book) => cell(adminValue(`${book.cover?.sourceNote || ""}${book.cover?.rightsNote ? ` ${book.cover.rightsNote}` : ""}`))],
     ["Image verification status", (book) => cell(book.cover?.localPath ? "Repository-hosted cover; checksum verified during build" : book.cover?.status || "Not yet sourced")],
     ["Last poll date", (book) => cell(adminValue(book.lastPollDate))],
-    ["Last poll votes", (book) => cell(adminValue(book.lastPollVotes, "0"))],
-    ["Total polls", (book) => cell(adminValue(book.totalPolls, "0"))],
-    ["Total votes", (book) => cell(adminValue(book.totalVotes, "0"))],
+    ["Last poll votes", (book) => cell(book.lastPollVotes === null ? "—" : adminValue(book.lastPollVotes, "0"))],
+    ["Total polls", (book) => cell(book.totalPolls === null ? "—" : adminValue(book.totalPolls, "0"))],
+    ["Total votes", (book) => cell(book.totalVotes === null ? "—" : adminValue(book.totalVotes, "0"))],
     ["Awards first sort key", (book) => cell(book.awards?.length ? "1" : "0")],
     ["Website display notes", (book) => cell(adminValue(book.websiteDisplayNotes))],
     ["Primary metadata source URL", (book) => cell(sourceLinks(book.sources))],
-    ["Metadata source status", () => cell("Source-backed public metadata populated")],
+    ["Metadata source status", (book) => cell(book.sources?.length ? [book.form, book.originalPublicationYear, book.longSynopsis, book.themes?.length, book.vibe?.length, book.cover?.url].every(Boolean) ? "Source-backed public metadata populated" : "Partially verified; see notes" : "No verified source recorded")],
     ["Last verified date", (book) => cell(adminValue(book.lastVerifiedDate, data.dataVersion))],
     ["Page count / edition note", (book) => cell(adminValue(book.editionNote))],
+    ["Book information links", (book) => cell((book.externalLinks || []).map(({ label, url }) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`).join(" · ") || "—")],
   ];
   const headers = columns.map(([label]) => `<th scope="col">${label}</th>`).join("");
   const rows = books.map((book) => {
     return `<tr data-page-count-sort-key="${book.pageCountSortKey}" data-published-year="${book.originalPublicationYear}" data-award-bearing="${book.awards?.length ? "1" : "0"}">${columns.map(([, render]) => render(book)).join("")}</tr>`;
   }).join("\n");
-  const content = `<main><section class="book-club-intro"><div class="book-club-shell"><p class="book-club-kicker">MAINTENANCE REFERENCE</p><h1>Backlog Data</h1><p class="admin-version">Data version ${escapeHtml(data.dataVersion)} · ${books.length} eligible records</p><p class="admin-scope-note">This table reconciles the non-personal workbook fields used by the site. Personal and internal contributor or workflow fields remain excluded from web output.</p></div></section><section class="admin-table-section book-club-shell" aria-labelledby="admin-heading"><h2 class="visually-hidden" id="admin-heading">Complete eligible book data</h2>${sortControl()}<div class="admin-table-wrap"><table class="book-data-table" data-book-table><caption>Book-club data reconciled from the canonical repository dataset and source-of-truth workbook.</caption><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div></section></main>`;
-  return documentShell({ title: "Backlog Data", description: "Read-only public data reference for the science-fiction book club.", active: "admin", content, script: "../../../book-club.js" });
+  const content = `<main><section class="book-club-intro"><div class="book-club-shell"><p class="book-club-kicker">MAINTENANCE REFERENCE</p><h1>Admin Data</h1><p class="admin-version">Data version ${escapeHtml(data.dataVersion)} · ${books.length} total records · ${eligibleBooks.length} eligible</p><p class="admin-scope-note">This table reconciles the non-personal workbook fields used by the site. Personal and internal contributor or workflow fields remain excluded from web output.</p></div></section><section class="admin-table-section book-club-shell" aria-labelledby="admin-heading"><h2 class="visually-hidden" id="admin-heading">Complete book-club data</h2>${sortControl()}<div class="admin-table-wrap"><table class="book-data-table" data-book-table><caption>Book-club data reconciled from the canonical repository dataset and source-of-truth workbook.</caption><thead><tr>${headers}</tr></thead><tbody>${rows}</tbody></table></div></section></main>`;
+  return documentShell({ title: "Admin Data", description: "Read-only comprehensive data reference for the science-fiction book club.", active: "admin", content, script: "../../../book-club.js" });
 }
 
-const publicBooks = books.map(({ externalLinks, authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
+const publicBooks = eligibleBooks.map(({ externalLinks, authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
   ...book,
+  externalLinks: publicBookLinks({ ...book, externalLinks }),
   cover: { url: coverUrl(book), sourceUrl: book.cover?.sourceUrl, rightsNote: book.cover?.rightsNote },
 }));
 await mkdir(join(root, "book-club/backlog/admin"), { recursive: true });

@@ -6,6 +6,7 @@
     "dev": "node scripts/server.mjs",
     "build:book-club": "node scripts/build-book-club.mjs",
     "verify:book-club": "node scripts/verify-book-club.mjs",
+    "verify:book-club:links": "node --test scripts/test-book-club-links.mjs",
     "verify:book-club:images": "node scripts/verify-book-club-images.mjs",
     "cache:book-club:covers": "node scripts/cache-book-club-covers.mjs",
     "verify:book-club:cover-workflow": "node --test scripts/test-book-club-covers.mjs",

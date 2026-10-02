@@ -659,6 +659,12 @@ h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
 .book-media.is-loaded .book-cover-fallback { display: none; }
 .book-media.is-fallback img { display: none; }
 .book-card-content { min-width: 0; }
+.book-club-page .book-external-links { display: grid; gap: 2px; margin-top: 9px; }
+.book-club-page .book-link-row { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.book-club-page .book-external-links a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 4px 0; color: #c6dce6; font-size: 0.72rem; font-weight: 650; line-height: 1.2; text-decoration: none; }
+.book-club-page .book-external-links img { display: block; flex: 0 0 16px; width: 16px; height: 16px; padding: 2px; border-radius: 3px; background: #f6f5ee; object-fit: contain; box-sizing: content-box; }
+.book-club-page .book-external-links a:hover { color: var(--book-cyan); text-decoration: underline; text-underline-offset: 3px; }
+.book-club-page .book-external-links a:focus-visible { outline: 2px solid var(--book-cyan); outline-offset: 4px; border-radius: 2px; }
 .book-card h3 { font-family: ui-sans-serif, system-ui, sans-serif; font-size: clamp(1.08rem, 2vw, 1.45rem); font-weight: 760; letter-spacing: -0.035em; line-height: 1.12; }
 .book-author { margin-top: 5px; font-size: 0.9rem; }
 .book-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; margin-top: 12px; }
