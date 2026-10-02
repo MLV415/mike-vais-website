@@ -1,5 +1,12 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-02 — Reduced release scope
+
+- Per the user's latest direction, removed external-book-link sections from both public views and externalLinks from the public JSON. Existing canonical/source URLs and admin attribution remain for future reference; Wikipedia/Goodreads research is deferred.
+- Retained all completed discrete-count, no-trailing-period, 100-character Signal-option, public/admin separation, sorting, and responsive-layout corrections.
+- Kept all 14 original cover URLs and attribution unchanged, along with the tested transient-load recovery fix. New cover downloads/repository hosting and cloud-environment configuration troubleshooting are deferred. No generated placeholders or guessed replacement URLs were added.
+- Comparing the canonical covers against main confirms the same URLs/source metadata. That comparison does not prove the remote images currently render: the last online audit reported intermittent 503 responses. The preview must pass actual rendered checks before a production merge; any failures remain explicitly unresolved.
+
 ## 2026-10-02 — Cover recovery and repository-hosting preparation
 
 - Fixed the image loader to clear the fallback class and hidden state on a successful load; added one delayed retry for a transient failure without an unbounded request loop.
