@@ -24,6 +24,12 @@ function sourceLinks(urls = []) {
   return urls.map((url) => `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(new URL(url).hostname.replace(/^www\./, ""))}</a>`).join(" ");
 }
 
+function externalLinksField(book) {
+  const links = (book.externalLinks || []).map((link) => `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`).join("");
+  if (!links) return "";
+  return `<section class="book-external-links" aria-labelledby="${escapeHtml(book.slug)}-external-links"><h4 id="${escapeHtml(book.slug)}-external-links">External links</h4><div>${links}</div></section>`;
+}
+
 function adminValue(value, fallback = "—") {
   return escapeHtml(value === null || value === undefined || value === "" ? fallback : value);
 }
@@ -86,12 +92,14 @@ function card(book, page) {
     <h3>${escapeHtml(book.title)}</h3>
     <p class="book-author">${escapeHtml(book.displayAuthor)}</p>
     <dl class="book-fields">${fields}</dl>
+${externalLinksField(book)}
   </div>
 </article>`;
 }
 
 function jumpPanel(list) {
-  return `<section class="jump-panel book-club-shell" aria-labelledby="jump-heading"><p class="book-club-label" id="jump-heading">JUMP TO</p><nav class="jump-links" aria-label="Jump to a book">${list.map((book) => `<a href="#${escapeHtml(book.slug)}"><span>${escapeHtml(book.title)}</span></a>`).join("")}</nav></section>`;
+  const jumpBooks = list.slice().sort((a, b) => a.title.localeCompare(b.title));
+  return `<section class="jump-panel book-club-shell" aria-labelledby="jump-heading"><p class="book-club-label" id="jump-heading">JUMP TO</p><nav class="jump-links" aria-label="Jump to a book">${jumpBooks.map((book) => `<a href="#${escapeHtml(book.slug)}"><span>${escapeHtml(book.title)}</span></a>`).join("")}</nav></section>`;
 }
 
 function sortControl(id = "sort-books") {
@@ -183,7 +191,7 @@ function adminPage() {
   return documentShell({ title: "Backlog Data", description: "Read-only public data reference for the science-fiction book club.", active: "admin", content, script: "../../../book-club.js" });
 }
 
-const publicBooks = books.map(({ externalLinks, authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
+const publicBooks = books.map(({ authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
   ...book,
   cover: { url: coverUrl(book), sourceUrl: book.cover?.sourceUrl, rightsNote: book.cover?.rightsNote },
 }));
