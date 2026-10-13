@@ -1,5 +1,12 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-13 — Transcript checkpoints and next-poll instructions
+
+- Save recurring instructions to record the latest Signal message date/time as an import checkpoint and provide a concise intake summary of suggestions, duplicates, status/history changes, selection instructions, and unresolved items.
+- Proceed with routine intake/modest updates without an extra approval; pause before substantial work involving significant time/usage. Website changes still require an unpublished preview and review before publication.
+- Save all eligible Medium books (200–399 pages) as the current next-poll selection rule only, not a recurring length restriction. Existing candidates before transcript reconciliation are B07–B12.
+- The actual uploaded transcript and its latest date remain unread/unresolved while the cloud execution environment is offline/pending. No transcript-derived facts, vote counts, new books, or dates are invented. No canonical data, generated pages, scripts, styles, or assets change in this documentation-only step.
+
 ## 2026-10-02 — Reviewed release published and verified
 
 - Published the complete reviewed set via merged PR https://github.com/MLV415/mike-vais-website/pull/11; release commit 670e92be8839b444ca38d0e255b2508751d9095c, merge commit 2e2432fa5b088851a116fdd458515b72268c0559. Preserved existing GitHub history and unrelated pages; the original initially empty local Git checkout was not reset.

@@ -1,6 +1,14 @@
 # Sci-fi Book Club handoff
 
-Updated: 2026-10-02 (America/Los_Angeles)
+Updated: 2026-10-13 (America/Los_Angeles)
+
+## Current task: Medium-length poll and transcript intake
+
+The user selected all eligible Medium books for the next poll on 2026-10-13. This is current-poll-only scope, not a recurring instruction to make every future poll Medium. Use representative numeric counts of 200–399 pages and existing eligibility logic; exclude read/currently-reading/retired records. Before transcript reconciliation, existing eligible candidates are B07, B08, B09, B10, B11, and B12. Re-evaluate after extracting any new suggestions or status changes.
+
+Recurring instructions saved in AGENTS.md and the workflow: record the latest Signal message date/time as an import checkpoint, summarize extracted changes for quick user review, and proceed with routine work without extra approval. Obtain approval before substantial work involving significant time/usage. Publication still requires a reviewed preview.
+
+Task status: instructions and current-poll scope are being saved through a documentation-only update. Transcript intake, its actual latest-message date, data reconciliation, poll generation, and rendered preview are not complete. The uploaded transcript cannot yet be read because this cloud execution environment is offline/pending startup; do not infer content from the upload preview or invent a checkpoint. The latest message date is UNRESOLVED until the attachment is read. No book data, poll flags, generated pages, or assets changed in this documentation step. Preserve all existing published work below; its completion status refers to the previous release, not this new poll.
 
 ## Published and verified
 
