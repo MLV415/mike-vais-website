@@ -12,6 +12,8 @@ The user liked the preview and requested the Signal options directly in the repl
 
 ## Current task: Medium-length poll and transcript intake
 
+Routing update: the user moved the transcript to Sci-fi Voting (Local), where processing is working. For future workflow reminders, the first step must be to start in that Local chat and paste/attach the transcript there. The failed cloud intake is superseded; do not ask the user to retry it here.
+
 The user selected all eligible Medium books for the next poll on 2026-10-13. This is current-poll-only scope, not a recurring instruction to make every future poll Medium. Use representative numeric counts of 200–399 pages and existing eligibility logic; exclude read/currently-reading/retired records. Before transcript reconciliation, existing eligible candidates are B07, B08, B09, B10, B11, and B12. Re-evaluate after extracting any new suggestions or status changes.
 
 Recurring instructions saved in AGENTS.md and the workflow: record the latest Signal message date/time as an import checkpoint, summarize extracted changes for quick user review, and proceed with routine work without extra approval. Obtain approval before substantial work involving significant time/usage. Publication still requires a reviewed preview.

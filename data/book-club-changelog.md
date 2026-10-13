@@ -5,6 +5,12 @@
 - The user explicitly approved publication of the reviewed October 13 Medium-poll update: “Go ahead and publish the Current Poll page.” This one-time approval covers the reviewed current-poll data, generated pages, new cover, saved instructions, import notes, and copyable Signal handoff; it is not standing permission for future releases.
 - The poll handoff now stores a concise title and a post-publication follow-up message linking to the current poll page for fuller book information. Preserve the prepared seven options and post the follow-up only after the live page is verified.
 
+## 2026-10-13 — Start transcript updates in the Local chat
+
+- Save the recurring routing preference that every workflow reminder begins by directing the user to Sci-fi Voting (Local), where the transcript should be pasted or attached from the beginning.
+- Do not invite transcript intake in a cloud chat and redirect only after a workspace failure. The current transcript has already been moved to the Local chat and is being processed there.
+- This documentation-only update changes no canonical records, poll flags, generated pages, assets, scripts, styles, or deployment configuration.
+
 ## 2026-10-13 — In-chat Signal options with individual Copy buttons
 
 - Saved the user's recurring preference to provide Signal options directly in the reply, one complete option per standalone fenced text block, so each can be copied with one button instead of highlighting a line. Keep labels/counts outside and do not substitute a file-link-only handoff.
@@ -18,7 +24,6 @@
 - Added B19 The Divine Gardener’s Handbook by Eli Snow, correcting the supplied Devine spelling against official publisher/author sources. Sourced Novel, 2026, a single 368-page hardcover count, paraphrased synopsis/themes/vibe, real repository-hosted publisher cover, and Goodreads/Author Site/Publisher Site links. No matched Wikipedia article or verified award was found; omit without filler. Unknown prior poll history remains null.
 - Selected ALL eligible Medium books (200–399 pages) for this December 18 poll only: B07, B08, B10, B09, B11, B19, B12, in page-count order. Scope is now 19 admin / 13 eligible / 7 current / 0 retired. Preparing this poll does not add new appearance/vote history. Retained every existing ID, page count, cover/provenance, link destination, design, unrelated page, and admin column position.
 - Current task instructions, checkpoint confirmation, and source provenance are saved locally. Generated all four views and saved the shared-formatter-derived copyable Signal options in docs/book-club-signal-options.md; every option is <=100 characters. Build/static/link-form/cover-workflow/image/browser/recovery and targeted reconciliation/preservation checks pass. New cover and desktop preview were inspected. Preview is http://127.0.0.1:4191/book-club/; final details are in HANDOFF.md. No commit, push, remote PR, merge, or publication before preview review.
-
 ## 2026-10-13 — Transcript checkpoints and next-poll instructions
 
 - Save recurring instructions to record the latest Signal message date/time as an import checkpoint and provide a concise intake summary of suggestions, duplicates, status/history changes, selection instructions, and unresolved items.
