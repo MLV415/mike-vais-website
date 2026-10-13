@@ -5,6 +5,10 @@
 - Reviewed all seven current-poll fuller synopses after the user flagged The Divine Gardener’s Handbook revealing a contest outcome. Rewrote them to retain premise, setting, and central tension while removing avoidable outcomes, deaths, hidden identities, and later revelations.
 - Saved the recurring spoiler-safe public-synopsis rule in AGENTS.md and docs/book-club-data-workflow.md. This urgent correction is included with the unpublished page-count fixes and is authorized for immediate publication.
 
+## 2026-10-13 — Spoiler-safe correction published and verified
+
+- Published the synopsis and page-count correction as `a68d758e1e95b0b05c9c849337cefe4daa09c808`. Live current-poll, backlog, and public JSON routes returned HTTP 200 and showed the spoiler-safe text and corrected 576-page counts.
+
 ## 2026-10-13 — Corrected edition page counts (unpublished)
 
 - Replaced the inherited representative 600-page values for B13 Children of Ruin and B14 The Science Fiction Hall of Fame, Volume One with 576-page counts from identified publisher editions. B13 uses Pan Macmillan ISBN 9781509865857; B14 uses Macmillan ISBN 9780765305374. Edition variation remains documented where relevant.

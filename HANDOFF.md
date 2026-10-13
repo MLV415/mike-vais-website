@@ -4,7 +4,7 @@ Updated: 2026-10-13 (America/Los_Angeles)
 
 ## Urgent spoiler-safe synopsis correction
 
-The user reported that the public Divine Gardener synopsis revealed that the protagonist cheated in a contest and asked for an urgent correction before sharing spreads further. Reviewed the seven current-poll synopses and tightened them to setup-level descriptions, removing avoidable outcomes, deaths, hidden identities, and later revelations. Saved this as a recurring public-card quality standard in AGENTS.md and the workflow. The correction is being published with the page-count update.
+The user reported that the public Divine Gardener synopsis revealed that the protagonist cheated in a contest and asked for an urgent correction before sharing spreads further. Reviewed the seven current-poll synopses and tightened them to setup-level descriptions, removing avoidable outcomes, deaths, hidden identities, and later revelations. Saved this as a recurring public-card quality standard in AGENTS.md and the workflow. Published with the page-count update as `a68d758e1e95b0b05c9c849337cefe4daa09c808`; live current poll, backlog, and public JSON verification returned HTTP 200.
 
 ## Page-count correction
 
