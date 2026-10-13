@@ -1,5 +1,24 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-13 — Current-poll publication authorized
+
+- The user explicitly approved publication of the reviewed October 13 Medium-poll update: “Go ahead and publish the Current Poll page.” This one-time approval covers the reviewed current-poll data, generated pages, new cover, saved instructions, import notes, and copyable Signal handoff; it is not standing permission for future releases.
+- The poll handoff now stores a concise title and a post-publication follow-up message linking to the current poll page for fuller book information. Preserve the prepared seven options and post the follow-up only after the live page is verified.
+
+## 2026-10-13 — In-chat Signal options with individual Copy buttons
+
+- Saved the user's recurring preference to provide Signal options directly in the reply, one complete option per standalone fenced text block, so each can be copied with one button instead of highlighting a line. Keep labels/counts outside and do not substitute a file-link-only handoff.
+- The seven validated options, book data, covers, generated preview, and website are unchanged. Updated AGENTS.md, the workflow, and HANDOFF.md locally in the project root and history-backed draft. No push or publication.
+
+## 2026-10-13 — Transcript reconciled and all eligible Medium books selected (unpublished)
+
+- Continued from current main 20f41dff79a3e60fb0bc773db491f670d0f42214. The requested upload could not be downloaded because download_file is unavailable here; the user supplied the actual transcript text instead. Saved a date-only import checkpoint of 2026-10-13 after explicit user confirmation of Today; latest time/timezone remain unknown, separately from the processing date. Sanitized import/event details are in docs/book-club-imports.md.
+- Imported one October 1 poll event exactly once for B01–B06: displayed votes 5, 1, 8, 7, 6, 1. The result announcement on October 9 explicitly names Beggars in Spain as winner with eight votes and Hemingway Hoax as optional second read. Dates distinguish posting, announcement, and unknown actual closing time; do not treat the vote sum as unique voters or double-count overlapping future transcripts.
+- Reserved B03/B04 for the November 20 main/optional reading selection using existing Excluded/notes fields, without marking them read/retired. Kept B18 currently reading and recorded its October 16 discussion; historical reads and earlier poll history are preserved.
+- Added B19 The Divine Gardener’s Handbook by Eli Snow, correcting the supplied Devine spelling against official publisher/author sources. Sourced Novel, 2026, a single 368-page hardcover count, paraphrased synopsis/themes/vibe, real repository-hosted publisher cover, and Goodreads/Author Site/Publisher Site links. No matched Wikipedia article or verified award was found; omit without filler. Unknown prior poll history remains null.
+- Selected ALL eligible Medium books (200–399 pages) for this December 18 poll only: B07, B08, B10, B09, B11, B19, B12, in page-count order. Scope is now 19 admin / 13 eligible / 7 current / 0 retired. Preparing this poll does not add new appearance/vote history. Retained every existing ID, page count, cover/provenance, link destination, design, unrelated page, and admin column position.
+- Current task instructions, checkpoint confirmation, and source provenance are saved locally. Generated all four views and saved the shared-formatter-derived copyable Signal options in docs/book-club-signal-options.md; every option is <=100 characters. Build/static/link-form/cover-workflow/image/browser/recovery and targeted reconciliation/preservation checks pass. New cover and desktop preview were inspected. Preview is http://127.0.0.1:4191/book-club/; final details are in HANDOFF.md. No commit, push, remote PR, merge, or publication before preview review.
+
 ## 2026-10-13 — Transcript checkpoints and next-poll instructions
 
 - Save recurring instructions to record the latest Signal message date/time as an import checkpoint and provide a concise intake summary of suggestions, duplicates, status/history changes, selection instructions, and unresolved items.

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-10-02",
+  "dataVersion": "2026-10-13",
   "source": "Sci-Fi Book Club Source of Truth.xlsx",
   "books": [
     {
@@ -9,12 +9,12 @@
       "displayAuthor": "Mike Resnick",
       "authorLastName": "Resnick",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 1,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-01",
+      "lastPollVotes": 5,
+      "totalPolls": 1,
+      "totalVotes": 5,
       "pollDescription": "Aliens reconstruct humanity’s rise and fall",
       "pageCountDisplay": "50",
       "pageCountSortKey": 50,
@@ -71,7 +71,8 @@
           "url": "https://www.goodreads.com/book/show/18912954"
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13",
+      "websiteDisplayNotes": "October 1, 2026 poll: displayed vote tally imported October 13; outcome announced October 9 · Retired: No"
     },
     {
       "recordId": "B02",
@@ -80,12 +81,12 @@
       "displayAuthor": "Nnedi Okorafor",
       "authorLastName": "Okorafor",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 2,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-01",
+      "lastPollVotes": 1,
+      "totalPolls": 1,
+      "totalVotes": 1,
       "pollDescription": "A gifted student leaves Earth for university and faces conflict",
       "pageCountDisplay": "104",
       "pageCountSortKey": 104,
@@ -155,7 +156,8 @@
           "url": "https://torpublishinggroup.com/series/binti/"
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13",
+      "websiteDisplayNotes": "October 1, 2026 poll: displayed vote tally imported October 13; outcome announced October 9 · Retired: No"
     },
     {
       "recordId": "B03",
@@ -164,12 +166,12 @@
       "displayAuthor": "Nancy Kress",
       "authorLastName": "Kress",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 3,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-01",
+      "lastPollVotes": 8,
+      "totalPolls": 1,
+      "totalVotes": 8,
       "pollDescription": "Children engineered not to sleep disrupt society",
       "pageCountDisplay": "100",
       "pageCountSortKey": 100,
@@ -235,7 +237,9 @@
           "verificationNote": "Nancy Kress's relevant expanded-novel overview, included at the user's request. The canonical record, Goodreads link, and cover still identify the original novella, not the expanded novel."
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13",
+      "websiteDisplayNotes": "Selected main read for November 20, 2026 meetup; not yet marked read · Retired: No",
+      "eligibilityStatus": "Excluded"
     },
     {
       "recordId": "B04",
@@ -244,12 +248,12 @@
       "displayAuthor": "Joe Haldeman",
       "authorLastName": "Haldeman",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 4,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-01",
+      "lastPollVotes": 7,
+      "totalPolls": 1,
+      "totalVotes": 7,
       "pollDescription": "A forged manuscript meets time travel",
       "pageCountDisplay": "154",
       "pageCountSortKey": 154,
@@ -308,7 +312,9 @@
           "url": "https://www.goodreads.com/book/show/388952"
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13",
+      "websiteDisplayNotes": "Selected optional second read for November 20, 2026 meetup; not yet marked read · Retired: No",
+      "eligibilityStatus": "Excluded"
     },
     {
       "recordId": "B05",
@@ -317,12 +323,12 @@
       "displayAuthor": "Kim Fu",
       "authorLastName": "Fu",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 5,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-01",
+      "lastPollVotes": 6,
+      "totalPolls": 1,
+      "totalVotes": 6,
       "pollDescription": "Uncanny stories reshape ordinary life",
       "pageCountDisplay": "184",
       "pageCountSortKey": 184,
@@ -381,7 +387,8 @@
           "verificationNote": "Specific publisher book page; title and author checked."
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13",
+      "websiteDisplayNotes": "October 1, 2026 poll: displayed vote tally imported October 13; outcome announced October 9 · Retired: No"
     },
     {
       "recordId": "B06",
@@ -390,12 +397,12 @@
       "displayAuthor": "Thomas M. Disch",
       "authorLastName": "Disch",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 6,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-01",
+      "lastPollVotes": 1,
+      "totalPolls": 1,
+      "totalVotes": 1,
       "pollDescription": "Prisoners undergo a lethal intelligence experiment",
       "pageCountDisplay": "192",
       "pageCountSortKey": 192,
@@ -448,7 +455,8 @@
           "verificationNote": "Specific publisher book page; title and author checked."
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13",
+      "websiteDisplayNotes": "October 1, 2026 poll: displayed vote tally imported October 13; outcome announced October 9 · Retired: No"
     },
     {
       "recordId": "B07",
@@ -457,8 +465,8 @@
       "displayAuthor": "Angela Carter",
       "authorLastName": "Carter",
       "editorCredit": null,
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 1,
       "lastPollDate": "2026-08-24",
       "lastPollVotes": 3,
       "totalPolls": 1,
@@ -528,8 +536,8 @@
       "displayAuthor": "Fred Hoyle",
       "authorLastName": "Hoyle",
       "editorCredit": null,
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 2,
       "lastPollDate": null,
       "lastPollVotes": 0,
       "totalPolls": 0,
@@ -595,8 +603,8 @@
       "displayAuthor": "T. Kingfisher",
       "authorLastName": "Kingfisher",
       "editorCredit": null,
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 4,
       "lastPollDate": null,
       "lastPollVotes": 0,
       "totalPolls": 0,
@@ -670,8 +678,8 @@
       "displayAuthor": "Sam Hughes",
       "authorLastName": "Hughes",
       "editorCredit": null,
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 3,
       "lastPollDate": "2026-08-24",
       "lastPollVotes": 2,
       "totalPolls": 1,
@@ -742,8 +750,8 @@
       "displayAuthor": "Kaliane Bradley",
       "authorLastName": "Bradley",
       "editorCredit": null,
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 5,
       "lastPollDate": null,
       "lastPollVotes": 0,
       "totalPolls": 0,
@@ -811,8 +819,8 @@
       "displayAuthor": "Paolo Bacigalupi",
       "authorLastName": "Bacigalupi",
       "editorCredit": null,
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 7,
       "lastPollDate": "2026-08-06",
       "lastPollVotes": 1,
       "totalPolls": 1,
@@ -1284,7 +1292,7 @@
         "cachedAt": "2026-10-02T16:43:43.249Z"
       },
       "editionNote": "The retained 288-page representative count follows the historical Signal record; the author site confirms the 1969 original publication while current editions vary.",
-      "websiteDisplayNotes": "Currently reading October 2026 · Retired: No",
+      "websiteDisplayNotes": "Currently reading October 2026; discussion confirmed for October 16, 2026 · Retired: No",
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
         {
@@ -1296,6 +1304,80 @@
           "url": "https://www.goodreads.com/book/show/13601629"
         }
       ]
+    },
+    {
+      "recordId": "B19",
+      "slug": "the-divine-gardeners-handbook",
+      "title": "The Divine Gardener’s Handbook",
+      "displayAuthor": "Eli Snow",
+      "authorLastName": "Snow",
+      "editorCredit": null,
+      "eligibilityStatus": "Eligible",
+      "currentPoll": true,
+      "currentPollOrder": 6,
+      "lastPollDate": null,
+      "lastPollVotes": null,
+      "totalPolls": null,
+      "totalVotes": null,
+      "pageCountDisplay": "368",
+      "pageCountSortKey": 368,
+      "form": "Novel",
+      "originalPublicationYear": 2026,
+      "longSynopsis": "Cyprin dreams of escaping her crowded megacity for a job in the Divine Gardens. After cheating her way to victory in a flower competition, she enters a world of unusual plants and clashes with its head gardener, Purcell. Their rivalry draws them into buried secrets and a growing rebellion that threatens the order of their city.",
+      "pollDescription": "A gardener joins a rival amid rebellion",
+      "vibe": [
+        "Playful",
+        "Chaotic",
+        "Romantic"
+      ],
+      "themes": [
+        "Ambition",
+        "Rivalry and romance",
+        "Workplace power",
+        "Rebellion",
+        "Social inequality"
+      ],
+      "awards": [],
+      "sources": [
+        "https://www.elisnow.com.au/the-divine-gardeners-handbook",
+        "https://us.macmillan.com/books/9781250395184/thedivinegardenershandbook/"
+      ],
+      "cover": {
+        "url": "https://mpd-biblio-covers.imgix.net/9781250395184.jpg",
+        "sourceUrl": "https://us.macmillan.com/books/9781250395184/thedivinegardenershandbook/",
+        "status": "Verified publisher cover image",
+        "sourceNote": "Official Macmillan image for hardcover ISBN 9781250395184; title and author visually matched before repository preview handoff.",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer.",
+        "localPath": "/assets/book-club/covers/the-divine-gardeners-handbook-f4efaab270ed.avif",
+        "sha256": "f4efaab270ed139dd4bac05de754e3e46091d2829fc15d9eeecf7e86dbbde718",
+        "downloadedFrom": "https://mpd-biblio-covers.imgix.net/9781250395184.jpg",
+        "cachedAt": "2026-10-13T14:31:10.478Z"
+      },
+      "editionNote": "Representative count: 368 pages, from the Macmillan hardcover ISBN 9781250395184. Publisher subtitle: Or What To Do If Your Girlfriend Accidentally Turns Off the Sun. Other formats may differ; the main title is used consistently on cards and in Signal.",
+      "websiteDisplayNotes": "Suggested October 9, 2026 · Retired: No",
+      "externalLinks": [
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/240019891-the-divine-gardener-s-handbook"
+        },
+        {
+          "label": "Official author page",
+          "url": "https://www.elisnow.com.au/the-divine-gardeners-handbook",
+          "public": true,
+          "publicLabel": "Author Site",
+          "verifiedDate": "2026-10-13",
+          "verificationNote": "Specific official book page confirms title and author and directly links to the selected Goodreads page; Goodreads currently shows a bot challenge to automated fetches."
+        },
+        {
+          "label": "Publisher page",
+          "url": "https://us.macmillan.com/books/9781250395184/thedivinegardenershandbook/",
+          "public": true,
+          "publicLabel": "Publisher Site",
+          "verifiedDate": "2026-10-13",
+          "verificationNote": "Specific official book page confirms main title, author, novel form, publication date and 368-page hardcover; not a generic publisher homepage."
+        }
+      ],
+      "lastVerifiedDate": "2026-10-13"
     }
   ]
 }

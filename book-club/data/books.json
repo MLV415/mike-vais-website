@@ -1,13 +1,13 @@
 {
-  "dataVersion": "2026-10-02",
+  "dataVersion": "2026-10-13",
   "books": [
     {
       "recordId": "B01",
       "slug": "seven-views-of-olduvai-gorge",
       "title": "Seven Views of Olduvai Gorge",
       "displayAuthor": "Mike Resnick",
-      "currentPoll": true,
-      "currentPollOrder": 1,
+      "currentPoll": false,
+      "currentPollOrder": null,
       "pageCountDisplay": "50",
       "pageCountSortKey": 50,
       "form": "Novella",
@@ -56,8 +56,8 @@
       "slug": "binti",
       "title": "Binti",
       "displayAuthor": "Nnedi Okorafor",
-      "currentPoll": true,
-      "currentPollOrder": 2,
+      "currentPoll": false,
+      "currentPollOrder": null,
       "pageCountDisplay": "104",
       "pageCountSortKey": 104,
       "form": "Novella",
@@ -107,119 +107,12 @@
       ]
     },
     {
-      "recordId": "B03",
-      "slug": "beggars-in-spain",
-      "title": "Beggars in Spain",
-      "displayAuthor": "Nancy Kress",
-      "currentPoll": true,
-      "currentPollOrder": 3,
-      "pageCountDisplay": "100",
-      "pageCountSortKey": 100,
-      "form": "Novella",
-      "originalPublicationYear": 1991,
-      "longSynopsis": "Leisha Camden is genetically engineered not to need sleep. As more Sleepless children emerge, their extra time, longer lives, and evolutionary advantage destabilize the social order, forcing Leisha and her niece Miranda to confront the political and ethical consequences.",
-      "vibe": [
-        "Provocative",
-        "Idea-driven"
-      ],
-      "themes": [
-        "Genetic engineering",
-        "Inequality",
-        "Social order",
-        "Ethics",
-        "Family"
-      ],
-      "awards": [
-        {
-          "name": "Nebula Award",
-          "category": "Best Novella",
-          "status": "Winner"
-        },
-        {
-          "name": "Hugo Award",
-          "category": "Best Novella",
-          "status": "Winner"
-        }
-      ],
-      "cover": {
-        "url": "/assets/book-club/covers/beggars-in-spain-6838ca85f99b.jpg",
-        "sourceUrl": "https://openlibrary.org/books/OL27073016M",
-        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
-      },
-      "externalLinks": [
-        {
-          "label": "Wikipedia",
-          "url": "https://en.wikipedia.org/wiki/Beggars_in_Spain"
-        },
-        {
-          "label": "Goodreads",
-          "url": "https://www.goodreads.com/book/show/34437255"
-        },
-        {
-          "label": "Author Site",
-          "url": "https://nancykress.com/beggars-in-spain/"
-        }
-      ]
-    },
-    {
-      "recordId": "B04",
-      "slug": "the-hemingway-hoax",
-      "title": "The Hemingway Hoax",
-      "displayAuthor": "Joe Haldeman",
-      "currentPoll": true,
-      "currentPollOrder": 4,
-      "pageCountDisplay": "154",
-      "pageCountSortKey": 154,
-      "form": "Novella",
-      "originalPublicationYear": 1990,
-      "longSynopsis": "A scholar attempts to create a fake Ernest Hemingway manuscript, but the scheme becomes entangled with time travel and parallel worlds.",
-      "vibe": [
-        "Literary",
-        "Strange"
-      ],
-      "themes": [
-        "Authenticity",
-        "Authorship",
-        "Identity",
-        "Time travel",
-        "Parallel worlds"
-      ],
-      "awards": [
-        {
-          "name": "Nebula Award",
-          "category": "Best Novella",
-          "status": "Winner"
-        },
-        {
-          "name": "Hugo Award",
-          "category": "Best Novella",
-          "status": "Winner",
-          "distinction": "Shorter version"
-        }
-      ],
-      "cover": {
-        "url": "/assets/book-club/covers/the-hemingway-hoax-a204694ba1c2.jpg",
-        "sourceUrl": "https://openlibrary.org/works/OL461320W",
-        "rightsNote": "Cover copyright belongs to its respective rights holders. Open Library catalog image retained with its catalog source for identification and attribution. Repository hosting does not imply a license transfer."
-      },
-      "externalLinks": [
-        {
-          "label": "Wikipedia",
-          "url": "https://en.wikipedia.org/wiki/The_Hemingway_Hoax"
-        },
-        {
-          "label": "Goodreads",
-          "url": "https://www.goodreads.com/book/show/388952"
-        }
-      ]
-    },
-    {
       "recordId": "B05",
       "slug": "lesser-known-monsters-of-the-21st-century",
       "title": "Lesser Known Monsters of the 21st Century",
       "displayAuthor": "Kim Fu",
-      "currentPoll": true,
-      "currentPollOrder": 5,
+      "currentPoll": false,
+      "currentPollOrder": null,
       "pageCountDisplay": "184",
       "pageCountSortKey": 184,
       "form": "Short Story Collection",
@@ -262,8 +155,8 @@
       "slug": "camp-concentration",
       "title": "Camp Concentration",
       "displayAuthor": "Thomas M. Disch",
-      "currentPoll": true,
-      "currentPollOrder": 6,
+      "currentPoll": false,
+      "currentPollOrder": null,
       "pageCountDisplay": "192",
       "pageCountSortKey": 192,
       "form": "Novel",
@@ -305,8 +198,8 @@
       "slug": "infernal-desire-machines-of-dr-hoffman",
       "title": "Infernal Desire Machines of Dr. Hoffman",
       "displayAuthor": "Angela Carter",
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 1,
       "pageCountDisplay": "224",
       "pageCountSortKey": 224,
       "form": "Novel",
@@ -349,8 +242,8 @@
       "slug": "the-black-cloud",
       "title": "The Black Cloud",
       "displayAuthor": "Fred Hoyle",
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 2,
       "pageCountDisplay": "224",
       "pageCountSortKey": 224,
       "form": "Novel",
@@ -392,8 +285,8 @@
       "slug": "a-wizards-guide-to-defensive-baking",
       "title": "A Wizard’s Guide to Defensive Baking",
       "displayAuthor": "T. Kingfisher",
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 4,
       "pageCountDisplay": "318",
       "pageCountSortKey": 318,
       "form": "Novel",
@@ -442,8 +335,8 @@
       "slug": "there-is-no-antimemetics-division",
       "title": "There Is No Antimemetics Division",
       "displayAuthor": "Sam Hughes",
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 3,
       "pageCountDisplay": "288",
       "pageCountSortKey": 288,
       "form": "Novel",
@@ -485,8 +378,8 @@
       "slug": "the-ministry-of-time",
       "title": "The Ministry of Time",
       "displayAuthor": "Kaliane Bradley",
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 5,
       "pageCountDisplay": "352",
       "pageCountSortKey": 352,
       "form": "Novel",
@@ -530,8 +423,8 @@
       "slug": "the-windup-girl",
       "title": "The Windup Girl",
       "displayAuthor": "Paolo Bacigalupi",
-      "currentPoll": false,
-      "currentPollOrder": null,
+      "currentPoll": true,
+      "currentPollOrder": 7,
       "pageCountDisplay": "376",
       "pageCountSortKey": 376,
       "form": "Novel",
@@ -670,6 +563,51 @@
         {
           "label": "Publisher Site",
           "url": "https://us.macmillan.com/books/9780765305374/thesciencefictionhalloffamevolumeone19291964/"
+        }
+      ]
+    },
+    {
+      "recordId": "B19",
+      "slug": "the-divine-gardeners-handbook",
+      "title": "The Divine Gardener’s Handbook",
+      "displayAuthor": "Eli Snow",
+      "currentPoll": true,
+      "currentPollOrder": 6,
+      "pageCountDisplay": "368",
+      "pageCountSortKey": 368,
+      "form": "Novel",
+      "originalPublicationYear": 2026,
+      "longSynopsis": "Cyprin dreams of escaping her crowded megacity for a job in the Divine Gardens. After cheating her way to victory in a flower competition, she enters a world of unusual plants and clashes with its head gardener, Purcell. Their rivalry draws them into buried secrets and a growing rebellion that threatens the order of their city.",
+      "vibe": [
+        "Playful",
+        "Chaotic",
+        "Romantic"
+      ],
+      "themes": [
+        "Ambition",
+        "Rivalry and romance",
+        "Workplace power",
+        "Rebellion",
+        "Social inequality"
+      ],
+      "awards": [],
+      "cover": {
+        "url": "/assets/book-club/covers/the-divine-gardeners-handbook-f4efaab270ed.avif",
+        "sourceUrl": "https://us.macmillan.com/books/9781250395184/thedivinegardenershandbook/",
+        "rightsNote": "Cover copyright belongs to its respective rights holders. Publisher product image retained with its original source for identification and attribution. Repository hosting does not imply a license transfer."
+      },
+      "externalLinks": [
+        {
+          "label": "Goodreads",
+          "url": "https://www.goodreads.com/book/show/240019891-the-divine-gardener-s-handbook"
+        },
+        {
+          "label": "Author Site",
+          "url": "https://www.elisnow.com.au/the-divine-gardeners-handbook"
+        },
+        {
+          "label": "Publisher Site",
+          "url": "https://us.macmillan.com/books/9781250395184/thedivinegardenershandbook/"
         }
       ]
     }

@@ -2,13 +2,37 @@
 
 Updated: 2026-10-13 (America/Los_Angeles)
 
+## Current-poll publication approval
+
+The user explicitly authorized publication of the reviewed current-poll update on 2026-10-13: “Go ahead and publish the Current Poll page.” This is one-time approval for the reviewed October 13 Medium-poll release and its saved handoff/documentation changes, not standing permission for future work. Publish through the existing GitHub/Cloudflare history, then verify the live current poll page and preserve unrelated pages.
+
+## Signal copy-button delivery preference
+
+The user liked the preview and requested the Signal options directly in the reply, each ready to copy without manually highlighting a line. Saved this recurring preference in AGENTS.md and the workflow: one complete option per standalone fenced text code block, with labels/counts outside, and no file-link-only handoff. The seven already verified options are unchanged and are being delivered in-chat. This is a presentation-only follow-up; no website/data changes are required. No assistant work remains after delivery; the user can copy each option with its block's Copy button. Website publication still needs explicit approval; positive preview feedback plus this formatting request is not an instruction to publish.
+
 ## Current task: Medium-length poll and transcript intake
 
 The user selected all eligible Medium books for the next poll on 2026-10-13. This is current-poll-only scope, not a recurring instruction to make every future poll Medium. Use representative numeric counts of 200–399 pages and existing eligibility logic; exclude read/currently-reading/retired records. Before transcript reconciliation, existing eligible candidates are B07, B08, B09, B10, B11, and B12. Re-evaluate after extracting any new suggestions or status changes.
 
 Recurring instructions saved in AGENTS.md and the workflow: record the latest Signal message date/time as an import checkpoint, summarize extracted changes for quick user review, and proceed with routine work without extra approval. Obtain approval before substantial work involving significant time/usage. Publication still requires a reviewed preview.
 
-Task status: instructions and current-poll scope are being saved through a documentation-only update. Transcript intake, its actual latest-message date, data reconciliation, poll generation, and rendered preview are not complete. The uploaded transcript cannot yet be read because this cloud execution environment is offline/pending startup; do not infer content from the upload preview or invent a checkpoint. The latest message date is UNRESOLVED until the attachment is read. No book data, poll flags, generated pages, or assets changed in this documentation step. Preserve all existing published work below; its completion status refers to the previous release, not this new poll.
+Current local draft is based on verified GitHub main 20f41dff79a3e60fb0bc773db491f670d0f42214 in tmp/book-club-release, on local branch codex/book-club-medium-poll. No remote writes are authorized before preview review. The root project originally has an empty/untracked Git checkout; do not reset it or publish a replacement root commit.
+
+Transcript source: the user pasted the actual excerpt after download_file proved unavailable in this runtime; no local upload copy was found. The inaccessible upload ID is file_00000000f2d88230aab8a625a2d1c2a2. Use the pasted evidence, not a guessed attachment preview. **Import checkpoint: October 13, 2026 (date only), confirmed explicitly by the user for the final Today header. Time and timezone are unknown.** Processing date is separately October 13, 2026. Include that date's messages with a small overlap for the next import. The sanitized extraction, poll-event key, tallies, date basis, and deduplication rules are saved in docs/book-club-imports.md; no raw chat or contributor identities are saved.
+
+Reconciliation: one new B19, The Divine Gardener’s Handbook by Eli Snow (corrected the supplied Devine spelling using official author/publisher pages). Macmillan's 368-page edition makes it Medium, bringing the poll to seven eligible books: B07, B08, B10, B09, B11, B19, B12 in increasing-page order with title tie-break. B03/B04 are reserved/excluded for the November 20 main/optional reads, not marked completed or retired. B18 remains currently reading for the October 16 discussion. The next poll is for one December 18 read; no voting-mode restriction is invented.
+
+Recorded the October 1 poll's displayed B01–B06 tallies (5, 1, 8, 7, 6, 1) and its October 9 outcome announcement as one verified event. Incremented each prior zero appearance exactly once and added its displayed tally; previous Medium-book history is unchanged. The new poll is not treated as already posted, and B19's unknown prior history remains null. Existing 18 records, representative page counts, covers/link destinations, form labels, metadata, styles, and unrelated pages are preserved except the requested poll/status/history fields. The new verified publisher cover was cached and visually matched; no existing cover was downloaded again.
+
+Task status before publication: transcript extraction, checkpoint, reconciliation, research, cover hosting, generation, copyable Signal options, checks, and desktop/mobile preview were complete and saved locally. The user then approved publication of this reviewed update. After publication, verify the live current poll page and record the release here; the user's remaining step will be posting the prepared poll and follow-up message.
+
+Unpublished preview: http://127.0.0.1:4191/book-club/ (backlog /book-club/backlog/, admin /book-club/backlog/admin/). Server is running from the history-backed draft checkout (local session 31789). The final draft is also mirrored into the root project after verifying its instruction/history files had no newer edits and its canonical data matched the current-main baseline; future work must not publish that root's empty Git history. The previous sandbox-local server on 4190 is not the review URL.
+
+Copyable poll question, all seven individual options, character counts (94, 99, 98, 97, 82, 91, 89), and an optional post-publication posting message are in docs/book-club-signal-options.md. Every option comes from scripts/book-club-signal.mjs; descriptions have no trailing period and all options fit 100 characters without changing titles/surnames/counts. No voting-mode restriction is assumed from the statement that one book will be selected.
+
+Verification passed: generation/static checks (7 current / 13 eligible / 19 admin), six link/form regression tests, four cover-workflow regression tests, all 19 real local image format/checksum checks, the targeted October 13 preservation/selection/tally assertions, and git diff --check. All original 18 records' unrequested bibliographic fields, existing covers/provenance/links, numeric counts, and earlier history are unchanged; only requested status/history/poll fields differ. Existing code, style, navigation, other website pages, and original assets are unchanged. Offline real Chromium checks passed for current/backlog/admin, 390/900/1440px layouts, all selected resources on separate lines, image/icon decoding, every sorting mode, Jump To anchors, accessible safe links, admin alignment/Signal status, privacy, and mobile overflow. Cover-recovery checks passed. Inspected the desktop preview and new cover; screenshots are ignored under tmp/book-club-release/tmp/book-club-qa/oct13-rendered/.
+
+Sandbox notes: a cover-fixture atomic rename and Chromium's sandbox-local network access were denied. Reran the existing tests and local-only preview/browser checks with scoped execution approval; they passed without changing application code, lowering browser security, or reopening cloud internet configuration. The new cover was rendered locally for visual inspection; only the single new image was fetched.
 
 ## Published and verified
 
@@ -58,7 +82,7 @@ Task status: documentation reconciliation complete after saved-file and preserva
 
 Reconciliation verification: read back all four saved documents, confirmed the imported documentation decision and all pre-existing local changelog history remain present, and compared SHA-256 hashes for all other project files against the pre-edit snapshot. Book data, covers, icons, links, generated preview pages, scripts, styles, and unrelated pages are byte-for-byte unchanged. Static verification still passes (6 poll cards, 14 eligible backlog books, 18 admin records), all 18 local cover checksums pass, and the unchanged preview returns HTTP 200 at port 4183. No checkout reset or publication occurred.
 
-## Current state
+## Previous published state (October 2)
 
 - Canonical admin dataset: 18 records (`data/book-club.json`)
 - Public eligible backlog: 14 records (`book-club/backlog/` and `book-club/data/books.json`)
