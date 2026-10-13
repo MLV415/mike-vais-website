@@ -1,5 +1,27 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-13 — Reading List publication approval
+
+- The user reviewed the unpublished Reading List visual refinement and explicitly approved publication with “Looks good, go ahead.” This is one-time approval for the scoped Reading List, schedule/navigation, visual CSS, generated-output, and documentation changes; it does not authorize unrelated website changes.
+- Final checks and live verification are required before the publication task is complete.
+
+## 2026-10-13 — Reading List visual refinement
+
+- Enlarged and vertically balanced the Currently Reading cover so its card uses the full left-column panel without requiring larger text.
+- Scoped cover sizing so Up Next covers remain inside their grid columns; Beggars in Spain and The Hemingway Hoax text no longer sits underneath or gets clipped by the images.
+- Preserved the existing Reading List content, schedule, covers, links, navigation, and unrelated pages.
+
+## 2026-10-13 — Reading List labels and schedule correction
+
+- Simplified the shared book-club tabs to `Reading List`, `Current Poll`, and `Book Backlog` across public and admin routes.
+- Corrected the Reading List while the December poll remains unfinished: Beggars in Spain and The Hemingway Hoax are the November 2026 Up Next books; The Ministry of Time was removed from the reading schedule until a later poll result is confirmed.
+- Updated the generated layout to support one to four Up Next cards while preserving the current book, historical timeline, existing records, covers, links, IDs, and unrelated pages.
+
+## 2026-10-13 — Reading feed page
+
+- Added canonical `readingFeed` schedule metadata for the approved reading-feed layout: The Left Hand of Darkness as currently reading in October 2026; Beggars in Spain and The Hemingway Hoax in November 2026, with the latter marked optional; and the completed reading timeline for We, Children of Time, and Automatic Noodle using their saved historical months.
+- The new generated `/book-club/reading/` page uses the existing locally hosted covers and shared book-club navigation. Featured cards and timeline rows share the same core information order: reading month, title, author plus publication year, and page count. No book-detail links or discussion/meetup labels are added to the cards.
+
 ## 2026-10-13 — Tightened public synopses for spoiler safety
 
 - Reviewed all seven current-poll fuller synopses after the user flagged The Divine Gardener’s Handbook revealing a contest outcome. Rewrote them to retain premise, setting, and central tension while removing avoidable outcomes, deaths, hidden identities, and later revelations.

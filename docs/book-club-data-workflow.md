@@ -17,6 +17,7 @@ Provide a concrete preview and concise account of changes, validation, and unres
 `data/book-club.json` is the repository’s canonical source after the initial import from `Sci-Fi Book Club Source of Truth.xlsx`. Do not hand-edit a second book list in either public page, the backlog reference, the machine-readable endpoint, or JavaScript. The generated outputs are:
 
 - `/book-club/`
+- `/book-club/reading/`
 - `/book-club/backlog/`
 - `/book-club/backlog/admin/`
 - `/book-club/data/books.json`

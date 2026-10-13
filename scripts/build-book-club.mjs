@@ -17,6 +17,10 @@ books.forEach(verifyBookForm);
 await Promise.all(books.map((book) => verifyLocalCover(book, root)));
 const currentBooks = books.filter((book) => book.currentPoll).sort((a, b) => a.currentPollOrder - b.currentPollOrder);
 const backlogBooks = eligibleBooks.slice().sort((a, b) => a.pageCountSortKey - b.pageCountSortKey || a.title.localeCompare(b.title));
+const readingBooks = books.filter((book) => book.readingFeed).sort((a, b) => b.readingFeed.sortKey - a.readingFeed.sortKey || a.title.localeCompare(b.title));
+const currentReading = readingBooks.filter((book) => book.readingFeed.state === "current");
+const upNextReading = readingBooks.filter((book) => book.readingFeed.state === "up-next");
+if (currentReading.length !== 1 || upNextReading.length < 1 || upNextReading.length > 4) throw new Error("Reading list needs exactly one current book and between one and four upcoming books.");
 const signalUrl = "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX";
 const meetupUrl = "https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/";
 
@@ -74,6 +78,60 @@ function media(book) {
   return `<div class="book-media is-fallback"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
 }
 
+function readingMedia(book, variant = "") {
+  const mediaClass = `reading-cover book-media${variant ? ` ${variant}` : ""}`;
+  if (coverUrl(book)) {
+    return `<div class="${mediaClass}"><img data-book-image src="${escapeHtml(coverUrl(book))}" alt="Cover of ${escapeHtml(book.title)} by ${escapeHtml(book.displayAuthor)}" loading="lazy"><div class="book-cover-fallback" aria-hidden="true"><span>cover<br>unavailable</span></div></div>`;
+  }
+  return `<div class="${mediaClass} is-fallback"><div class="book-cover-fallback"><span>cover<br>unavailable</span></div></div>`;
+}
+
+function readingAuthor(book) {
+  return `${book.displayAuthor} · ${book.originalPublicationYear}`;
+}
+
+function readingFeature(book, label, variant) {
+  return `<article class="reading-feature ${variant}" data-book-id="${escapeHtml(book.recordId)}">
+  <p class="reading-label">${escapeHtml(label)}</p>
+  <div class="reading-feature-body">
+    ${readingMedia(book, variant)}
+    <div class="reading-feature-info">
+      <p class="reading-date">${escapeHtml(book.readingFeed.month)}</p>
+      <h2 class="reading-feature-title">${escapeHtml(book.title)}</h2>
+      <p class="reading-author">${escapeHtml(readingAuthor(book))}</p>
+      <p class="reading-pages">${escapeHtml(book.pageCountDisplay)} pages</p>
+    </div>
+  </div>
+</article>`;
+}
+
+function readingNextCard(book) {
+  const note = book.readingFeed.optional ? `<p class="reading-note">Optional read</p>` : "";
+  return `<article class="reading-next-card" data-book-id="${escapeHtml(book.recordId)}">
+  ${readingMedia(book, "next")}
+  <div class="reading-next-info">
+    <p class="reading-date">${escapeHtml(book.readingFeed.month)}</p>
+    <h3 class="reading-next-title">${escapeHtml(book.title)}</h3>
+    <p class="reading-author">${escapeHtml(readingAuthor(book))}</p>
+    <p class="reading-pages">${escapeHtml(book.pageCountDisplay)} pages</p>
+${note}
+  </div>
+</article>`;
+}
+
+function readingTimelineRow(book) {
+  const note = book.readingFeed.optional ? " · optional read" : "";
+  return `<article class="reading-history-row" data-book-id="${escapeHtml(book.recordId)}">
+  <div class="reading-history-month">${escapeHtml(book.readingFeed.month)}</div>
+  ${readingMedia(book, "history")}
+  <div class="reading-history-info">
+    <h3 class="reading-history-title">${escapeHtml(book.title)}</h3>
+    <p class="reading-history-author">${escapeHtml(readingAuthor(book))}${note}</p>
+  </div>
+  <div class="reading-history-pages">${escapeHtml(book.pageCountDisplay)} pages</div>
+</article>`;
+}
+
 function externalBookLinks(book) {
   const links = publicBookLinks(book);
   if (!links.length) return "";
@@ -114,13 +172,13 @@ function sortControl(id = "sort-books") {
 
 function localNav(active) {
   const actions = `${meetupLink()}${signalLink()}`;
-  const logoPath = active === "current" ? "../assets/book-club/cosmic-chapter-chat-logo.png" : active === "backlog" ? "../../assets/book-club/cosmic-chapter-chat-logo.png" : "../../../assets/book-club/cosmic-chapter-chat-logo.png";
-  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/"><img class="book-club-logo" src="${logoPath}" alt="Cosmic Chapter Chat Sci-Fi Book Club" loading="eager" decoding="async"></a><div class="book-club-nav-actions">${actions}</div><nav aria-label="Book club navigation"><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Complete Backlog</a></nav></div></header>`;
+  const logoPath = active === "current" ? "../assets/book-club/cosmic-chapter-chat-logo.png" : active === "backlog" || active === "reading" ? "../../assets/book-club/cosmic-chapter-chat-logo.png" : "../../../assets/book-club/cosmic-chapter-chat-logo.png";
+  return `<header class="book-club-local-nav"><div class="book-club-shell"><a class="book-club-brand" href="/book-club/"><img class="book-club-logo" src="${logoPath}" alt="Cosmic Chapter Chat Sci-Fi Book Club" loading="eager" decoding="async"></a><div class="book-club-nav-actions">${actions}</div><nav aria-label="Book club navigation"><a href="/book-club/reading/"${active === "reading" ? ' aria-current="page"' : ""}>Reading List</a><a href="/book-club/"${active === "current" ? ' aria-current="page"' : ""}>Current Poll</a><a href="/book-club/backlog/"${active === "backlog" ? ' aria-current="page"' : ""}>Book Backlog</a></nav></div></header>`;
 }
 
 function documentShell({ title, description, active, content, script = "../book-club.js" }) {
-  const stylesheet = active === "current" ? "../styles.css" : active === "backlog" ? "../../styles.css" : "../../../styles.css";
-  const canonical = active === "current" ? "/book-club/" : active === "backlog" ? "/book-club/backlog/" : "/book-club/backlog/admin/";
+  const stylesheet = active === "current" ? "../styles.css" : active === "backlog" || active === "reading" ? "../../styles.css" : "../../../styles.css";
+  const canonical = active === "current" ? "/book-club/" : active === "backlog" ? "/book-club/backlog/" : active === "reading" ? "/book-club/reading/" : "/book-club/backlog/admin/";
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -144,8 +202,16 @@ function publicPage(page, list) {
   const current = page === "current";
   const content = current
     ? `<main><h1 class="visually-hidden" id="current-poll-heading">Current Poll</h1>${jumpPanel(list)}<section class="book-list-section book-club-shell" aria-labelledby="poll-books-heading"><h2 class="visually-hidden" id="poll-books-heading">Current poll books</h2>${sortControl()}<div class="book-list" data-book-list>${list.map((book) => card(book, page)).join("\n")}</div></section></main>`
-    : `<main><h1 class="visually-hidden" id="backlog-heading">Complete Backlog</h1>${jumpPanel(list)}<section class="book-list-section book-club-shell" aria-labelledby="backlog-books-heading"><h2 class="visually-hidden" id="backlog-books-heading">Eligible books</h2>${sortControl()}<div class="book-list" data-book-list>${list.map((book) => card(book, page)).join("\n")}</div></section></main>`;
-  return documentShell({ title: current ? "Current Poll" : "Complete Backlog", description: current ? "Current science-fiction book-club poll." : "Complete eligible science-fiction book-club backlog.", active: current ? "current" : "backlog", content, script: current ? "../book-club.js" : "../../book-club.js" });
+    : `<main><h1 class="visually-hidden" id="backlog-heading">Book Backlog</h1>${jumpPanel(list)}<section class="book-list-section book-club-shell" aria-labelledby="backlog-books-heading"><h2 class="visually-hidden" id="backlog-books-heading">Eligible books</h2>${sortControl()}<div class="book-list" data-book-list>${list.map((book) => card(book, page)).join("\n")}</div></section></main>`;
+  return documentShell({ title: current ? "Current Poll" : "Book Backlog", description: current ? "Current science-fiction book-club poll." : "Complete eligible science-fiction book-club backlog.", active: current ? "current" : "backlog", content, script: current ? "../book-club.js" : "../../book-club.js" });
+}
+
+function readingPage() {
+  const currentBook = currentReading[0];
+  const timelineBooks = readingBooks.filter((book) => book.recordId !== currentBook.recordId && !upNextReading.some((nextBook) => nextBook.recordId === book.recordId));
+  const upNextPanel = `<section class="reading-feature next reading-up-next-panel" aria-labelledby="up-next-heading"><p class="reading-label" id="up-next-heading">Up next</p><div class="reading-next-list">${upNextReading.map(readingNextCard).join("\n")}</div></section>`;
+  const content = `<main class="reading-feed-page"><section class="reading-feed-content book-club-shell"><section class="reading-feature-grid" aria-label="Current and upcoming reading">${readingFeature(currentBook, "Currently reading", "current")}${upNextPanel}</section><section class="reading-history" aria-labelledby="reading-history-heading"><div class="reading-history-heading"><h1 id="reading-history-heading">Reading timeline</h1><span>Newest to oldest</span></div><div class="reading-history-list">${timelineBooks.map(readingTimelineRow).join("\n")}</div></section></section></main>`;
+  return documentShell({ title: "Reading List", description: "Current, upcoming, and previous science-fiction book-club reads.", active: "reading", content, script: "../../book-club.js" });
 }
 
 function adminPage() {
@@ -198,14 +264,16 @@ function adminPage() {
   return documentShell({ title: "Admin Data", description: "Read-only comprehensive data reference for the science-fiction book club.", active: "admin", content, script: "../../../book-club.js" });
 }
 
-const publicBooks = eligibleBooks.map(({ externalLinks, authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, ...book }) => ({
+const publicBooks = eligibleBooks.map(({ externalLinks, authorLastName, editorCredit, pollDescription, lastPollDate, lastPollVotes, totalPolls, totalVotes, editionNote, sources, websiteDisplayNotes, lastVerifiedDate, eligibilityStatus, readingFeed, ...book }) => ({
   ...book,
   externalLinks: publicBookLinks({ ...book, externalLinks }),
   cover: { url: coverUrl(book), sourceUrl: book.cover?.sourceUrl, rightsNote: book.cover?.rightsNote },
 }));
 await mkdir(join(root, "book-club/backlog/admin"), { recursive: true });
+await mkdir(join(root, "book-club/reading"), { recursive: true });
 await mkdir(join(root, "book-club/data"), { recursive: true });
 await writeFile(join(root, "book-club/index.html"), publicPage("current", currentBooks));
 await writeFile(join(root, "book-club/backlog/index.html"), publicPage("backlog", backlogBooks));
+await writeFile(join(root, "book-club/reading/index.html"), readingPage());
 await writeFile(join(root, "book-club/backlog/admin/index.html"), adminPage());
 await writeFile(join(root, "book-club/data/books.json"), `${JSON.stringify({ dataVersion: data.dataVersion, books: publicBooks }, null, 2)}\n`);

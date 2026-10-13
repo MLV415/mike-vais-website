@@ -239,6 +239,11 @@
       ],
       "lastVerifiedDate": "2026-10-13",
       "websiteDisplayNotes": "Selected main read for November 20, 2026 meetup; not yet marked read · Retired: No",
+      "readingFeed": {
+        "state": "up-next",
+        "month": "November 2026",
+        "sortKey": 202611
+      },
       "eligibilityStatus": "Excluded"
     },
     {
@@ -314,6 +319,12 @@
       ],
       "lastVerifiedDate": "2026-10-13",
       "websiteDisplayNotes": "Selected optional second read for November 20, 2026 meetup; not yet marked read · Retired: No",
+      "readingFeed": {
+        "state": "up-next",
+        "month": "November 2026",
+        "sortKey": 202611,
+        "optional": true
+      },
       "eligibilityStatus": "Excluded"
     },
     {
@@ -1084,6 +1095,11 @@
       },
       "editionNote": "The retained 160-page representative count follows the historical Signal record; Macmillan lists a 176-page hardcover edition.",
       "websiteDisplayNotes": "Read June 2026 · Retired: No",
+      "readingFeed": {
+        "state": "read",
+        "month": "June 2026",
+        "sortKey": 202606
+      },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
         {
@@ -1153,6 +1169,11 @@
       },
       "editionNote": "The retained 600-page representative count follows the historical Signal record; current publisher editions vary, including 416 and 640 pages.",
       "websiteDisplayNotes": "Read July–August 2026 · Retired: No",
+      "readingFeed": {
+        "state": "read",
+        "month": "July–August 2026",
+        "sortKey": 202608
+      },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
         {
@@ -1214,6 +1235,11 @@
       },
       "editionNote": "The retained 200-page representative count follows the historical Signal record; the cited Standard Ebooks source confirms the 1924 English publication context rather than a print edition length.",
       "websiteDisplayNotes": "Read September 2026 · Retired: No",
+      "readingFeed": {
+        "state": "read",
+        "month": "September 2026",
+        "sortKey": 202609
+      },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
         {
@@ -1294,6 +1320,11 @@
       },
       "editionNote": "The retained 288-page representative count follows the historical Signal record; the author site confirms the 1969 original publication while current editions vary.",
       "websiteDisplayNotes": "Currently reading October 2026; discussion confirmed for October 16, 2026 · Retired: No",
+      "readingFeed": {
+        "state": "current",
+        "month": "October 2026",
+        "sortKey": 202610
+      },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
         {

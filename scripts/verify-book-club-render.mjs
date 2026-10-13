@@ -7,6 +7,9 @@ import { publicBookLinks } from "./book-club-links.mjs";
 const { books } = JSON.parse(await readFile(new URL("../data/book-club.json", import.meta.url), "utf8"));
 const eligibleBooks = books.filter((book) => !book.eligibilityStatus || book.eligibilityStatus === "Eligible");
 const currentBooks = books.filter((book) => book.currentPoll);
+const readingBooks = books.filter((book) => book.readingFeed).sort((a, b) => b.readingFeed.sortKey - a.readingFeed.sortKey || a.title.localeCompare(b.title));
+const currentReading = readingBooks.find((book) => book.readingFeed.state === "current");
+const upNextReading = readingBooks.filter((book) => book.readingFeed.state === "up-next");
 
 const origin = process.env.BOOK_CLUB_ORIGIN || "http://127.0.0.1:4319";
 const failures = [];
@@ -64,7 +67,7 @@ try {
       };
     });
     assert(mobileHeader.logoWidth >= mobileHeader.shellWidth - 2, `${pageName}: mobile logo does not use the full header width`);
-    assert(mobileHeader.navWidth >= mobileHeader.shellWidth - 2 && mobileHeader.navColumns === 2, `${pageName}: mobile navigation is not a full-width two-option toggle`);
+    assert(mobileHeader.navWidth >= mobileHeader.shellWidth - 2 && mobileHeader.navColumns === 3, `${pageName}: mobile navigation is not a full-width three-option toggle`);
     assert(imageState.length === expectedCards && imageState.every((image) => image.width > 0 && image.fallback === "none"), `${pageName}: every rendered card image must load and hide its fallback`);
     assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => {
       const labels = [...card.querySelectorAll("dt")].map((label) => label.textContent.trim());
@@ -139,6 +142,51 @@ try {
   await checkPublicPage("/book-club/", currentBooks.length, "current poll");
   await checkPublicPage("/book-club/backlog/", eligibleBooks.length, "backlog");
 
+  const checkReadingPage = async () => {
+    const page = await newPage({ viewport: { width: 390, height: 1200 } });
+    await page.goto(`${origin}/book-club/reading/`, { waitUntil: "domcontentloaded", timeout: 45000 });
+    await page.locator("img[data-book-image]").evaluateAll((images) => {
+      images.forEach((image) => {
+        image.loading = "eager";
+        image.scrollIntoView({ block: "center" });
+      });
+    });
+    await page.waitForFunction(
+      () => [...document.querySelectorAll("img[data-book-image]")].every((image) => ["loaded", "failed"].includes(image.dataset.coverState)),
+      null,
+      { timeout: 45000 },
+    );
+    assert(await page.locator(".reading-feature.current").count() === 1, "reading list: current card is missing");
+    assert(await page.locator(".reading-up-next-panel").count() === 1, "reading list: up-next panel is missing");
+    assert(await page.locator(".reading-next-card").count() === upNextReading.length, "reading list: up-next coverage is incomplete");
+    assert(await page.locator(".reading-history-row").count() === readingBooks.length - 1 - upNextReading.length, "reading list: timeline coverage is incomplete");
+    assert(await page.locator(".reading-feature.current").getAttribute("data-book-id") === currentReading.recordId, "reading list: current book is incorrect");
+    const renderedUpNext = await page.locator(".reading-next-card").evaluateAll((cards) => cards.map((card) => card.dataset.bookId));
+    assert(JSON.stringify(renderedUpNext) === JSON.stringify(upNextReading.map((book) => book.recordId)), "reading list: up-next books are incorrect");
+    assert(await page.locator(".book-club-nav-meetup").count() === 1 && await page.locator(".book-club-nav-signal").count() === 1, "reading list: header actions are incomplete");
+    assert(await page.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), "reading list: logo image did not render proportionally");
+    const mobileNavColumns = await page.locator(".book-club-local-nav nav").evaluate((nav) => getComputedStyle(nav).gridTemplateColumns.split(" ").length);
+    assert(mobileNavColumns === 3, "reading list: mobile navigation does not have three tabs");
+    const imageState = await page.locator(".reading-cover").evaluateAll((media) => media.map((item) => ({ width: item.querySelector("img")?.naturalWidth || 0, fallback: getComputedStyle(item.querySelector(".book-cover-fallback")).display })));
+    assert(imageState.length === readingBooks.length && imageState.every((image) => image.width > 0 && image.fallback === "none"), "reading list: every cover must load and hide its fallback");
+    assert(await page.locator(".reading-feature.current, .reading-next-card, .reading-history-row").evaluateAll((cards) => cards.every((card) => card.querySelector(".reading-date, .reading-history-month") && card.querySelector(".reading-feature-title, .reading-next-title, .reading-history-title") && card.querySelector(".reading-author, .reading-history-author") && card.querySelector(".reading-pages, .reading-history-pages"))), "reading list: cards do not share the required metadata structure");
+    assert(await page.locator(".reading-next-card").evaluateAll((cards) => cards.every((card) => {
+      const cover = card.querySelector(".reading-cover").getBoundingClientRect();
+      const info = card.querySelector(".reading-next-info").getBoundingClientRect();
+      return cover.right <= info.left + 1;
+    })), "reading list: Up Next text is obscured by a cover");
+    assert(await page.locator(".reading-feature a, .reading-next-card a, .reading-history-row a").count() === 0, "reading list: cards contain unexpected links");
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "reading list: mobile viewport overflows horizontally");
+    await page.setViewportSize({ width: 900, height: 1000 });
+    assert(await page.locator(".reading-feature-grid").evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(" ").length) === 2, "reading list: featured sections do not remain side-by-side at intermediate width");
+    await page.setViewportSize({ width: 390, height: 1200 });
+    assert(await page.locator(".reading-feature-grid").evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(" ").length) === 1, "reading list: featured sections do not stack on mobile");
+    if (screenshots) await page.screenshot({ path: `${screenshots}/reading-list-mobile.png`, fullPage: true });
+    await page.close();
+  };
+
+  await checkReadingPage();
+
   const checkGrid = async (path, width, expectedColumns, pageName) => {
     const page = await newPage({ viewport: { width, height: 900 } });
     await page.goto(`${origin}${path}`, { waitUntil: "domcontentloaded", timeout: 45000 });
@@ -163,8 +211,8 @@ try {
   await current.setViewportSize({ width: 1440, height: 1000 });
   const currentNav = await current.locator(".book-club-local-nav .book-club-shell").evaluate((shell) => getComputedStyle(shell).gridTemplateColumns);
   assert(currentNav.split(" ").length === 3, "current poll header does not reserve stable brand, tabs, and actions zones");
-  assert(await current.locator(".book-club-nav-actions").evaluate((actions) => getComputedStyle(actions).gridColumnStart === "2"), "current poll actions are not centered in the header");
-  assert(await current.locator(".book-club-local-nav nav").evaluate((nav) => getComputedStyle(nav).gridColumnStart === "3"), "current poll navigation tabs are not in the top-right zone");
+  assert(await current.locator(".book-club-nav-actions").evaluate((actions) => getComputedStyle(actions).gridColumnStart === "3"), "current poll actions are not in the upper-right header zone");
+  assert(await current.locator(".book-club-local-nav nav").evaluate((nav) => getComputedStyle(nav).gridColumnStart === "2"), "current poll navigation tabs are not centered in the header");
   assert(await current.locator(".book-fields").evaluateAll((fields) => fields.every((field) => {
     const labels = [...field.querySelectorAll("dt")];
     const required = ["Page count", "Form", "Published", "Synopsis", "Themes", "Vibe"];
@@ -237,4 +285,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log("Rendered book-club checks passed: current poll, backlog, and admin pages; all images loaded; sorting, banner, anchors, and isolation verified.");
+console.log("Rendered book-club checks passed: current poll, reading list, backlog, and admin pages; all images loaded; sorting, navigation, anchors, and isolation verified.");

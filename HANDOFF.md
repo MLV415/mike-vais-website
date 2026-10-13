@@ -2,6 +2,24 @@
 
 Updated: 2026-10-13 (America/Los_Angeles)
 
+## Reading List publication approval (current task)
+
+The user reviewed the local Reading List visual refinement and explicitly approved publication with “Looks good, go ahead.” This is one-time approval for the scoped Reading List route, schedule/navigation changes, visual CSS fix, generated outputs, and the saved instruction/documentation updates described below. It does not authorize unrelated website changes. Final checks and live verification are required before handing the task back.
+
+## Reading List visual refinement (unpublished before approval)
+
+The user requested a final visual pass based on the attached preview: make the Currently Reading card use its full left-column space with a larger cover, and prevent Up Next text from being obscured by cover images. Updated the Reading List CSS so the current card vertically uses its stretched panel and scales its cover up on larger screens, while retaining compact mobile sizing. Scoped the larger-cover rules to the current card so the two Up Next covers stay within their grid columns and their text remains fully readable. Existing content, data, covers, links, navigation, and unrelated pages are preserved. Build, static, link, image, cover-workflow, and responsive browser checks pass, including a specific Up Next cover/text-overlap assertion.
+
+## Reading-list schedule correction
+
+The latest instruction supersedes the earlier December up-next assumption: the December poll is not finished, so The Ministry of Time does not appear on the Reading List. Beggars in Spain and The Hemingway Hoax are the two November 2026 Up Next books, with Hemingway retained as the optional read. The generated layout supports one to four Up Next cards, with the current book on the left and the Up Next panel on the right; the historical timeline excludes all featured books.
+
+Simplified the shared tab labels on Reading List, Current Poll, Book Backlog, and Admin to exactly `Reading List`, `Current Poll`, and `Book Backlog`. Preserved existing book records, covers, external links, IDs, unrelated pages, and the preview-before-publication workflow. Local preview remains available at `http://127.0.0.1:4192/book-club/reading/`.
+
+## Reading-feed implementation
+
+The generated `/book-club/reading/` route is driven by canonical `readingFeed` metadata: The Left Hand of Darkness is currently reading for October 2026; Beggars in Spain and The Hemingway Hoax are November 2026 Up Next, with Hemingway marked optional; and We, Children of Time, and Automatic Noodle remain in the descending historical timeline using their saved months. Featured cards and timeline rows consistently show reading month, title, author plus publication year, and single-number page count. Existing local covers are reused; cards have no book-detail links or discussion/meetup labels.
+
 ## Urgent spoiler-safe synopsis correction
 
 The user reported that the public Divine Gardener synopsis revealed that the protagonist cheated in a contest and asked for an urgent correction before sharing spreads further. Reviewed the seven current-poll synopses and tightened them to setup-level descriptions, removing avoidable outcomes, deaths, hidden identities, and later revelations. Saved this as a recurring public-card quality standard in AGENTS.md and the workflow. Published with the page-count update as `a68d758e1e95b0b05c9c849337cefe4daa09c808`; live current poll, backlog, and public JSON verification returned HTTP 200.
