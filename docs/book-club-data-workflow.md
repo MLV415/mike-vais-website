@@ -2,7 +2,7 @@
 
 ## User-facing process and durable instructions
 
-Use one Local chat in the existing project for routine book-club updates. A cloud chat can replace it when effective research access is verified; do not make the user coordinate several chats or repeatedly transfer archives. At the start of every update, read AGENTS.md, this guide, the canonical dataset, and recent changelog entries. Use the generated admin page if the published reference cannot be accessed.
+Use one Local chat in the existing project for routine book-club updates. If the user asks for workflow instructions from any chat, begin by directing them to **Sci-fi Voting (Local)** and have them paste or attach the transcript there. Route them before intake begins; do not accept the transcript in a cloud chat and redirect them only after a workspace failure. A cloud chat can replace it when effective research access is verified; do not make the user coordinate several chats or repeatedly transfer archives. At the start of every update, read AGENTS.md, this guide, the canonical dataset, and recent changelog entries. Use the generated admin page if the published reference cannot be accessed.
 
 The user's routine steps are to supply a Signal transcript, clarify actual poll selection when the transcript does not specify it, review one concrete preview, and post the prepared Signal text. The assistant owns research, duplicate reconciliation, field population, character budgeting, generation, checks, desktop/mobile inspection, and approved publication. Do not request another workbook, mockup, screenshot, or image attachment as a routine prerequisite.
 

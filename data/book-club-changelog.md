@@ -1,5 +1,11 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-13 — Start transcript updates in the Local chat
+
+- Save the recurring routing preference that every workflow reminder begins by directing the user to Sci-fi Voting (Local), where the transcript should be pasted or attached from the beginning.
+- Do not invite transcript intake in a cloud chat and redirect only after a workspace failure. The current transcript has already been moved to the Local chat and is being processed there.
+- This documentation-only update changes no canonical records, poll flags, generated pages, assets, scripts, styles, or deployment configuration.
+
 ## 2026-10-13 — Transcript checkpoints and next-poll instructions
 
 - Save recurring instructions to record the latest Signal message date/time as an import checkpoint and provide a concise intake summary of suggestions, duplicates, status/history changes, selection instructions, and unresolved items.
