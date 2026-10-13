@@ -5,15 +5,15 @@ Unpublished preview draft. Includes all seven eligible Medium books (200–399 p
 ## Poll title
 
 ```text
-Which book should we read for our December 18 meetup? Medium books (200–399 pages)
+Vote for Dec 18th meetup! These are medium-length books (200-399 pages)
 ```
 
 ## Options
 
-B07 · 94/100 characters
+B07 · 96/100 characters
 
 ```text
-Infernal Desire Machines of Dr. Hoffman - Carter | Desiderio crosses a warped city | 224 pages
+Infernal Desire Machines of Dr. Hoffman - Carter | Machines distort a city’s reality | 224 pages
 ```
 
 B08 · 99/100 characters
@@ -52,10 +52,10 @@ B12 · 89/100 characters
 The Windup Girl - Bacigalupi | A manager searches for food in future Thailand | 376 pages
 ```
 
-## Follow-up message (after the website update is published)
+## Follow-up message (after this update is published)
 
 ```text
-The poll options have to be short, so I’ve put more information about each book—including synopses, themes, page counts, and author/publisher links—on our current poll page:
+The poll options have to be short, so I’ve put more information about each book—including summaries, themes, page counts, and links to learn more—on our current poll page:
 
 https://mike-vais.pages.dev/book-club/
 

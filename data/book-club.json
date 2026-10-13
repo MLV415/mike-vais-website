@@ -475,8 +475,8 @@
       "pageCountSortKey": 224,
       "form": "Novel",
       "originalPublicationYear": 1972,
-      "longSynopsis": "Desiderio works in a city transformed by Doctor Hoffman’s reality-distorting machines. As time, space, and reason begin to break down, Desiderio is drawn into a dangerous journey shaped by desire, illusion, love, and identity.",
-      "pollDescription": "Desiderio crosses a warped city",
+      "longSynopsis": "Desire and illusion reshape a city as a traveler confronts Doctor Hoffman’s reality-distorting machines.",
+      "pollDescription": "Machines distort a city’s reality",
       "vibe": [
         "Surreal",
         "Baroque"
@@ -546,7 +546,7 @@
       "pageCountSortKey": 224,
       "form": "Novel",
       "originalPublicationYear": 1957,
-      "longSynopsis": "A giant black cloud moves toward Earth and blocks the Sun, causing widespread panic and death. A small group of scientists and astronomers races to understand and communicate with the cloud while also contending with trigger-happy politicians.",
+      "longSynopsis": "A mysterious black cloud approaches Earth, drawing scientists into a race to understand its nature and intentions.",
       "pollDescription": "Scientists race to understand a black cloud threatening Earth",
       "vibe": [
         "Cerebral",
@@ -613,7 +613,7 @@
       "pageCountSortKey": 318,
       "form": "Novel",
       "originalPublicationYear": 2020,
-      "longSynopsis": "Fourteen-year-old Mona’s magic works only on bread, and her quiet life in her aunt’s bakery changes when she finds a dead body. With an assassin targeting magic users and the city suddenly without its wizards, Mona is pulled into an unexpected fight to protect it.",
+      "longSynopsis": "A young baker whose magic works only on bread is drawn into a dangerous struggle over the fate of her city.",
       "pollDescription": "A baker uses bread magic to fight",
       "vibe": [
         "Whimsical",
@@ -760,7 +760,7 @@
       "pageCountSortKey": 352,
       "form": "Novel",
       "originalPublicationYear": 2024,
-      "longSynopsis": "A civil servant becomes the bridge for a time-travel experiment involving a historical figure brought into the present. The project becomes a time-travel romance, spy thriller, and workplace comedy that examines power and the possibility of love changing it.",
+      "longSynopsis": "A civil servant helps a time traveler adapt to the present while questioning the experiment’s wider implications.",
       "pollDescription": "A civil servant hosts a time traveler",
       "vibe": [
         "Witty",
@@ -829,7 +829,7 @@
       "pageCountSortKey": 376,
       "form": "Novel",
       "originalPublicationYear": 2009,
-      "longSynopsis": "In a future Thailand shaped by climate change, depleted energy resources, and biotechnology, factory manager Anderson Lake searches for lost food sources while Emiko, an engineered human abandoned by her former owner, survives on the streets of Bangkok.",
+      "longSynopsis": "In a climate-changed future Thailand, a factory manager searches for new food sources amid biotechnology and energy scarcity.",
       "pollDescription": "A manager searches for food in future Thailand",
       "vibe": [
         "Tense",
@@ -906,8 +906,8 @@
       "lastPollVotes": 2,
       "totalPolls": 1,
       "totalVotes": 2,
-      "pageCountDisplay": "600",
-      "pageCountSortKey": 600,
+      "pageCountDisplay": "576",
+      "pageCountSortKey": 576,
       "form": "Novel",
       "originalPublicationYear": 2019,
       "longSynopsis": "Thousands of years after humanity’s terraforming program spread to the stars, an exploration vessel and its human-and-spider crew follow fragmentary signals toward a world where ancient terraforming decisions awakened something dangerous.",
@@ -932,6 +932,7 @@
       ],
       "sources": [
         "https://adriantchaikovsky.com/children-of-time-series.html",
+        "https://www.panmacmillan.com/authors/adrian-tchaikovsky/children-of-ruin/9781509865857",
         "https://www.bsfa.co.uk/Past-Winners"
       ],
       "cover": {
@@ -947,7 +948,7 @@
         "downloadedFrom": "https://covers.openlibrary.org/b/id/8750923-L.jpg?default=false",
         "cachedAt": "2026-10-02T16:43:43.236Z"
       },
-      "editionNote": "Representative page count: 600, retained from the existing numeric value per the user's preference for one discrete count. The source workbook previously recorded 600+; this is not an exact-edition claim.",
+      "editionNote": "Pan Macmillan ISBN 9781509865857 lists 576 pages; other editions vary.",
       "externalLinks": [
         {
           "label": "Wikipedia",
@@ -966,7 +967,7 @@
           "verificationNote": "Official author series page includes Children of Ruin; title and author checked."
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13"
     },
     {
       "recordId": "B14",
@@ -981,8 +982,8 @@
       "lastPollVotes": 0,
       "totalPolls": 0,
       "totalVotes": 0,
-      "pageCountDisplay": "600",
-      "pageCountSortKey": 600,
+      "pageCountDisplay": "576",
+      "pageCountSortKey": 576,
       "form": "Anthology",
       "originalPublicationYear": 1970,
       "longSynopsis": "An anthology edited by Robert Silverberg that gathers influential English-language science-fiction stories published before the Nebula Awards existed, presenting a foundational snapshot of the genre’s early canon.",
@@ -1013,7 +1014,7 @@
         "downloadedFrom": "https://mpd-biblio-covers.imgix.net/9780765305374.jpg",
         "cachedAt": "2026-10-02T16:43:43.239Z"
       },
-      "editionNote": "Representative page count: 600, retained from the existing numeric value per the user's preference for one discrete count. The source workbook previously recorded 600+; this is not an exact-edition claim.",
+      "editionNote": "Macmillan ISBN 9780765305374 lists 576 pages; this source-backed edition count is used for the record.",
       "externalLinks": [
         {
           "label": "Wikipedia",
@@ -1032,7 +1033,7 @@
           "verificationNote": "Readable official Macmillan book page confirmed this volume and Robert Silverberg through web research; curl receives a bot-protection response."
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-13"
     },
     {
       "recordId": "B15",
@@ -1323,7 +1324,7 @@
       "pageCountSortKey": 368,
       "form": "Novel",
       "originalPublicationYear": 2026,
-      "longSynopsis": "Cyprin dreams of escaping her crowded megacity for a job in the Divine Gardens. After cheating her way to victory in a flower competition, she enters a world of unusual plants and clashes with its head gardener, Purcell. Their rivalry draws them into buried secrets and a growing rebellion that threatens the order of their city.",
+      "longSynopsis": "A young gardener enters the Divine Gardens and finds its beauty entangled with rivalry, secrets, and rebellion.",
       "pollDescription": "A gardener joins a rival amid rebellion",
       "vibe": [
         "Playful",

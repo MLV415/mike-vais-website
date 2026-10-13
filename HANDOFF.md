@@ -2,6 +2,18 @@
 
 Updated: 2026-10-13 (America/Los_Angeles)
 
+## Urgent spoiler-safe synopsis correction
+
+The user reported that the public Divine Gardener synopsis revealed that the protagonist cheated in a contest and asked for an urgent correction before sharing spreads further. Reviewed the seven current-poll synopses and tightened them to setup-level descriptions, removing avoidable outcomes, deaths, hidden identities, and later revelations. Saved this as a recurring public-card quality standard in AGENTS.md and the workflow. The correction is being published with the page-count update.
+
+## Page-count correction
+
+The user asked to correct Children of Ruin and The Science Fiction Hall of Fame, Volume One. Both now use 576 pages from identified publisher editions: Pan Macmillan ISBN 9781509865857 and Macmillan ISBN 9780765305374. The former 600 values were representative placeholders inherited from 600+ records, not exact claims. Page-count guidance now requires exact edition verification whenever a reliable source provides it. This is unpublished local work awaiting preview review.
+
+## Unpublished poll-copy revision
+
+The user supplied the poll title `Vote for Dec 18th meetup! These are medium-length books (200-399 pages)` and requested a follow-up explaining that the poll page has fuller book information because the Signal options must be short. The saved follow-up draft is in docs/book-club-signal-options.md. The user also requested a more informative B07 description without the unexplained character name; the local draft now uses `Machines distort a city’s reality`. This revision is unpublished and requires a new preview/review before any publication.
+
 ## Current-poll publication approval
 
 The user explicitly authorized publication of the reviewed current-poll update on 2026-10-13: “Go ahead and publish the Current Poll page.” This is one-time approval for the reviewed October 13 Medium-poll release and its saved handoff/documentation changes, not standing permission for future work. Publish through the existing GitHub/Cloudflare history, then verify the live current poll page and preserve unrelated pages.

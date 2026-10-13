@@ -1,5 +1,20 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-13 — Tightened public synopses for spoiler safety
+
+- Reviewed all seven current-poll fuller synopses after the user flagged The Divine Gardener’s Handbook revealing a contest outcome. Rewrote them to retain premise, setting, and central tension while removing avoidable outcomes, deaths, hidden identities, and later revelations.
+- Saved the recurring spoiler-safe public-synopsis rule in AGENTS.md and docs/book-club-data-workflow.md. This urgent correction is included with the unpublished page-count fixes and is authorized for immediate publication.
+
+## 2026-10-13 — Corrected edition page counts (unpublished)
+
+- Replaced the inherited representative 600-page values for B13 Children of Ruin and B14 The Science Fiction Hall of Fame, Volume One with 576-page counts from identified publisher editions. B13 uses Pan Macmillan ISBN 9781509865857; B14 uses Macmillan ISBN 9780765305374. Edition variation remains documented where relevant.
+- Strengthened the page-count workflow so exact reliable edition counts take precedence over inherited ranges, plus-values, or representative placeholders. This correction is local and unpublished.
+
+## 2026-10-13 — Poll title and first option revised (unpublished)
+
+- Saved the user's poll title: “Vote for Dec 18th meetup! These are medium-length books (200-399 pages)”. Saved a separate follow-up draft explaining that the current poll page has fuller book information because the Signal options must be short.
+- Replaced B07's character-name-led poll description with the premise-focused `Machines distort a city’s reality`; the generated Signal option remains within the 100-character limit. This is a local unpublished revision and does not alter the published site.
+
 ## 2026-10-13 — Current-poll publication authorized
 
 - The user explicitly approved publication of the reviewed October 13 Medium-poll update: “Go ahead and publish the Current Poll page.” This one-time approval covers the reviewed current-poll data, generated pages, new cover, saved instructions, import notes, and copyable Signal handoff; it is not standing permission for future releases.
