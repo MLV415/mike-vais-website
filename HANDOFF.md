@@ -6,6 +6,10 @@ Updated: 2026-10-13 (America/Los_Angeles)
 
 The user explicitly authorized publication of the reviewed current-poll update on 2026-10-13: “Go ahead and publish the Current Poll page.” This is one-time approval for the reviewed October 13 Medium-poll release and its saved handoff/documentation changes, not standing permission for future work. Publish through the existing GitHub/Cloudflare history, then verify the live current poll page and preserve unrelated pages.
 
+## Current-poll release published
+
+Published the reviewed release to GitHub main on 2026-10-13 as merge commit `01a216a7e0cb10310712a3733b23b733049ed1e1`, preserving the newer Local-chat routing commit `c2cfa937a0715885899b001ce3f0992635aca9d2`. The live current poll page and public JSON both returned HTTP 200 and showed the reviewed seven-book Medium poll, including The Divine Gardener’s Handbook and The Windup Girl. The live page is https://mike-vais.pages.dev/book-club/.
+
 ## Signal copy-button delivery preference
 
 The user liked the preview and requested the Signal options directly in the reply, each ready to copy without manually highlighting a line. Saved this recurring preference in AGENTS.md and the workflow: one complete option per standalone fenced text code block, with labels/counts outside, and no file-link-only handoff. The seven already verified options are unchanged and are being delivered in-chat. This is a presentation-only follow-up; no website/data changes are required. No assistant work remains after delivery; the user can copy each option with its block's Copy button. Website publication still needs explicit approval; positive preview feedback plus this formatting request is not an instruction to publish.
@@ -26,7 +30,7 @@ Reconciliation: one new B19, The Divine Gardener’s Handbook by Eli Snow (corre
 
 Recorded the October 1 poll's displayed B01–B06 tallies (5, 1, 8, 7, 6, 1) and its October 9 outcome announcement as one verified event. Incremented each prior zero appearance exactly once and added its displayed tally; previous Medium-book history is unchanged. The new poll is not treated as already posted, and B19's unknown prior history remains null. Existing 18 records, representative page counts, covers/link destinations, form labels, metadata, styles, and unrelated pages are preserved except the requested poll/status/history fields. The new verified publisher cover was cached and visually matched; no existing cover was downloaded again.
 
-Task status before publication: transcript extraction, checkpoint, reconciliation, research, cover hosting, generation, copyable Signal options, checks, and desktop/mobile preview were complete and saved locally. The user then approved publication of this reviewed update. After publication, verify the live current poll page and record the release here; the user's remaining step will be posting the prepared poll and follow-up message.
+Task status: transcript extraction, checkpoint, reconciliation, research, cover hosting, generation, copyable Signal options, checks, preview, publication, and live verification are complete and saved. The user's remaining step is to post the prepared poll and follow-up message in Signal; no further assistant work is required for this release.
 
 Unpublished preview: http://127.0.0.1:4191/book-club/ (backlog /book-club/backlog/, admin /book-club/backlog/admin/). Server is running from the history-backed draft checkout (local session 31789). The final draft is also mirrored into the root project after verifying its instruction/history files had no newer edits and its canonical data matched the current-main baseline; future work must not publish that root's empty Git history. The previous sandbox-local server on 4190 is not the review URL.
 

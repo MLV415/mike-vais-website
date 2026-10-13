@@ -5,6 +5,11 @@
 - The user explicitly approved publication of the reviewed October 13 Medium-poll update: “Go ahead and publish the Current Poll page.” This one-time approval covers the reviewed current-poll data, generated pages, new cover, saved instructions, import notes, and copyable Signal handoff; it is not standing permission for future releases.
 - The poll handoff now stores a concise title and a post-publication follow-up message linking to the current poll page for fuller book information. Preserve the prepared seven options and post the follow-up only after the live page is verified.
 
+## 2026-10-13 — Current-poll release published and verified
+
+- Published the reviewed release to GitHub main as merge commit `01a216a7e0cb10310712a3733b23b733049ed1e1`, carrying forward the newer Local-chat routing guidance from `c2cfa937a0715885899b001ce3f0992635aca9d2`.
+- Verified the live current poll page and public JSON returned HTTP 200 and contained the reviewed seven-book Medium poll, including The Divine Gardener’s Handbook and The Windup Girl. The post-publication Signal follow-up is ready; the user can post the poll and message.
+
 ## 2026-10-13 — Start transcript updates in the Local chat
 
 - Save the recurring routing preference that every workflow reminder begins by directing the user to Sci-fi Voting (Local), where the transcript should be pasted or attached from the beginning.
