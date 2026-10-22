@@ -1,5 +1,10 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-22 — Published Reading List refinements
+
+- Published the reviewed full-width Reading List card layout, consistent identity columns, metadata columns, stronger section hierarchy, and improved date emphasis to `main` in commit `e4cf6712fd90ca195dc6f6b81bb2029811ceffe8`.
+- Verified the live page at https://mike-vais.pages.dev/book-club/reading/.
+
 ## 2026-10-22 — Reading List visual hierarchy review (unpublished)
 
 - Strengthened section headers and dividers, balanced date prominence, clarified the Reading Timeline boundary, and added safer wrapping for long titles and metadata.

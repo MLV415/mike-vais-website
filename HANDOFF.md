@@ -2,6 +2,10 @@
 
 Updated: 2026-10-22 (America/Los_Angeles)
 
+## Publication completed
+
+The reviewed Reading List refinements were published to `main` in commit `e4cf6712fd90ca195dc6f6b81bb2029811ceffe8`. The live page was verified at https://mike-vais.pages.dev/book-club/reading/ and shows the updated full-width cards, metadata columns, section hierarchy, and date treatment.
+
 ## Reading List visual hierarchy review (unpublished)
 
 Completed a full visual pass. Section headers now have stronger size, color, and divider treatment; dates remain prominent but no longer overpower the section labels; the Reading Timeline heading has a clearer boundary; and long titles/metadata wrap safely to prevent crowding. No publication occurred.
