@@ -3,12 +3,14 @@ const { chromium } = await import(process.env.BOOK_CLUB_PLAYWRIGHT_MODULE || "pl
 import { readFile, mkdir } from "node:fs/promises";
 import { signalOption } from "./book-club-signal.mjs";
 import { publicBookLinks } from "./book-club-links.mjs";
+import { formatMeetupDates } from "./book-club-dates.mjs";
 
-const { books } = JSON.parse(await readFile(new URL("../data/book-club.json", import.meta.url), "utf8"));
+const data = JSON.parse(await readFile(new URL("../data/book-club.json", import.meta.url), "utf8"));
+const { books } = data;
 const eligibleBooks = books.filter((book) => !book.eligibilityStatus || book.eligibilityStatus === "Eligible");
 const currentBooks = books.filter((book) => book.currentPoll);
 const readingBooks = books.filter((book) => book.readingFeed).sort((a, b) => b.readingFeed.sortKey - a.readingFeed.sortKey || a.title.localeCompare(b.title));
-const currentReading = readingBooks.find((book) => book.readingFeed.state === "current");
+const currentReading = readingBooks.filter((book) => book.readingFeed.state === "current");
 const upNextReading = readingBooks.filter((book) => book.readingFeed.state === "up-next");
 
 const origin = process.env.BOOK_CLUB_ORIGIN || "http://127.0.0.1:4319";
@@ -113,22 +115,24 @@ try {
     assert(await page.locator(".book-card").evaluateAll((cards) => cards.every((card) => getComputedStyle(card).cursor !== "pointer")), `${pageName}: cards look clickable`);
     assert(!/Suggested By|Stefan|Liam|Irene|Celeste|Personal website|mike vais/i.test(await page.locator("body").innerText()), `${pageName}: personal or private copy is visible`);
 
-    await page.locator("[data-sort-books]").selectOption("awards");
-    await page.waitForFunction(() => document.querySelector(".book-card")?.dataset.awardBearing === "1");
-    for (const mode of ["pages", "title", "author", "year", "awards"]) {
-      await page.locator("[data-sort-books]").selectOption(mode);
-      const sortState = await page.locator(".book-card").evaluateAll((cards) => cards.map((card) => ({
-        title: card.querySelector("h3").textContent.trim(), author: card.querySelector(".book-author").textContent.trim(),
-        pages: Number(card.dataset.pageCountSortKey), year: Number(card.dataset.publishedYear), awards: Number(card.dataset.awardBearing),
-      })));
-      const compare = (a, b) => {
-        if (mode === "pages") return a.pages - b.pages || a.title.localeCompare(b.title);
-        if (mode === "year") return a.year - b.year || a.title.localeCompare(b.title);
-        if (mode === "author") return a.author.localeCompare(b.author) || a.title.localeCompare(b.title);
-        if (mode === "awards") return b.awards - a.awards || a.title.localeCompare(b.title);
-        return a.title.localeCompare(b.title);
-      };
-      assert(sortState.every((value, index) => index === 0 || compare(sortState[index - 1], value) <= 0), `${pageName}: ${mode} sorting is incorrect`);
+    if (expectedCards) {
+      await page.locator("[data-sort-books]").selectOption("awards");
+      await page.waitForFunction(() => document.querySelector(".book-card")?.dataset.awardBearing === "1");
+      for (const mode of ["pages", "title", "author", "year", "awards"]) {
+        await page.locator("[data-sort-books]").selectOption(mode);
+        const sortState = await page.locator(".book-card").evaluateAll((cards) => cards.map((card) => ({
+          title: card.querySelector("h3").textContent.trim(), author: card.querySelector(".book-author").textContent.trim(),
+          pages: Number(card.dataset.pageCountSortKey), year: Number(card.dataset.publishedYear), awards: Number(card.dataset.awardBearing),
+        })));
+        const compare = (a, b) => {
+          if (mode === "pages") return a.pages - b.pages || a.title.localeCompare(b.title);
+          if (mode === "year") return a.year - b.year || a.title.localeCompare(b.title);
+          if (mode === "author") return a.author.localeCompare(b.author) || a.title.localeCompare(b.title);
+          if (mode === "awards") return b.awards - a.awards || a.title.localeCompare(b.title);
+          return a.title.localeCompare(b.title);
+        };
+        assert(sortState.every((value, index) => index === 0 || compare(sortState[index - 1], value) <= 0), `${pageName}: ${mode} sorting is incorrect`);
+      }
     }
     for (const href of await page.locator(".jump-links a").evaluateAll((links) => links.map((link) => link.getAttribute("href")))) {
       await page.locator(`.jump-links a[href="${href}"]`).click();
@@ -156,32 +160,43 @@ try {
       null,
       { timeout: 45000 },
     );
-    assert(await page.locator(".reading-feature.current").count() === 1, "reading list: current card is missing");
+    assert(await page.locator(".reading-feature.current").count() === 1, "reading list: current panel is missing");
+    assert(await page.locator(".reading-current-card").count() === currentReading.length, "reading list: current coverage is incomplete");
     assert(await page.locator(".reading-up-next-panel").count() === 1, "reading list: up-next panel is missing");
     assert(await page.locator(".reading-next-card").count() === upNextReading.length, "reading list: up-next coverage is incomplete");
-    assert(await page.locator(".reading-history-row").count() === readingBooks.length - 1 - upNextReading.length, "reading list: timeline coverage is incomplete");
-    assert(await page.locator(".reading-feature.current").getAttribute("data-book-id") === currentReading.recordId, "reading list: current book is incorrect");
+    assert(await page.locator(".reading-history-row").count() === readingBooks.length - currentReading.length - upNextReading.length, "reading list: timeline coverage is incomplete");
+    const renderedCurrent = await page.locator(".reading-current-card").evaluateAll((cards) => cards.map((card) => card.dataset.bookId));
+    assert(JSON.stringify(renderedCurrent) === JSON.stringify(currentReading.map((book) => book.recordId)), "reading feed: current books are incorrect");
+    const renderedNotes = await page.locator(".reading-note").allTextContents();
+    assert(renderedNotes.includes("Full Novel Optional") && renderedNotes.includes("Optional") && !renderedNotes.includes("Optional Read"), "reading feed: optional labels are missing or stale");
+    assert(await page.locator(".reading-date").allTextContents().then((dates) => dates.every((date) => date.includes("2026"))), "reading feed: featured cards do not show meetup dates");
+    assert(await page.locator(".reading-history-date").allTextContents().then((dates) => dates.every((date) => date.includes("2026"))), "reading feed: history rows do not show meetup dates");
     const renderedUpNext = await page.locator(".reading-next-card").evaluateAll((cards) => cards.map((card) => card.dataset.bookId));
     assert(JSON.stringify(renderedUpNext) === JSON.stringify(upNextReading.map((book) => book.recordId)), "reading list: up-next books are incorrect");
-    assert(await page.locator(".book-club-nav-meetup").count() === 1 && await page.locator(".book-club-nav-signal").count() === 1, "reading list: header actions are incomplete");
-    assert(await page.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), "reading list: logo image did not render proportionally");
+    assert(await page.locator(".book-club-nav-meetup").count() === 1 && await page.locator(".book-club-nav-signal").count() === 1, "reading feed: header actions are incomplete");
+    assert(await page.locator(".book-club-logo").evaluate((logo) => logo.complete && logo.naturalWidth > 0 && getComputedStyle(logo).objectFit === "contain"), "reading feed: logo image did not render proportionally");
     const mobileNavColumns = await page.locator(".book-club-local-nav nav").evaluate((nav) => getComputedStyle(nav).gridTemplateColumns.split(" ").length);
-    assert(mobileNavColumns === 3, "reading list: mobile navigation does not have three tabs");
+    assert(mobileNavColumns === 3, "reading feed: mobile navigation does not have three tabs");
     const imageState = await page.locator(".reading-cover").evaluateAll((media) => media.map((item) => ({ width: item.querySelector("img")?.naturalWidth || 0, fallback: getComputedStyle(item.querySelector(".book-cover-fallback")).display })));
-    assert(imageState.length === readingBooks.length && imageState.every((image) => image.width > 0 && image.fallback === "none"), "reading list: every cover must load and hide its fallback");
-    assert(await page.locator(".reading-feature.current, .reading-next-card, .reading-history-row").evaluateAll((cards) => cards.every((card) => card.querySelector(".reading-date, .reading-history-month") && card.querySelector(".reading-feature-title, .reading-next-title, .reading-history-title") && card.querySelector(".reading-author, .reading-history-author") && card.querySelector(".reading-pages, .reading-history-pages"))), "reading list: cards do not share the required metadata structure");
+    assert(imageState.length === readingBooks.length && imageState.every((image) => image.width > 0 && image.fallback === "none"), "reading feed: every cover must load and hide its fallback");
+    assert(await page.locator(".reading-current-card, .reading-next-card, .reading-history-row").evaluateAll((cards) => cards.every((card) => card.querySelector(".reading-date, .reading-history-date") && card.querySelector(".reading-feature-title, .reading-next-title, .reading-history-title") && card.querySelector(".reading-author") && card.querySelector(".reading-pages"))), "reading list: cards do not share the required metadata structure");
+    assert(await page.locator(".reading-current-card, .reading-next-card, .reading-history-row").evaluateAll((cards) => cards.every((card) => {
+      const labels = [...card.querySelectorAll(".reading-book-details dt")].map((label) => label.textContent.trim());
+      return ["Form", "Published", "Synopsis", "Themes", "Vibe"].every((name) => labels.includes(name));
+    })), "reading list: cards do not share the full public book metadata");
+    assert(await page.locator(".reading-empty").count() === (upNextReading.length ? 0 : 1), "reading list: empty Up Next state is incorrect");
     assert(await page.locator(".reading-next-card").evaluateAll((cards) => cards.every((card) => {
       const cover = card.querySelector(".reading-cover").getBoundingClientRect();
-      const info = card.querySelector(".reading-next-info").getBoundingClientRect();
+      const info = card.querySelector(".reading-card-info").getBoundingClientRect();
       return cover.right <= info.left + 1;
     })), "reading list: Up Next text is obscured by a cover");
     assert(await page.locator(".reading-feature a, .reading-next-card a, .reading-history-row a").count() === 0, "reading list: cards contain unexpected links");
-    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "reading list: mobile viewport overflows horizontally");
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), "reading feed: mobile viewport overflows horizontally");
     await page.setViewportSize({ width: 900, height: 1000 });
-    assert(await page.locator(".reading-feature-grid").evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(" ").length) === 2, "reading list: featured sections do not remain side-by-side at intermediate width");
+    assert(await page.locator(".reading-feature-grid").evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(" ").length) === 1, "reading list: featured sections do not remain in a single full-width sequence at intermediate width");
     await page.setViewportSize({ width: 390, height: 1200 });
     assert(await page.locator(".reading-feature-grid").evaluate((grid) => getComputedStyle(grid).gridTemplateColumns.split(" ").length) === 1, "reading list: featured sections do not stack on mobile");
-    if (screenshots) await page.screenshot({ path: `${screenshots}/reading-list-mobile.png`, fullPage: true });
+    if (screenshots) await page.screenshot({ path: `${screenshots}/reading-feed-mobile.png`, fullPage: true });
     await page.close();
   };
 
@@ -195,13 +210,18 @@ try {
     await page.close();
   };
 
-  await checkGrid("/book-club/", 1440, 3, "current poll desktop layout");
-  await checkGrid("/book-club/", 900, 2, "current poll compressed layout");
-  await checkGrid("/book-club/", 390, 1, "current poll mobile layout");
+  if (currentBooks.length) {
+    await checkGrid("/book-club/", 1440, 3, "current poll desktop layout");
+    await checkGrid("/book-club/", 900, 2, "current poll compressed layout");
+    await checkGrid("/book-club/", 390, 1, "current poll mobile layout");
+  }
   await checkGrid("/book-club/backlog/", 900, 2, "backlog compressed layout");
 
   const current = await newPage({ viewport: { width: 390, height: 1200 } });
   await current.goto(`${origin}/book-club/`, { waitUntil: "networkidle", timeout: 45000 });
+  assert(await current.locator(".current-poll-date .book-club-label").innerText() === "NEXT POLL DATE", "current poll placeholder label is incorrect");
+  assert(await current.locator(".current-poll-date strong").innerText() === "January 15th, 2027", "next poll date is missing or incorrect");
+  assert(await current.locator(".book-card").count() === 0 && await current.locator(".poll-placeholder").count() === 1, "current poll placeholder should have no book cards");
   assert((await current.locator(".book-club-nav-signal").innerText()).replace(/\s+/g, " ").trim() === "Vote in Signal", "current poll Signal action contains extra copy");
   assert(await current.locator(".book-club-nav-signal").getAttribute("href") === "https://signal.group/#CjQKIELXnb1Dqzb2Ppp_IIz49Ac4_aBG58FFr5jJnIgpLTytEhBtemm4UenXg4IaGaqJDYSX", "current poll Signal URL is incorrect");
   assert(await current.locator(".book-club-nav-meetup").getAttribute("href") === "https://www.meetup.com/cosmic-chapter-chat-santa-cruzs-sci-fi-book-club/", "current poll Meetup URL is incorrect");

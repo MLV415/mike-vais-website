@@ -22,6 +22,10 @@ Provide a concrete preview and concise account of changes, validation, and unres
 - `/book-club/backlog/admin/`
 - `/book-club/data/books.json`
 
+### Meetup dates
+
+The Sci-Fi Book Club meets on the third Friday of each month. Store explicit ISO dates in canonical schedule metadata: `readingFeed.meetupDates` for Reading List records and `currentPollDate` for the active poll. Public Reading List cards and the Current Poll page must render the actual date, including the year, rather than a month-only label. When a historical reading entry spans multiple saved months, store one date for each applicable third-Friday meetup and record that the dates were derived from the recurring schedule in the changelog. Do not recompute dates in hand-coded HTML or silently infer an ambiguous date. At each book-club update, compare the current client date with scheduled meetup dates; once a meetup has passed, move its current reading record to read/history and promote the next scheduled primary read, while keeping optional companion records explicitly labeled. Group all books selected for the same meetup together under the same Reading List state; an optional companion for that meetup is not a later up-next book. When a poll closes, record its final counts in canonical poll-history fields, clear the current-poll selection, promote the explicit winner to the next scheduled Reading List state, and set the next third-Friday date as a no-books-yet Current Poll placeholder. Do not leave a passed meetup's book marked current without documenting a deliberate exception.
+
 Run `npm run build:book-club` after changing the JSON, then run `npm run verify:book-club`. The build script filters the canonical records, renders the public cards and readable admin table, and writes the public data projection. The verification script checks card coverage, image metadata, required fields, banner copy, Jump To anchors, sorting controls, and isolation-sensitive copy. The admin page is intentionally unlinked from the public book-club navigation; it is the shared read-only reference for Work and Codex.
 
 ## Public fields and exclusions

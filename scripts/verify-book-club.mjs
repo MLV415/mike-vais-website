@@ -6,6 +6,7 @@ import { throws } from "node:assert/strict";
 import { coverUrl, verifyLocalCover } from "./book-club-covers.mjs";
 import { publicBookLinks } from "./book-club-links.mjs";
 import { verifyBookForm } from "./book-club-forms.mjs";
+import { formatMeetupDates } from "./book-club-dates.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const data = JSON.parse(await readFile(join(root, "data/book-club.json"), "utf8"));
@@ -36,11 +37,16 @@ assert(allBooks.length > 0, "canonical backlog is empty");
 assert(new Set(allBooks.map((book) => book.recordId)).size === allBooks.length, "canonical record IDs must be unique");
 assert(new Set(allBooks.map((book) => book.slug)).size === allBooks.length, "canonical slugs must be unique");
 assert(count(current, 'class="book-card"') === currentBooks.length && count(backlog, 'class="book-card"') === eligibleBooks.length, "public card coverage does not match eligible canonical records");
-assert(currentReading.length === 1 && upNextReading.length >= 1 && upNextReading.length <= 4 && readingBooks.length >= 2, "reading list schedule needs one current and between one and four upcoming books");
-assert(count(reading, 'class="reading-feature current"') === 1 && count(reading, 'reading-up-next-panel') === 1 && count(reading, 'class="reading-next-card"') === upNextReading.length && count(reading, 'class="reading-history-row"') === readingBooks.length - currentReading.length - upNextReading.length, "reading list card coverage does not match canonical schedule");
+assert(currentReading.length >= 1 && currentReading.length <= 4 && upNextReading.length <= 4 && readingBooks.length >= 2, "reading list schedule needs between one and four current books and no more than four upcoming books");
+assert(typeof data.currentPollDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(data.currentPollDate), "current poll needs an explicit ISO meetup date");
+assert(readingBooks.every((book) => Array.isArray(book.readingFeed.meetupDates) && book.readingFeed.meetupDates.length > 0 && formatMeetupDates(book.readingFeed.meetupDates)), "every reading-list book needs explicit meetup date metadata");
+assert(count(reading, 'class="reading-feature current"') === 1 && count(reading, 'class="reading-current-card"') === currentReading.length && count(reading, 'reading-up-next-panel') === 1 && count(reading, 'class="reading-next-card"') === upNextReading.length && count(reading, 'class="reading-history-row"') === readingBooks.length - currentReading.length - upNextReading.length, "reading list card coverage does not match canonical schedule");
 assert(reading.includes("Reading List") && reading.includes("Current Poll") && reading.includes("Book Backlog"), "reading list navigation is incomplete");
 assert(reading.includes("Currently reading") && reading.includes("Up next") && reading.includes("Newest to oldest"), "reading list labels are incomplete");
-assert(readingBooks.every((book) => reading.includes(`data-book-id="${book.recordId}"`) && reading.includes(`${book.pageCountDisplay} pages`) && reading.includes(`${book.originalPublicationYear}`)), "reading feed is missing canonical book metadata");
+assert(readingBooks.every((book) => reading.includes(`data-book-id="${book.recordId}"`) && reading.includes(`${book.pageCountDisplay} pages`) && reading.includes(`${book.originalPublicationYear}`) && reading.includes(formatMeetupDates(book.readingFeed.meetupDates))), "reading feed is missing canonical book metadata");
+assert(currentBooks.length === 0 ? current.includes("NEXT POLL DATE") && current.includes("January 15th, 2027") && current.includes("No books selected yet") : current.includes("VOTING FOR") && current.includes("December 18th, 2026") && !current.includes("POLLING FOR"), "current poll placeholder or voting copy is missing or incorrect");
+const labeledReadingBooks = readingBooks.filter((book) => book.readingFeed.note);
+assert(count(reading, 'class="reading-note"') === labeledReadingBooks.length && reading.includes("Full Novel Optional") && reading.includes("Optional") && !reading.includes("Optional Read"), "reading-list labels are missing or stale");
 assert(!/<a\s/.test(reading.replace(/[\s\S]*?<\/header>/, "")), "reading feed cards contain unexpected links");
 assert(allBooks.every((book) => book.cover?.url && book.cover?.sourceUrl && book.cover?.rightsNote), "every book needs an image URL, source URL, and rights note");
 assert(allBooks.every((book) => /^\d+$/.test(String(book.pageCountDisplay)) && Number(book.pageCountDisplay) > 0), "every book needs one positive integer page count, never a range or plus-value");
@@ -117,7 +123,7 @@ for (const label of ["Page count", "Form", "Published", "Synopsis", "Themes", "V
   assert(count(current, `<dt>${label}</dt>`) === currentBooks.length, `current poll does not render ${label} on every card`);
   assert(count(backlog, `<dt>${label}</dt>`) === eligibleBooks.length, `backlog does not render ${label} on every card`);
 }
-assert(count(current, "value=\"awards\"") === 1 && count(backlog, "value=\"awards\"") === 1 && count(admin, "value=\"awards\"") === 1, "Awards First sorting is missing from a generated page");
+assert(count(current, "value=\"awards\"") === (currentBooks.length ? 1 : 0) && count(backlog, "value=\"awards\"") === 1 && count(admin, "value=\"awards\"") === 1, "Awards First sorting is missing from a generated page");
 assert(currentBooks.every((book) => current.includes(`id="${book.slug}"`)), "a current Jump To target is missing");
 assert(eligibleBooks.every((book) => backlog.includes(`id="${book.slug}"`)), "a backlog Jump To target is missing");
 

@@ -1,5 +1,6 @@
 {
-  "dataVersion": "2026-10-13",
+  "dataVersion": "2026-10-22",
+  "currentPollDate": "2027-01-15",
   "source": "Sci-Fi Book Club Source of Truth.xlsx",
   "books": [
     {
@@ -238,11 +239,13 @@
         }
       ],
       "lastVerifiedDate": "2026-10-13",
-      "websiteDisplayNotes": "Selected main read for November 20, 2026 meetup; not yet marked read · Retired: No",
+      "websiteDisplayNotes": "Currently reading the voted novella for November 20, 2026 meetup; full novel optional · Retired: No",
       "readingFeed": {
-        "state": "up-next",
+        "state": "current",
         "month": "November 2026",
-        "sortKey": 202611
+        "sortKey": 202611,
+        "note": "Full Novel Optional",
+        "meetupDates": ["2026-11-20"]
       },
       "eligibilityStatus": "Excluded"
     },
@@ -320,10 +323,12 @@
       "lastVerifiedDate": "2026-10-13",
       "websiteDisplayNotes": "Selected optional second read for November 20, 2026 meetup; not yet marked read · Retired: No",
       "readingFeed": {
-        "state": "up-next",
+        "state": "current",
         "month": "November 2026",
         "sortKey": 202611,
-        "optional": true
+        "optional": true,
+        "note": "Optional",
+        "meetupDates": ["2026-11-20"]
       },
       "eligibilityStatus": "Excluded"
     },
@@ -476,12 +481,12 @@
       "displayAuthor": "Angela Carter",
       "authorLastName": "Carter",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 1,
-      "lastPollDate": "2026-08-24",
-      "lastPollVotes": 3,
-      "totalPolls": 1,
-      "totalVotes": 3,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-13",
+      "lastPollVotes": 1,
+      "totalPolls": 2,
+      "totalVotes": 4,
       "pageCountDisplay": "224",
       "pageCountSortKey": 224,
       "form": "Novel",
@@ -547,12 +552,12 @@
       "displayAuthor": "Fred Hoyle",
       "authorLastName": "Hoyle",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 2,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-13",
+      "lastPollVotes": 3,
+      "totalPolls": 1,
+      "totalVotes": 3,
       "pageCountDisplay": "224",
       "pageCountSortKey": 224,
       "form": "Novel",
@@ -614,12 +619,12 @@
       "displayAuthor": "T. Kingfisher",
       "authorLastName": "Kingfisher",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 4,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-13",
+      "lastPollVotes": 4,
+      "totalPolls": 1,
+      "totalVotes": 4,
       "pageCountDisplay": "318",
       "pageCountSortKey": 318,
       "form": "Novel",
@@ -689,12 +694,12 @@
       "displayAuthor": "Sam Hughes",
       "authorLastName": "Hughes",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 3,
-      "lastPollDate": "2026-08-24",
-      "lastPollVotes": 2,
-      "totalPolls": 1,
-      "totalVotes": 2,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-13",
+      "lastPollVotes": 5,
+      "totalPolls": 2,
+      "totalVotes": 7,
       "pageCountDisplay": "288",
       "pageCountSortKey": 288,
       "form": "Novel",
@@ -752,7 +757,14 @@
           "url": "https://qntm.org/publ"
         }
       ],
-      "lastVerifiedDate": "2026-10-02"
+      "lastVerifiedDate": "2026-10-02",
+      "websiteDisplayNotes": "Selected primary read for December 18, 2026 meetup; not yet marked read · Retired: No",
+      "readingFeed": {
+        "state": "up-next",
+        "month": "December 2026",
+        "sortKey": 202612,
+        "meetupDates": ["2026-12-18"]
+      }
     },
     {
       "recordId": "B11",
@@ -761,12 +773,12 @@
       "displayAuthor": "Kaliane Bradley",
       "authorLastName": "Bradley",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 5,
-      "lastPollDate": null,
-      "lastPollVotes": 0,
-      "totalPolls": 0,
-      "totalVotes": 0,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-13",
+      "lastPollVotes": 4,
+      "totalPolls": 1,
+      "totalVotes": 4,
       "pageCountDisplay": "352",
       "pageCountSortKey": 352,
       "form": "Novel",
@@ -830,11 +842,11 @@
       "displayAuthor": "Paolo Bacigalupi",
       "authorLastName": "Bacigalupi",
       "editorCredit": null,
-      "currentPoll": true,
-      "currentPollOrder": 7,
-      "lastPollDate": "2026-08-06",
-      "lastPollVotes": 1,
-      "totalPolls": 1,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-13",
+      "lastPollVotes": 0,
+      "totalPolls": 2,
       "totalVotes": 1,
       "pageCountDisplay": "376",
       "pageCountSortKey": 376,
@@ -1098,7 +1110,8 @@
       "readingFeed": {
         "state": "read",
         "month": "June 2026",
-        "sortKey": 202606
+        "sortKey": 202606,
+        "meetupDates": ["2026-06-19"]
       },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
@@ -1172,7 +1185,8 @@
       "readingFeed": {
         "state": "read",
         "month": "July–August 2026",
-        "sortKey": 202608
+        "sortKey": 202608,
+        "meetupDates": ["2026-07-17", "2026-08-21"]
       },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
@@ -1238,7 +1252,8 @@
       "readingFeed": {
         "state": "read",
         "month": "September 2026",
-        "sortKey": 202609
+        "sortKey": 202609,
+        "meetupDates": ["2026-09-18"]
       },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
@@ -1319,11 +1334,12 @@
         "cachedAt": "2026-10-02T16:43:43.249Z"
       },
       "editionNote": "The retained 288-page representative count follows the historical Signal record; the author site confirms the 1969 original publication while current editions vary.",
-      "websiteDisplayNotes": "Currently reading October 2026; discussion confirmed for October 16, 2026 · Retired: No",
+      "websiteDisplayNotes": "Read October 2026 · discussion confirmed for October 16, 2026 · Retired: No",
       "readingFeed": {
-        "state": "current",
+        "state": "read",
         "month": "October 2026",
-        "sortKey": 202610
+        "sortKey": 202610,
+        "meetupDates": ["2026-10-16"]
       },
       "lastVerifiedDate": "2026-10-02",
       "externalLinks": [
@@ -1345,12 +1361,12 @@
       "authorLastName": "Snow",
       "editorCredit": null,
       "eligibilityStatus": "Eligible",
-      "currentPoll": true,
-      "currentPollOrder": 6,
-      "lastPollDate": null,
-      "lastPollVotes": null,
-      "totalPolls": null,
-      "totalVotes": null,
+      "currentPoll": false,
+      "currentPollOrder": null,
+      "lastPollDate": "2026-10-13",
+      "lastPollVotes": 3,
+      "totalPolls": 1,
+      "totalVotes": 3,
       "pageCountDisplay": "368",
       "pageCountSortKey": 368,
       "form": "Novel",

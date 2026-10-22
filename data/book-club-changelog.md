@@ -1,26 +1,114 @@
 # Sci-Fi Book Club change log
 
+## 2026-10-22 — Reading List visual hierarchy review (unpublished)
+
+- Strengthened section headers and dividers, balanced date prominence, clarified the Reading Timeline boundary, and added safer wrapping for long titles and metadata.
+- Preserved the three-column card structure and all existing content. No publication occurred.
+
+## 2026-10-22 — Reading List consistent identity column (unpublished)
+
+- Put meetup dates and optional labels above each cover, followed by title, author, and page count in all three Reading List sections.
+- Standardized the card reading order to reduce crowding and overlap. No publication occurred.
+
+## 2026-10-22 — Reading List three-column card hierarchy (unpublished)
+
+- Organized current, up-next, and history cards into left identity/timeline, middle core metadata, and right themes/awards columns.
+- Increased section separation and meetup-date emphasis so the schedule remains easy to scan. No publication occurred.
+
+## 2026-10-22 — Reading List metadata columns and larger history covers (unpublished)
+
+- Removed publication year from the author line on Reading List cards.
+- Standardized the metadata layout: Form, Published, and Synopsis occupy the left column; Themes, Vibe, and Awards occupy the right column.
+- Enlarged reading-history covers while retaining responsive sizing. No publication occurred.
+
+## 2026-10-22 — Reading List full-width card sequence (unpublished)
+
+- Changed the Reading List feature layout to a single full-width vertical sequence, with larger cover images and the smaller title treatment preferred by the user.
+- Preserved all existing public metadata, dates, notes, page counts, covers, and unrelated pages. No publication occurred.
+
+## 2026-10-22 — Shared public metadata on Reading List (unpublished)
+
+- Added form, publication year, spoiler-free synopsis, themes, vibe, and awards where present to every Reading List card, reusing the public metadata already shown on Current Poll and Book Backlog cards.
+- Kept existing dates, status labels, page counts, covers, links policy, and unrelated pages unchanged; no publication occurred.
+
+## 2026-10-22 — December poll reconciliation and January placeholder (unpublished)
+
+- Applied the final October 13 poll results: There Is No Antimemetics Division won with 5 votes. Recorded all seven final vote counts in canonical `lastPoll*` and cumulative poll-history fields, cleared the December current-poll flags, and preserved the verified zero for The Windup Girl.
+- Added There Is No Antimemetics Division as the December 18, 2026 Reading List Up Next book. Updated `currentPollDate` to January 15, 2027 and changed the Current Poll page to a no-books-yet placeholder until the January options are selected.
+- Added the recurring closed-poll reconciliation and placeholder procedure to `AGENTS.md` and `docs/book-club-data-workflow.md`, with task-specific details in `HANDOFF.md`. This remains local and unpublished pending preview review.
+
+## 2026-10-22 — Daily unpublished-changes monitor resumed
+
+- Resumed automation `book-club-unpublished-changes` after the requested pause through Wednesday morning ended. It remains read-only and only notifies about actual unpublished project changes.
+
+## 2026-10-22 — Signal transcript checkpoint and December poll extraction (pending update)
+
+- Recorded the pasted transcript checkpoint as October 20, 2026, with time and timezone unavailable; processing date is October 22, 2026, America/Los_Angeles.
+- Extracted final December poll results: There Is No Antimemetics Division 5; A Wizard's Guide to Defensive Baking 4; The Ministry of Time 4; The Black Cloud 3; The Divine Gardener's Handbook 3; Infernal Desire Machines of Dr. Hoffman 1; The Windup Girl 0.
+- Reconciled intake notes: The Machine Stops by E. M. Forster is a new discussion suggestion; “Beggars in Space” was an autocorrected reference to Beggars in Spain; November remains Beggars in Spain with optional The Hemingway Hoax; and the longer Beggars version is optional after the novella/Book 1. No canonical data or generated pages were changed yet.
+
+## 2026-10-19 — Daily unpublished-changes monitor paused (current task)
+
+- Paused automation `book-club-unpublished-changes` while the November poll closes and results are collected, at the user's request. The intended pause is through Wednesday morning, October 21, 2026.
+- This is task-specific automation state; no website, canonical data, covers, links, or preview content changed.
+
+## 2026-10-19 — Group November selections together (unpublished)
+
+- Corrected the Reading List grouping so Beggars in Spain and The Hemingway Hoax both appear under Currently Reading for the November 20, 2026 meetup. Hemingway retains its `Optional` label; Beggars retains `Full Novel Optional`. This supersedes the earlier single-primary/one-up-next arrangement.
+- Because the December poll is unfinished, Up Next now shows a concise not-yet-selected state rather than treating a November companion as a later book.
+- Saved the recurring same-meetup grouping rule in `AGENTS.md` and `docs/book-club-data-workflow.md`, with task details in `HANDOFF.md`. No publication occurred.
+
+## 2026-10-19 — Date-aware Reading List transition and optional labels (unpublished)
+
+- Compared the current date (October 19, 2026, America/Los_Angeles) with the saved October 16 meetup. Moved The Left Hand of Darkness from current to read/history and promoted Beggars in Spain to the current primary read for November 20, preserving the voted novella as the planned discussion work.
+- Added `Full Novel Optional` to Beggars in Spain and changed The Hemingway Hoax’s badge to `Optional`; preserved the existing optional companion relationship, dates, page counts, covers, links, IDs, and unrelated pages.
+- Saved the recurring date-aware transition rule in `AGENTS.md` and `docs/book-club-data-workflow.md`, with task details in `HANDOFF.md`. This remains local and unpublished pending preview review.
+
+## 2026-10-18 — Daily unpublished-changes monitor
+
+- Created the active local automation `book-club-unpublished-changes`, scheduled daily at 9:00 AM local time.
+- It remains silent when the project has no actual unpublished source, data, documentation, or website changes and sends only a brief reminder when such changes exist. It does not modify or publish project files.
+
+## 2026-10-18 — Beggars in Spain novella page-count inquiry (no site changes)
+
+- The user clarified that the first section of the 1993 expanded novel is the original voted novella and that the remaining sections should be considered an optional read, but explicitly requested discussion only for now.
+- Research found edition-specific novella counts of 100 pages, 104 pages for the 1991 Axolotl/Pulphouse edition, and 91 pages for one digital edition. The canonical 100-page display remains unchanged; no site or canonical data edits were made.
+
+## 2026-10-18 — Poll wording and optional-read badge (unpublished)
+
+- Changed the Current Poll banner to `VOTING FOR December 18th, 2026` as requested.
+- Made The Hemingway Hoax’s `Optional Read` label more noticeable by placing it in a bordered badge beside the November 20, 2026 date on its Reading List card.
+- Saved these as task-specific refinements; no broader wording or layout rule was added. Existing records, covers, links, dates, page counts, navigation, and unrelated pages remain preserved.
+
+## 2026-10-18 — Explicit third-Friday meetup dates (unpublished)
+
+- Saved the recurring book-club schedule rule: meetups occur on the third Friday of each month. Added canonical `currentPollDate` `2026-12-18` and explicit `readingFeed.meetupDates` values for every Reading List record.
+- Updated the Current Poll page to show `December 18, 2026 meetup` and changed Reading List featured cards and history rows from month-only labels to actual date labels. The July–August historical entry uses July 17 and August 21, 2026, derived from its saved two-month span and the recurring schedule.
+- Preserved all books, covers, links, page counts, IDs, history, unrelated pages, and existing unpublished work. This remains local and unpublished pending preview review.
+
 ## 2026-10-13 — Reading List publication approval
 
 - The user reviewed the unpublished Reading List visual refinement and explicitly approved publication with “Looks good, go ahead.” This is one-time approval for the scoped Reading List, schedule/navigation, visual CSS, generated-output, and documentation changes; it does not authorize unrelated website changes.
 - Final checks and live verification are required before the publication task is complete.
 
-## 2026-10-13 — Reading List visual refinement
+## 2026-10-13 — Reading List visual refinement (unpublished)
 
 - Enlarged and vertically balanced the Currently Reading cover so its card uses the full left-column panel without requiring larger text.
 - Scoped cover sizing so Up Next covers remain inside their grid columns; Beggars in Spain and The Hemingway Hoax text no longer sits underneath or gets clipped by the images.
-- Preserved the existing Reading List content, schedule, covers, links, navigation, and unrelated pages.
+- Preserved the existing Reading List content, schedule, covers, links, navigation, and unrelated pages. This remains local and unpublished pending preview review.
 
-## 2026-10-13 — Reading List labels and schedule correction
+## 2026-10-13 — Reading List labels and schedule correction (unpublished)
 
 - Simplified the shared book-club tabs to `Reading List`, `Current Poll`, and `Book Backlog` across public and admin routes.
 - Corrected the Reading List while the December poll remains unfinished: Beggars in Spain and The Hemingway Hoax are the November 2026 Up Next books; The Ministry of Time was removed from the reading schedule until a later poll result is confirmed.
-- Updated the generated layout to support one to four Up Next cards while preserving the current book, historical timeline, existing records, covers, links, IDs, and unrelated pages.
+- Updated the generated layout to support one to four Up Next cards while preserving the current book, historical timeline, existing records, covers, links, IDs, and unrelated pages. This remains local and unpublished pending preview review.
+- Rebuilt successfully; static, link, image, cover-workflow, and responsive browser checks pass for the corrected unpublished preview.
 
-## 2026-10-13 — Reading feed page
+## 2026-10-13 — Reading feed page (unpublished)
 
-- Added canonical `readingFeed` schedule metadata for the approved reading-feed layout: The Left Hand of Darkness as currently reading in October 2026; Beggars in Spain and The Hemingway Hoax in November 2026, with the latter marked optional; and the completed reading timeline for We, Children of Time, and Automatic Noodle using their saved historical months.
+- Added canonical `readingFeed` schedule metadata for the approved reading-feed layout: The Left Hand of Darkness as currently reading in October 2026; Beggars in Spain and The Hemingway Hoax in November 2026, with the latter marked optional; The Ministry of Time up next in December 2026; and the completed reading timeline for We, Children of Time, and Automatic Noodle using their saved historical months.
 - The new generated `/book-club/reading/` page uses the existing locally hosted covers and shared book-club navigation. Featured cards and timeline rows share the same core information order: reading month, title, author plus publication year, and page count. No book-detail links or discussion/meetup labels are added to the cards.
+- This is an unpublished local implementation. It preserves the canonical book records, existing covers, external links, IDs, admin columns, styles, and unrelated pages. Preview and review are required before any push, merge, deployment, or publication.
 
 ## 2026-10-13 — Tightened public synopses for spoiler safety
 
